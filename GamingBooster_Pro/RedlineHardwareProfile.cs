@@ -24,6 +24,14 @@ namespace GamingBooster_Pro
         public string ReasonEn { get; set; } = "";
     }
 
+    internal sealed class WingetDriverPackage
+    {
+        public string IdOrQuery { get; set; } = "";
+        public bool UseExactId { get; set; }
+        public string LabelDe { get; set; } = "";
+        public string LabelEn { get; set; } = "";
+    }
+
     internal static class RedlineHardwareProfile
     {
         public static HardwareProfile Detect(string cpu, string gpu, string windows)
@@ -138,6 +146,94 @@ namespace GamingBooster_Pro
                 "Einzelne Geräte mit Fehlercode prüfen", "Check devices with error codes");
 
             return links;
+        }
+
+        /// <summary>Only packages matching detected GPU/CPU — no NVIDIA on AMD systems, etc.</summary>
+        public static List<WingetDriverPackage> BuildWingetPackagesForHardware(HardwareProfile hp)
+        {
+            List<WingetDriverPackage> packages = new List<WingetDriverPackage>();
+            string gpuV = GpuVendor(hp.GpuName);
+            string cpuV = CpuVendor(hp.CpuName);
+
+            if (gpuV == "NVIDIA")
+            {
+                packages.Add(new WingetDriverPackage
+                {
+                    IdOrQuery = "NVIDIA.GraphicsDriver",
+                    UseExactId = true,
+                    LabelDe = "NVIDIA Grafiktreiber",
+                    LabelEn = "NVIDIA graphics driver"
+                });
+                packages.Add(new WingetDriverPackage
+                {
+                    IdOrQuery = "NVIDIA.App",
+                    UseExactId = true,
+                    LabelDe = "NVIDIA App",
+                    LabelEn = "NVIDIA App"
+                });
+            }
+            else if (gpuV == "AMD")
+            {
+                packages.Add(new WingetDriverPackage
+                {
+                    IdOrQuery = "AMD",
+                    UseExactId = false,
+                    LabelDe = "AMD Grafik / Software",
+                    LabelEn = "AMD graphics / software"
+                });
+            }
+            else if (gpuV == "Intel")
+            {
+                packages.Add(new WingetDriverPackage
+                {
+                    IdOrQuery = "Intel Graphics",
+                    UseExactId = false,
+                    LabelDe = "Intel Grafiktreiber",
+                    LabelEn = "Intel graphics driver"
+                });
+            }
+
+            if (cpuV == "AMD")
+            {
+                packages.Add(new WingetDriverPackage
+                {
+                    IdOrQuery = "AMD.Chipset.Software",
+                    UseExactId = true,
+                    LabelDe = "AMD Chipsatz (Ryzen)",
+                    LabelEn = "AMD chipset (Ryzen)"
+                });
+            }
+            else if (cpuV == "Intel" && gpuV != "Intel")
+            {
+                packages.Add(new WingetDriverPackage
+                {
+                    IdOrQuery = "Intel",
+                    UseExactId = false,
+                    LabelDe = "Intel Treiber & Support",
+                    LabelEn = "Intel drivers & support"
+                });
+            }
+
+            packages.Add(new WingetDriverPackage
+            {
+                IdOrQuery = "Realtek",
+                UseExactId = false,
+                LabelDe = "Realtek Audio/LAN (optional)",
+                LabelEn = "Realtek audio/LAN (optional)"
+            });
+
+            return packages;
+        }
+
+        public static string FormatHardwareSummary(HardwareProfile hp, bool english)
+        {
+            string gpuV = GpuVendor(hp.GpuName);
+            string cpuV = CpuVendor(hp.CpuName);
+            if (english)
+                return "GPU: " + hp.GpuName + (string.IsNullOrEmpty(gpuV) ? "" : " [" + gpuV + "]")
+                    + " | CPU: " + hp.CpuName + (string.IsNullOrEmpty(cpuV) ? "" : " [" + cpuV + "]");
+            return "GPU: " + hp.GpuName + (string.IsNullOrEmpty(gpuV) ? "" : " [" + gpuV + "]")
+                + " | CPU: " + hp.CpuName + (string.IsNullOrEmpty(cpuV) ? "" : " [" + cpuV + "]");
         }
     }
 }

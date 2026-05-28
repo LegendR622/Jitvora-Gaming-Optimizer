@@ -28,6 +28,7 @@ namespace GamingBooster_Pro
         private Grid? MainContent;
         private TextBlock? StatusText;
         private TextBox? OutputBox;
+        private RedlineLiveLogController? _liveLog;
         private TextBlock? StatusLogBlock;
         private ProgressBar? Progress;
         private ComboBox? GameProfileBox;
@@ -103,7 +104,7 @@ namespace GamingBooster_Pro
         private TextBlock? _cleanerFoundSizeValueText;
         private readonly Dictionary<string, TextBlock> _cleanerCategoryAmountTexts = new Dictionary<string, TextBlock>(StringComparer.OrdinalIgnoreCase);
 
-        private const string CurrentAppVersion = "9.20";
+        private const string CurrentAppVersion = "9.21";
 
         private bool _startupAutoUpdateStarted;
         private string? _pendingUpdateBannerVersion;
@@ -4204,8 +4205,8 @@ namespace GamingBooster_Pro
             inAppP.Children.Add(new TextBlock
             {
                 Text = RedlineFeatureGate.InAppDriverUpdateEnabled
-                    ? T("AUTO UPDATE: sucht Windows-Treiber und installiert sie automatisch. In der Liste: ⬇ = Einzel-Update.",
-                        "AUTO UPDATE: searches Windows drivers and installs automatically. In list: ⬇ = single update.")
+                    ? T("AUTO UPDATE: erkennt deine GPU/CPU und installiert nur passende Treiber (Windows + winget). Liste: ⬇ = Einzel-Update.",
+                        "AUTO UPDATE: detects your GPU/CPU and installs only matching drivers (Windows + winget). List: ⬇ = single update.")
                     : T("Bald verfügbar · Coming Soon – wird für alle Nutzer in der Free-Version freigeschaltet.",
                         "Coming soon – will be unlocked for all users in the free version."),
                 Foreground = Muted,
@@ -4278,7 +4279,11 @@ namespace GamingBooster_Pro
             grid.Children.Add(left);
 
             StackPanel right = new StackPanel();
-            Border driverLog = ModernOutputCard(T("Driver Log bereit. Starte Treiber-Scan.", "Driver log ready. Start driver scan."));
+            Border driverLog = CreateLiveLogCard(
+                T("LIVE LOG · TREIBER", "LIVE LOG · DRIVERS"),
+                T("Bereit. GPU wird erkannt — es werden nur passende Treiber installiert.",
+                  "Ready. GPU is detected — only matching drivers will be installed."),
+                460);
             driverLog.Margin = new Thickness(0, 0, 0, 18);
             right.Children.Add(driverLog);
             right.Children.Add(AiSidePanel(
@@ -5366,12 +5371,21 @@ namespace GamingBooster_Pro
                     await RunDriverScanCoreAsync();
                 }
 
+                HardwareProfile hp = RedlineHardwareProfile.Detect(GetCpuName(), GetGpuName(), GetWindowsCaption());
                 bool en = IsEnglish();
-                await RedlineDriverUpdateService.Instance.RunAsync(
-                    installAfterSearch: searchAndInstall,
-                    installOnly: installOnly,
-                    log: async msg => await Log(msg),
-                    isEnglish: en);
+                try
+                {
+                    await RedlineDriverUpdateService.Instance.RunAsync(
+                        installAfterSearch: searchAndInstall,
+                        installOnly: installOnly,
+                        hardware: hp,
+                        log: async msg => await Log(msg),
+                        isEnglish: en);
+                }
+                finally
+                {
+                    EndLogBusy();
+                }
 
                 InvalidateDriversCache();
                 ScheduleDriverPreviewLoad();
@@ -5958,62 +5972,42 @@ private Border StatusCard(string title, string value, Brush color)
             btn.Click += handler;
             return btn;
         }
-                private Border ModernOutputCard(string title, string startText, string statusText)
+        private Border ModernOutputCard(string title, string startText, string statusText)
         {
-            Border card = DashboardCard();
-            card.Margin = new Thickness(0, 0, 0, 0);
-            card.Padding = new Thickness(14);
-
-            StackPanel p = new StackPanel();
-            p.Children.Add(new TextBlock
+            Border card = CreateLiveLogCard(title, startText, 220);
+            if (_liveLog != null)
             {
-                Text = title,
-                Foreground = Red,
-                FontSize = 13,
-                FontWeight = FontWeights.UltraBold,
-                Margin = new Thickness(0, 0, 0, 10)
-            });
-
-            OutputBox = OutputConsole(startText);
-            OutputBox.Height = 220;
-            OutputBox.BorderThickness = new Thickness(0);
-            p.Children.Add(OutputBox);
-            p.Children.Add(new TextBlock { Text = statusText, Foreground = AiGreen, FontSize = 13, FontWeight = FontWeights.Bold, Margin = new Thickness(0, 12, 0, 0) });
-            card.Child = p;
+                _liveLog.FooterStatus.Text = statusText;
+                _liveLog.FooterStatus.Foreground = AiGreen;
+            }
             return card;
         }
 
-private Border ModernOutputCard(string startText)
+private Border ModernOutputCard(string startText) =>
+            CreateLiveLogCard(T("LIVE LOG", "LIVE LOG"), startText, 420);
+
+        private Border CreateLiveLogCard(string title, string startText, double height)
         {
-            Border card = DashboardCard();
-            card.Margin = new Thickness(0, 0, 0, 0);
-            card.Padding = new Thickness(14);
+            (Border card, RedlineLiveLogController ctrl) = RedlineLiveLogController.Create(
+                title, startText, IsEnglish(), height);
+            _liveLog = ctrl;
+            OutputBox = null;
 
-            StackPanel p = new StackPanel();
-            p.Children.Add(new TextBlock
+            if (card.Child is StackPanel sp)
             {
-                Text = "LIVE LOG",
-                Foreground = Red,
-                FontSize = 13,
-                FontWeight = FontWeights.UltraBold,
-                Margin = new Thickness(0, 0, 0, 10)
-            });
+                Progress = new ProgressBar
+                {
+                    Height = 8,
+                    Maximum = 100,
+                    Value = 0,
+                    Margin = new Thickness(0, 10, 0, 0),
+                    Background = new SolidColorBrush(Color.FromRgb(31, 38, 50)),
+                    Foreground = Red,
+                    BorderThickness = new Thickness(0)
+                };
+                sp.Children.Add(Progress);
+            }
 
-            OutputBox = OutputConsole(startText);
-            OutputBox.Height = 420;
-            OutputBox.BorderThickness = new Thickness(0);
-            p.Children.Add(OutputBox);
-
-            Progress = new ProgressBar
-            {
-                Height = 10,
-                Maximum = 100,
-                Value = 0,
-                Margin = new Thickness(0, 12, 0, 0)
-            };
-            p.Children.Add(Progress);
-
-            card.Child = p;
             return card;
         }
 
@@ -11281,12 +11275,39 @@ private Border ModernOutputCard(string startText)
 
         private void PrepareActionOutput()
         {
+            if (_liveLog != null && IsLiveLogOnScreen())
+            {
+                _liveLog.Clear();
+                _liveLog.SetHeaderBusy(true);
+                return;
+            }
+
             EnsureOutputBox();
             OutputBox!.Clear();
         }
 
+        private bool IsLiveLogOnScreen()
+        {
+            if (_liveLog == null)
+                return false;
+            DependencyObject? current = _liveLog.Box;
+            while (current != null)
+            {
+                if (current == this || current == MainContent || current is Window)
+                    return true;
+                current = VisualTreeHelper.GetParent(current);
+            }
+            return _liveLog.Box.Parent != null;
+        }
+
         private async Task Log(string text)
         {
+            if (_liveLog != null && IsLiveLogOnScreen())
+            {
+                await Dispatcher.InvokeAsync(() => _liveLog.Append(text));
+                return;
+            }
+
             if (OutputBox == null || !IsOutputBoxOnScreen())
                 EnsureOutputBox();
 
@@ -11295,6 +11316,12 @@ private Border ModernOutputCard(string startText)
                 OutputBox!.AppendText(text + Environment.NewLine);
                 OutputBox.ScrollToEnd();
             });
+        }
+
+        private void EndLogBusy()
+        {
+            if (_liveLog != null)
+                _liveLog.SetHeaderBusy(false);
         }
 
 

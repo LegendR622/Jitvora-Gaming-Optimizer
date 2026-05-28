@@ -23,6 +23,7 @@ namespace GamingBooster_Pro
         public async Task RunAsync(
             bool installAfterSearch,
             bool installOnly,
+            HardwareProfile hardware,
             Func<string, Task> log,
             bool isEnglish,
             CancellationToken externalCt = default)
@@ -32,6 +33,20 @@ namespace GamingBooster_Pro
             IsRunning = true;
             try
             {
+                await log("═══════════════════════════════════════");
+                await log(isEnglish ? "Detected hardware" : "Erkannte Hardware");
+                await log(RedlineHardwareProfile.FormatHardwareSummary(hardware, isEnglish));
+                string gpuV = RedlineHardwareProfile.GpuVendor(hardware.GpuName);
+                string cpuV = RedlineHardwareProfile.CpuVendor(hardware.CpuName);
+                if (string.IsNullOrEmpty(gpuV))
+                    await log(isEnglish
+                        ? "⚠ GPU vendor unknown — only Windows Update + generic packages."
+                        : "⚠ GPU-Hersteller unbekannt — nur Windows Update + generische Pakete.");
+                await log(isEnglish
+                    ? "Only installs packages for YOUR GPU/CPU (no wrong vendor drivers)."
+                    : "Installiert nur Pakete für DEINE GPU/CPU (keine falschen Hersteller-Treiber).");
+                await log("");
+
                 if (!installOnly)
                 {
                     await log(isEnglish
@@ -53,8 +68,10 @@ namespace GamingBooster_Pro
                             : count + " Update(s) gefunden. „Installieren“ oder Treiber links anklicken.");
 
                     await log("");
-                    await log(isEnglish ? "Step 2: Optional GPU tools (winget)…" : "Schritt 2: Optionale GPU-Tools (winget)…");
-                    await TryWingetGpuUpgradeAsync(log, isEnglish, ct);
+                    await log(isEnglish
+                        ? "Step 2: Matching winget packages for your hardware…"
+                        : "Schritt 2: Passende winget-Pakete für deine Hardware…");
+                    await TryWingetHardwareUpgradeAsync(hardware, log, isEnglish, ct);
                 }
 
                 if (installAfterSearch || installOnly)
@@ -286,7 +303,11 @@ try {
             return text;
         }
 
-        private static async Task TryWingetGpuUpgradeAsync(Func<string, Task> log, bool en, CancellationToken ct)
+        private static async Task TryWingetHardwareUpgradeAsync(
+            HardwareProfile hardware,
+            Func<string, Task> log,
+            bool en,
+            CancellationToken ct)
         {
             string which = await RunCmdCaptureAsync("where.exe", "winget", ct);
             if (string.IsNullOrWhiteSpace(which) || which.Contains("INFO: Could not find", StringComparison.OrdinalIgnoreCase))
@@ -295,19 +316,32 @@ try {
                 return;
             }
 
+            List<WingetDriverPackage> plan = RedlineHardwareProfile.BuildWingetPackagesForHardware(hardware);
+            string gpuV = RedlineHardwareProfile.GpuVendor(hardware.GpuName);
+            if (gpuV == "NVIDIA")
+                await log(en ? "Skipping AMD/Intel GPU packages (NVIDIA GPU detected)." : "Überspringe AMD/Intel GPU-Pakete (NVIDIA GPU erkannt).");
+            else if (gpuV == "AMD")
+                await log(en ? "Skipping NVIDIA packages (AMD GPU detected)." : "Überspringe NVIDIA-Pakete (AMD GPU erkannt).");
+            else if (gpuV == "Intel")
+                await log(en ? "Skipping NVIDIA/AMD GPU packages (Intel GPU detected)." : "Überspringe NVIDIA/AMD GPU-Pakete (Intel GPU erkannt).");
+
             string wingetArgs = "--disable-interactivity --accept-source-agreements --accept-package-agreements -e --silent";
-            string[] queries = { "NVIDIA", "AMD", "Intel Graphics", "Realtek" };
             bool any = false;
 
-            foreach (string query in queries)
+            foreach (WingetDriverPackage pkg in plan)
             {
                 ct.ThrowIfCancellationRequested();
-                await log(en ? "winget installing updates for: " + query : "winget installiert Updates für: " + query);
-                (int code, string output) = await RunCmdCaptureAsyncFull(
-                    "winget",
-                    "upgrade --query \"" + query + "\" " + wingetArgs,
-                    ct,
-                    300000);
+                string label = en ? pkg.LabelEn : pkg.LabelDe;
+                string target = pkg.IdOrQuery;
+                string args = pkg.UseExactId
+                    ? "upgrade --id \"" + target + "\" " + wingetArgs
+                    : "upgrade --query \"" + target + "\" " + wingetArgs;
+
+                await log(en
+                    ? "winget → " + label + " (" + (pkg.UseExactId ? "ID: " : "Suche: ") + target + ")"
+                    : "winget → " + label + " (" + (pkg.UseExactId ? "ID: " : "Suche: ") + target + ")");
+
+                (int code, string output) = await RunCmdCaptureAsyncFull("winget", args, ct, 300000);
 
                 bool matched = false;
                 foreach (string line in output.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries))
@@ -317,9 +351,11 @@ try {
                         continue;
                     if (t.Contains("Es wurden keine", StringComparison.OrdinalIgnoreCase)
                         || t.Contains("No applicable", StringComparison.OrdinalIgnoreCase)
-                        || t.Contains("no upgrades", StringComparison.OrdinalIgnoreCase))
+                        || t.Contains("no upgrades", StringComparison.OrdinalIgnoreCase)
+                        || t.Contains("nicht installiert", StringComparison.OrdinalIgnoreCase)
+                        || t.Contains("not installed", StringComparison.OrdinalIgnoreCase))
                     {
-                        await log("winget: " + t);
+                        await log(en ? "  · not installed / nothing to upgrade" : "  · nicht installiert / nichts zu updaten");
                         matched = true;
                         break;
                     }
@@ -327,22 +363,22 @@ try {
                         || t.Contains("Successfully installed", StringComparison.OrdinalIgnoreCase)
                         || t.Contains("upgraded", StringComparison.OrdinalIgnoreCase))
                     {
-                        await log("winget: ✅ " + t);
+                        await log("  ✅ " + t);
                         matched = true;
                         any = true;
                     }
                 }
 
                 if (!matched && code == 0)
-                    await log(en ? "winget: nothing to upgrade for " + query : "winget: nichts zu updaten für " + query);
-                else if (code != 0)
-                    await log(en ? "winget exit " + code + " for " + query : "winget Code " + code + " für " + query);
+                    await log(en ? "  · already current or not in winget" : "  · bereits aktuell oder nicht in winget");
+                else if (code != 0 && !matched)
+                    await log(en ? "  ⚠ winget exit " + code : "  ⚠ winget Code " + code);
             }
 
             if (!any)
                 await log(en
-                    ? "winget: no GPU/chipset packages were upgraded (may already be current)."
-                    : "winget: keine GPU/Chipset-Pakete aktualisiert (evtl. schon aktuell).");
+                    ? "winget: no matching packages upgraded (may already be current)."
+                    : "winget: keine passenden Pakete aktualisiert (evtl. schon aktuell).");
         }
 
         private static async Task<(int exitCode, string output)> RunPowerShellAsync(string script, CancellationToken ct)
