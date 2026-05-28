@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <title>REDLINE + ChatGPT Promo</title>
+  <style>
+    body { font-family: Segoe UI, sans-serif; background:#0a0a0f; color:#eee; max-width:720px; margin:40px auto; padding:20px; }
+    h1 { color:#ff2a4a; }
+    .card { background:#151820; border:1px solid #333; border-radius:12px; padding:16px; margin:16px 0; }
+    button { background:#ff2a4a; color:#fff; border:0; padding:10px 16px; border-radius:8px; cursor:pointer; margin:6px 6px 6px 0; }
+    button.sec { background:#2a3040; }
+    textarea { width:100%; height:100px; background:#0d1016; color:#ccc; border:1px solid #444; border-radius:8px; padding:10px; font-size:13px; }
+    a { color:#ff6b85; }
+  </style>
+</head>
+<body>
+  <h1>REDLINE Promo + ChatGPT</h1>
+  <p>1) ChatGPT oeffnen &rarr; Prompt kopieren<br>2) <code>REDLINE_Promo_Start.bat</code> auf Desktop doppelklicken<br>3) Ergebnis: nur <strong>REDLINE.mp4</strong> (2K, ~4 MB)</p>
+  <div class="card">
+    <h3>ChatGPT oeffnen</h3>
+    <button onclick="window.open('https://chatgpt.com/','_blank')">ChatGPT im Browser</button>
+  </div>
+  <div class="card">
+    <h3>Prompt fuer bessere Texte</h3>
+    <textarea id="p">Ich habe ein 78s 2K Promo-Video von REDLINE Gaming Optimizer V9.1 (Windows, FREE, Pro Coming Soon). Gib mir: 1) TikTok Hook DE (max 12 Woerter), 2) 5 kurze Overlay-Texte mit Sekunden-Timing, 3) 3 Pixabay-Musik-Suchbegriffe (energetic, nicht drone).</textarea>
+    <button onclick="navigator.clipboard.writeText(document.getElementById('p').value)">Prompt kopieren</button>
+  </div>
+  <div class="card">
+    <h3>Eigene Musik einbinden</h3>
+    <p>MP3 von ChatGPT/Pixabay speichern, dann in PowerShell:</p>
+    <textarea readonly>powershell -File "C:\Users\Tobi\Desktop\GamingBooster_Pro\scripts\build-promo-final.ps1" -MusicPath "C:\Pfad\track.mp3"</textarea>
+  </div>
+</body>
+</html>

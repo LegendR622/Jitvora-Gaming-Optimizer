@@ -99,7 +99,7 @@ namespace GamingBooster_Pro
         private Button? _cleanerCleanBtn;
         private TextBlock? _cleanerScanHint;
 
-        private const string CurrentAppVersion = "9.1";
+        private const string CurrentAppVersion = "9.2";
         // jsDelivr statt raw.githubusercontent.com (kein veralteter CDN-Cache auf dem Client)
         private const string UpdateJsonUrl = "https://cdn.jsdelivr.net/gh/LegendR622/Redline-Gaming-Optimizer@main/version.json";
 
@@ -165,10 +165,11 @@ namespace GamingBooster_Pro
             Title = "Redline Gaming Optimizer";
             Width = 1500;
             Height = 860;
-            MinWidth = 1200;
-            MinHeight = 720;
+            MinWidth = 960;
+            MinHeight = 640;
             Background = Bg;
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            SizeChanged += MainWindow_SizeChanged;
 
             if (Application.Current != null)
                 Application.Current.DispatcherUnhandledException += MainWindow_DispatcherUnhandledException;
@@ -191,7 +192,9 @@ namespace GamingBooster_Pro
                 bool skipIntro = ShouldSkipIntro();
                 if (!skipIntro)
                 {
-                    if (!RedlineAppData.Current.FastIntro)
+                    if (IsDemoTourMode())
+                        await PlayIntroAsync(fast: false);
+                    else if (!RedlineAppData.Current.FastIntro)
                         await PlayIntroAsync();
                     else
                         await PlayIntroAsync(fast: true);
@@ -203,6 +206,9 @@ namespace GamingBooster_Pro
                     startEnv = "Settings";
                 string startPage = IsValidStartPage(startEnv) ? startEnv! : "Dashboard";
                 Navigate(startPage);
+
+                if (IsDemoTourMode())
+                    _ = RunDemoTourAsync();
             };
         }
 
@@ -244,6 +250,91 @@ namespace GamingBooster_Pro
             return Environment.GetCommandLineArgs().Any(a =>
                 string.Equals(a, "--nosplash", StringComparison.OrdinalIgnoreCase)
                 || string.Equals(a, "-nosplash", StringComparison.OrdinalIgnoreCase));
+        }
+
+        private static bool IsDemoTourMode() =>
+            string.Equals(Environment.GetEnvironmentVariable("REDLINE_DEMO_TOUR"), "1", StringComparison.Ordinal);
+
+        private async Task RunDemoTourAsync()
+        {
+            string[] pages =
+            {
+                "Dashboard", "GameProfiles", "Optimierung", "Cleaner", "Startup",
+                "Security", "Network", "Drivers", "Repair", "Update", "Settings"
+            };
+
+            int ms = 5200;
+            if (int.TryParse(Environment.GetEnvironmentVariable("REDLINE_DEMO_PAGE_MS"), out int custom) && custom >= 2000)
+                ms = custom;
+
+            await Task.Delay(400);
+
+            foreach (string page in pages)
+            {
+                await Dispatcher.InvokeAsync(() => Navigate(page));
+                await Task.Delay(650);
+                int scrollMs = await DemoScrollPageContentAsync(page);
+                await Task.Delay(Math.Max(900, ms - 650 - scrollMs));
+            }
+        }
+
+        private async Task<int> DemoScrollPageContentAsync(string page)
+        {
+            int totalDelay = 0;
+            List<ScrollViewer> scrollers = await Dispatcher.InvokeAsync(() =>
+            {
+                if (MainContent == null) return new List<ScrollViewer>();
+                return FindVisualChildren<ScrollViewer>(MainContent)
+                    .Where(s => s.ScrollableHeight > 24)
+                    .OrderByDescending(s => s.ScrollableHeight)
+                    .ToList();
+            });
+
+            int delayMs = page is "Settings" or "GameProfiles" or "Optimierung" ? 380 : 420;
+            foreach (ScrollViewer sv in scrollers)
+            {
+                double max = await Dispatcher.InvokeAsync(() => sv.ScrollableHeight);
+                if (max < 30)
+                    continue;
+
+                int steps = Math.Clamp((int)Math.Ceiling(max / 100.0), 5, 14);
+                for (int i = 0; i <= steps; i++)
+                {
+                    double off = max * i / Math.Max(1, steps);
+                    await Dispatcher.InvokeAsync(() => sv.ScrollToVerticalOffset(off));
+                    await Task.Delay(delayMs);
+                    totalDelay += delayMs;
+                }
+
+                await Dispatcher.InvokeAsync(() => sv.ScrollToVerticalOffset(0));
+                await Task.Delay(250);
+                totalDelay += 250;
+            }
+
+            return totalDelay;
+        }
+
+        private void MainWindow_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            if (MainContent == null)
+                return;
+
+            foreach (ScrollViewer sv in FindVisualChildren<ScrollViewer>(MainContent))
+                sv.InvalidateMeasure();
+        }
+
+        private static IEnumerable<T> FindVisualChildren<T>(DependencyObject parent) where T : DependencyObject
+        {
+            if (parent == null) yield break;
+            int count = VisualTreeHelper.GetChildrenCount(parent);
+            for (int i = 0; i < count; i++)
+            {
+                DependencyObject child = VisualTreeHelper.GetChild(parent, i);
+                if (child is T match)
+                    yield return match;
+                foreach (T sub in FindVisualChildren<T>(child))
+                    yield return sub;
+            }
         }
 
         private Grid BuildIntroScreen()
@@ -434,9 +525,6 @@ namespace GamingBooster_Pro
 
             try
             {
-                if (ActualWidth < 1200 || ActualHeight < 760)
-                    warnings.Add("Fenstergröße zu klein für Premium Dashboard.");
-
                 if (string.IsNullOrWhiteSpace(GetCpuLoadText()))
                     warnings.Add("CPU Livewert leer.");
 
@@ -920,8 +1008,9 @@ namespace GamingBooster_Pro
             {
                 StatusText = null;
                 MainContent.RowDefinitions.Add(new RowDefinition());
-                Grid.SetRow(body, 0);
-                MainContent.Children.Add(body);
+                ScrollViewer bodyScroll = CreatePageScrollViewer(body);
+                Grid.SetRow(bodyScroll, 0);
+                MainContent.Children.Add(bodyScroll);
                 if (page == "Drivers")
                     ScheduleDriverPreviewLoad();
                 return;
@@ -1002,8 +1091,9 @@ namespace GamingBooster_Pro
             Grid.SetRow(header, 0);
             MainContent.Children.Add(header);
 
-            Grid.SetRow(body, 1);
-            MainContent.Children.Add(body);
+            ScrollViewer pageScroll = CreatePageScrollViewer(body);
+            Grid.SetRow(pageScroll, 1);
+            MainContent.Children.Add(pageScroll);
 
             if (page == "Drivers")
                 ScheduleDriverPreviewLoad();
@@ -4408,14 +4498,12 @@ namespace GamingBooster_Pro
             };
         }
 
-        private ScrollViewer Scroll(UIElement child, double height)
+        private ScrollViewer Scroll(UIElement child, double maxHeight = 0)
         {
-            return new ScrollViewer
-            {
-                Content = child,
-                Height = height,
-                VerticalScrollBarVisibility = ScrollBarVisibility.Auto
-            };
+            ScrollViewer sv = CreatePageScrollViewer(child);
+            if (maxHeight > 0)
+                sv.MaxHeight = maxHeight;
+            return sv;
         }
 
         private ScrollViewer CreatePageScrollViewer(UIElement content)
@@ -4427,8 +4515,10 @@ namespace GamingBooster_Pro
                 HorizontalScrollBarVisibility = ScrollBarVisibility.Disabled,
                 VerticalAlignment = VerticalAlignment.Stretch,
                 HorizontalAlignment = HorizontalAlignment.Stretch,
-                Padding = new Thickness(0, 0, 8, 28),
-                PanningMode = PanningMode.VerticalOnly
+                VerticalContentAlignment = VerticalAlignment.Top,
+                Padding = new Thickness(0, 0, 10, 28),
+                PanningMode = PanningMode.VerticalOnly,
+                CanContentScroll = false
             };
         }
 
