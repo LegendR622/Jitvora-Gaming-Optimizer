@@ -103,7 +103,7 @@ namespace GamingBooster_Pro
         private TextBlock? _cleanerFoundSizeValueText;
         private readonly Dictionary<string, TextBlock> _cleanerCategoryAmountTexts = new Dictionary<string, TextBlock>(StringComparer.OrdinalIgnoreCase);
 
-        private const string CurrentAppVersion = "9.7";
+        private const string CurrentAppVersion = "9.8";
 
         private static readonly string[] CleanerRecommendedCategories =
         {
@@ -158,6 +158,15 @@ namespace GamingBooster_Pro
         {
             return IsEnglish() ? en : de;
         }
+
+        private string TranslateDriverStatus(string status) => status switch
+        {
+            "AKTUELL" => T("AKTUELL", "CURRENT"),
+            "PRÜFEN" => T("PRÜFEN", "CHECK"),
+            "UPDATE EMPFOHLEN" => T("UPDATE EMPFOHLEN", "UPDATE RECOMMENDED"),
+            "SYSTEM" => T("SYSTEM", "SYSTEM"),
+            _ => status
+        };
 
         [DllImport("psapi.dll")]
         private static extern bool EmptyWorkingSet(IntPtr hProcess);
@@ -537,7 +546,7 @@ namespace GamingBooster_Pro
 
             p.Children.Add(new TextBlock
             {
-                Text = "V" + CurrentAppVersion + (CurrentAppVersion.StartsWith("9.1", StringComparison.Ordinal) ? " · UPDATE OK" : " · AI EDITION"),
+                Text = "V" + CurrentAppVersion,
                 Foreground = Red,
                 FontSize = 16,
                 FontWeight = FontWeights.SemiBold,
@@ -711,7 +720,7 @@ namespace GamingBooster_Pro
             _navButtons.Clear();
 
             Grid root = new Grid { Background = Bg };
-            root.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(324) });
+            root.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(348) });
             root.ColumnDefinitions.Add(new ColumnDefinition());
             root.RowDefinitions.Add(new RowDefinition());
 
@@ -813,7 +822,7 @@ namespace GamingBooster_Pro
                 Background = _theme.SidebarGradient,
                 BorderBrush = Border,
                 BorderThickness = new Thickness(0, 0, 1, 0),
-                Padding = new Thickness(22, 22, 18, 18)
+                Padding = new Thickness(24, 24, 20, 20)
             };
 
             DockPanel root = new DockPanel();
@@ -1011,8 +1020,9 @@ namespace GamingBooster_Pro
             try
             {
                 Image refLogo = BuildReferenceLogoImage();
-                refLogo.Width = 248;
-                refLogo.Height = 52;
+                refLogo.Width = 300;
+                refLogo.Height = 64;
+                RenderOptions.SetBitmapScalingMode(refLogo, BitmapScalingMode.HighQuality);
                 refLogo.Stretch = Stretch.Uniform;
                 refLogo.HorizontalAlignment = HorizontalAlignment.Left;
                 col.Children.Add(refLogo);
@@ -1040,10 +1050,11 @@ namespace GamingBooster_Pro
 
             col.Children.Add(new TextBlock
             {
-                Text = "V" + CurrentAppVersion + " · AI EDITION",
+                Text = "V" + CurrentAppVersion,
                 Foreground = Muted,
-                FontSize = 9.5,
-                Margin = new Thickness(2, 6, 0, 0)
+                FontSize = 12,
+                FontWeight = FontWeights.SemiBold,
+                Margin = new Thickness(2, 8, 0, 0)
             });
             return col;
         }
@@ -1090,15 +1101,15 @@ namespace GamingBooster_Pro
             {
                 Content = text,
                 Tag = page,
-                Height = 46,
+                Height = 50,
                 HorizontalContentAlignment = HorizontalAlignment.Left,
-                Padding = new Thickness(18, 0, 12, 0),
-                Margin = new Thickness(0, 0, 0, 4),
+                Padding = new Thickness(20, 0, 14, 0),
+                Margin = new Thickness(0, 0, 0, 5),
                 Background = Brushes.Transparent,
                 Foreground = new SolidColorBrush(Color.FromRgb(170, 178, 192)),
                 BorderBrush = Red,
                 BorderThickness = new Thickness(0),
-                FontSize = 14,
+                FontSize = 15.5,
                 FontWeight = FontWeights.Medium,
                 Cursor = System.Windows.Input.Cursors.Hand,
                 ToolTip = PageInfo(page)
@@ -1248,32 +1259,35 @@ namespace GamingBooster_Pro
         {
             return page switch
             {
-                "Dashboard" => "Schneller Gesamtcheck: Hardware, Security, Treiber und Ping auf einen Blick.",
-                "Readiness" => "Prüft Gaming-Setup mit Score, Tipps und sicheren Aktionen.",
-                "AntiCheat" => "Erkennt laufende Spiele/AntiCheats und sperrt riskante Aktionen.",
-                "UndoCenter" => "Zeigt Redline-Änderungen und bietet sichere Rücksetz-Aktionen.",
-                "Cleaner" => "Bereinigt sichere Cache-/Temp-Daten. Verlauf/Cookies nur löschen, wenn Browser geschlossen ist.",
-                "GameProfiles" => "Prüft Spielprofile wie Rust/ARC lokal und schlägt sichere FPS-Optimierungen vor.",
-                "Optimierung" => "Führt ausgewählte Windows-/Gaming-Optimierungen mit Sicherheitsabfrage aus.",
-                "Leistung" => "Zeigt Hardware, Laufwerke, Netzwerkadapter und RAM-lastige Prozesse.",
-                "Startup" => "Zeigt Autostarts und kann ausgewählte Einträge mit Backup deaktivieren.",
-                "Security" => "Prüft Defender, Firewall, Hosts-Datei, auffällige Prozesse und kann Offline Scan planen.",
-                "Drivers" => "Bewertet Treiberstatus und öffnet offizielle Updatequellen.",
-                "Bios" => "Liest BIOS/UEFI, Secure Boot, TPM und Virtualization aus Windows aus.",
-                "Network" => "Ping, DNS, Adapter, IPConfig, Speed Test und Winsock Reset.",
-                "Repair" => "Windows-Reparaturtools wie SFC, DISM, Store Reset und Zuverlässigkeitsverlauf.",
-                "RemoteSupport" => "Sichere Fernhilfe über Windows Quick Assist mit sichtbarer Zustimmung.",
-                "Tools" => "Einzelwerkzeuge: Chrome Check, Browser schließen, Temp Clean, DNS, Task Manager.",
-                "Update" => "Prüft online auf neue Redline-Versionen und kann den Installer herunterladen.",
-                "Help" => "Erklärt alle Bereiche. Fahre mit der Maus über Buttons für Details.",
-                "Einstellungen" => "App-Version, Sicherheitsregeln und Admin-Status.",
-                _ => "Redline Modul."
+                "Dashboard" => T("Schneller Gesamtcheck: Hardware, Security, Treiber und Ping auf einen Blick.", "Quick overview: hardware, security, drivers and ping."),
+                "Readiness" => T("Prüft Gaming-Setup mit Score, Tipps und sicheren Aktionen.", "Checks gaming setup with score, tips and safe actions."),
+                "AntiCheat" => T("Erkennt laufende Spiele/AntiCheats und sperrt riskante Aktionen.", "Detects running games/anti-cheat and blocks risky actions."),
+                "UndoCenter" => T("Zeigt Redline-Änderungen und bietet sichere Rücksetz-Aktionen.", "Shows Redline changes and safe undo actions."),
+                "Cleaner" => T("Bereinigt sichere Cache-/Temp-Daten. Verlauf/Cookies nur löschen, wenn Browser geschlossen ist.", "Cleans safe cache/temp data. History/cookies only when browser is closed."),
+                "GameProfiles" => T("Prüft Spielprofile wie Rust/ARC lokal und schlägt sichere FPS-Optimierungen vor.", "Checks local game profiles and suggests safe FPS tweaks."),
+                "Optimierung" => T("Führt ausgewählte Windows-/Gaming-Optimierungen mit Sicherheitsabfrage aus.", "Runs selected Windows/gaming optimizations with confirmation."),
+                "Leistung" => T("Zeigt Hardware, Laufwerke, Netzwerkadapter und RAM-lastige Prozesse.", "Shows hardware, drives, adapters and RAM-heavy processes."),
+                "Startup" => T("Zeigt Autostarts und kann ausgewählte Einträge mit Backup deaktivieren.", "Lists startup items and can disable selected entries with backup."),
+                "Security" => T("Prüft Defender, Firewall, Hosts-Datei, auffällige Prozesse und kann Offline Scan planen.", "Checks Defender, firewall, hosts file, suspicious processes; offline scan."),
+                "Drivers" => T("Erkennt GPU, CPU, Mainboard und öffnet passende offizielle Treiber-Updates.", "Detects GPU, CPU, motherboard and opens matching official driver updates."),
+                "Bios" => T("Liest BIOS/UEFI, Secure Boot, TPM und Virtualization aus Windows aus.", "Reads BIOS/UEFI, Secure Boot, TPM and virtualization from Windows."),
+                "Network" => T("Ping, DNS, Adapter, IPConfig, Speed Test und Winsock Reset.", "Ping, DNS, adapters, IP config, speed test and Winsock reset."),
+                "Repair" => T("Windows-Reparaturtools wie SFC, DISM, Store Reset und Zuverlässigkeitsverlauf.", "Windows repair: SFC, DISM, store reset and reliability history."),
+                "RemoteSupport" => T("Sichere Fernhilfe über Windows Quick Assist mit sichtbarer Zustimmung.", "Remote help via Windows Quick Assist with your consent."),
+                "Tools" => T("Einzelwerkzeuge: Chrome Check, Browser schließen, Temp Clean, DNS, Task Manager.", "Tools: Chrome check, close browsers, temp clean, DNS, task manager."),
+                "Update" => T("Prüft online auf neue Redline-Versionen und kann den Installer herunterladen.", "Checks for new Redline versions online and can download the installer."),
+                "Help" => T("Erklärt alle Bereiche. Fahre mit der Maus über Buttons für Details.", "Explains all sections. Hover buttons for details."),
+                "Settings" or "Einstellungen" => T("App-Version, Sprache, Pro-Status und Admin-Status.", "App version, language, Pro status and admin status."),
+                _ => T("Redline Modul.", "Redline module.")
             };
         }
 
         private string ButtonInfo(string text)
         {
             string t = text.ToUpperInvariant();
+
+            if (IsEnglish())
+                return ButtonInfoEn(t);
 
             if (t.Contains("OFFLINE SCAN")) return "Startet Microsoft Defender Offline Scan. Windows startet neu und scannt vor dem normalen Start.";
             if (t.Contains("QUICK SCAN")) return "Startet einen schnellen Microsoft Defender Virenscan.";
@@ -1318,9 +1332,42 @@ namespace GamingBooster_Pro
             return "Button ausführen. Redline zeigt Ergebnis im rechten Fenster.";
         }
 
+        private static string ButtonInfoEn(string t)
+        {
+            if (t.Contains("OFFLINE SCAN")) return "Starts Microsoft Defender offline scan. Windows restarts and scans before boot.";
+            if (t.Contains("QUICK SCAN")) return "Starts a quick Microsoft Defender virus scan.";
+            if (t.Contains("SECURITY")) return "Checks Defender, firewall, hosts, processes, startups.";
+            if (t.Contains("DRIVER") || t.Contains("TREIBER")) return "Checks driver status or opens official update sources.";
+            if (t.Contains("AUTO") && t.Contains("UPDATE")) return "Scans your PC hardware and opens matching official driver update pages.";
+            if (t.Contains("WINDOWS UPDATE")) return "Opens Windows Update to install updates.";
+            if (t.Contains("NVIDIA")) return "Opens the official NVIDIA driver page.";
+            if (t.Contains("AMD")) return "Opens the official AMD driver/chipset page.";
+            if (t.Contains("INTEL")) return "Opens the official Intel support page.";
+            if (t.Contains("REALTEK")) return "Opens the official Realtek driver page.";
+            if (t.Contains("SCAN")) return "Scans only; does not change or delete anything.";
+            if (t.Contains("CLEAN")) return "Deletes selected safe cache/temp data after confirmation.";
+            if (t.Contains("UPDATE")) return "Checks online for a new Redline version.";
+            if (t.Contains("DOWNLOAD")) return "Downloads the new Redline installer.";
+            return "Runs the action. Results appear in the log panel on the right.";
+        }
+
         private string OptionInfo(string name)
         {
             string n = name.ToLowerInvariant();
+
+            if (IsEnglish())
+            {
+                if (n.Contains("history")) return "Deletes browser history. Browser must be closed.";
+                if (n.Contains("cookies")) return "Deletes cookies/sessions. You will need to sign in again.";
+                if (n.Contains("cache")) return "Deletes temporary cache files.";
+                if (n.Contains("shader")) return "Deletes shader cache. May help after driver updates.";
+                if (n.Contains("dns")) return "Flushes DNS cache.";
+                if (n.Contains("recycle")) return "Empties the recycle bin.";
+                if (n.Contains("game mode")) return "Enables Windows Game Mode.";
+                if (n.Contains("power") || n.Contains("performance")) return "Sets high performance power plan.";
+                if (n.Contains("driver")) return "Runs driver status check.";
+                return "Runs only when checked.";
+            }
 
             if (n.Contains("verlauf")) return "Löscht Browser-Verlauf. Browser muss geschlossen sein.";
             if (n.Contains("cookies")) return "Löscht Cookies/Login-Sessions. Danach musst du dich auf Webseiten neu anmelden.";
@@ -3767,7 +3814,7 @@ namespace GamingBooster_Pro
                 string st = DriverStatusText(d, deviceErrors);
                 DriverStatusToUi(st, out string risk, out Brush riskColor);
                 string desc = d.Provider + " · v" + (d.Version.Length > 20 ? d.Version[..20] + "…" : d.Version);
-                _driverPreviewHost.Children.Add(SecurityTableRow(d.DeviceName, desc, st, risk, riskColor, "⚙", DriverScan_Click));
+                _driverPreviewHost.Children.Add(SecurityTableRow(d.DeviceName, desc, TranslateDriverStatus(st), risk, riskColor, "⚙", DriverScan_Click));
             }
         }
 
@@ -3788,7 +3835,7 @@ namespace GamingBooster_Pro
                     color = Red;
                     break;
                 case "SYSTEM":
-                    risk = "System";
+                    risk = T("System", "System");
                     color = Muted;
                     break;
                 default:
@@ -3829,7 +3876,8 @@ namespace GamingBooster_Pro
             StackPanel ht = new StackPanel { VerticalAlignment = VerticalAlignment.Center, Margin = new Thickness(12, 0, 0, 0) };
             ht.Children.Add(new TextBlock { Text = T("Hardware & Treiber", "Hardware & drivers"), Foreground = Brushes.White, FontSize = 20, FontWeight = FontWeights.UltraBold });
             ht.Children.Add(new TextBlock { Text = "GPU: " + TruncateGpuName(GetGpuName()), Foreground = Muted, FontSize = 12, Margin = new Thickness(0, 6, 0, 0) });
-            ht.Children.Add(new TextBlock { Text = "CPU: " + TruncateGpuName(GetCpuName()), Foreground = Muted, FontSize = 12, Margin = new Thickness(0, 2, 0, 12) });
+            ht.Children.Add(new TextBlock { Text = "CPU: " + TruncateGpuName(GetCpuName()), Foreground = Muted, FontSize = 12, Margin = new Thickness(0, 2, 0, 0) });
+            ht.Children.Add(new TextBlock { Text = T("Mainboard: ", "Motherboard: ") + GetMotherboardLabel(), Foreground = Muted, FontSize = 12, Margin = new Thickness(0, 2, 0, 12) });
             Button devMgr = OutlineButton(T("Geräte-Manager", "Device Manager"), (s, e) => SafeStartSystem("devmgmt.msc"));
             devMgr.Width = 220;
             devMgr.Height = 40;
@@ -3869,7 +3917,9 @@ namespace GamingBooster_Pro
             tiles.Children.Add(ModernTile("Intel", T("Intel Support", "Intel support"), "IN", CardBg2, (s, e) => OpenUri("https://www.intel.com/content/www/us/en/support/detect.html")));
             tiles.Children.Add(ModernTile("Realtek", T("Realtek Audio/LAN", "Realtek audio/LAN"), "RT", CardBg2, (s, e) => OpenUri("https://www.realtek.com/Download/List?cate_id=584")));
             tiles.Children.Add(ModernTile(T("Report", "Report"), T("Treiber-Report speichern", "Save driver report"), "TXT", AiPurple, DriverReport_Click));
-            tiles.Children.Add(ModernTile("PRO AUTO", T("Pro: Öffnet NVIDIA/AMD/Intel Update-Seiten + Scan", "Pro: Opens NVIDIA/AMD/Intel update pages + scan"), "PRO", Red, DriversAutoUpdatePro_Click));
+            tiles.Children.Add(ModernTile(T("AUTO UPDATE", "AUTO UPDATE"),
+                T("Scannt GPU, CPU, Mainboard – öffnet passende Update-Seiten", "Scans GPU, CPU, motherboard – opens matching update pages"),
+                "AUTO", Red, DriversAutoUpdatePro_Click));
             vp.Children.Add(tiles);
             vendors.Child = vp;
             left.Children.Add(vendors);
@@ -3885,7 +3935,7 @@ namespace GamingBooster_Pro
                 "REDLINE AI DRIVER",
                 AiCheckRow("GPU", TruncateGpuName(GetGpuName()), "GPU", Red, true),
                 AiCheckRow(T("Windows", "Windows"), GetWindowsCaption(), "OS", CardBg2, true),
-                AiCheckRow(T("Legende", "Legend"), "AKTUELL / PRÜFEN / UPDATE", "ℹ", Muted, true),
+                AiCheckRow(T("Legende", "Legend"), T("AKTUELL / PRÜFEN / UPDATE", "CURRENT / CHECK / UPDATE"), "ℹ", Muted, true),
                 OutlineButton(T("Vollständigen Scan", "Full scan"), DriverScan_Click)
             ));
             Grid.SetColumn(right, 1);
@@ -4833,14 +4883,60 @@ namespace GamingBooster_Pro
         {
             if (!RequirePro(T("Automatische Treiber-Updates", "Automatic driver updates"))) return;
             PrepareActionOutput();
-            await RunDriverScan();
-            await Log("");
-            await Log(T("Pro: Öffne offizielle Update-Seiten...", "Pro: Opening official update pages..."));
-            OpenUri("https://www.nvidia.com/Download/index.aspx");
-            OpenUri("https://www.amd.com/en/support/download/drivers.html");
-            OpenUri("https://www.intel.com/content/www/us/en/support/detect.html");
-            OpenUri("ms-settings:windowsupdate");
-            await Log(T("Installiere Treiber manuell in den geöffneten Fenstern.", "Install drivers manually in the opened windows."));
+            await RunSmartDriverAutoUpdateAsync();
+        }
+
+        private string GetMotherboardLabel()
+        {
+            HardwareProfile hp = RedlineHardwareProfile.Detect(GetCpuName(), GetGpuName(), GetWindowsCaption());
+            string label = (hp.MotherboardManufacturer + " " + hp.MotherboardProduct).Trim();
+            return string.IsNullOrWhiteSpace(label) ? T("Unbekannt", "Unknown") : label;
+        }
+
+        private async Task RunSmartDriverAutoUpdateAsync()
+        {
+            await SafeRun(T("Auto Treiber-Update", "Auto driver update"), async () =>
+            {
+                await Log("===== " + T("AUTO TREIBER-UPDATE (PRO)", "AUTO DRIVER UPDATE (PRO)") + " =====");
+                await Log(T("Schritt 1: Hardware & Treiber scannen…", "Step 1: Scanning hardware & drivers…"));
+                await RunDriverScanCoreAsync();
+
+                HardwareProfile hp = RedlineHardwareProfile.Detect(GetCpuName(), GetGpuName(), GetWindowsCaption());
+                await Log("");
+                await Log(T("Erkannte Hardware:", "Detected hardware:"));
+                await Log("CPU: " + hp.CpuName);
+                await Log("GPU: " + hp.GpuName);
+                await Log(T("Mainboard: ", "Motherboard: ") + hp.MotherboardManufacturer + " " + hp.MotherboardProduct);
+                await Log("Windows: " + hp.WindowsCaption);
+
+                List<DriverInfoLite> drivers = GetDriversCached(forceRefresh: false);
+                List<string> statuses = drivers.Select(d => DriverStatusText(d)).ToList();
+                List<DriverUpdateLink> links = RedlineHardwareProfile.BuildSmartUpdateLinks(hp, statuses);
+
+                await Log("");
+                await Log(T("Schritt 2: Passende Update-Quellen:", "Step 2: Matching update sources:"));
+                foreach (DriverUpdateLink link in links)
+                {
+                    string label = IsEnglish() ? link.LabelEn : link.LabelDe;
+                    string reason = IsEnglish() ? link.ReasonEn : link.ReasonDe;
+                    await Log("→ " + label + " | " + reason);
+                }
+
+                await Log("");
+                await Log(T("Schritt 3: Öffne Update-Seiten im Browser…", "Step 3: Opening update pages in browser…"));
+                foreach (DriverUpdateLink link in links)
+                {
+                    if (link.Id == "devmgr")
+                        SafeStartSystem("devmgmt.msc");
+                    else
+                        OpenUri(link.Url);
+                    await Task.Delay(350);
+                }
+
+                await Log("");
+                await Log(T("Fertig. Installiere Treiber in den geöffneten Fenstern (Hersteller-Assistent).", "Done. Install drivers in the opened windows (vendor assistant)."));
+                await Log(T("Tipp: Windows Update → Optionale Updates für weitere Treiber.", "Tip: Windows Update → Optional updates for more drivers."));
+            });
         }
 
         private void PrivacySettings_Click(object? sender, RoutedEventArgs e)
@@ -8910,28 +9006,32 @@ private Border ModernOutputCard(string startText)
         private async Task RunDriverScan()
         {
             InvalidateDriversCache();
-            await SafeRun("Driver Check", async () =>
-            {
-                await Log("===== DRIVER STATUS CHECK =====");
-                await Log("Status-Legende:");
-                await Log("AKTUELL = Treiber ist jung / unauffällig");
-                await Log("PRÜFEN = Treiber ist älter oder Hersteller-Update könnte sinnvoll sein");
-                await Log("UPDATE EMPFOHLEN = Treiber sehr alt oder Gerät hat Fehler");
-                await Log("SYSTEM = Microsoft/Windows-Systemtreiber, meist normal auch mit altem Datum");
+            await SafeRun(T("Treiber-Check", "Driver check"), async () => await RunDriverScanCoreAsync());
+        }
+
+        private async Task RunDriverScanCoreAsync()
+        {
+                await Log("===== " + T("TREIBER-STATUS-CHECK", "DRIVER STATUS CHECK") + " =====");
+                await Log(T("Status-Legende:", "Status legend:"));
+                await Log(T("AKTUELL = Treiber ist jung / unauffällig", "CURRENT = driver is recent / OK"));
+                await Log(T("PRÜFEN = Treiber älter – Update prüfen", "CHECK = older driver – review update"));
+                await Log(T("UPDATE EMPFOHLEN = sehr alt oder Gerätefehler", "UPDATE RECOMMENDED = very old or device error"));
+                await Log(T("SYSTEM = Microsoft-Systemtreiber (oft altes Datum normal)", "SYSTEM = Microsoft system driver (old date often normal)"));
                 await Log("");
-                await Log("Wichtig: Ohne Hersteller-Online-API kann Redline nicht 100% beweisen, dass exakt die neueste Version installiert ist.");
-                await Log("Redline bewertet Datum, Fehlercode, Hersteller und Gerätetyp und öffnet sichere Update-Quellen.");
+                await Log(T("Hinweis: Redline bewertet Datum, Fehlercode und Hersteller – keine 100%-Online-API.", "Note: Redline rates date, error code and vendor – no 100% online API."));
                 await Log("");
 
-                await Log("System:");
+                await Log(T("System:", "System:"));
                 await Log("CPU: " + GetCpuName());
                 await Log("GPU: " + GetGpuName());
+                HardwareProfile hpSys = RedlineHardwareProfile.Detect(GetCpuName(), GetGpuName(), GetWindowsCaption());
+                await Log(T("Mainboard: ", "Motherboard: ") + hpSys.MotherboardManufacturer + " " + hpSys.MotherboardProduct);
                 await Log("Windows: " + GetWindowsCaption());
                 await Log("");
 
                 Dictionary<string, int> deviceErrors = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
 
-                await Log("Geräte mit Fehlercode:");
+                await Log(T("Geräte mit Fehlercode:", "Devices with error code:"));
                 int problems = 0;
 
                 try
@@ -8941,32 +9041,32 @@ private Border ModernOutputCard(string startText)
                     foreach (ManagementObject o in s.Get())
                     {
                         int code = Convert.ToInt32(o["ConfigManagerErrorCode"]);
-                        string name = o["Name"]?.ToString() ?? "Unbekannt";
+                        string name = o["Name"]?.ToString() ?? T("Unbekannt", "Unknown");
                         string id = o["DeviceID"]?.ToString() ?? name;
 
                         deviceErrors[name] = code;
                         deviceErrors[id] = code;
 
-                        await Log("UPDATE EMPFOHLEN | " + name + " | Code: " + code + " | " + DeviceErrorText(code));
+                        await Log(TranslateDriverStatus("UPDATE EMPFOHLEN") + " | " + name + " | Code: " + code + " | " + DeviceErrorText(code));
                         problems++;
                     }
                 }
                 catch
                 {
-                    await Log("Gerätefehler konnten nicht gelesen werden.");
+                    await Log(T("Gerätefehler konnten nicht gelesen werden.", "Could not read device errors."));
                 }
 
                 if (problems == 0)
-                    await Log("AKTUELL | Keine Gerätefehler gefunden.");
+                    await Log(TranslateDriverStatus("AKTUELL") + " | " + T("Keine Gerätefehler gefunden.", "No device errors found."));
 
                 await Log("");
-                await Log("Wichtige Treiber mit Status:");
+                await Log(T("Wichtige Treiber mit Status:", "Important drivers with status:"));
 
                 List<DriverInfoLite> drivers = GetDriversCached(forceRefresh: true);
 
                 if (drivers.Count == 0)
                 {
-                    await Log("FEHLER: Treiberliste konnte nicht gelesen werden.");
+                    await Log(T("FEHLER: Treiberliste konnte nicht gelesen werden.", "ERROR: Could not read driver list."));
                     return;
                 }
 
@@ -9000,65 +9100,61 @@ private Border ModernOutputCard(string startText)
                     else if (status == "UPDATE EMPFOHLEN") update++;
                     else if (status == "SYSTEM") system++;
 
-                    await Log($"{status} | {d.Provider} | {d.DeviceName} | Version {d.Version} | {DriverDateText(d)}");
+                    await Log($"{TranslateDriverStatus(status)} | {d.Provider} | {d.DeviceName} | {T("Version", "Version")} {d.Version} | {DriverDateText(d)}");
                 }
 
                 await Log("");
-                await Log("Zusammenfassung:");
-                await Log("AKTUELL: " + aktuell);
-                await Log("PRÜFEN: " + pruefen);
-                await Log("UPDATE EMPFOHLEN: " + update);
-                await Log("SYSTEM: " + system);
+                await Log(T("Zusammenfassung:", "Summary:"));
+                await Log(TranslateDriverStatus("AKTUELL") + ": " + aktuell);
+                await Log(TranslateDriverStatus("PRÜFEN") + ": " + pruefen);
+                await Log(TranslateDriverStatus("UPDATE EMPFOHLEN") + ": " + update);
+                await Log(TranslateDriverStatus("SYSTEM") + ": " + system);
 
                 await Log("");
-                await Log("Klare Empfehlung:");
+                await Log(T("Empfehlung:", "Recommendation:"));
 
                 if (update > 0 || problems > 0)
                 {
-                    await Log("⚠ Es gibt Gerätefehler oder sehr alte wichtige Treiber. Bitte Geräte-Manager + Hersteller-Buttons prüfen.");
+                    await Log(T("⚠ Gerätefehler oder alte Treiber – nutze AUTO UPDATE oder Hersteller-Buttons.", "⚠ Device errors or old drivers – use AUTO UPDATE or vendor buttons."));
                 }
                 else if (pruefen > 0)
                 {
-                    await Log("ℹ Einige Treiber sind nicht kritisch, aber prüfenswert. Windows Update + Herstellerseiten öffnen.");
+                    await Log(T("ℹ Einige Treiber prüfenswert – Windows Update + AUTO UPDATE.", "ℹ Some drivers worth checking – Windows Update + AUTO UPDATE."));
                 }
                 else
                 {
-                    await Log("✅ Sieht gut aus. Keine klaren Treiber-Probleme gefunden.");
+                    await Log(T("✅ Keine klaren Treiber-Probleme.", "✅ No clear driver issues."));
                 }
 
                 await Log("");
-                await Log("Priorität für deinen Gaming-PC:");
-                await Log("1. NVIDIA GPU Treiber prüfen.");
-                await Log("2. AMD Chipsatztreiber prüfen, wichtig für 7800X3D.");
-                await Log("3. Intel/MediaTek Netzwerk/WLAN prüfen, wenn Internet/WLAN Probleme macht.");
-                await Log("4. Windows Update + Optionale Updates öffnen.");
-                await Log("5. Keine Fake-Driver-Updater verwenden.");
-
-                await Log("");
-                await Log("Links/Updates: Links sind als Buttons links in der Driver-Check-Seite.");
+                await Log(T("Priorität:", "Priority:"));
+                await Log("1. " + T("GPU-Treiber (NVIDIA/AMD/Intel)", "GPU driver (NVIDIA/AMD/Intel)"));
+                await Log("2. " + T("Mainboard/Chipsatz-Treiber", "Motherboard/chipset drivers"));
+                await Log("3. " + T("Netzwerk/Audio (Realtek etc.)", "Network/audio (Realtek etc.)"));
+                await Log("4. " + T("Windows Update → Optionale Updates", "Windows Update → Optional updates"));
+                await Log("5. " + T("Keine Fake-Driver-Updater", "No fake driver updater tools"));
 
                 if (CurrentPage == "Drivers")
                     Dispatcher.Invoke(ScheduleDriverPreviewLoad);
-            });
         }
 
         private string DeviceErrorText(int code)
         {
             return code switch
             {
-                22 => "Gerät ist deaktiviert. Im Geräte-Manager prüfen.",
-                28 => "Treiber fehlt. Update/Hersteller-Treiber nötig.",
-                10 => "Gerät kann nicht gestartet werden.",
-                31 => "Windows kann Treiber nicht laden.",
-                43 => "Gerät hat Fehler gemeldet.",
-                _ => "Im Geräte-Manager prüfen."
+                22 => T("Gerät ist deaktiviert. Im Geräte-Manager prüfen.", "Device disabled. Check Device Manager."),
+                28 => T("Treiber fehlt. Update/Hersteller-Treiber nötig.", "Driver missing. Vendor driver needed."),
+                10 => T("Gerät kann nicht gestartet werden.", "Device cannot start."),
+                31 => T("Windows kann Treiber nicht laden.", "Windows cannot load driver."),
+                43 => T("Gerät hat Fehler gemeldet.", "Device reported an error."),
+                _ => T("Im Geräte-Manager prüfen.", "Check Device Manager.")
             };
         }
 
         private string DriverDateText(DriverInfoLite d)
         {
             if (!d.DriverDate.HasValue)
-                return "Datum unbekannt";
+                return T("Datum unbekannt", "Date unknown");
 
             return d.DriverDate.Value.ToShortDateString();
         }

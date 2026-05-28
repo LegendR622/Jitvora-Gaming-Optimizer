@@ -18,6 +18,7 @@ namespace GamingBooster_Pro
         {
             TextOptions.SetTextFormattingMode(element, TextFormattingMode.Display);
             TextOptions.SetTextRenderingMode(element, TextRenderingMode.ClearType);
+            TextOptions.SetTextHintingMode(element, TextHintingMode.Fixed);
             RenderOptions.SetBitmapScalingMode(element, BitmapScalingMode.HighQuality);
             if (element is FrameworkElement fe)
             {
