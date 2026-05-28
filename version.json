@@ -1,6 +1,6 @@
 ﻿{
     "packageType": "zip",
-    "version": "9.3",
-    "downloadUrl": "https://github.com/LegendR622/Redline-Gaming-Optimizer/releases/download/v9.3/Redline_V9.3_win-x64.zip",
-    "notes": "V9.3: Festplatten-Groesse korrekt (WMI), Update-Verlauf im Log, scharfe UI."
+    "version": "9.4",
+    "downloadUrl": "https://github.com/LegendR622/Redline-Gaming-Optimizer/releases/download/v9.4/Redline_V9.4_win-x64.zip",
+    "notes": "V9.4: Cleaner Scan/Bereinigen Free fix, Live-Log, Kategorien mit echten MB-Werten."
 }

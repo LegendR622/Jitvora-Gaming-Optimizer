@@ -96,10 +96,14 @@ namespace GamingBooster_Pro
         private static readonly TimeSpan TempSizeCacheLifetime = TimeSpan.FromMinutes(5);
         private bool _tempSizeScanRunning;
         private bool CleanerScanDone;
+        private long _cleanerLastTotalBytes;
+        private int _cleanerLastFileCount;
         private Button? _cleanerCleanBtn;
         private TextBlock? _cleanerScanHint;
+        private TextBlock? _cleanerFoundSizeValueText;
+        private readonly Dictionary<string, TextBlock> _cleanerCategoryAmountTexts = new Dictionary<string, TextBlock>(StringComparer.OrdinalIgnoreCase);
 
-        private const string CurrentAppVersion = "9.3";
+        private const string CurrentAppVersion = "9.4";
         // jsDelivr statt raw.githubusercontent.com (kein veralteter CDN-Cache auf dem Client)
         private const string UpdateJsonUrl = "https://cdn.jsdelivr.net/gh/LegendR622/Redline-Gaming-Optimizer@main/version.json";
 
@@ -2046,7 +2050,16 @@ namespace GamingBooster_Pro
             g.Children.Add(t);
 
             StackPanel a = new StackPanel { VerticalAlignment = VerticalAlignment.Center };
-            a.Children.Add(new TextBlock { Text = amount, Foreground = Brushes.White, FontSize = 14, FontWeight = FontWeights.Bold, HorizontalAlignment = HorizontalAlignment.Right });
+            TextBlock amountTb = new TextBlock
+            {
+                Text = amount,
+                Foreground = Brushes.White,
+                FontSize = 14,
+                FontWeight = FontWeights.Bold,
+                HorizontalAlignment = HorizontalAlignment.Right
+            };
+            a.Children.Add(amountTb);
+            _cleanerCategoryAmountTexts[categoryKey] = amountTb;
             a.Children.Add(new TextBlock { Text = T("Sicher", "Safe"), Foreground = Brushes.LimeGreen, FontSize = 12, HorizontalAlignment = HorizontalAlignment.Right });
             Grid.SetColumn(a, 2);
             g.Children.Add(a);
@@ -2794,6 +2807,10 @@ namespace GamingBooster_Pro
 
         private UIElement PageCleaner()
         {
+            CleanerChecks.Clear();
+            _cleanerCategoryAmountTexts.Clear();
+            _cleanerFoundSizeValueText = null;
+
             Grid root = new Grid();
             root.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
             root.RowDefinitions.Add(new RowDefinition());
@@ -2887,7 +2904,14 @@ namespace GamingBooster_Pro
             totalGrid.Children.Add(RoundIcon("💽", Brushes.Transparent, 74));
             StackPanel found = new StackPanel { VerticalAlignment = VerticalAlignment.Center };
             found.Children.Add(new TextBlock { Text = T("Gefundener Speicher", "Found storage"), Foreground = Brushes.White, FontSize = 18, FontWeight = FontWeights.UltraBold });
-            found.Children.Add(new TextBlock { Text = T("Noch kein Scan", "No scan yet"), Foreground = Brushes.White, FontSize = 26, FontWeight = FontWeights.UltraBold });
+            _cleanerFoundSizeValueText = new TextBlock
+            {
+                Text = CleanerScanDone ? FormatSize(_cleanerLastTotalBytes) : T("Noch kein Scan", "No scan yet"),
+                Foreground = Brushes.White,
+                FontSize = 26,
+                FontWeight = FontWeights.UltraBold
+            };
+            found.Children.Add(_cleanerFoundSizeValueText);
             found.Children.Add(new TextBlock { Text = T("Sicher zu bereinigen", "Safe to clean"), Foreground = Muted, FontSize = 13 });
             Grid.SetColumn(found,1); totalGrid.Children.Add(found);
             StackPanel doClean = new StackPanel { VerticalAlignment = VerticalAlignment.Center };
@@ -2917,6 +2941,7 @@ namespace GamingBooster_Pro
             grid.Children.Add(right);
             Grid.SetRow(grid, 1);
             root.Children.Add(grid);
+            RefreshCleanerUiState();
             return root;
         }
 
@@ -2932,6 +2957,45 @@ namespace GamingBooster_Pro
                 _cleanerScanHint.Text = CleanerScanDone
                     ? T("Scan abgeschlossen – du kannst sicher bereinigen.", "Scan complete – you can clean safely.")
                     : T("Ein Scan ist erforderlich, um bereinigbare Dateien anzuzeigen.", "A scan is required to show cleanable files.");
+
+            if (_cleanerFoundSizeValueText != null)
+            {
+                _cleanerFoundSizeValueText.Text = CleanerScanDone
+                    ? FormatSize(_cleanerLastTotalBytes)
+                    : T("Noch kein Scan", "No scan yet");
+            }
+        }
+
+        private static string ClassifyCleanerCategory(CleanTarget target)
+        {
+            string n = target.Name;
+            if (n.Contains("Chrome", StringComparison.OrdinalIgnoreCase) ||
+                n.Contains("Edge", StringComparison.OrdinalIgnoreCase) ||
+                n.Contains("Firefox", StringComparison.OrdinalIgnoreCase))
+                return "Browser Cache";
+            if (n.Contains("Temp", StringComparison.OrdinalIgnoreCase) || n.Contains("Logs", StringComparison.OrdinalIgnoreCase))
+                return "Temporäre Dateien";
+            if (n.Contains("Shader", StringComparison.OrdinalIgnoreCase) ||
+                n.Contains("DXCache", StringComparison.OrdinalIgnoreCase) ||
+                n.Contains("GLCache", StringComparison.OrdinalIgnoreCase) ||
+                n.Contains("D3DS", StringComparison.OrdinalIgnoreCase))
+                return "Shader Cache";
+            if (n.Contains("Download", StringComparison.OrdinalIgnoreCase) || n.Contains("Epic", StringComparison.OrdinalIgnoreCase))
+                return "Download-Reste";
+            return "Sonstiges";
+        }
+
+        private void UpdateCleanerCategoryAmounts(Dictionary<string, long> sizes)
+        {
+            foreach (KeyValuePair<string, TextBlock> kv in _cleanerCategoryAmountTexts)
+            {
+                if (sizes.TryGetValue(kv.Key, out long bytes) && bytes > 0)
+                    kv.Value.Text = FormatSize(bytes);
+                else if (CleanerScanDone)
+                    kv.Value.Text = kv.Key is "Papierkorb" or "DNS/Netzwerkreste"
+                        ? T("Beim Reinigen", "On clean")
+                        : "0 B";
+            }
         }
 
         private UIElement PageGameProfiles()
@@ -6608,101 +6672,139 @@ private Border ModernOutputCard(string startText)
 
         private async void CleanerScan_Click(object sender, RoutedEventArgs e)
         {
+            await SafeRun("Cleaner Scan", async () => await RunCleanerScanAsync());
+        }
+
+        private async Task RunCleanerScanAsync()
+        {
             PrepareActionOutput();
-            if (Progress == null) Progress = new ProgressBar { Maximum = 100 };
-            if (StatusText != null) StatusText.Text = "Cleaner Analyse läuft...";
+            if (Progress == null) Progress = new ProgressBar { Maximum = 100, Height = 10, Value = 0 };
             Progress.Value = 0;
 
             await Log("===== REDLINE CLEANER ANALYSE =====");
-            await Log("Made by Tobias Immisch");
+            await Log(T("Sicherer Scan – nur Cache/Temp-Ordner.", "Safe scan – cache/temp folders only."));
             await Log("");
+
+            List<CleanTarget> targets = GetSelectedCleanerTargets();
+            if (targets.Count == 0)
+            {
+                await Log(T("Keine Ziele: Bitte mindestens eine Kategorie aktiv lassen.", "No targets: keep at least one category enabled."));
+                MessageBox.Show(
+                    T("Bitte mindestens eine Kategorie auswählen.", "Please keep at least one category selected."),
+                    "Redline Cleaner",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information);
+                return;
+            }
 
             long total = 0;
             int files = 0;
-
-            List<CleanTarget> targets = GetSelectedCleanerTargets();
+            Dictionary<string, long> catSizes = new Dictionary<string, long>(StringComparer.OrdinalIgnoreCase);
 
             for (int i = 0; i < targets.Count; i++)
             {
                 CleanTarget t = targets[i];
-                var r = ScanTarget(t);
+                await Log(T("Scanne: ", "Scanning: ") + t.Name + "...");
+                (long Size, int Files) r = await Task.Run(() => ScanTarget(t));
 
                 total += r.Size;
                 files += r.Files;
 
-                await Log($"{t.Name}: {FormatSize(r.Size)} / {r.Files} Dateien");
+                string cat = ClassifyCleanerCategory(t);
+                catSizes[cat] = catSizes.GetValueOrDefault(cat) + r.Size;
 
-                Progress.Value = Math.Min(95, (i + 1) * 100.0 / Math.Max(1, targets.Count));
+                await Log("  → " + FormatSize(r.Size) + " / " + r.Files + T(" Dateien", " files"));
+
+                if (Progress != null)
+                    Progress.Value = Math.Min(95, (i + 1) * 100.0 / Math.Max(1, targets.Count));
             }
 
-            if (CleanerChecked("Papierkorb")) await Log("Papierkorb: wird beim Reinigen geleert");
+            if (CleanerChecked("Papierkorb")) await Log(T("Papierkorb: wird beim Reinigen geleert", "Recycle bin: emptied on clean"));
             if (CleanerChecked("DNS Cache") || CleanerChecked("DNS/Netzwerkreste"))
-                await Log("DNS Cache: wird beim Reinigen geleert");
+                await Log(T("DNS-Cache: wird beim Reinigen geleert", "DNS cache: flushed on clean"));
 
             await Log("");
-            await Log("Analyse abgeschlossen.");
-            await Log("Gefunden gesamt: " + FormatSize(total));
-            await Log("Dateien gesamt: " + files);
+            await Log(T("Analyse abgeschlossen.", "Analysis complete."));
+            await Log(T("Gefunden gesamt: ", "Total found: ") + FormatSize(total) + " (" + files + T(" Dateien)", " files)"));
 
-            Progress.Value = 100;
-            if (StatusText != null) StatusText.Text = "Analyse abgeschlossen";
+            _cleanerLastTotalBytes = total;
+            _cleanerLastFileCount = files;
             CleanerScanDone = true;
-            RefreshCleanerUiState();
+
+            await Dispatcher.InvokeAsync(() =>
+            {
+                UpdateCleanerCategoryAmounts(catSizes);
+                RefreshCleanerUiState();
+            });
+
+            if (Progress != null)
+                Progress.Value = 100;
         }
 
         private async void CleanerClean_Click(object sender, RoutedEventArgs e)
         {
-            if (!RequirePro(T("Cleaner bereinigen", "Cleaner cleanup"))) return;
             if (BlockIfAntiCheatActive("Cleaner Reinigung")) return;
             if (!CleanerScanDone)
             {
-                MessageBox.Show(T("Bitte zuerst einen sicheren Scan starten.", "Please run a safe scan first."), "Redline", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show(T("Bitte zuerst „Sicheren Scan starten“.", "Please run \"Start safe scan\" first."), "Redline", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
-            PrepareActionOutput();
-            if (Progress == null) Progress = new ProgressBar { Maximum = 100 };
 
-            if (!PreActionCheck("Cleaner Reinigung", "Ausgewählte Cache-/Temp-Dateien werden gelöscht. Gesperrte Dateien werden übersprungen."))
+            await SafeRun("Cleaner Reinigung", async () => await RunCleanerCleanAsync());
+        }
+
+        private async Task RunCleanerCleanAsync()
+        {
+            PrepareActionOutput();
+            if (Progress == null) Progress = new ProgressBar { Maximum = 100, Height = 10, Value = 0 };
+
+            if (!PreActionCheck(
+                    T("Cleaner Reinigung", "Cleaner cleanup"),
+                    T("Ausgewählte Cache-/Temp-Dateien werden gelöscht. Gesperrte Dateien werden übersprungen.",
+                      "Selected cache/temp files will be deleted. Locked files are skipped.")))
                 return;
 
-            if (StatusText != null) StatusText.Text = "Reinigung läuft...";
             Progress.Value = 0;
-
             await Log("");
             await Log("===== REINIGUNG START =====");
 
             long total = 0;
             int files = 0;
-
             List<CleanTarget> targets = GetSelectedCleanerTargets();
 
             for (int i = 0; i < targets.Count; i++)
             {
                 CleanTarget t = targets[i];
-
-                await Log("Bereinige: " + t.Name);
-
-                var r = CleanTargetPath(t);
-
+                await Log(T("Bereinige: ", "Cleaning: ") + t.Name);
+                (long Size, int Files) r = await Task.Run(() => CleanTargetPath(t));
                 total += r.Size;
                 files += r.Files;
-
-                await Log($"OK: {FormatSize(r.Size)} / {r.Files} Dateien");
-
-                Progress.Value = Math.Min(85, (i + 1) * 85.0 / Math.Max(1, targets.Count));
+                await Log("  → " + FormatSize(r.Size) + " / " + r.Files + T(" Dateien", " files"));
+                if (Progress != null)
+                    Progress.Value = Math.Min(85, (i + 1) * 85.0 / Math.Max(1, targets.Count));
             }
 
             if (CleanerChecked("Papierkorb")) await EmptyRecycleBinSafe();
             if (CleanerChecked("DNS Cache") || CleanerChecked("DNS/Netzwerkreste")) await FlushDNS();
 
             await Log("");
-            await Log("Fertig.");
-            await Log("Gelöscht: " + files + " Dateien");
-            await Log("Freigegeben: " + FormatSize(total));
-            await Log("Hinweis: Dateien von laufenden Apps werden sicher übersprungen.");
+            await Log(T("Fertig.", "Done."));
+            await Log(T("Gelöscht: ", "Deleted: ") + files + T(" Dateien", " files"));
+            await Log(T("Freigegeben: ", "Freed: ") + FormatSize(total));
+            await Log(T("Hinweis: Dateien von laufenden Apps wurden übersprungen.", "Note: files in use by running apps were skipped."));
 
-            Progress.Value = 100;
-            if (StatusText != null) StatusText.Text = "Reinigung abgeschlossen";
+            _cleanerLastTotalBytes = 0;
+            _cleanerLastFileCount = 0;
+            CleanerScanDone = false;
+            await Dispatcher.InvokeAsync(() =>
+            {
+                foreach (TextBlock tb in _cleanerCategoryAmountTexts.Values)
+                    tb.Text = T("Wird nach Scan geprüft", "Checked after scan");
+                RefreshCleanerUiState();
+            });
+
+            if (Progress != null)
+                Progress.Value = 100;
         }
 
         private async void ChromeCheck_Click(object sender, RoutedEventArgs e)
