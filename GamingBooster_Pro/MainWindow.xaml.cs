@@ -103,7 +103,7 @@ namespace GamingBooster_Pro
         private TextBlock? _cleanerFoundSizeValueText;
         private readonly Dictionary<string, TextBlock> _cleanerCategoryAmountTexts = new Dictionary<string, TextBlock>(StringComparer.OrdinalIgnoreCase);
 
-        private const string CurrentAppVersion = "9.17";
+        private const string CurrentAppVersion = "9.18";
 
         private bool _startupAutoUpdateStarted;
         private string? _pendingUpdateBannerVersion;
@@ -164,6 +164,7 @@ namespace GamingBooster_Pro
         private string TranslateDriverStatus(string status) => status switch
         {
             "AKTUELL" => T("AKTUELL", "CURRENT"),
+            "AKTUALISIERT" => T("AKTUALISIERT", "UPDATED"),
             "PRÜFEN" => T("PRÜFEN", "CHECK"),
             "UPDATE EMPFOHLEN" => T("UPDATE EMPFOHLEN", "UPDATE RECOMMENDED"),
             "SYSTEM" => T("SYSTEM", "SYSTEM"),
@@ -3951,9 +3952,17 @@ namespace GamingBooster_Pro
                 FontSize = 13
             });
 
-            _ = Task.Run(() =>
+            _ = Task.Run(async () =>
             {
-                List<DriverInfoLite> preview = GetImportantDriversPreview(7);
+                try
+                {
+                    await RedlineDriverUpdateService.Instance.SearchOnlyAsync(
+                        _ => Task.CompletedTask,
+                        IsEnglish());
+                }
+                catch { }
+
+                List<DriverDisplayItem> preview = RedlineDriverStatus.BuildLeftPanelList(12);
                 Dispatcher.Invoke(() =>
                 {
                     if (token != _driverPreviewToken || CurrentPage != "Drivers" || _driverPreviewHost == null)
@@ -3963,7 +3972,7 @@ namespace GamingBooster_Pro
             });
         }
 
-        private void PopulateDriverPreviewHost(List<DriverInfoLite> preview)
+        private void PopulateDriverPreviewHost(List<DriverDisplayItem> preview)
         {
             if (_driverPreviewHost == null)
                 return;
@@ -3981,19 +3990,70 @@ namespace GamingBooster_Pro
                 return;
             }
 
-            Dictionary<string, int> deviceErrors = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
-            foreach (DriverInfoLite d in preview)
+            foreach (DriverDisplayItem d in preview)
             {
-                string st = DriverStatusText(d, deviceErrors);
-                DriverStatusToUi(st, out string risk, out Brush riskColor);
-                string desc = d.Provider + " · v" + (d.Version.Length > 20 ? d.Version[..20] + "…" : d.Version);
+                DriverStatusToUi(d.Status, out string risk, out Brush riskColor);
                 string device = d.DeviceName;
-                RoutedEventHandler action = st == "SYSTEM"
+                bool canUpdate = d.Status is "UPDATE EMPFOHLEN" or "PRÜFEN";
+                RoutedEventHandler action = d.Status == "SYSTEM"
                     ? DriverScan_Click
-                    : (_, e) => _ = DriverSingleUpdateAsync(device);
-                string icon = st == "SYSTEM" ? "⚙" : "⬇";
-                _driverPreviewHost.Children.Add(SecurityTableRow(d.DeviceName, desc, TranslateDriverStatus(st), risk, riskColor, icon, action));
+                    : canUpdate
+                        ? (_, e) => _ = DriverSingleUpdateAsync(device)
+                        : DriverScan_Click;
+                string icon = d.Status == "SYSTEM" ? "⚙" : canUpdate ? "⬇" : "✓";
+                string btn = d.Status switch
+                {
+                    "UPDATE EMPFOHLEN" => T("UPDATE", "UPDATE"),
+                    "PRÜFEN" => T("PRÜFEN", "CHECK"),
+                    "AKTUALISIERT" => T("OK", "OK"),
+                    "AKTUELL" => T("OK", "OK"),
+                    _ => T("SCAN", "SCAN")
+                };
+                _driverPreviewHost.Children.Add(DriverTableRow(d.DeviceName, d.Detail, TranslateDriverStatus(d.Status), risk, riskColor, icon, btn, action));
             }
+        }
+
+        private UIElement DriverTableRow(string area, string desc, string status, string risk, Brush riskColor, string icon, string buttonText, RoutedEventHandler action)
+        {
+            Border row = new Border
+            {
+                Background = Brushes.Transparent,
+                BorderBrush = new SolidColorBrush(Color.FromRgb(31, 38, 50)),
+                BorderThickness = new Thickness(0, 0, 0, 1),
+                Padding = new Thickness(12, 10, 12, 10)
+            };
+
+            Grid g = new Grid();
+            g.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(360) });
+            g.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(170) });
+            g.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(160) });
+            g.ColumnDefinitions.Add(new ColumnDefinition());
+
+            Grid first = new Grid();
+            first.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
+            first.ColumnDefinitions.Add(new ColumnDefinition());
+            first.Children.Add(RoundIcon(icon, riskColor, 38));
+            StackPanel txt = new StackPanel();
+            txt.Children.Add(new TextBlock { Text = area, Foreground = Brushes.White, FontSize = 13.5, FontWeight = FontWeights.UltraBold });
+            txt.Children.Add(new TextBlock { Text = desc, Foreground = Muted, FontSize = 12, TextWrapping = TextWrapping.Wrap });
+            Grid.SetColumn(txt, 1);
+            first.Children.Add(txt);
+            g.Children.Add(first);
+
+            g.Children.Add(new TextBlock { Text = status, Foreground = Brushes.White, FontSize = 13, FontWeight = FontWeights.Bold, VerticalAlignment = VerticalAlignment.Center });
+            Grid.SetColumn(g.Children[g.Children.Count - 1], 1);
+
+            g.Children.Add(new TextBlock { Text = "● " + risk, Foreground = riskColor, FontSize = 13, FontWeight = FontWeights.Bold, VerticalAlignment = VerticalAlignment.Center });
+            Grid.SetColumn(g.Children[g.Children.Count - 1], 2);
+
+            Button b = OutlineButton(buttonText, action);
+            b.Width = 105;
+            b.Height = 34;
+            Grid.SetColumn(b, 3);
+            g.Children.Add(b);
+
+            row.Child = g;
+            return row;
         }
 
         private async Task DriverSingleUpdateAsync(string deviceName)
@@ -4005,11 +4065,28 @@ namespace GamingBooster_Pro
                 await Log("===== " + T("EINZEL-UPDATE: ", "SINGLE UPDATE: ") + deviceName + " =====");
                 if (!IsAdmin())
                     await Log(T("Hinweis: Admin empfohlen für Installation.", "Note: Admin recommended for install."));
-                await RedlineDriverUpdateService.Instance.InstallSingleByDeviceHintAsync(
+
+                bool installed = await RedlineDriverUpdateService.Instance.InstallSingleByDeviceHintAsync(
                     deviceName,
                     async msg => await Log(msg),
                     IsEnglish());
+
+                await Task.Delay(1500);
                 InvalidateDriversCache();
+                await RedlineDriverUpdateService.Instance.SearchOnlyAsync(async msg => await Log(msg), IsEnglish());
+
+                Dictionary<string, int> errors = RedlineDriverStatus.BuildDeviceErrorMap();
+                if (installed && !errors.Keys.Any(k => RedlineDriverStatus.NamesLikelyMatch(k, deviceName)))
+                {
+                    RedlineDriverStatus.MarkRecentlyUpdated(deviceName);
+                    await Log(T("Status: AKTUALISIERT – Treiber wurde installiert / Fehler behoben.",
+                        "Status: UPDATED – driver installed / issue resolved."));
+                }
+                else
+                {
+                    await Log(T("Status neu geprüft – siehe Liste links.", "Status re-checked – see list on the left."));
+                }
+
                 ScheduleDriverPreviewLoad();
             });
         }
@@ -4020,6 +4097,10 @@ namespace GamingBooster_Pro
             {
                 case "AKTUELL":
                     risk = T("Niedrig", "Low");
+                    color = AiGreen;
+                    break;
+                case "AKTUALISIERT":
+                    risk = T("Erledigt", "Done");
                     color = AiGreen;
                     break;
                 case "PRÜFEN":
@@ -5284,6 +5365,9 @@ namespace GamingBooster_Pro
                     installOnly: installOnly,
                     log: async msg => await Log(msg),
                     isEnglish: en);
+
+                InvalidateDriversCache();
+                ScheduleDriverPreviewLoad();
             });
         }
 
