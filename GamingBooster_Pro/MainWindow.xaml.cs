@@ -103,7 +103,7 @@ namespace GamingBooster_Pro
         private TextBlock? _cleanerFoundSizeValueText;
         private readonly Dictionary<string, TextBlock> _cleanerCategoryAmountTexts = new Dictionary<string, TextBlock>(StringComparer.OrdinalIgnoreCase);
 
-        private const string CurrentAppVersion = "9.10";
+        private const string CurrentAppVersion = "9.11";
 
         private static readonly string[] CleanerRecommendedCategories =
         {
@@ -308,6 +308,21 @@ namespace GamingBooster_Pro
                 log.Add("[FAIL] Drivers | " + ex.Message);
             }
 
+            try
+            {
+                RemoteSupportStatus rs = RedlineRemoteSupport.Query();
+                log.Add("[OK] Remote QuickAssist=" + rs.QuickAssistAvailable + " RDP=" + rs.RemoteDesktopEnabled);
+                await Dispatcher.InvokeAsync(() => Navigate("RemoteSupport"));
+                await Task.Delay(450);
+                await RunRemoteSupportCheckAsync();
+                log.Add("[OK] RemoteSupport Seite + Check");
+            }
+            catch (Exception ex)
+            {
+                failures.Add("RemoteSupport: " + ex.Message);
+                log.Add("[FAIL] RemoteSupport | " + ex.Message);
+            }
+
             string[] pages =
             {
                 "Dashboard", "Readiness", "GameProfiles", "Optimierung", "Leistung", "Cleaner", "Startup",
@@ -468,7 +483,7 @@ namespace GamingBooster_Pro
             string[] pages =
             {
                 "Dashboard", "GameProfiles", "Optimierung", "Cleaner", "Startup",
-                "Security", "Network", "Drivers", "Repair", "Update", "Settings"
+                "Security", "Network", "Drivers", "Repair", "RemoteSupport", "Update", "Settings"
             };
 
             int ms = 5200;
@@ -944,6 +959,7 @@ namespace GamingBooster_Pro
             panel.Children.Add(NavButton("◎   " + T("Network", "Network"), "Network"));
             panel.Children.Add(NavButton("⚙   " + T("Driver", "Driver"), "Drivers"));
             panel.Children.Add(NavButton("🔧  " + T("Repair", "Repair"), "Repair"));
+            panel.Children.Add(NavButton("🖥  " + T("Remote", "Remote"), "RemoteSupport"));
             panel.Children.Add(NavButton("⬆   " + T("Update", "Update"), "Update"));
             panel.Children.Add(NavButton("⚙   " + T("Settings", "Settings"), "Settings"));
 
@@ -1498,7 +1514,7 @@ namespace GamingBooster_Pro
         }
 
         private static bool PageSkipsShellHeader(string page) =>
-            page is "Dashboard" or "Cleaner" or "Security" or "Optimierung" or "Repair" or "Network" or "Drivers" or "Settings" or "GameProfiles" or "Startup";
+            page is "Dashboard" or "Cleaner" or "Security" or "Optimierung" or "Repair" or "Network" or "Drivers" or "RemoteSupport" or "Settings" or "GameProfiles" or "Startup";
 
         private UIElement BuildV78PageHeader(string title, string subtitle, RoutedEventHandler? topAction = null, string? topActionLabel = null)
         {
@@ -4524,20 +4540,70 @@ namespace GamingBooster_Pro
 
         private UIElement PageRemoteSupport()
         {
-            Grid grid = TwoColumnLayout();
+            RemoteSupportStatus rs = RedlineRemoteSupport.Query();
+            bool en = IsEnglish();
+
+            Grid root = new Grid();
+            root.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+            root.RowDefinitions.Add(new RowDefinition());
+
+            UIElement header = BuildV78PageHeader(T("REMOTE SUPPORT", "REMOTE SUPPORT"),
+                T("Sichere Fernhilfe in der App: Quick Assist, Remote Desktop Status, Firewall-Check.",
+                  "Secure remote help in-app: Quick Assist, Remote Desktop status, firewall check."),
+                RemoteFirewallCheck_Click,
+                "🔍  " + T("SICHERHEIT PRÜFEN", "SECURITY CHECK"));
+            Grid.SetRow(header, 0);
+            root.Children.Add(header);
+
+            Grid grid = ModernTwoColumn();
+            grid.ColumnDefinitions[1].Width = new GridLength(420);
             StackPanel left = new StackPanel();
 
-            left.Children.Add(HeroCard(
-                "Safe Remote Support",
-                "Sichere Fernhilfe: Der Code wird sichtbar angezeigt. Niemand bekommt heimlich Zugriff. Für echte Verbindung nutzt du Windows Quick Assist."
-            ));
+            Border statusCard = DashboardCard();
+            statusCard.Margin = new Thickness(0, 0, 18, 18);
+            statusCard.Padding = new Thickness(18);
+            StackPanel st = new StackPanel();
+            st.Children.Add(new TextBlock
+            {
+                Text = T("LIVE STATUS", "LIVE STATUS"),
+                Foreground = Brushes.White,
+                FontSize = 16,
+                FontWeight = FontWeights.UltraBold,
+                Margin = new Thickness(0, 0, 0, 10)
+            });
+            st.Children.Add(new TextBlock
+            {
+                Text = RedlineRemoteSupport.FormatStatusLabel(rs, en),
+                Foreground = rs.RemoteDesktopEnabled ? AiOrange : AiGreen,
+                FontSize = 13,
+                TextWrapping = TextWrapping.Wrap
+            });
+            st.Children.Add(new TextBlock
+            {
+                Text = (rs.RemoteAssistanceAvailable
+                    ? T("Remote Assistance (msra): verfügbar", "Remote Assistance (msra): available")
+                    : T("Remote Assistance: nicht gefunden", "Remote Assistance: not found")),
+                Foreground = Muted,
+                FontSize = 12,
+                Margin = new Thickness(0, 8, 0, 0)
+            });
+            statusCard.Child = st;
+            left.Children.Add(statusCard);
 
-            Border codeCard = Card();
+            Border codeCard = DashboardCard();
+            codeCard.Margin = new Thickness(0, 0, 18, 18);
+            codeCard.Padding = new Thickness(18);
             StackPanel c = new StackPanel();
-
-            c.Children.Add(LabelText("Support-Code", Red));
-            c.Children.Add(InfoLine("Dieser Code ist für dich als Anzeige/Telefon-Code im Tool. Die echte Windows-Fernhilfe nutzt zusätzlich den Microsoft Quick-Assist-Code."));
-
+            c.Children.Add(new TextBlock { Text = T("REDLINE SUPPORT-CODE", "REDLINE SUPPORT CODE"), Foreground = Brushes.White, FontSize = 15, FontWeight = FontWeights.UltraBold });
+            c.Children.Add(new TextBlock
+            {
+                Text = T("Lokaler Code für Telefon/Chat – echte Verbindung nur über Windows Quick Assist mit deiner Zustimmung.",
+                  "Local code for phone/chat – real connection only via Windows Quick Assist with your consent."),
+                Foreground = Muted,
+                FontSize = 12,
+                TextWrapping = TextWrapping.Wrap,
+                Margin = new Thickness(0, 8, 0, 12)
+            });
             RemoteCodeBox = new TextBox
             {
                 Text = GenerateSupportCode(),
@@ -4549,66 +4615,57 @@ namespace GamingBooster_Pro
                 Foreground = Brushes.LightGreen,
                 BorderBrush = Red,
                 BorderThickness = new Thickness(1),
-                IsReadOnly = true,
-                Margin = new Thickness(0, 10, 0, 12)
+                IsReadOnly = true
             };
-
             c.Children.Add(RemoteCodeBox);
-
-            Button newCode = ActionButton("NEUEN CODE GENERIEREN", Red, 310);
-            newCode.Click += GenerateRemoteCode_Click;
-
-            Button copy = ActionButton("CODE KOPIEREN", CardBg2, 220);
-            copy.Margin = new Thickness(0, 12, 0, 0);
-            copy.Click += CopyRemoteCode_Click;
-
-            c.Children.Add(newCode);
-            c.Children.Add(copy);
-
+            StackPanel codeBtns = new StackPanel { Orientation = Orientation.Horizontal, Margin = new Thickness(0, 12, 0, 0) };
+            Button newCode = OutlineButton(T("NEUER CODE", "NEW CODE"), GenerateRemoteCode_Click);
+            newCode.Width = 160; newCode.Height = 40;
+            codeBtns.Children.Add(newCode);
+            Button copy = OutlineButton(T("KOPIEREN", "COPY"), CopyRemoteCode_Click);
+            copy.Width = 140; copy.Height = 40; copy.Margin = new Thickness(10, 0, 0, 0);
+            codeBtns.Children.Add(copy);
+            c.Children.Add(codeBtns);
             codeCard.Child = c;
             left.Children.Add(codeCard);
 
-            StackPanel buttons = new StackPanel();
-
-            Button quick = ActionButton("WINDOWS QUICK ASSIST ÖFFNEN", DarkRed, 340);
-            quick.Click += (s, e) => OpenQuickAssist();
-
-            Button msra = ActionButton("REMOTE ASSISTANCE ALS ADMIN", CardBg2, 340);
-            msra.Margin = new Thickness(0, 12, 0, 0);
-            msra.Click += (s, e) => SafeStartSystem("msra.exe", "", true);
-
-            Button rdp = ActionButton("REMOTE DESKTOP SETTINGS", CardBg2, 340);
-            rdp.Margin = new Thickness(0, 12, 0, 0);
-            rdp.Click += (s, e) => OpenUri("ms-settings:remotedesktop");
-
-            Button firewall = ActionButton("FIREWALL STATUS CHECK", CardBg2, 310);
-            firewall.Margin = new Thickness(0, 12, 0, 0);
-            firewall.Click += RemoteFirewallCheck_Click;
-
-            buttons.Children.Add(quick);
-            buttons.Children.Add(msra);
-            buttons.Children.Add(rdp);
-            buttons.Children.Add(firewall);
-            left.Children.Add(buttons);
+            Border actions = DashboardCard();
+            actions.Padding = new Thickness(16);
+            actions.Margin = new Thickness(0, 0, 18, 0);
+            StackPanel ap = new StackPanel();
+            ap.Children.Add(new TextBlock { Text = T("AKTIONEN", "ACTIONS"), Foreground = Brushes.White, FontSize = 15, FontWeight = FontWeights.UltraBold, Margin = new Thickness(0, 0, 0, 12) });
+            WrapPanel tiles = new WrapPanel();
+            tiles.Children.Add(ModernTile(T("QUICK ASSIST", "QUICK ASSIST"),
+                T("Microsoft Fernhilfe mit Code", "Microsoft help with code"), "QA", Red, (s, e) => OpenQuickAssist()));
+            tiles.Children.Add(ModernTile(T("REMOTE DESKTOP", "REMOTE DESKTOP"),
+                T("Windows Einstellungen öffnen", "Open Windows settings"), "RDP", AiOrange, (s, e) => OpenUri("ms-settings:remotedesktop")));
+            tiles.Children.Add(ModernTile(T("REMOTE ASSIST", "REMOTE ASSIST"),
+                T("Klassische Windows-Hilfe", "Classic Windows assistance"), "MS", CardBg2, (s, e) => SafeStartSystem("msra.exe", "", true)));
+            tiles.Children.Add(ModernTile(T("FIREWALL CHECK", "FIREWALL CHECK"),
+                T("Firewall + RDP Status im Log", "Firewall + RDP status in log"), "FW", AiGreen, RemoteFirewallCheck_Click));
+            ap.Children.Add(tiles);
+            actions.Child = ap;
+            left.Children.Add(actions);
 
             Grid.SetColumn(left, 0);
             grid.Children.Add(left);
 
             StackPanel right = new StackPanel();
-            OutputBox = OutputConsole(
-                "Remote Support erklärt:\\n\\n" +
-                "1. Für sichere Fernhilfe Windows Quick Assist öffnen.\\n" +
-                "2. Der Helfer erzeugt dort einen Microsoft-Code oder du gibst einen Code ein.\\n" +
-                "3. Du musst sichtbar zustimmen.\\n" +
-                "4. Vollzugriff ohne Zustimmung/Passwort baut Redline nicht ein, weil das unsicher wäre.\\n\\n" +
-                "Der Redline-Code links ist nur ein lokaler Support-Code, damit du am Telefon/Chat eindeutig sagen kannst: 'Meine Sitzung ist 123456'."
-            );
-            right.Children.Add(OutputBox);
-
+            Border remoteLog = ModernOutputCard(T("Remote Log bereit.", "Remote log ready."));
+            remoteLog.Margin = new Thickness(0, 0, 0, 18);
+            right.Children.Add(remoteLog);
+            right.Children.Add(AiSidePanel(
+                "REDLINE AI REMOTE",
+                AiCheckRow(T("Empfehlung", "Recommendation"), T("Quick Assist statt offenem RDP", "Quick Assist instead of open RDP"), "✓", AiGreen, true),
+                AiCheckRow(T("Remote Desktop", "Remote Desktop"), rs.RemoteDesktopEnabled ? T("Aktiv – Vorsicht", "Active – caution") : T("Deaktiviert", "Disabled"), "RDP", rs.RemoteDesktopEnabled ? AiOrange : AiGreen, true),
+                OutlineButton(T("Status jetzt prüfen", "Check status now"), RemoteFirewallCheck_Click)
+            ));
             Grid.SetColumn(right, 1);
             grid.Children.Add(right);
 
-            return grid;
+            Grid.SetRow(grid, 1);
+            root.Children.Add(grid);
+            return root;
         }
 
 
@@ -4655,6 +4712,7 @@ namespace GamingBooster_Pro
             tiles.Children.Add(ModernTile(T("Geräte-Manager", "Device Manager"), T("Öffnet den Geräte-Manager zur Verwaltung deiner Hardware.", "Opens Device Manager to manage your hardware."), "DRV", AiBlue, (s, e) => SafeStartSystem("devmgmt.msc")));
             tiles.Children.Add(ModernTile("Task Manager", T("Öffnet den Task-Manager für Prozessüberwachung und Beendigung.", "Opens Task Manager for process monitoring and termination."), "CPU", AiGreen, (s, e) => SafeStartSystem("taskmgr.exe")));
             tiles.Children.Add(ModernTile("Report", T("Erstellt einen System-Report mit Hard- und Software-Informationen.", "Creates a system report with hardware and software information."), "TXT", AiOrange, SaveReport_Click));
+            tiles.Children.Add(ModernTile(T("Remote Support", "Remote Support"), T("Quick Assist, Remote Desktop, Firewall", "Quick Assist, Remote Desktop, firewall"), "RDP", AiBlue, (s, e) => Navigate("RemoteSupport")));
             tilesCard.Child = tiles;
             left.Children.Add(tilesCard);
 
@@ -9189,17 +9247,40 @@ private Border ModernOutputCard(string startText)
         private async void RemoteFirewallCheck_Click(object sender, RoutedEventArgs e)
         {
             PrepareActionOutput();
+            await RunRemoteSupportCheckAsync();
+        }
 
-            await Log("===== REMOTE SUPPORT SECURITY CHECK =====");
-            await Log("Quick Assist ist sicherer, weil du einen Code freigibst und alles sichtbar ist.");
+        private async Task RunRemoteSupportCheckAsync()
+        {
+            bool en = IsEnglish();
+            RemoteSupportStatus rs = RedlineRemoteSupport.Query();
+
+            await Log("===== " + T("REMOTE SUPPORT CHECK", "REMOTE SUPPORT CHECK") + " =====");
+            await Log(RedlineRemoteSupport.FormatStatusLabel(rs, en));
+            await Log(en
+                ? "Quick Assist is safer – you share a code and must approve."
+                : "Quick Assist ist sicherer – du gibst einen Code frei und musst zustimmen.");
             await Log("");
-            await Log("Firewall Profile:");
-            await Log(await RunPowerShellCapture("Get-NetFirewallProfile | Select-Object Name,Enabled | Format-Table -AutoSize"));
+
+            if (!string.IsNullOrWhiteSpace(rs.QuickAssistPath))
+                await Log("Quick Assist: " + rs.QuickAssistPath);
+
+            await Log(T("Firewall Profile:", "Firewall profiles:"));
+            if (RedlineTestHooks.DryRun)
+                await Log("[dry-run] Get-NetFirewallProfile");
+            else
+                await Log(await RunPowerShellCapture("Get-NetFirewallProfile | Select-Object Name,Enabled | Format-Table -AutoSize"));
+
             await Log("");
-            await Log("Remote Desktop Status:");
-            await Log(await RunPowerShellCapture("Get-ItemProperty -Path 'HKLM:\\System\\CurrentControlSet\\Control\\Terminal Server' -Name fDenyTSConnections | Select-Object fDenyTSConnections | Format-List"));
+            await Log(T("Remote Desktop (Registry):", "Remote Desktop (registry):"));
+            await Log(rs.RemoteDesktopEnabled
+                ? T("Remote Desktop ist AN (fDenyTSConnections=0)", "Remote Desktop is ON (fDenyTSConnections=0)")
+                : T("Remote Desktop ist AUS", "Remote Desktop is OFF"));
+
             await Log("");
-            await Log("Empfehlung: Kein Remote Desktop ohne starkes Passwort und VPN/Heimnetz. Quick Assist bevorzugen.");
+            await Log(en
+                ? "Tip: Prefer Quick Assist. Do not enable RDP without strong password and VPN."
+                : "Tipp: Quick Assist bevorzugen. RDP nicht ohne starkes Passwort und VPN aktivieren.");
         }
 
         private async void DriverScan_Click(object sender, RoutedEventArgs e)

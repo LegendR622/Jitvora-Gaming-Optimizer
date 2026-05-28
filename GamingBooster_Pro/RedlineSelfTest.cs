@@ -25,6 +25,7 @@ namespace GamingBooster_Pro
             TestRecommendedCategories();
             TestPerfTileRouting();
             TestFeatureGate();
+            TestRemoteSupport();
             TestHardwareDriverLinks();
             TestVersionCompare();
             TestVersionJsonLocal();
@@ -119,6 +120,15 @@ namespace GamingBooster_Pro
             Assert("Perf GAME MODE Route", RedlinePerfNavigation.Resolve("GAME MODE") == PerfDetailAction.GameModeSettings);
         }
 
+        private static void TestRemoteSupport()
+        {
+            RemoteSupportStatus rs = RedlineRemoteSupport.Query();
+            Assert("RemoteSupport Query", rs != null);
+            string label = RedlineRemoteSupport.FormatStatusLabel(rs, false);
+            Assert("RemoteSupport Label DE", label.Contains("Remote Desktop", StringComparison.OrdinalIgnoreCase));
+            Assert("Remote RDP bool lesbar", rs.RemoteDesktopEnabled || !rs.RemoteDesktopEnabled);
+        }
+
         private static void TestHardwareDriverLinks()
         {
             HardwareProfile hp = new HardwareProfile
@@ -153,9 +163,9 @@ namespace GamingBooster_Pro
 
         private static void TestVersionCompare()
         {
-            Assert("9.10 > 9.9", CompareVer("9.10", "9.9") > 0);
-            Assert("9.9 < 9.10", CompareVer("9.9", "9.10") < 0);
-            Assert("9.10 == 9.10", CompareVer("9.10", "9.10") == 0);
+            Assert("9.11 > 9.10", CompareVer("9.11", "9.10") > 0);
+            Assert("9.10 < 9.11", CompareVer("9.10", "9.11") < 0);
+            Assert("9.11 == 9.11", CompareVer("9.11", "9.11") == 0);
         }
 
         private static int CompareVer(string online, string current)
@@ -198,13 +208,13 @@ namespace GamingBooster_Pro
 
             using JsonDocument doc = JsonDocument.Parse(File.ReadAllText(path));
             string ver = doc.RootElement.GetProperty("version").GetString() ?? "";
-            Assert("version.json Version 9.10", ver == "9.10", "v" + ver);
+            Assert("version.json Version 9.11", ver == "9.11", "v" + ver);
             Assert("version.json downloadUrl", doc.RootElement.TryGetProperty("downloadUrl", out _));
         }
 
         private static void TestUpdateLogRoundtrip()
         {
-            RedlineUpdateLog.Add("9.10-test", "9.10", "selftest", "OK selftest");
+            RedlineUpdateLog.Add("9.11-test", "9.11", "selftest", "OK selftest");
             var all = RedlineUpdateLog.LoadAll();
             Assert("Update-Log Eintrag", all.Any(e => e.Result.Contains("selftest", StringComparison.OrdinalIgnoreCase)));
         }
@@ -252,7 +262,7 @@ namespace GamingBooster_Pro
             try
             {
                 using HttpClient client = new HttpClient { Timeout = TimeSpan.FromSeconds(12) };
-                client.DefaultRequestHeaders.UserAgent.ParseAdd("RedlineSelfTest/9.10");
+                client.DefaultRequestHeaders.UserAgent.ParseAdd("RedlineSelfTest/9.11");
                 string json = await client.GetStringAsync(url).ConfigureAwait(false);
                 if (!json.TrimStart().StartsWith("{", StringComparison.Ordinal))
                 {
