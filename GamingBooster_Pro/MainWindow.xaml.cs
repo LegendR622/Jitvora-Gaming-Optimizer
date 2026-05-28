@@ -104,7 +104,7 @@ namespace GamingBooster_Pro
         private TextBlock? _cleanerFoundSizeValueText;
         private readonly Dictionary<string, TextBlock> _cleanerCategoryAmountTexts = new Dictionary<string, TextBlock>(StringComparer.OrdinalIgnoreCase);
 
-        private const string CurrentAppVersion = "9.26";
+        private const string CurrentAppVersion = "9.27";
         private TextBlock? _updateInstalledVersionLabel;
         private TextBlock? _updateOnlineVersionLabel;
         private TextBlock? _driverActivityText;
@@ -114,6 +114,8 @@ namespace GamingBooster_Pro
         private StackPanel? _gameAdviceHost;
         private TextBlock? _gameAdviceStatusText;
         private string? _selectedGameAdvice;
+        private TextBlock? _pageActivityText;
+        private ProgressBar? _pageActivityBar;
 
         private bool _startupAutoUpdateStarted;
         private string? _pendingUpdateBannerVersion;
@@ -910,21 +912,13 @@ namespace GamingBooster_Pro
             {
                 bool active = string.Equals(b.Tag as string, activePage, StringComparison.OrdinalIgnoreCase);
                 b.Background = active
-                    ? new SolidColorBrush(Color.FromArgb((byte)(80), 110, 16, 28))
+                    ? new SolidColorBrush(Color.FromArgb(100, 42, 12, 22))
                     : Brushes.Transparent;
-                b.BorderBrush = Red;
-                b.BorderThickness = active ? new Thickness(4, 0, 0, 0) : new Thickness(0);
-                b.Foreground = active ? Red : new SolidColorBrush(Color.FromRgb(170, 178, 192));
+                b.BorderBrush = active ? Red : Brushes.Transparent;
+                b.BorderThickness = active ? new Thickness(3, 0, 0, 0) : new Thickness(0);
+                b.Foreground = active ? Brushes.White : new SolidColorBrush(Color.FromRgb(148, 158, 178));
                 b.FontWeight = active ? FontWeights.SemiBold : FontWeights.Medium;
-                b.Effect = active
-                    ? new System.Windows.Media.Effects.DropShadowEffect
-                    {
-                        Color = Color.FromRgb(235, 18, 48),
-                        BlurRadius = 16,
-                        ShadowDepth = 0,
-                        Opacity = 0.45
-                    }
-                    : null;
+                b.Effect = null;
             }
         }
 
@@ -996,7 +990,7 @@ namespace GamingBooster_Pro
                 Background = SubCardBg,
                 BorderBrush = Border,
                 BorderThickness = new Thickness(1),
-                CornerRadius = new CornerRadius(9),
+                CornerRadius = new CornerRadius(12),
                 Padding = new Thickness(14),
                 Margin = new Thickness(0, 0, 0, 18)
             };
@@ -1263,10 +1257,10 @@ namespace GamingBooster_Pro
             {
                 Content = text,
                 Tag = page,
-                Height = 50,
+                Height = 46,
                 HorizontalContentAlignment = HorizontalAlignment.Left,
-                Padding = new Thickness(20, 0, 14, 0),
-                Margin = new Thickness(0, 0, 0, 5),
+                Padding = new Thickness(18, 0, 12, 0),
+                Margin = new Thickness(0, 0, 0, 4),
                 Background = Brushes.Transparent,
                 Foreground = new SolidColorBrush(Color.FromRgb(170, 178, 192)),
                 BorderBrush = Red,
@@ -1276,7 +1270,7 @@ namespace GamingBooster_Pro
                 Cursor = System.Windows.Input.Cursors.Hand,
                 ToolTip = PageInfo(page)
             };
-            ApplyButtonSkin(b, 10);
+            ApplyButtonSkin(b, 12);
             RedlineUi.ApplyCrispText(b);
             b.Click += (s, e) => Navigate(page);
             _navButtons.Add(b);
@@ -3884,11 +3878,9 @@ namespace GamingBooster_Pro
             grid.Children.Add(left);
 
             StackPanel right = new StackPanel();
-            Border perfStatus = CreateActivityStatusCard(
+            Border perfStatus = CreatePageStatusCard(
                 T("STATUS", "STATUS"),
                 T("Bereit — Optimierung nur per Klick.", "Ready — optimize only on button click."),
-                out TextBlock? _,
-                out ProgressBar? __,
                 140);
             perfStatus.Margin = new Thickness(0, 0, 0, 18);
             right.Children.Add(perfStatus);
@@ -5255,7 +5247,7 @@ namespace GamingBooster_Pro
                 AiCheckRow(T("EMPFEHLUNG", "RECOMMENDATION"), T("Basierend auf deinem Systemstatus empfehle ich dir folgende Aktion: Temp löschen.", "Based on your system status I recommend: delete temp files."), "★", Red, false),
                 new UniformGrid { Columns = 3, Margin = new Thickness(0, 8, 0, 10), Children = { StatusCard(T("SICHER", "SAFE"), T("Keine Risiken erkannt", "No risks detected"), "✓", AiGreen), StatusCard(T("ZU PRÜFEN", "TO CHECK"), T("2 Optimierungen möglich", "2 optimizations possible"), "!", AiOrange), StatusCard(T("OPTIMIERUNGS-SCORE", "OPTIMIZATION SCORE"), T("Sehr gut", "Very good"), "92", AiGreen) } },
                 AiCheckRow(T("TOOL VALIDIERUNG", "TOOL VALIDATION"), T("Ausgewähltes Tool wird als sicher eingestuft. Keine negativen Auswirkungen auf dein System.", "Selected tool is considered safe. No negative impact on your system."), "✓", AiGreen, true),
-                ModernOutputCard(T("LIVE LOG", "LIVE LOG"), T("Assistent gestartet...", "Assistant started..."), T("AI ASSISTENT AKTIV", "AI ASSISTANT ACTIVE"))
+                CreatePageStatusCard(T("STATUS", "STATUS"), T("Tool bereit — Kachel anklicken.", "Tool ready — click a tile."), 120)
             ));
 
             Grid.SetColumn(right, 1);
@@ -5394,7 +5386,7 @@ namespace GamingBooster_Pro
             p.Children.Add(InfoLine("Leistung: zeigt Hardware, Laufwerke, Top-RAM-Prozesse und Netzwerkadapter."));
             p.Children.Add(InfoLine("Startup: zeigt Autostarts und kann ausgewählte Einträge deaktivieren."));
             p.Children.Add(InfoLine("Security Check: Defender, Firewall, Hosts-Datei, auffällige Prozesse und Offline Scan."));
-            p.Children.Add(InfoLine("Driver Check: Treiberstatus mit offiziellen Update-Buttons."));
+            p.Children.Add(InfoLine("Driver Check: Treiberstatus, offizielle Links, kein Live-Log."));
             p.Children.Add(InfoLine("BIOS/UEFI: zeigt BIOS-Version, Secure Boot, TPM, Virtualization und Empfehlungen."));
             p.Children.Add(InfoLine("Network: Ping, DNS, Adapter, Speed Test und Winsock Reset."));
             p.Children.Add(InfoLine("Repair: SFC, DISM, Store Reset und Zuverlässigkeitsverlauf."));
@@ -6361,19 +6353,72 @@ private Border StatusCard(string title, string value, Brush color)
             btn.Click += handler;
             return btn;
         }
-        private Border ModernOutputCard(string title, string startText, string statusText)
+        private Border ModernOutputCard(string startText) =>
+            CreatePageStatusCard(T("STATUS", "STATUS"), startText, 168);
+
+        private Border CreatePageStatusCard(string title, string startText, double minHeight = 168)
         {
-            Border card = CreateLiveLogCard(title, startText, 220);
-            if (_liveLog != null)
-            {
-                _liveLog.FooterStatus.Text = statusText;
-                _liveLog.FooterStatus.Foreground = AiGreen;
-            }
-            return card;
+            _liveLog = null;
+            Progress = null;
+            return CreateActivityStatusCard(title, startText, out _pageActivityText, out _pageActivityBar, minHeight);
         }
 
-private Border ModernOutputCard(string startText) =>
-            CreateLiveLogCard(T("LIVE LOG", "LIVE LOG"), startText, 420);
+        private static string? SimplifyLogLine(string text)
+        {
+            if (string.IsNullOrWhiteSpace(text))
+                return null;
+            string t = text.Trim();
+            if (t.StartsWith("=====", StringComparison.Ordinal) || t.StartsWith("════", StringComparison.Ordinal))
+                return null;
+            if (t.StartsWith("Made by ", StringComparison.OrdinalIgnoreCase))
+                return null;
+            if (t.Length > 140)
+                t = t[..137] + "…";
+            return t;
+        }
+
+        private void SetPageActivity(string text, double? progress = null)
+        {
+            Dispatcher.Invoke(() =>
+            {
+                if (CurrentPage == "Drivers" && _driverActivityText != null)
+                {
+                    _driverActivityText.Text = text;
+                    if (progress.HasValue && _driverActivityBar != null)
+                    {
+                        _driverActivityBar.IsIndeterminate = false;
+                        _driverActivityBar.Value = Math.Clamp(progress.Value, 0, 100);
+                    }
+                    return;
+                }
+
+                if (CurrentPage == "Update" && _updateActivityText != null)
+                {
+                    _updateActivityText.Text = text;
+                    if (progress.HasValue && _updateActivityBar != null)
+                    {
+                        _updateActivityBar.IsIndeterminate = false;
+                        _updateActivityBar.Value = Math.Clamp(progress.Value, 0, 100);
+                    }
+                    return;
+                }
+
+                if (_pageActivityText == null)
+                    return;
+
+                _pageActivityText.Text = text;
+                if (_pageActivityBar == null)
+                    return;
+
+                if (progress.HasValue)
+                {
+                    _pageActivityBar.IsIndeterminate = false;
+                    _pageActivityBar.Value = Math.Clamp(progress.Value, 0, 100);
+                }
+                else
+                    _pageActivityBar.IsIndeterminate = text.Contains('…') || text.Contains("...");
+            });
+        }
 
         private Border CreateActivityStatusCard(
             string title,
@@ -11758,6 +11803,8 @@ private Border ModernOutputCard(string startText) =>
 
         private void PrepareActionOutput()
         {
+            SetPageActivity(T("Wird ausgeführt…", "Running…"), null);
+
             if (_liveLog != null && IsLiveLogOnScreen())
             {
                 _liveLog.Clear();
@@ -11765,8 +11812,8 @@ private Border ModernOutputCard(string startText) =>
                 return;
             }
 
-            EnsureOutputBox();
-            OutputBox!.Clear();
+            if (OutputBox != null && IsOutputBoxOnScreen())
+                OutputBox.Clear();
         }
 
         private bool IsLiveLogOnScreen()
@@ -11785,6 +11832,10 @@ private Border ModernOutputCard(string startText) =>
 
         private async Task Log(string text)
         {
+            string? line = SimplifyLogLine(text);
+            if (!string.IsNullOrEmpty(line))
+                SetPageActivity(line, null);
+
             if (_liveLog != null && IsLiveLogOnScreen())
             {
                 await Dispatcher.InvokeAsync(() => _liveLog.Append(text));
@@ -11792,7 +11843,7 @@ private Border ModernOutputCard(string startText) =>
             }
 
             if (OutputBox == null || !IsOutputBoxOnScreen())
-                EnsureOutputBox();
+                return;
 
             await Dispatcher.InvokeAsync(() =>
             {
@@ -11803,8 +11854,10 @@ private Border ModernOutputCard(string startText) =>
 
         private void EndLogBusy()
         {
-            if (_liveLog != null)
+            if (_liveLog != null && IsLiveLogOnScreen())
                 _liveLog.SetHeaderBusy(false);
+            else
+                SetPageActivity(T("Fertig.", "Done."), 100);
         }
 
 
