@@ -103,7 +103,7 @@ namespace GamingBooster_Pro
         private TextBlock? _cleanerFoundSizeValueText;
         private readonly Dictionary<string, TextBlock> _cleanerCategoryAmountTexts = new Dictionary<string, TextBlock>(StringComparer.OrdinalIgnoreCase);
 
-        private const string CurrentAppVersion = "9.16";
+        private const string CurrentAppVersion = "9.17";
 
         private bool _startupAutoUpdateStarted;
         private string? _pendingUpdateBannerVersion;
@@ -10444,10 +10444,18 @@ private Border ModernOutputCard(string startText)
                 }
             }
 
+            string installArgs = RedlineInstallHelper.BuildSilentInstallerArgs();
+            if (RedlineInstallHelper.IsSetupInstalled())
+                await Log(T("Vorhandene Installation erkannt – Update ersetzt alte Dateien im Installationsordner.",
+                    "Existing installation detected – update will replace old files in install folder."));
+            else
+                await Log(T("Neue Installation wird gestartet...", "Starting new installation..."));
+
             await Log(T("Starte Installer...", "Starting installer..."));
             RedlineAppData.MarkPendingUpdateBanner(version);
-            SafeStartSystem(target, "", true);
-            await Log(T("Redline wird beendet – Installer übernimmt.", "Redline is closing – installer takes over."));
+            SafeStartSystem(target, installArgs, true);
+            await Log(T("Redline wird beendet – Installer übernimmt (alte EXE wird ersetzt).",
+                "Redline is closing – installer replaces the old EXE."));
             await Task.Delay(800);
             Application.Current.Shutdown();
         }
