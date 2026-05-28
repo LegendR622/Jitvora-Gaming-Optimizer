@@ -103,7 +103,7 @@ namespace GamingBooster_Pro
         private TextBlock? _cleanerFoundSizeValueText;
         private readonly Dictionary<string, TextBlock> _cleanerCategoryAmountTexts = new Dictionary<string, TextBlock>(StringComparer.OrdinalIgnoreCase);
 
-        private const string CurrentAppVersion = "9.19";
+        private const string CurrentAppVersion = "9.20";
 
         private bool _startupAutoUpdateStarted;
         private string? _pendingUpdateBannerVersion;
@@ -10480,14 +10480,23 @@ private Border ModernOutputCard(string startText)
                 if (autoInstall)
                     await Log(T("Automatische Installation gestartet...", "Automatic installation started..."));
 
-                await DownloadAndApplyUpdateAsync(client, latestVersion, downloadUrl, autoInstall);
+                bool installed = await DownloadAndApplyUpdateAsync(client, latestVersion, downloadUrl, autoInstall);
 
                 if (Progress != null)
-                    Progress.Value = 100;
+                    Progress.Value = installed ? 100 : 70;
+
+                if (!installed)
+                {
+                    await Log("");
+                    await Log(T("❌ Installation nicht gestartet – Setup liegt im Temp-Ordner (siehe Log oben).",
+                        "❌ Installation did not start – setup is in the temp folder (see log above)."));
+                    await Log(T("Tipp: „UPDATE AUTOMATISCH INSTALLIEREN“ erneut oder Setup-EXE manuell starten (Admin).",
+                        "Tip: run „INSTALL UPDATE AUTOMATICALLY“ again or start the setup EXE manually (admin)."));
+                }
             });
         }
 
-        private async Task DownloadAndApplyUpdateAsync(HttpClient client, string version, string downloadUrl, bool autoInstall)
+        private async Task<bool> DownloadAndApplyUpdateAsync(HttpClient client, string version, string downloadUrl, bool autoInstall)
         {
             await Log("");
             await Log(T("Lade Update herunter...", "Downloading update..."));
@@ -10517,8 +10526,14 @@ private Border ModernOutputCard(string startText)
 
             if (isZip)
             {
-                await ApplyZipUpdateAsync(target, version, autoInstall);
-                return;
+                if (RedlineInstallHelper.IsSetupInstalled())
+                {
+                    await Log(T("❌ ZIP-Update nicht für installierte Redline-Version. Bitte Setup-EXE von GitHub verwenden.",
+                        "❌ ZIP update cannot replace an installed Redline. Use the Setup EXE from GitHub."));
+                    return false;
+                }
+
+                return await ApplyZipUpdateAsync(target, version);
             }
 
             if (!autoInstall)
@@ -10531,7 +10546,7 @@ private Border ModernOutputCard(string startText)
                 if (start != MessageBoxResult.Yes)
                 {
                     await Log(T("Installation abgebrochen.", "Installation cancelled."));
-                    return;
+                    return false;
                 }
             }
 
@@ -10542,16 +10557,31 @@ private Border ModernOutputCard(string startText)
             else
                 await Log(T("Neue Installation wird gestartet...", "Starting new installation..."));
 
-            await Log(T("Starte Installer...", "Starting installer..."));
+            await Log(T("Starte Installer (Windows fragt ggf. nach Bestätigung)...",
+                "Starting installer (Windows may ask for confirmation)..."));
             RedlineAppData.MarkPendingUpdateBanner(version);
-            SafeStartSystem(target, installArgs, true);
-            await Log(T("Redline wird beendet – Installer übernimmt (alte EXE wird ersetzt).",
-                "Redline is closing – installer replaces the old EXE."));
-            await Task.Delay(800);
+
+            if (!RedlineInstallHelper.TryLaunchInstaller(target, installArgs, out string? startError))
+            {
+                await Log(T("❌ Installer konnte nicht gestartet werden: ", "❌ Could not start installer: ") + startError);
+                MessageBox.Show(
+                    T("Update wurde heruntergeladen, aber der Installer startete nicht.\n\n",
+                      "Update was downloaded but the installer did not start.\n\n")
+                    + target + "\n\n" + startError,
+                    T("Redline Update", "Redline Update"),
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Warning);
+                return false;
+            }
+
+            await Log(T("Installer läuft – Redline schließt in Kürze (alte EXE wird ersetzt).",
+                "Installer running – Redline will close shortly (old EXE will be replaced)."));
+            await Task.Delay(3500);
             Application.Current.Shutdown();
+            return true;
         }
 
-        private async Task ApplyZipUpdateAsync(string zipPath, string version, bool autoInstall)
+        private async Task<bool> ApplyZipUpdateAsync(string zipPath, string version)
         {
             string extractDir = Path.Combine(Path.GetTempPath(), "RedlineUpdate", "extract_" + version);
             if (Directory.Exists(extractDir))
@@ -10599,6 +10629,7 @@ private Border ModernOutputCard(string startText)
 
             await Task.Delay(500);
             Application.Current.Shutdown();
+            return true;
         }
 
         private int CompareVersions(string online, string current)

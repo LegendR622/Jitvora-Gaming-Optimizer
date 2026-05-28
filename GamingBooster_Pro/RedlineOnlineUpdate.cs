@@ -68,7 +68,12 @@ namespace GamingBooster_Pro
                 string version = node["version"]?.ToString()?.Trim() ?? "";
                 string downloadUrl = node["downloadUrl"]?.ToString()?.Trim() ?? "";
                 string notes = node["notes"]?.ToString()?.Trim() ?? "";
+                string packageType = node["packageType"]?.ToString()?.Trim() ?? "";
                 if (string.IsNullOrWhiteSpace(version) || string.IsNullOrWhiteSpace(downloadUrl))
+                    return null;
+
+                if (string.Equals(packageType, "setup", StringComparison.OrdinalIgnoreCase)
+                    && !downloadUrl.EndsWith(".exe", StringComparison.OrdinalIgnoreCase))
                     return null;
 
                 return new RedlineUpdateManifest
@@ -111,7 +116,6 @@ namespace GamingBooster_Pro
                     : "";
 
                 string? downloadUrl = null;
-                string? zipFallback = null;
                 if (root.TryGetProperty("assets", out JsonElement assets) && assets.ValueKind == JsonValueKind.Array)
                 {
                     foreach (JsonElement asset in assets.EnumerateArray())
@@ -134,13 +138,8 @@ namespace GamingBooster_Pro
 
                         if (name.EndsWith(".exe", StringComparison.OrdinalIgnoreCase) && downloadUrl == null)
                             downloadUrl = url;
-
-                        if (name.EndsWith(".zip", StringComparison.OrdinalIgnoreCase) && zipFallback == null)
-                            zipFallback = url;
                     }
                 }
-
-                downloadUrl ??= zipFallback;
 
                 if (string.IsNullOrWhiteSpace(version) || string.IsNullOrWhiteSpace(downloadUrl))
                     return null;

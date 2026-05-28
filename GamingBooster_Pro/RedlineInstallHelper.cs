@@ -1,4 +1,6 @@
 using System;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using Microsoft.Win32;
 
@@ -50,6 +52,43 @@ namespace GamingBooster_Pro
             string p = path.ToLowerInvariant();
             return p.Contains(@"\program files\redline gaming optimizer")
                 || p.Contains(@"\program files (x86)\redline gaming optimizer");
+        }
+
+        /// <summary>
+        /// Starts the Inno Setup installer (UAC is requested by the setup EXE, not via runas on the parent app).
+        /// </summary>
+        public static bool TryLaunchInstaller(string installerPath, string arguments, out string? errorMessage)
+        {
+            errorMessage = null;
+            if (string.IsNullOrWhiteSpace(installerPath) || !File.Exists(installerPath))
+            {
+                errorMessage = "Installer nicht gefunden: " + installerPath;
+                return false;
+            }
+
+            try
+            {
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = installerPath,
+                    Arguments = arguments,
+                    UseShellExecute = true,
+                    WorkingDirectory = Path.GetDirectoryName(installerPath) ?? ""
+                });
+                return true;
+            }
+            catch (Win32Exception ex)
+            {
+                errorMessage = ex.NativeErrorCode == 1223
+                    ? "Windows-Bestätigung (UAC) abgebrochen."
+                    : ex.Message;
+                return false;
+            }
+            catch (Exception ex)
+            {
+                errorMessage = ex.Message;
+                return false;
+            }
         }
     }
 }
