@@ -103,7 +103,7 @@ namespace GamingBooster_Pro
         private TextBlock? _cleanerFoundSizeValueText;
         private readonly Dictionary<string, TextBlock> _cleanerCategoryAmountTexts = new Dictionary<string, TextBlock>(StringComparer.OrdinalIgnoreCase);
 
-        private const string CurrentAppVersion = "9.11";
+        private const string CurrentAppVersion = "9.12";
 
         private static readonly string[] CleanerRecommendedCategories =
         {
@@ -702,11 +702,12 @@ namespace GamingBooster_Pro
 
             MessageBox.Show(
                 T(
-                    "In-App Treiber-Update und Installation kommen bald für alle Nutzer (Free-Version).\n\nDie Funktion wird gerade auf dem Entwickler-PC getestet und danach für alle freigeschaltet.",
-                    "In-app driver update and install are coming soon for all users (free version).\n\nWe are testing on the developer PC first, then enabling it for everyone."),
-                T("Bald verfügbar", "Coming soon"),
+                    "In-App Treiber-Update und alle Pro-Funktionen brauchen Redline Pro.\n\nGib unter Einstellungen deinen Master-Key ein (z. B. von Tobias).",
+                    "In-app driver update and all Pro features require Redline Pro.\n\nEnter your master key in Settings (e.g. from Tobias)."),
+                T("Pro erforderlich", "Pro required"),
                 MessageBoxButton.OK,
                 MessageBoxImage.Information);
+            Navigate("Settings");
             return false;
         }
 
@@ -735,7 +736,9 @@ namespace GamingBooster_Pro
             IsProActive()
                 ? (RedlineAppData.Current.DevProEnabled
                     ? T("Pro: Aktiv (Entwickler)", "Pro: Active (developer)")
-                    : T("Pro: Aktiv (Lifetime)", "Pro: Active (lifetime)"))
+                    : RedlineAppData.Current.MasterProEnabled
+                        ? T("Pro: Aktiv (Master)", "Pro: Active (master)")
+                        : T("Pro: Aktiv (Lifetime)", "Pro: Active (lifetime)"))
                 : RedlineAppData.ProPurchaseEnabled
                     ? T("Pro: 10 € einmalig (Lifetime)", "Pro: €10 one-time (lifetime)")
                     : T("Pro: Bald · Konto folgt", "Pro: Soon · account coming");
@@ -1416,7 +1419,7 @@ namespace GamingBooster_Pro
             if (t.Contains("WINSOCK")) return "Setzt Netzwerkstack zurück. Danach Neustart empfohlen.";
             if (t.Contains("UEFI")) return "Startet in Windows-Erweiterte Startoptionen für BIOS/UEFI.";
             if (t.Contains("QUICK ASSIST")) return "Öffnet Windows Schnellhilfe für sichere Fernunterstützung.";
-            if (t.Contains("CODE")) return "Generiert oder kopiert einen lokalen Support-Code zur Erkennung im Gespräch.";
+            if (t.Contains("CODE") || t.Contains("REFERENZ") || t.Contains("REFERENCE")) return "Kopiert nur die optionale Redline Referenz-ID (kein Fernzugriff). Verbindung: Quick Assist.";
             if (t.Contains("UPDATE")) return "Prüft online, ob eine neue Redline-Version verfügbar ist.";
             if (t.Contains("DOWNLOAD")) return "Lädt den neuen Redline Installer herunter und startet ihn nach Bestätigung.";
             if (t.Contains("REPORT")) return "Speichert die aktuelle Ausgabe als Textdatei auf dem Desktop.";
@@ -4080,7 +4083,7 @@ namespace GamingBooster_Pro
                 Margin = new Thickness(0, 0, 0, 12)
             });
             StackPanel inAppBtns = new StackPanel { Orientation = Orientation.Horizontal };
-            if (RedlineFeatureGate.InAppDriverUpdateEnabled)
+            if (RedlineFeatureGate.InAppDriverUpdateEnabled && IsProActive())
             {
                 Button autoInApp = RedButton("🔄  " + T("AUTO UPDATE", "AUTO UPDATE"), DriversInAppAutoUpdate_Click);
                 autoInApp.Width = 200;
@@ -4120,7 +4123,7 @@ namespace GamingBooster_Pro
             tiles.Children.Add(ModernTile("Realtek", T("Realtek Audio/LAN", "Realtek audio/LAN"), "RT", CardBg2, (s, e) => OpenUri("https://www.realtek.com/Download/List?cate_id=584")));
             tiles.Children.Add(ModernTile(T("Report", "Report"), T("Treiber-Report speichern", "Save driver report"), "TXT", AiPurple, DriverReport_Click));
 
-            if (RedlineFeatureGate.InAppDriverUpdateEnabled)
+            if (RedlineFeatureGate.InAppDriverUpdateEnabled && IsProActive())
             {
                 tiles.Children.Add(ModernTile(T("AUTO UPDATE", "AUTO UPDATE"),
                     T("In-App: Scan + Windows Update + winget", "In-app: scan + Windows Update + winget"),
@@ -4590,40 +4593,75 @@ namespace GamingBooster_Pro
             statusCard.Child = st;
             left.Children.Add(statusCard);
 
+            Border connectCard = DashboardCard();
+            connectCard.Margin = new Thickness(0, 0, 18, 18);
+            connectCard.Padding = new Thickness(18);
+            connectCard.BorderBrush = Red;
+            StackPanel conn = new StackPanel();
+            conn.Children.Add(new TextBlock
+            {
+                Text = T("SO VERBINDEST DU DICH (QUICK ASSIST)", "HOW TO CONNECT (QUICK ASSIST)"),
+                Foreground = Brushes.White,
+                FontSize = 16,
+                FontWeight = FontWeights.UltraBold,
+                Margin = new Thickness(0, 0, 0, 10)
+            });
+            conn.Children.Add(new TextBlock
+            {
+                Text = T(
+                    "1. Hier „Quick Assist“ öffnen\n2. „Hilfe anfordern“ (sie) oder „Einer anderen Person helfen“ (du)\n3. Den 6-stelligen Code aus Windows Schnellhilfe nutzen – NICHT den Redline-Code unten\n4. Auf „Zulassen“ tippen",
+                    "1. Open Quick Assist here\n2. Get help (them) or Help someone (you)\n3. Use the 6-digit code from Windows Quick Assist – NOT the Redline ID below\n4. Tap Allow"),
+                Foreground = Muted,
+                FontSize = 12,
+                TextWrapping = TextWrapping.Wrap,
+                Margin = new Thickness(0, 0, 0, 14)
+            });
+            Button qaBig = RedButton("🖥  " + T("QUICK ASSIST ÖFFNEN", "OPEN QUICK ASSIST"), (s, e) => OpenQuickAssist());
+            qaBig.Height = 50;
+            conn.Children.Add(qaBig);
+            connectCard.Child = conn;
+            left.Children.Add(connectCard);
+
             Border codeCard = DashboardCard();
             codeCard.Margin = new Thickness(0, 0, 18, 18);
             codeCard.Padding = new Thickness(18);
             StackPanel c = new StackPanel();
-            c.Children.Add(new TextBlock { Text = T("REDLINE SUPPORT-CODE", "REDLINE SUPPORT CODE"), Foreground = Brushes.White, FontSize = 15, FontWeight = FontWeights.UltraBold });
             c.Children.Add(new TextBlock
             {
-                Text = T("Lokaler Code für Telefon/Chat – echte Verbindung nur über Windows Quick Assist mit deiner Zustimmung.",
-                  "Local code for phone/chat – real connection only via Windows Quick Assist with your consent."),
+                Text = T("NUR REFERENZ-ID (KEIN VERBINDUNGS-CODE)", "REFERENCE ID ONLY (NOT A CONNECTION CODE)"),
+                Foreground = AiOrange,
+                FontSize = 14,
+                FontWeight = FontWeights.UltraBold
+            });
+            c.Children.Add(new TextBlock
+            {
+                Text = T("Optional: Nummer für Telefon/Chat („Meine Redline-Sitzung ist …“). Für Fernhilfe immer Windows Quick Assist oben nutzen.",
+                  "Optional: number for phone/chat (\"My Redline session is …\"). For remote help always use Windows Quick Assist above."),
                 Foreground = Muted,
                 FontSize = 12,
                 TextWrapping = TextWrapping.Wrap,
-                Margin = new Thickness(0, 8, 0, 12)
+                Margin = new Thickness(0, 8, 0, 10)
             });
             RemoteCodeBox = new TextBox
             {
                 Text = GenerateSupportCode(),
-                Height = 48,
-                FontSize = 24,
-                FontWeight = FontWeights.UltraBold,
+                Height = 40,
+                FontSize = 18,
+                FontWeight = FontWeights.SemiBold,
                 TextAlignment = TextAlignment.Center,
-                Background = new SolidColorBrush(Color.FromRgb(5, 5, 7)),
-                Foreground = Brushes.LightGreen,
-                BorderBrush = Red,
+                Background = new SolidColorBrush(Color.FromRgb(16, 21, 29)),
+                Foreground = Muted,
+                BorderBrush = new SolidColorBrush(Color.FromRgb(80, 90, 110)),
                 BorderThickness = new Thickness(1),
                 IsReadOnly = true
             };
             c.Children.Add(RemoteCodeBox);
-            StackPanel codeBtns = new StackPanel { Orientation = Orientation.Horizontal, Margin = new Thickness(0, 12, 0, 0) };
-            Button newCode = OutlineButton(T("NEUER CODE", "NEW CODE"), GenerateRemoteCode_Click);
-            newCode.Width = 160; newCode.Height = 40;
+            StackPanel codeBtns = new StackPanel { Orientation = Orientation.Horizontal, Margin = new Thickness(0, 10, 0, 0) };
+            Button newCode = OutlineButton(T("NEUE ID", "NEW ID"), GenerateRemoteCode_Click);
+            newCode.Width = 120; newCode.Height = 36;
             codeBtns.Children.Add(newCode);
             Button copy = OutlineButton(T("KOPIEREN", "COPY"), CopyRemoteCode_Click);
-            copy.Width = 140; copy.Height = 40; copy.Margin = new Thickness(10, 0, 0, 0);
+            copy.Width = 120; copy.Height = 36; copy.Margin = new Thickness(8, 0, 0, 0);
             codeBtns.Children.Add(copy);
             c.Children.Add(codeBtns);
             codeCard.Child = c;
@@ -4657,6 +4695,7 @@ namespace GamingBooster_Pro
             right.Children.Add(AiSidePanel(
                 "REDLINE AI REMOTE",
                 AiCheckRow(T("Empfehlung", "Recommendation"), T("Quick Assist statt offenem RDP", "Quick Assist instead of open RDP"), "✓", AiGreen, true),
+                AiCheckRow(T("Quick Assist", "Quick Assist"), rs.QuickAssistRunning ? T("Läuft", "Running") : (rs.QuickAssistAvailable ? T("Bereit", "Ready") : T("Nicht erkannt", "Not detected")), "QA", rs.QuickAssistRunning || rs.QuickAssistAvailable ? AiGreen : AiOrange, true),
                 AiCheckRow(T("Remote Desktop", "Remote Desktop"), rs.RemoteDesktopEnabled ? T("Aktiv – Vorsicht", "Active – caution") : T("Deaktiviert", "Disabled"), "RDP", rs.RemoteDesktopEnabled ? AiOrange : AiGreen, true),
                 OutlineButton(T("Status jetzt prüfen", "Check status now"), RemoteFirewallCheck_Click)
             ));
@@ -5022,15 +5061,26 @@ namespace GamingBooster_Pro
                 {
                     Text = (RedlineAppData.Current.DevProEnabled
                         ? T("Pro aktiv (Entwickler). ", "Pro active (developer). ")
-                        : T("Pro aktiv. Key: ", "Pro active. Key: "))
+                        : RedlineAppData.Current.MasterProEnabled
+                            ? T("Pro aktiv (Master). Key: ", "Pro active (master). Key: ")
+                            : T("Pro aktiv. Key: ", "Pro active. Key: "))
                         + (RedlineAppData.Current.ProLicenseMasked.Length > 0 ? RedlineAppData.Current.ProLicenseMasked : "—"),
                     Foreground = Muted,
                     FontSize = 11,
                     TextWrapping = TextWrapping.Wrap
                 });
             }
-            else if (RedlineAppData.ProPurchaseEnabled)
+            else
             {
+                sp.Children.Add(new TextBlock
+                {
+                    Text = T("Master-Key eingeben für alle Pro-Funktionen (Treiber In-App, FPS Boost, …):",
+                             "Enter master key for all Pro features (in-app drivers, FPS boost, …):"),
+                    Foreground = Muted,
+                    FontSize = 11,
+                    TextWrapping = TextWrapping.Wrap,
+                    Margin = new Thickness(0, 0, 0, 8)
+                });
                 TextBox keyBox = new TextBox
                 {
                     Height = 38,
@@ -5038,7 +5088,7 @@ namespace GamingBooster_Pro
                     Background = new SolidColorBrush(Color.FromRgb(16, 21, 29)),
                     Foreground = Brushes.White,
                     BorderBrush = Border,
-                    ToolTip = T("Lifetime-Key aus Kauf-Mail (nach Konto-Kauf).", "Lifetime key from purchase email (after account purchase).")
+                    ToolTip = T("Master- oder Lifetime-Key.", "Master or lifetime key.")
                 };
                 sp.Children.Add(keyBox);
                 Button activate = RedButton(T("PRO AKTIVIEREN", "ACTIVATE PRO"), (s, e) =>
@@ -5084,11 +5134,19 @@ namespace GamingBooster_Pro
                 }
                 sp.Children.Add(new TextBlock
                 {
-                    Text = T("Optionaler Master-Key (nur dieser PC): REDLINE-PRO-V9-IMMISCH", "Optional master key (this PC only): REDLINE-PRO-V9-IMMISCH"),
+                    Text = T("Master-Key für Freundin (jeder PC): REDLINE-PRO-FREUNDIN-GIFT", "Master key for friend (any PC): REDLINE-PRO-FREUNDIN-GIFT"),
+                    Foreground = AiGreen,
+                    FontSize = 11,
+                    FontWeight = FontWeights.SemiBold,
+                    TextWrapping = TextWrapping.Wrap,
+                    Margin = new Thickness(0, 8, 0, 4)
+                });
+                sp.Children.Add(new TextBlock
+                {
+                    Text = T("Entwickler-Key nur dieser PC: REDLINE-PRO-V9-IMMISCH", "Developer key this PC only: REDLINE-PRO-V9-IMMISCH"),
                     Foreground = Muted,
                     FontSize = 10,
-                    TextWrapping = TextWrapping.Wrap,
-                    Margin = new Thickness(0, 0, 0, 4)
+                    TextWrapping = TextWrapping.Wrap
                 });
             }
 
@@ -8147,8 +8205,8 @@ private Border ModernOutputCard(string startText)
             if (OutputBox != null)
             {
                 OutputBox.Clear();
-                await Log("Neuer Redline Support-Code generiert: " + RemoteCodeBox?.Text);
-                await Log("Für echte Fernhilfe zusätzlich Windows Quick Assist öffnen.");
+                await Log(T("Neue Redline Referenz-ID: ", "New Redline reference ID: ") + RemoteCodeBox?.Text);
+                await Log(T("Hinweis: Das ist KEIN Verbindungs-Code. Fernhilfe nur über Quick Assist (oben).", "Note: This is NOT a connection code. Remote help only via Quick Assist (above)."));
             }
         }
 
@@ -8160,7 +8218,7 @@ private Border ModernOutputCard(string startText)
                     Clipboard.SetText(RemoteCodeBox.Text);
 
                 if (OutputBox != null)
-                    await Log("Code kopiert: " + RemoteCodeBox?.Text);
+                    await Log(T("Referenz-ID kopiert (kein Quick-Assist-Code): ", "Reference ID copied (not Quick Assist code): ") + RemoteCodeBox?.Text);
             }
             catch
             {
@@ -9262,8 +9320,12 @@ private Border ModernOutputCard(string startText)
                 : "Quick Assist ist sicherer – du gibst einen Code frei und musst zustimmen.");
             await Log("");
 
+            if (rs.QuickAssistRunning)
+                await Log(en ? "Quick Assist is running." : "Quick Assist läuft gerade.");
             if (!string.IsNullOrWhiteSpace(rs.QuickAssistPath))
                 await Log("Quick Assist: " + rs.QuickAssistPath);
+            else if (!string.IsNullOrWhiteSpace(rs.QuickAssistDetail))
+                await Log("Quick Assist: " + rs.QuickAssistDetail);
 
             await Log(T("Firewall Profile:", "Firewall profiles:"));
             if (RedlineTestHooks.DryRun)

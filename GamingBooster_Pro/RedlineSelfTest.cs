@@ -71,6 +71,8 @@ namespace GamingBooster_Pro
             Assert("Pro-Key DEV gültig", RedlineAppData.LooksLikeProKey("REDLINE-PRO-LIFETIME-DEV"));
             Assert("Pro-Key IMMISCH gültig", RedlineAppData.LooksLikeProKey("REDLINE-PRO-V9-IMMISCH"));
             Assert("Pro-Key Kunde blockiert (Kauf aus)", !RedlineAppData.LooksLikeProKey("REDLINE-PRO-LIFETIME-TESTUSER1234"));
+            Assert("Master-Key FREUNDIN gültig", RedlineAppData.IsMasterProKey("REDLINE-PRO-FREUNDIN-GIFT"));
+            Assert("Master-Key in LooksLikeProKey", RedlineAppData.LooksLikeProKey("REDLINE-PRO-FREUNDIN-GIFT"));
             Assert("Pro-Key Lifetime-Muster wenn Kauf an", !RedlineAppData.ProPurchaseEnabled || RedlineAppData.LooksLikeProKey("REDLINE-PRO-LIFETIME-TESTUSER1234"));
             Assert("Pro-Key zu kurz ungültig", !RedlineAppData.LooksLikeProKey("REDLINE-PRO-LIFETIME-X"));
             Assert("Pro-Key Müll ungültig", !RedlineAppData.LooksLikeProKey("FAKE-KEY"));
@@ -115,8 +117,7 @@ namespace GamingBooster_Pro
         private static void TestFeatureGate()
         {
             bool dev = RedlineDevAuth.IsAuthorizedDeveloperMachine();
-            Assert("InApp-Treiber nur Entwickler-PC", RedlineFeatureGate.InAppDriverUpdateEnabled == dev,
-                dev ? "Entwickler-PC" : "Nutzer-PC");
+            Assert("InApp-Treiber bei Pro", RedlineFeatureGate.InAppDriverUpdateEnabled == RedlineAppData.Current.IsProActive);
             Assert("Perf GAME MODE Route", RedlinePerfNavigation.Resolve("GAME MODE") == PerfDetailAction.GameModeSettings);
         }
 

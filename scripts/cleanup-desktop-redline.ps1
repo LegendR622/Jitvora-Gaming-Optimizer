@@ -19,8 +19,8 @@ Get-ChildItem $desktop -Filter "*.mp4" -File -EA SilentlyContinue |
 
 Get-ChildItem $desktop -Filter "*.exe" -File -EA SilentlyContinue |
     Where-Object {
-        $_.Name -match '^Redline V\d|^Redline_Gaming|^GamingBooster' -and
-        $_.Name -ne 'Redline Gaming Optimizer.exe'
+        ($_.Name -match '^Redline V\d|^Redline_Gaming|^GamingBooster' -and $_.Name -ne 'Redline Gaming Optimizer.exe') -or
+        ($_.Name -match '^Redline_Gaming_Optimizer_Setup' -and $_.Name -ne 'Redline_Gaming_Optimizer_Setup_v9.12.exe')
     } | ForEach-Object {
     Remove-Item $_.FullName -Force
     Write-Host "Geloescht: $($_.Name)"
@@ -41,4 +41,13 @@ if (-not (Test-Path $src)) {
 }
 
 Copy-Item $src $deskExe -Force
-Write-Host "OK: eine App auf Desktop -> $deskExe"
+Write-Host "OK: App -> $deskExe"
+
+$setupSrc = Join-Path $root "dist\Redline_Gaming_Optimizer_Setup_v9.12.exe"
+$setupDesk = Join-Path $desktop "Redline_Gaming_Optimizer_Setup_v9.12.exe"
+if (Test-Path $setupSrc) {
+    Copy-Item $setupSrc $setupDesk -Force
+    Write-Host "OK: Installer -> $setupDesk"
+} else {
+    Write-Host "Installer fehlt: $setupSrc (scripts\build-installer.ps1 ausfuehren)"
+}

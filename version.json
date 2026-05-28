@@ -1,6 +1,6 @@
 ﻿{
-    "packageType":  "zip",
-    "version":  "9.11",
-    "downloadUrl":  "https://github.com/LegendR622/Redline-Gaming-Optimizer/releases/download/v9.11/Redline_V9.11_win-x64.zip",
-    "notes": "V9.11: Remote Support in App (Quick Assist, RDP-Status, Firewall), Menüpunkt Remote, DE/EN."
+  "packageType": "zip",
+  "version": "9.12",
+  "downloadUrl": "https://github.com/LegendR622/Redline-Gaming-Optimizer/releases/download/v9.12/Redline_V9.12_win-x64.zip",
+  "notes": "V9.12: Quick Assist Erkennung, Remote-Anleitung, Master-Key in Einstellungen, In-App-Treiber (Pro), klarere Referenz-ID."
 }

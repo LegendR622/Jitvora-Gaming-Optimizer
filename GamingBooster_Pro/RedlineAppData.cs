@@ -23,6 +23,8 @@ namespace GamingBooster_Pro
 
         public LicenseTier Tier { get; set; } = LicenseTier.Free;
         public bool DevProEnabled { get; set; }
+        /// <summary>Master/Gift-Key – Pro auf jedem PC (z. B. Freundin).</summary>
+        public bool MasterProEnabled { get; set; }
         public bool ProLicenseActive { get; set; }
         public string ProLicenseMasked { get; set; } = "";
         public string ScanDepth { get; set; } = "Standard";
@@ -39,7 +41,7 @@ namespace GamingBooster_Pro
         public bool SecurityChecked { get; set; }
         public int? SecurityScore { get; set; }
 
-        public bool IsProActive => ProLicenseActive || DevProEnabled;
+        public bool IsProActive => ProLicenseActive || DevProEnabled || MasterProEnabled;
 
         public string ProSourceLabel
         {
@@ -47,6 +49,8 @@ namespace GamingBooster_Pro
             {
                 if (DevProEnabled)
                     return Language == "EN" ? "Developer" : "Entwickler";
+                if (MasterProEnabled)
+                    return Language == "EN" ? "Master license" : "Master-Lizenz";
                 if (ProLicenseActive || Tier == LicenseTier.Pro)
                     return Language == "EN" ? "Lifetime license" : "Lifetime-Lizenz";
                 return Language == "EN" ? "Free" : "Free";
@@ -61,11 +65,26 @@ namespace GamingBooster_Pro
             "REDLINE-PRO-LIFETIME-DEV"
         };
 
+        /// <summary>Pro auf beliebigem PC – volle Funktionen (z. B. für Freundin).</summary>
+        private static readonly string[] MasterProKeys =
+        {
+            "REDLINE-PRO-MASTER-IMMISCH",
+            "REDLINE-PRO-FREUNDIN-GIFT",
+            "REDLINE-PRO-GIFT-V911"
+        };
+
         public static bool IsDevProKey(string key)
         {
             if (string.IsNullOrWhiteSpace(key))
                 return false;
             return DevProKeys.Any(k => string.Equals(k, key.Trim(), StringComparison.OrdinalIgnoreCase));
+        }
+
+        public static bool IsMasterProKey(string key)
+        {
+            if (string.IsNullOrWhiteSpace(key))
+                return false;
+            return MasterProKeys.Any(k => string.Equals(k, key.Trim(), StringComparison.OrdinalIgnoreCase));
         }
 
         public static bool LooksLikeProKey(string key)
@@ -74,7 +93,7 @@ namespace GamingBooster_Pro
                 return false;
 
             key = key.Trim();
-            if (IsDevProKey(key))
+            if (IsDevProKey(key) || IsMasterProKey(key))
                 return true;
 
             if (!ProPurchaseEnabled)
@@ -94,8 +113,9 @@ namespace GamingBooster_Pro
             }
 
             bool isDev = IsDevProKey(key);
+            bool isMaster = IsMasterProKey(key);
 
-            if (!ProPurchaseEnabled && !isDev)
+            if (!ProPurchaseEnabled && !isDev && !isMaster)
             {
                 error = Language == "EN"
                     ? "Pro purchase is not active yet. Payment and account linking will be enabled in a later update (10 EUR lifetime planned). You are on the free version."
@@ -121,6 +141,12 @@ namespace GamingBooster_Pro
                     return false;
                 }
                 DevProEnabled = true;
+                MasterProEnabled = false;
+            }
+            else if (isMaster)
+            {
+                MasterProEnabled = true;
+                DevProEnabled = false;
             }
 
             ProLicenseActive = true;
@@ -134,6 +160,7 @@ namespace GamingBooster_Pro
         {
             ProLicenseActive = false;
             DevProEnabled = false;
+            MasterProEnabled = false;
             if (Tier == LicenseTier.Pro)
                 Tier = LicenseTier.Free;
             ProLicenseMasked = "";
@@ -144,7 +171,7 @@ namespace GamingBooster_Pro
             if (ProPurchaseEnabled)
                 return;
 
-            if (ProLicenseActive && !DevProEnabled)
+            if (ProLicenseActive && !DevProEnabled && !MasterProEnabled)
             {
                 ProLicenseActive = false;
                 ProLicenseMasked = "";
@@ -219,6 +246,7 @@ namespace GamingBooster_Pro
                 if (Enum.TryParse(dto.Tier, true, out LicenseTier tier))
                     Tier = tier;
                 DevProEnabled = dto.DevProEnabled;
+                MasterProEnabled = dto.MasterProEnabled;
                 ProLicenseActive = dto.ProLicenseActive;
                 ProLicenseMasked = dto.ProLicenseMasked ?? "";
                 if (ProLicenseActive)
@@ -266,6 +294,7 @@ namespace GamingBooster_Pro
                 {
                     Tier = Tier.ToString(),
                     DevProEnabled = DevProEnabled,
+                    MasterProEnabled = MasterProEnabled,
                     ProLicenseActive = ProLicenseActive,
                     ProLicenseMasked = ProLicenseMasked,
                     ScanDepth = ScanDepth,
@@ -292,6 +321,7 @@ namespace GamingBooster_Pro
         {
             public string Tier { get; set; } = "Free";
             public bool DevProEnabled { get; set; }
+            public bool MasterProEnabled { get; set; }
             public bool ProLicenseActive { get; set; }
             public string ProLicenseMasked { get; set; } = "";
             public string ScanDepth { get; set; } = "Standard";
