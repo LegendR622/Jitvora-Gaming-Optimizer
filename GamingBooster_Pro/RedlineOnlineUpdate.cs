@@ -28,6 +28,11 @@ namespace GamingBooster_Pro
             string cacheBust = "?t=" + DateTimeOffset.UtcNow.ToUnixTimeSeconds();
             RedlineUpdateManifest? best = null;
 
+            // Releases-API zuerst – unabhängig von veraltetem jsDelivr-CDN
+            RedlineUpdateManifest? release = await TryFetchGitHubLatestReleaseAsync(client);
+            if (release != null)
+                best = release;
+
             foreach (string baseUrl in VersionJsonUrls)
             {
                 RedlineUpdateManifest? m = await TryFetchVersionJsonAsync(client, baseUrl + cacheBust, baseUrl);
@@ -36,13 +41,6 @@ namespace GamingBooster_Pro
 
                 if (best == null || CompareVersions(m.Version, best.Version) > 0)
                     best = m;
-            }
-
-            RedlineUpdateManifest? release = await TryFetchGitHubLatestReleaseAsync(client);
-            if (release != null)
-            {
-                if (best == null || CompareVersions(release.Version, best.Version) > 0)
-                    best = release;
             }
 
             if (best == null)

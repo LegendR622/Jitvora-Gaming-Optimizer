@@ -103,7 +103,9 @@ namespace GamingBooster_Pro
         private TextBlock? _cleanerFoundSizeValueText;
         private readonly Dictionary<string, TextBlock> _cleanerCategoryAmountTexts = new Dictionary<string, TextBlock>(StringComparer.OrdinalIgnoreCase);
 
-        private const string CurrentAppVersion = "9.13";
+        private const string CurrentAppVersion = "9.14";
+
+        private bool _startupAutoUpdateStarted;
 
         private static readonly string[] CleanerRecommendedCategories =
         {
@@ -232,7 +234,26 @@ namespace GamingBooster_Pro
                     _ = RunDemoTourAsync();
                 else if (IsUiSelfTestMode())
                     _ = RunUiSelfTestAsync();
+                else
+                    _ = RunStartupAutoUpdateAsync();
             };
+        }
+
+        private static bool ShouldSkipStartupAutoUpdate() =>
+            string.Equals(Environment.GetEnvironmentVariable("REDLINE_SKIP_AUTO_UPDATE"), "1", StringComparison.Ordinal)
+            || string.Equals(Environment.GetEnvironmentVariable("REDLINE_UI_SELFTEST"), "1", StringComparison.Ordinal)
+            || string.Equals(Environment.GetEnvironmentVariable("REDLINE_DEMO_TOUR"), "1", StringComparison.Ordinal);
+
+        private async Task RunStartupAutoUpdateAsync()
+        {
+            if (_startupAutoUpdateStarted || ShouldSkipStartupAutoUpdate())
+                return;
+            if (!RedlineAppData.Current.AutoUpdateOnStartup)
+                return;
+
+            _startupAutoUpdateStarted = true;
+            await Task.Delay(2000);
+            await CheckForUpdatesAsync(true, true, startupAuto: true);
         }
 
         private static bool IsUiSelfTestMode() =>
@@ -4779,8 +4800,8 @@ namespace GamingBooster_Pro
 
             left.Children.Add(HeroCard(
                 T("Redline Update Center", "Redline Update Center"),
-                T("Prüft GitHub auf neue Versionen, lädt das Update automatisch herunter und installiert es.",
-                  "Checks GitHub for new versions, downloads and installs updates automatically.")
+                T("Auto-Update beim App-Start ist aktiv. Zusätzlich: manuell prüfen oder sofort installieren.",
+                  "Auto-update on app start is enabled. You can also check manually or install now.")
             ));
 
             Border card = Card();
@@ -4788,6 +4809,8 @@ namespace GamingBooster_Pro
 
             p.Children.Add(LabelText(T("Update Status", "Update Status"), Red));
             p.Children.Add(InfoLine(T("Installierte Version: ", "Installed version: ") + CurrentAppVersion));
+            p.Children.Add(InfoLine(T("Auto-Update beim Start: ", "Auto-update on start: ")
+                + (RedlineAppData.Current.AutoUpdateOnStartup ? T("AN", "ON") : T("AUS", "OFF"))));
             p.Children.Add(InfoLine("GitHub: LegendR622 / Redline-Gaming-Optimizer"));
 
             Button autoUpdate = ActionButton(T("UPDATE AUTOMATISCH INSTALLIEREN", "INSTALL UPDATE AUTOMATICALLY"), Red, 380);
@@ -10245,23 +10268,25 @@ private Border ModernOutputCard(string startText)
         private async void UpdateCheck_Click(object sender, RoutedEventArgs e)
         {
             PrepareActionOutput();
-            await CheckForUpdatesAsync(false, false);
+            await CheckForUpdatesAsync(false, false, startupAuto: false);
         }
 
         private async void UpdateAutoInstall_Click(object sender, RoutedEventArgs e)
         {
             PrepareActionOutput();
-            await CheckForUpdatesAsync(true, true);
+            await CheckForUpdatesAsync(true, true, startupAuto: false);
         }
 
-        private async Task CheckForUpdatesAsync(bool allowDownload, bool autoInstall)
+        private async Task CheckForUpdatesAsync(bool allowDownload, bool autoInstall, bool startupAuto)
         {
-            await SafeRun("Update Check", async () =>
+            await SafeRun(startupAuto ? "Auto-Update Start" : "Update Check", async () =>
             {
                 if (Progress != null)
                     Progress.Value = 0;
 
-                await Log("===== REDLINE UPDATE CHECK =====");
+                await Log(startupAuto
+                    ? "===== REDLINE AUTO-UPDATE (BEIM START) ====="
+                    : "===== REDLINE UPDATE CHECK =====");
                 await Log("Installierte Version: " + CurrentAppVersion);
                 await Log(T("Prüfe GitHub (raw + Releases API + CDN)...", "Checking GitHub (raw + Releases API + CDN)..."));
                 await Log("");

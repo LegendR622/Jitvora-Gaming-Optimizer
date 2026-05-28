@@ -33,6 +33,8 @@ namespace GamingBooster_Pro
         public string Theme { get; set; } = "Dark";
         public bool AiAssistantEnabled { get; set; } = true;
         public bool FastIntro { get; set; } = true;
+        /// <summary>Beim App-Start automatisch auf GitHub prüfen und neues Update installieren.</summary>
+        public bool AutoUpdateOnStartup { get; set; } = true;
         public string GraphicsMode { get; set; } = "FPS";
 
         public DateTime? LastScanUtc { get; set; }
@@ -257,6 +259,7 @@ namespace GamingBooster_Pro
                 Theme = string.IsNullOrWhiteSpace(dto.Theme) ? "Dark" : dto.Theme;
                 AiAssistantEnabled = dto.AiAssistantEnabled;
                 FastIntro = dto.FastIntro;
+                AutoUpdateOnStartup = dto.AutoUpdateOnStartup;
                 GraphicsMode = string.IsNullOrWhiteSpace(dto.GraphicsMode) ? "FPS" : dto.GraphicsMode;
                 LastScanUtc = dto.LastScanUtc;
                 GamingScore = dto.GamingScore;
@@ -303,6 +306,7 @@ namespace GamingBooster_Pro
                     Theme = Theme,
                     AiAssistantEnabled = AiAssistantEnabled,
                     FastIntro = FastIntro,
+                    AutoUpdateOnStartup = AutoUpdateOnStartup,
                     GraphicsMode = GraphicsMode,
                     LastScanUtc = LastScanUtc,
                     GamingScore = GamingScore,
@@ -330,6 +334,7 @@ namespace GamingBooster_Pro
             public string Theme { get; set; } = "Dark";
             public bool AiAssistantEnabled { get; set; } = true;
             public bool FastIntro { get; set; } = true;
+            public bool AutoUpdateOnStartup { get; set; } = true;
             public string GraphicsMode { get; set; } = "FPS";
             public DateTime? LastScanUtc { get; set; }
             public int? GamingScore { get; set; }
