@@ -18,6 +18,8 @@ namespace GamingBooster_Pro
         public string Status { get; set; } = "PRÜFEN";
         public string Detail { get; set; } = "";
         public string? WindowsUpdateTitle { get; set; }
+        public string? OfficialUrl { get; set; }
+        public string? WingetPackageId { get; set; }
         public bool FromProblemDevice { get; set; }
     }
 
@@ -27,9 +29,17 @@ namespace GamingBooster_Pro
 
         private static readonly string[] ImportantKeywords =
         {
-            "nvidia", "geforce", "amd", "radeon", "advanced micro devices", "intel", "realtek",
-            "mediatek", "qualcomm", "killer", "broadcom", "bluetooth", "wi-fi", "wifi",
-            "ethernet", "audio", "chipset", "smbus", "gpio", "usb", "display", "monitor"
+            "nvidia", "geforce", "radeon", "realtek", "intel", "killer", "marvell",
+            "mediatek", "qualcomm", "broadcom", "bluetooth", "wi-fi", "wifi",
+            "ethernet", "audio", "chipset", "display"
+        };
+
+        private static readonly string[] NoiseDevicePatterns =
+        {
+            "enumerator", "composite bus", "gpio controller", "serial io controller", "smbus controller",
+            "microsoft bluetooth enumerator", "remote desktop", "wan miniport", "print queue",
+            "generic", "volume manager", "charge arbitration", "system timer", "motherboard resources",
+            "pci standard", "acpi", "umbus", "root hub", "usb hub", "controller hub"
         };
 
         public static void MarkRecentlyUpdated(string deviceName)
@@ -53,14 +63,8 @@ namespace GamingBooster_Pro
                     string id = o["DeviceID"]?.ToString() ?? "";
                     if (string.IsNullOrWhiteSpace(name))
                         continue;
-                    map[name] = code;
-                    if (!string.IsNullOrWhiteSpace(id))
-                        map[id] = code;
-                    foreach (string token in Tokenize(name))
-                    {
-                        if (token.Length >= 4 && !map.ContainsKey(token))
-                            map[token] = code;
-                    }
+                    if (!name.Contains("\\") && !name.Contains("&"))
+                        map[name] = code;
                 }
             }
             catch { }
@@ -77,18 +81,20 @@ namespace GamingBooster_Pro
 
             foreach (DriverDisplayItem d in fromWmi)
             {
-                if (!IsImportant(d))
+                if (!IsImportant(d) || IsNoiseDevice(d.DeviceName))
                     continue;
                 string key = d.DeviceName.Trim();
                 if (!seen.Add(key))
                     continue;
                 EnrichStatus(d, errors);
+                if (d.Status == "SYSTEM")
+                    continue;
                 rows.Add(d);
             }
 
             foreach (var kv in errors)
             {
-                if (kv.Key.Length < 8 || kv.Key.Contains("\\") || kv.Key.Contains("&"))
+                if (kv.Key.Length < 10 || IsNoiseDevice(kv.Key))
                     continue;
                 if (rows.Any(r => NamesLikelyMatch(r.DeviceName, kv.Key)))
                     continue;
@@ -129,8 +135,11 @@ namespace GamingBooster_Pro
         {
             d.PnpErrorCode ??= FindErrorCode(d.DeviceName, errors);
             d.WindowsUpdateTitle = null;
+            DriverVendorTarget vendor = RedlineDriverVendorLinks.Resolve(d.DeviceName);
+            d.OfficialUrl = vendor.OfficialUrl;
+            d.WingetPackageId = vendor.WingetPackageId;
             d.Status = ComputeStatus(d, errors);
-            d.Detail = BuildDetail(d);
+            d.Detail = BuildDetail(d, vendor);
         }
 
         private static string ComputeStatus(DriverDisplayItem d, Dictionary<string, int> errors)
@@ -159,36 +168,32 @@ namespace GamingBooster_Pro
             bool chipset = all.Contains("chipset") || all.Contains("smbus") || all.Contains("gpio");
             bool network = all.Contains("wi-fi") || all.Contains("wifi") || all.Contains("ethernet") || all.Contains("realtek");
 
-            if (gpu)
-            {
-                if (days <= 365) return "AKTUELL";
-                if (days <= 730) return "PRÜFEN";
-                return "UPDATE EMPFOHLEN";
-            }
-
-            if (chipset || network || all.Contains("gpio") || all.Contains("bluetooth"))
-            {
-                if (days <= 730) return "AKTUELL";
+            if (gpu && days > 730)
                 return "PRÜFEN";
-            }
 
-            if (days <= 730) return "AKTUELL";
-            if (days <= 1460) return "PRÜFEN";
+            if (days <= 1095)
+                return "AKTUELL";
+
             return "PRÜFEN";
         }
 
-        private static string BuildDetail(DriverDisplayItem d)
+        private static string BuildDetail(DriverDisplayItem d, DriverVendorTarget vendor)
         {
             List<string> parts = new List<string>();
-            if (!string.IsNullOrWhiteSpace(d.Provider))
-                parts.Add(d.Provider);
+            parts.Add(T("Offiziell: ", "Official: ") + vendor.LabelDe);
             if (!string.IsNullOrWhiteSpace(d.Version) && d.Version != "-")
-                parts.Add("v" + (d.Version.Length > 18 ? d.Version[..18] + "…" : d.Version));
+                parts.Add("v" + (d.Version.Length > 14 ? d.Version[..14] + "…" : d.Version));
             if (d.DriverDate.HasValue)
                 parts.Add(d.DriverDate.Value.ToShortDateString());
             if (d.PnpErrorCode is int code)
                 parts.Add(ErrorLabel(code));
             return string.Join(" · ", parts);
+        }
+
+        private static bool IsNoiseDevice(string name)
+        {
+            string n = (name ?? "").ToLowerInvariant();
+            return NoiseDevicePatterns.Any(p => n.Contains(p, StringComparison.OrdinalIgnoreCase));
         }
 
         private static int ScorePriority(DriverDisplayItem d)

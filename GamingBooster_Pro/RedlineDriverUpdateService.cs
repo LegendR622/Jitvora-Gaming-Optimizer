@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -29,39 +28,25 @@ namespace GamingBooster_Pro
             IsRunning = true;
             try
             {
-                await log("═══════════════════════════════════════");
-                await log(isEnglish ? "Redline Driver Update (winget)" : "Redline Treiber-Update (winget)");
-                await log(RedlineHardwareProfile.FormatHardwareSummary(hardware, isEnglish));
-                string gpuV = RedlineHardwareProfile.GpuVendor(hardware.GpuName);
-                if (string.IsNullOrEmpty(gpuV))
-                    await log(isEnglish
-                        ? "⚠ GPU vendor unknown — trying generic packages only."
-                        : "⚠ GPU-Hersteller unbekannt — nur generische Pakete.");
-                else
-                    await log(isEnglish
-                        ? "Installing only packages for: " + gpuV + " GPU + your CPU vendor."
-                        : "Installiert nur Pakete für: " + gpuV + " GPU + deinen CPU-Hersteller.");
-                await log(isEnglish
-                    ? "Windows Update is not used — use vendor links if needed."
-                    : "Windows Update wird nicht genutzt — bei Bedarf Hersteller-Links.");
-                await log("");
+                bool en = isEnglish;
+                await log(en ? "Scanning hardware…" : "Hardware wird erkannt…");
 
                 if (!installPackages)
                 {
-                    await log(isEnglish ? "Preview — packages for your PC:" : "Vorschau — Pakete für deinen PC:");
+                    await log(en ? "Packages for your PC:" : "Pakete für deinen PC:");
                     foreach (WingetDriverPackage pkg in RedlineHardwareProfile.BuildWingetPackagesForHardware(hardware))
-                        await log("  • " + (isEnglish ? pkg.LabelEn : pkg.LabelDe));
-                    await log(isEnglish ? "Click Install to run winget." : "„Installieren“ startet winget.");
+                        await log("• " + (en ? pkg.LabelEn : pkg.LabelDe));
+                    await log(en ? "Click Install to start." : "„Installieren“ startet die Installation.");
                     return;
                 }
 
-                await TryWingetHardwareUpgradeAsync(hardware, log, isEnglish, ct);
-                await log("");
-                await log(isEnglish ? "Driver update finished." : "Treiber-Update abgeschlossen.");
+                await log(en ? "Installing matching drivers…" : "Installiere passende Treiber…");
+                await TryWingetHardwareUpgradeAsync(hardware, log, en, ct);
+                await log(en ? "Done." : "Fertig.");
             }
             catch (OperationCanceledException)
             {
-                await log(isEnglish ? "Driver update cancelled." : "Treiber-Update abgebrochen.");
+                await log(isEnglish ? "Cancelled." : "Abgebrochen.");
             }
             finally
             {
@@ -80,35 +65,34 @@ namespace GamingBooster_Pro
             if (string.IsNullOrWhiteSpace(deviceHint))
                 return false;
 
-            await log(isEnglish ? "Opening vendor page…" : "Öffne Hersteller-Seite…");
-            await OpenVendorUpdateForDeviceAsync(deviceHint.Trim(), log, isEnglish, ct);
-            RedlineDriverStatus.MarkRecentlyUpdated(deviceHint.Trim());
-            return false;
-        }
+            DriverVendorTarget target = RedlineDriverVendorLinks.Resolve(deviceHint);
+            bool en = isEnglish;
+            string label = en ? target.LabelEn : target.LabelDe;
 
-        private static async Task OpenVendorUpdateForDeviceAsync(string deviceHint, Func<string, Task> log, bool en, CancellationToken ct)
-        {
-            string d = deviceHint.ToLowerInvariant();
-            string url = "https://www.google.com/search?q=" + Uri.EscapeDataString(deviceHint + " driver download");
-            if (d.Contains("nvidia") || d.Contains("geforce"))
-                url = "https://www.nvidia.com/Download/index.aspx";
-            else if (d.Contains("amd") || d.Contains("radeon"))
-                url = "https://www.amd.com/en/support/download/drivers.html";
-            else if (d.Contains("intel"))
-                url = "https://www.intel.com/content/www/us/en/support/detect.html";
-            else if (d.Contains("realtek"))
-                url = "https://www.realtek.com/Download/List?cate_id=584";
+            if (!string.IsNullOrWhiteSpace(target.WingetPackageId))
+            {
+                await log(en ? "Installing " + label + "…" : "Installiere " + label + "…");
+                bool ok = await TryWingetPackageAsync(target.WingetPackageId, log, en, ct);
+                if (ok)
+                {
+                    RedlineDriverStatus.MarkRecentlyUpdated(deviceHint.Trim());
+                    await log(en ? label + " updated." : label + " aktualisiert.");
+                    return true;
+                }
+            }
 
-            ct.ThrowIfCancellationRequested();
+            await log(en ? "Opening official page…" : "Öffne offizielle Seite…");
             try
             {
-                Process.Start(new ProcessStartInfo { FileName = url, UseShellExecute = true });
-                await log(en ? "Opened: " + url : "Geöffnet: " + url);
+                Process.Start(new ProcessStartInfo { FileName = target.OfficialUrl, UseShellExecute = true });
+                await log(en ? "Opened: " + label : "Geöffnet: " + label);
             }
             catch (Exception ex)
             {
-                await log(en ? "Could not open: " + ex.Message : "Konnte nicht öffnen: " + ex.Message);
+                await log(en ? "Could not open browser: " + ex.Message : "Browser konnte nicht öffnen: " + ex.Message);
             }
+
+            return false;
         }
 
         private static async Task TryWingetHardwareUpgradeAsync(
@@ -120,73 +104,80 @@ namespace GamingBooster_Pro
             string which = await RunCmdCaptureAsync("where.exe", "winget", ct);
             if (string.IsNullOrWhiteSpace(which) || which.Contains("INFO: Could not find", StringComparison.OrdinalIgnoreCase))
             {
-                await log(en ? "❌ winget not found — install App Installer from Microsoft Store." : "❌ winget nicht gefunden — App Installer aus dem Store installieren.");
+                await log(en ? "winget not found — install App Installer from Microsoft Store." : "winget fehlt — App Installer aus dem Microsoft Store installieren.");
                 return;
             }
 
             List<WingetDriverPackage> plan = RedlineHardwareProfile.BuildWingetPackagesForHardware(hardware);
-            string gpuV = RedlineHardwareProfile.GpuVendor(hardware.GpuName);
-            if (gpuV == "NVIDIA")
-                await log(en ? "Skipping AMD/Intel GPU packages." : "Überspringe AMD/Intel GPU-Pakete.");
-            else if (gpuV == "AMD")
-                await log(en ? "Skipping NVIDIA packages." : "Überspringe NVIDIA-Pakete.");
-            else if (gpuV == "Intel")
-                await log(en ? "Skipping NVIDIA/AMD GPU packages." : "Überspringe NVIDIA/AMD GPU-Pakete.");
-
             string wingetArgs = "--disable-interactivity --accept-source-agreements --accept-package-agreements -e --silent";
             bool any = false;
+            int i = 0;
+            int total = plan.Count;
 
             foreach (WingetDriverPackage pkg in plan)
             {
                 ct.ThrowIfCancellationRequested();
+                i++;
                 string label = en ? pkg.LabelEn : pkg.LabelDe;
+                await log(en
+                    ? $"Installing {label} ({i}/{total})…"
+                    : $"Installiere {label} ({i}/{total})…");
+
                 string target = pkg.IdOrQuery;
                 string args = pkg.UseExactId
                     ? "upgrade --id \"" + target + "\" " + wingetArgs
                     : "upgrade --query \"" + target + "\" " + wingetArgs;
 
-                await log(en
-                    ? "▸ " + label + " (" + (pkg.UseExactId ? "ID: " : "") + target + ")"
-                    : "▸ " + label + " (" + (pkg.UseExactId ? "ID: " : "") + target + ")");
-
                 (int code, string output) = await RunCmdCaptureAsyncFull("winget", args, ct, 300000);
-
-                bool matched = false;
-                foreach (string line in output.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries))
-                {
-                    string t = line.Trim();
-                    if (t.Length < 3)
-                        continue;
-                    if (t.Contains("Es wurden keine", StringComparison.OrdinalIgnoreCase)
-                        || t.Contains("No applicable", StringComparison.OrdinalIgnoreCase)
-                        || t.Contains("no upgrades", StringComparison.OrdinalIgnoreCase)
-                        || t.Contains("nicht installiert", StringComparison.OrdinalIgnoreCase)
-                        || t.Contains("not installed", StringComparison.OrdinalIgnoreCase))
-                    {
-                        await log(en ? "  · not installed / nothing to upgrade" : "  · nicht installiert / nichts zu updaten");
-                        matched = true;
-                        break;
-                    }
-                    if (t.Contains("Erfolgreich installiert", StringComparison.OrdinalIgnoreCase)
-                        || t.Contains("Successfully installed", StringComparison.OrdinalIgnoreCase)
-                        || t.Contains("upgraded", StringComparison.OrdinalIgnoreCase))
-                    {
-                        await log("  ✅ " + t);
-                        matched = true;
-                        any = true;
-                    }
-                }
-
-                if (!matched && code == 0)
-                    await log(en ? "  · already current or not in winget" : "  · bereits aktuell oder nicht in winget");
-                else if (code != 0 && !matched)
-                    await log(en ? "  ⚠ winget exit " + code : "  ⚠ winget Code " + code);
+                string result = SummarizeWingetOutput(output, code, en);
+                await log(result);
+                if (result.Contains("✅", StringComparison.Ordinal))
+                    any = true;
             }
 
             if (!any)
-                await log(en
-                    ? "No packages upgraded (may already be current)."
-                    : "Keine Pakete aktualisiert (evtl. schon aktuell).");
+                await log(en ? "Already up to date or not in winget." : "Bereits aktuell oder nicht über winget verfügbar.");
+        }
+
+        private static async Task<bool> TryWingetPackageAsync(
+            string packageId,
+            Func<string, Task> log,
+            bool en,
+            CancellationToken ct)
+        {
+            string which = await RunCmdCaptureAsync("where.exe", "winget", ct);
+            if (string.IsNullOrWhiteSpace(which))
+                return false;
+
+            string wingetArgs = "--disable-interactivity --accept-source-agreements --accept-package-agreements -e --silent";
+            string args = "upgrade --id \"" + packageId + "\" " + wingetArgs;
+            (int code, string output) = await RunCmdCaptureAsyncFull("winget", args, ct, 300000);
+            string result = SummarizeWingetOutput(output, code, en);
+            await log(result);
+            return result.Contains("✅", StringComparison.Ordinal);
+        }
+
+        private static string SummarizeWingetOutput(string output, int code, bool en)
+        {
+            foreach (string line in output.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries))
+            {
+                string t = line.Trim();
+                if (t.Contains("Erfolgreich installiert", StringComparison.OrdinalIgnoreCase)
+                    || t.Contains("Successfully installed", StringComparison.OrdinalIgnoreCase)
+                    || t.Contains("upgraded", StringComparison.OrdinalIgnoreCase))
+                    return "✅ " + (en ? "Updated." : "Aktualisiert.");
+
+                if (t.Contains("Es wurden keine", StringComparison.OrdinalIgnoreCase)
+                    || t.Contains("No applicable", StringComparison.OrdinalIgnoreCase)
+                    || t.Contains("no upgrades", StringComparison.OrdinalIgnoreCase)
+                    || t.Contains("nicht installiert", StringComparison.OrdinalIgnoreCase)
+                    || t.Contains("not installed", StringComparison.OrdinalIgnoreCase))
+                    return en ? "· Already current." : "· Bereits aktuell.";
+            }
+
+            if (code == 0)
+                return en ? "· Already current." : "· Bereits aktuell.";
+            return en ? "· No change (check vendor page)." : "· Keine Änderung (ggf. Hersteller-Seite).";
         }
 
         private static async Task<string> RunCmdCaptureAsync(string file, string args, CancellationToken ct)
@@ -198,32 +189,35 @@ namespace GamingBooster_Pro
         private static async Task<(int exitCode, string output)> RunCmdCaptureAsyncFull(
             string file, string args, CancellationToken ct, int timeoutMs)
         {
-            var sb = new StringBuilder();
-            using Process p = new Process();
-            p.StartInfo = new ProcessStartInfo
+            ProcessStartInfo psi = new ProcessStartInfo
             {
                 FileName = file,
                 Arguments = args,
                 UseShellExecute = false,
                 RedirectStandardOutput = true,
                 RedirectStandardError = true,
-                CreateNoWindow = true,
-                StandardOutputEncoding = Encoding.UTF8,
-                StandardErrorEncoding = Encoding.UTF8
+                CreateNoWindow = true
             };
-            p.OutputDataReceived += (_, e) => { if (e.Data != null) sb.AppendLine(e.Data); };
-            p.ErrorDataReceived += (_, e) => { if (e.Data != null) sb.AppendLine(e.Data); };
-            p.Start();
-            p.BeginOutputReadLine();
-            p.BeginErrorReadLine();
-            using var reg = ct.Register(() => { try { if (!p.HasExited) p.Kill(true); } catch { } });
-            bool done = await Task.Run(() => p.WaitForExit(timeoutMs), ct);
-            if (!done)
+
+            using Process? p = Process.Start(psi);
+            if (p == null)
+                return (-1, "");
+
+            using CancellationTokenSource timeout = CancellationTokenSource.CreateLinkedTokenSource(ct);
+            timeout.CancelAfter(timeoutMs);
+            try
             {
-                try { p.Kill(true); } catch { }
-                throw new OperationCanceledException();
+                await p.WaitForExitAsync(timeout.Token);
             }
-            return (p.ExitCode, sb.ToString());
+            catch (OperationCanceledException)
+            {
+                try { if (!p.HasExited) p.Kill(true); } catch { }
+                throw;
+            }
+
+            string stdout = await p.StandardOutput.ReadToEndAsync();
+            string stderr = await p.StandardError.ReadToEndAsync();
+            return (p.ExitCode, stdout + stderr);
         }
     }
 }

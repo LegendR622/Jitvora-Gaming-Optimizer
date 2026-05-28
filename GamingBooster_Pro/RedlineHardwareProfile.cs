@@ -132,9 +132,12 @@ namespace GamingBooster_Pro
                     "Mainboard: " + hp.MotherboardManufacturer + " " + hp.MotherboardProduct,
                     "Motherboard: " + hp.MotherboardManufacturer + " " + hp.MotherboardProduct);
             else if (!string.IsNullOrWhiteSpace(hp.MotherboardManufacturer))
-                Add("mb-generic", "Mainboard Hersteller", "Motherboard vendor", "https://www.google.com/search?q=" + Uri.EscapeDataString(hp.MotherboardManufacturer + " " + hp.MotherboardProduct + " driver download"),
+            {
+                DriverVendorTarget mbVendor = RedlineDriverVendorLinks.Resolve(hp.MotherboardManufacturer + " " + hp.MotherboardProduct, hp);
+                Add("mb-generic", mbVendor.LabelDe, mbVendor.LabelEn, mbVendor.OfficialUrl,
                     "Mainboard: " + hp.MotherboardManufacturer + " " + hp.MotherboardProduct,
                     "Motherboard: " + hp.MotherboardManufacturer + " " + hp.MotherboardProduct);
+            }
 
             Add("realtek", "Realtek Audio/LAN", "Realtek audio/LAN", "https://www.realtek.com/Download/List?cate_id=584",
                 "Audio/Netzwerk Treiber", "Audio/network drivers");
