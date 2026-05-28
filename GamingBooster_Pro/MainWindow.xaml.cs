@@ -104,13 +104,16 @@ namespace GamingBooster_Pro
         private TextBlock? _cleanerFoundSizeValueText;
         private readonly Dictionary<string, TextBlock> _cleanerCategoryAmountTexts = new Dictionary<string, TextBlock>(StringComparer.OrdinalIgnoreCase);
 
-        private const string CurrentAppVersion = "9.25";
+        private const string CurrentAppVersion = "9.26";
         private TextBlock? _updateInstalledVersionLabel;
         private TextBlock? _updateOnlineVersionLabel;
         private TextBlock? _driverActivityText;
         private ProgressBar? _driverActivityBar;
         private TextBlock? _updateActivityText;
         private ProgressBar? _updateActivityBar;
+        private StackPanel? _gameAdviceHost;
+        private TextBlock? _gameAdviceStatusText;
+        private string? _selectedGameAdvice;
 
         private bool _startupAutoUpdateStarted;
         private string? _pendingUpdateBannerVersion;
@@ -2219,9 +2222,11 @@ namespace GamingBooster_Pro
             Border row = new Border
             {
                 Background = new SolidColorBrush(Color.FromArgb(115, 23, 29, 38)),
-                CornerRadius = new CornerRadius(8),
-                Padding = new Thickness(12, 9, 12, 9),
-                Margin = new Thickness(0, 0, 0, 8)
+                CornerRadius = new CornerRadius(12),
+                Padding = new Thickness(12, 10, 12, 10),
+                Margin = new Thickness(0, 0, 0, 8),
+                BorderBrush = new SolidColorBrush(Color.FromRgb(38, 48, 62)),
+                BorderThickness = new Thickness(1)
             };
 
             Grid g = new Grid();
@@ -2237,10 +2242,10 @@ namespace GamingBooster_Pro
             Grid.SetColumn(names, 1);
             g.Children.Add(names);
 
-            Button act = optimized ? OutlineButton("✓ " + T("OPTIMIERT", "OPTIMIZED"), async (s, e) => await OptimizeGameProfile(name)) : OutlineButton(T("OPTIMIEREN", "OPTIMIZE"), async (s, e) => await OptimizeGameProfile(name));
+            Button act = OutlineButton(T("PRO GUIDE", "PRO GUIDE"), (s, e) => SelectGameForAdvice(name));
             act.Width = 132;
             act.Height = 36;
-            act.Foreground = optimized ? Brushes.LimeGreen : Red;
+            act.Foreground = optimized ? Brushes.LimeGreen : Brushes.White;
             act.BorderBrush = optimized ? new SolidColorBrush(Color.FromRgb(20, 130, 55)) : Red;
             Grid.SetColumn(act, 2);
             g.Children.Add(act);
@@ -2372,6 +2377,250 @@ namespace GamingBooster_Pro
             g.Children.Add(text);
 
             return g;
+        }
+
+        private Border BuildGameProGuidePanel()
+        {
+            Border card = DashboardCard();
+            card.Margin = new Thickness(0, 0, 0, 18);
+            card.Padding = new Thickness(18);
+
+            StackPanel root = new StackPanel();
+            root.Children.Add(new TextBlock
+            {
+                Text = T("PRO FPS GUIDE", "PRO FPS GUIDE"),
+                Foreground = Red,
+                FontSize = 11,
+                FontWeight = FontWeights.Bold,
+                Margin = new Thickness(0, 0, 0, 4)
+            });
+            root.Children.Add(new TextBlock
+            {
+                Text = T("Was bringt FPS · Was vermeiden", "What boosts FPS · What to avoid"),
+                Foreground = Brushes.White,
+                FontSize = 17,
+                FontWeight = FontWeights.UltraBold,
+                Margin = new Thickness(0, 0, 0, 8)
+            });
+            _gameAdviceStatusText = new TextBlock
+            {
+                Text = T("Wähle ein Spiel links oder starte den Scan.", "Pick a game on the left or run scan."),
+                Foreground = Muted,
+                FontSize = 12,
+                TextWrapping = TextWrapping.Wrap,
+                Margin = new Thickness(0, 0, 0, 10)
+            };
+            root.Children.Add(_gameAdviceStatusText);
+
+            _gameAdviceHost = new StackPanel();
+            ScrollViewer scroll = new ScrollViewer
+            {
+                MaxHeight = 480,
+                VerticalScrollBarVisibility = ScrollBarVisibility.Auto,
+                HorizontalScrollBarVisibility = ScrollBarVisibility.Disabled
+            };
+            scroll.Content = _gameAdviceHost;
+            root.Children.Add(scroll);
+
+            card.Child = root;
+            string defaultGame = DetectGames().FirstOrDefault(g => g.StartsWith("Rust", StringComparison.OrdinalIgnoreCase))
+                ?? DetectGames().FirstOrDefault() ?? "Rust";
+            _ = Dispatcher.BeginInvoke(new Action(() => SelectGameForAdvice(defaultGame)), DispatcherPriority.Loaded);
+            return card;
+        }
+
+        private void SelectGameForAdvice(string gameName)
+        {
+            _selectedGameAdvice = gameName.Replace(" läuft", "", StringComparison.OrdinalIgnoreCase).Trim();
+            RefreshGameAdvicePanel(_selectedGameAdvice);
+            SetGameAdviceStatus(T("Guide: ", "Guide: ") + _selectedGameAdvice);
+        }
+
+        private void SetGameAdviceStatus(string text)
+        {
+            if (_gameAdviceStatusText != null)
+                _gameAdviceStatusText.Text = text;
+        }
+
+        private void RefreshGameAdvicePanel(string gameName)
+        {
+            if (_gameAdviceHost == null)
+                return;
+
+            _gameAdviceHost.Children.Clear();
+            bool en = IsEnglish();
+
+            if (gameName.StartsWith("Rust", StringComparison.OrdinalIgnoreCase))
+            {
+                RustInstallProbe probe = RedlineGameProAdvice.ProbeRustInstall();
+                _gameAdviceHost.Children.Add(new TextBlock
+                {
+                    Text = (probe.SteamFolderExists ? "✓ " : "○ ") + T("Steam-Ordner", "Steam folder")
+                        + "  ·  " + (probe.LocalFolderExists ? "✓ " : "○ ") + "AppData",
+                    Foreground = probe.SteamFolderExists ? AiGreen : Muted,
+                    FontSize = 12,
+                    Margin = new Thickness(0, 0, 0, 10)
+                });
+            }
+
+            foreach (GameProTip tip in RedlineGameProAdvice.BuildFor(gameName, en))
+                _gameAdviceHost.Children.Add(BuildGameProTipCard(tip));
+        }
+
+        private UIElement BuildGameProTipCard(GameProTip tip)
+        {
+            bool en = IsEnglish();
+            string title = en ? tip.TitleEn : tip.TitleDe;
+            string detail = en ? tip.DetailEn : tip.DetailDe;
+
+            Brush accent = tip.Kind switch
+            {
+                GameTipKind.Avoid => new SolidColorBrush(Color.FromRgb(248, 113, 113)),
+                GameTipKind.Optional => AiOrange,
+                _ => AiGreen
+            };
+
+            string kindLabel = tip.Kind switch
+            {
+                GameTipKind.Avoid => T("NICHT", "AVOID"),
+                GameTipKind.Optional => T("OPTIONAL", "OPTIONAL"),
+                _ => T("EMPFOHLEN", "RECOMMENDED")
+            };
+
+            string impactLabel = tip.Impact switch
+            {
+                GameTipImpact.High => T("Hoher FPS-Effekt", "High FPS impact"),
+                GameTipImpact.Medium => T("Mittel", "Medium"),
+                _ => T("Niedrig", "Low")
+            };
+
+            Border card = new Border
+            {
+                Background = SubCardBg,
+                BorderBrush = accent,
+                BorderThickness = new Thickness(1),
+                CornerRadius = new CornerRadius(12),
+                Padding = new Thickness(14),
+                Margin = new Thickness(0, 0, 0, 10)
+            };
+
+            StackPanel p = new StackPanel();
+            WrapPanel badges = new WrapPanel { Margin = new Thickness(0, 0, 0, 8) };
+            badges.Children.Add(GameTipBadge(kindLabel, accent));
+            badges.Children.Add(GameTipBadge(impactLabel, Muted));
+            p.Children.Add(badges);
+
+            p.Children.Add(new TextBlock
+            {
+                Text = title,
+                Foreground = Brushes.White,
+                FontSize = 14,
+                FontWeight = FontWeights.UltraBold,
+                TextWrapping = TextWrapping.Wrap
+            });
+            p.Children.Add(new TextBlock
+            {
+                Text = detail,
+                Foreground = Muted,
+                FontSize = 12,
+                TextWrapping = TextWrapping.Wrap,
+                Margin = new Thickness(0, 6, 0, 0),
+                LineHeight = 18
+            });
+
+            if (!string.IsNullOrEmpty(tip.ApplyAction))
+            {
+                GameProTip captured = tip;
+                Button apply = OutlineButton(T("Anwenden", "Apply"), async (s, e) => await ApplyGameProTipAsync(captured));
+                apply.Height = 34;
+                apply.Width = 120;
+                apply.Margin = new Thickness(0, 10, 0, 0);
+                apply.HorizontalAlignment = HorizontalAlignment.Left;
+                p.Children.Add(apply);
+            }
+
+            card.Child = p;
+            return card;
+        }
+
+        private static Border GameTipBadge(string text, Brush color)
+        {
+            return new Border
+            {
+                Background = new SolidColorBrush(Color.FromArgb(50, 255, 255, 255)),
+                BorderBrush = color,
+                BorderThickness = new Thickness(1),
+                CornerRadius = new CornerRadius(8),
+                Padding = new Thickness(8, 3, 8, 3),
+                Margin = new Thickness(0, 0, 8, 0),
+                Child = new TextBlock { Text = text, Foreground = color, FontSize = 10, FontWeight = FontWeights.Bold }
+            };
+        }
+
+        private async Task ApplyGameProTipAsync(GameProTip tip)
+        {
+            if (IsAntiCheatSafeModeActive(out string reason))
+            {
+                MessageBox.Show(
+                    T("Spiel/Anti-Cheat läuft — keine Änderungen während des Spiels.\n", "Game/anti-cheat running — no changes while playing.\n") + reason,
+                    T("Safe Mode", "Safe Mode"),
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Warning);
+                return;
+            }
+
+            string label = IsEnglish() ? tip.TitleEn : tip.TitleDe;
+            SetGameAdviceStatus(T("Wende an: ", "Applying: ") + label + "…");
+
+            switch (tip.ApplyAction)
+            {
+                case "GameMode":
+                    await SetGameModeEnabled(true);
+                    break;
+                case "PowerPlan":
+                    await SetHighPerformance();
+                    break;
+                case "FlushDns":
+                    await FlushDNS();
+                    break;
+                case "OpenGameBar":
+                    OpenUri("ms-settings:gaming-gamebar");
+                    break;
+                case "OpenGraphics":
+                    OpenUri("ms-settings:display-advancedgraphics");
+                    break;
+                case "OpenNvidiaPanel":
+                    string nvidiaUi = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles),
+                        @"NVIDIA Corporation\Control Panel Client\nvcplui.exe");
+                    if (File.Exists(nvidiaUi))
+                        SafeStartSystem(nvidiaUi);
+                    else
+                        OpenUri("ms-settings:display-advancedgraphics");
+                    break;
+                case "OpenRustFolder":
+                    RustInstallProbe probe = RedlineGameProAdvice.ProbeRustInstall();
+                    if (probe.SteamFolderExists)
+                        SafeStartSystem("explorer.exe", "\"" + probe.SteamPath + "\"");
+                    else
+                        MessageBox.Show(T("Rust Steam-Ordner nicht gefunden.", "Rust Steam folder not found."), "Rust", MessageBoxButton.OK, MessageBoxImage.Information);
+                    break;
+                case "ShaderCacheSafe":
+                    if (MessageBox.Show(
+                            T("Shader Cache leeren? Nur nach Treiberupdate empfohlen.", "Clear shader cache? Recommended only after driver update."),
+                            T("Bestätigen", "Confirm"),
+                            MessageBoxButton.YesNo,
+                            MessageBoxImage.Question) != MessageBoxResult.Yes)
+                        break;
+                    string local = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+                    var a = CleanFolder(Path.Combine(local, "D3DSCache"));
+                    var b = CleanFolder(Path.Combine(local, @"NVIDIA\DXCache"));
+                    SetGameAdviceStatus(T("Shader Cache: ", "Shader cache: ") + FormatSize(a.Size + b.Size) + T(" gelöscht", " cleared"));
+                    return;
+                default:
+                    break;
+            }
+
+            SetGameAdviceStatus(T("Fertig: ", "Done: ") + label);
         }
 
         private UIElement BuildGamingAiInsightPanel(List<string> detectedGames)
@@ -3458,13 +3707,13 @@ namespace GamingBooster_Pro
 
             StackPanel left = new StackPanel();
             left.Children.Add(AiHeroCard(
-                T("REDLINE KI ANALYSIERT, DU GEWINNST.", "REDLINE AI ANALYZES. YOU WIN."),
-                T("Unsere KI erkennt deine installierten Spiele, analysiert dein System und erstellt automatisch die optimalen Einstellungen für maximale Leistung und Stabilität.",
-                  "Our AI detects your installed games, analyzes your system and builds optimal settings for maximum performance and stability."),
+                T("PRO FPS GUIDE — DU ENTSCHEIDEST.", "PRO FPS GUIDE — YOU DECIDE."),
+                T("Redline zeigt Pro-Tipps (v. a. Rust): was viel FPS bringt, was optional ist und was du nicht machen solltest. Nichts wird automatisch geändert — nur wenn du auf „Anwenden“ klickst.",
+                  "Redline shows pro tips (especially Rust): what boosts FPS, what's optional, and what to avoid. Nothing changes automatically — only when you click Apply."),
                 "AI",
-                T("SPIEL ANALYSIEREN", "ANALYZE GAME"),
+                T("RUST / SPIEL SCANNEN", "SCAN RUST / GAME"),
                 GameProfileAnalyze_Click,
-                T("KI-PROFIL ANWENDEN", "APPLY AI PROFILE"),
+                T("SYSTEM-TIPPS ANWENDEN…", "APPLY SYSTEM TIPS…"),
                 GameProfileApply_Click
             ));
 
@@ -3541,9 +3790,7 @@ namespace GamingBooster_Pro
             grid.Children.Add(left);
 
             StackPanel right = new StackPanel();
-            Border gameLog = ModernOutputCard(T("Gaming Log bereit.", "Gaming log ready."));
-            gameLog.Margin = new Thickness(0, 0, 0, 18);
-            right.Children.Add(gameLog);
+            right.Children.Add(BuildGameProGuidePanel());
             right.Children.Add(BuildGamingAiInsightPanel(detectedGames));
             right.Children.Add(ProfileModeCard());
 
@@ -3637,9 +3884,14 @@ namespace GamingBooster_Pro
             grid.Children.Add(left);
 
             StackPanel right = new StackPanel();
-            Border perfLog = ModernOutputCard(T("Performance Log bereit.", "Performance log ready."));
-            perfLog.Margin = new Thickness(0, 0, 0, 18);
-            right.Children.Add(perfLog);
+            Border perfStatus = CreateActivityStatusCard(
+                T("STATUS", "STATUS"),
+                T("Bereit — Optimierung nur per Klick.", "Ready — optimize only on button click."),
+                out TextBlock? _,
+                out ProgressBar? __,
+                140);
+            perfStatus.Margin = new Thickness(0, 0, 0, 18);
+            right.Children.Add(perfStatus);
             right.Children.Add(AiSidePanel(
                 "REDLINE AI PERFORMANCE",
                 new TextBlock { Text = T("EMPFOHLENE MASSNAHMEN", "RECOMMENDED MEASURES"), Foreground = Brushes.White, FontSize = 14, FontWeight = FontWeights.UltraBold, Margin = new Thickness(0, 0, 0, 12) },
@@ -5592,6 +5844,9 @@ namespace GamingBooster_Pro
         {
             try
             {
+                if (!string.IsNullOrWhiteSpace(_selectedGameAdvice))
+                    return _selectedGameAdvice;
+
                 string selected = GameProfileBox?.Text?.Trim() ?? "";
                 if (!string.IsNullOrWhiteSpace(selected) && !selected.Equals("Auto", StringComparison.OrdinalIgnoreCase))
                     return selected;
@@ -6263,8 +6518,8 @@ private Border ModernOutputCard(string startText) =>
                 Background = _theme.CardGradient,
                 BorderBrush = Border,
                 BorderThickness = new Thickness(1),
-                CornerRadius = new CornerRadius(12),
-                Padding = new Thickness(18),
+                CornerRadius = new CornerRadius(14),
+                Padding = new Thickness(20),
                 Margin = new Thickness(0, 0, 14, 0)
             };
             if (!IsLightTheme)
@@ -6272,9 +6527,9 @@ private Border ModernOutputCard(string startText) =>
                 card.Effect = new System.Windows.Media.Effects.DropShadowEffect
                 {
                     Color = Color.FromRgb(20, 8, 12),
-                    BlurRadius = 22,
-                    ShadowDepth = 3,
-                    Opacity = 0.45
+                    BlurRadius = 26,
+                    ShadowDepth = 4,
+                    Opacity = 0.4
                 };
             }
             return card;
@@ -7532,13 +7787,8 @@ private Border ModernOutputCard(string startText) =>
             action.IsEnabled = !running;
             action.Click += async (s, e) =>
             {
-                if (isOptimizeAction)
-                    await OptimizeGameProfile(cleanName);
-                else
-                {
-                    Navigate("GameProfiles");
-                    await AnalyzeGameProfile(cleanName);
-                }
+                Navigate("GameProfiles");
+                await AnalyzeGameProfile(cleanName);
             };
 
             Grid.SetColumn(action, 2);
@@ -7589,7 +7839,15 @@ private Border ModernOutputCard(string startText) =>
 
         private async Task OptimizeGameProfile(string gameName)
         {
-            PrepareActionOutput();
+            MessageBoxResult confirm = await Dispatcher.InvokeAsync(() => MessageBox.Show(
+                T("Wirklich optimieren? Nur sichere Windows-Einstellungen (Game Mode, Energieplan, DNS).\nKeine Spiel-Dateien.",
+                  "Really optimize? Only safe Windows settings (Game Mode, power plan, DNS).\nNo game files."),
+                T("Bestätigen", "Confirm"),
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Question));
+
+            if (confirm != MessageBoxResult.Yes)
+                return;
 
             if (IsAntiCheatSafeModeActive(out string reason))
             {
@@ -8151,16 +8409,8 @@ private Border ModernOutputCard(string startText) =>
                     await Log("• " + game);
 
                 await Log("");
-                await Log(T("KI analysiert Top-Ergebnisse...", "AI analyzing top results..."));
-
-                foreach (string game in games.Take(3))
-                {
-                    await Log("");
-                    await AnalyzeGameProfile(game);
-                }
-
-                await Log("");
-                await Log(T("Empfehlung: Wähle ein Spiel unter Gaming und klicke KI-PROFIL ANWENDEN.", "Tip: Pick a game under Gaming and click APPLY AI PROFILE."));
+                await Log(T("Klicke bei einem Spiel auf PRO GUIDE — nichts wird automatisch optimiert.",
+                    "Click PRO GUIDE on a game — nothing is optimized automatically."));
             }
 
             if (StatusText != null) StatusText.Text = T("KI Scan fertig", "AI scan done");
@@ -8168,25 +8418,10 @@ private Border ModernOutputCard(string startText) =>
 
         private async Task AnalyzeGameProfile(string profile)
         {
-            PrepareActionOutput();
-
-            if (Progress != null)
-                Progress.Value = 0;
-
-            await Log("===== GAME PROFILE ANALYSE =====");
-            await Log("Profil: " + profile);
-            await Log("Modus: " + GraphicsMode);
-            await Log("");
-
-            if (profile.Equals("Rust", StringComparison.OrdinalIgnoreCase)) await AnalyzeRustProfile();
-            else if (profile.Equals("ARC Raiders", StringComparison.OrdinalIgnoreCase)) await AnalyzeArcProfile();
-            else await AnalyzeGenericGameProfile();
-
-            await Log("");
-            await Log("Analyse beendet. Du kannst jetzt das KI-Profil anwenden.");
-
-            if (Progress != null)
-                Progress.Value = 100;
+            await Task.CompletedTask;
+            SelectGameForAdvice(profile);
+            SetGameAdviceStatus(T("Scan fertig — Tipps rechts. Nichts wurde automatisch geändert.",
+                "Scan done — see tips on the right. Nothing was changed automatically."));
         }
 
         private static string GetGameIconText(string gameName)
@@ -8265,26 +8500,36 @@ private Border ModernOutputCard(string startText) =>
 
         private async void GameProfileApply_Click(object sender, RoutedEventArgs e)
         {
-            if (!RequirePro(T("KI-Profil anwenden", "Apply AI profile"))) return;
-            PrepareActionOutput();
+            if (!RequirePro(T("System-Tipps anwenden", "Apply system tips"))) return;
 
             string profile = GetSelectedGameProfileName();
+            MessageBoxResult confirm = MessageBox.Show(
+                T("Nur auf deinen Klick — Redline wendet an:\n\n• Windows Game Mode\n• Hochleistungs-Energieplan\n• DNS Cache leeren\n\nKeine Rust/Spiel-Dateien, kein EasyAntiCheat.\nSpiel: ", "On your click only — Redline will apply:\n\n• Windows Game Mode\n• High performance power plan\n• Flush DNS cache\n\nNo game files, no EasyAntiCheat.\nGame: ")
+                + profile + "\n\n" + T("Jetzt anwenden?", "Apply now?"),
+                T("System-Tipps", "System tips"),
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Question);
 
-            await Log("");
-            await Log("===== GAME OPTIMIERUNG START =====");
-            await Log("Profil: " + profile);
-            await Log("Modus: " + GraphicsMode);
+            if (confirm != MessageBoxResult.Yes)
+            {
+                SetGameAdviceStatus(T("Abgebrochen — nichts geändert.", "Cancelled — nothing changed."));
+                return;
+            }
 
-            await EnableGameMode();
+            if (IsAntiCheatSafeModeActive(out string reason))
+            {
+                MessageBox.Show(T("Spiel läuft: ", "Game running: ") + reason, T("Safe Mode", "Safe Mode"), MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            SetGameAdviceStatus(T("Wende System-Tipps an…", "Applying system tips…"));
+            await SetGameModeEnabled(true);
             await SetHighPerformance();
             await FlushDNS();
 
-            if (profile.Equals("Rust", StringComparison.OrdinalIgnoreCase))
-                await Log("Rust-Sicherheitsmodus: EasyAntiCheat und Config wurden nicht verändert.");
-
             MarkGameOptimized(profile);
-            await Log("Game Optimierung abgeschlossen.");
-            await Log("Das Profil wurde als optimiert markiert.");
+            SetGameAdviceStatus(T("Fertig — nur Windows-Optimierungen. Spiel-Config unverändert.",
+                "Done — Windows tweaks only. Game config unchanged."));
         }
 
         private async void OptimizationRun_Click(object sender, RoutedEventArgs e)
