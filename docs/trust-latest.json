@@ -1,9 +1,10 @@
-{
-  "version": "1.6",
-  "fileName": "Redline_Gaming_Optimizer_Setup_v1.6.exe",
-  "sha256": "",
-  "signed": false,
-  "signSubject": "",
-  "generatedUtc": "2026-06-04T00:00:00Z",
-  "note": "Run scripts/release/write-trust-manifest.ps1 after build-release to fill sha256."
+﻿{
+    "version":  "1.6",
+    "signed":  false,
+    "signSubject":  "",
+    "fileName":  "Redline_Gaming_Optimizer_Setup_v1.6.exe",
+    "generatedUtc":  "2026-06-04T17:23:34.5813533Z",
+    "virusTotalUrl":  "https://www.virustotal.com/gui/file-details/f0628311d66442035c0a25ffc2523f37dd05ec83332170a99008c80a0c3b1c4f",
+    "downloadUrl":  "https://github.com/LegendR622/Redline-Gaming-Optimizer/releases/download/v1.6/Redline_Gaming_Optimizer_Setup_v1.6.exe",
+    "sha256":  "f0628311d66442035c0a25ffc2523f37dd05ec83332170a99008c80a0c3b1c4f"
 }
