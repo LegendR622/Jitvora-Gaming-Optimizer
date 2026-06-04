@@ -9,6 +9,8 @@
 - [x] **GitHub Pages** aktiviert: **https://legendr622.github.io/Redline-Gaming-Optimizer/**
 - [x] **Release V1.3** + **`version.json`** auf `main`
 - [x] **Search Console Verifizierung** — `google2155792da4e8c226.html` in `docs/`
+- [x] **Sitemap** in Search Console eingereicht (`sitemap.xml`)
+- [x] **URL-Prüfung** — Indexierung für die Startseite beantragt (Crawl-Warteschlange)
 
 Skripte (lokal):
 
@@ -44,9 +46,14 @@ https://github.com/LegendR622/Redline-Gaming-Optimizer
 
 ---
 
-## Einmalig von dir: Google Search Console (ca. 5 Min.)
+## Search Console — erledigt (nur noch warten)
 
-Google-Indexierung läuft **nur über dein Google-Konto** — das kann die App nicht automatisch.
+Die Schritte unten sind **bereits erledigt**. Google braucht oft **3–14 Tage**, bis die Seite in der Suche erscheint — danach in **Seiten** / **Leistung** nachsehen.
+
+<details>
+<summary>Referenz: was eingerichtet wurde</summary>
+
+Google-Indexierung läuft über dein Google-Konto — die App kann das nicht ersetzen.
 
 1. Öffne https://search.google.com/search-console (anmelden)  
 2. **Property hinzufügen** → **URL-Präfix** (nicht Domain)  
@@ -57,10 +64,10 @@ Google-Indexierung läuft **nur über dein Google-Konto** — das kann die App n
 
 **1. Sitemaps (wichtig)**  
 - Linkes Menü: **Sitemaps**  
-- **Volle URL** eintragen (kurz nur `sitemap.xml` schlägt bei GitHub Pages oft fehl):
+- Im Feld nur **`sitemap.xml`** eintragen (die Basis-URL steht schon davor — **keine** volle URL nochmal!):
 
 ```text
-https://legendr622.github.io/Redline-Gaming-Optimizer/sitemap.xml
+sitemap.xml
 ```
 
 - Alte Zeile mit Status **„Konnte nicht abgerufen werden“** (`/sitemap.xml`) → drei Punkte → **Sitemap entfernen**  
@@ -76,6 +83,8 @@ https://legendr622.github.io/Redline-Gaming-Optimizer/sitemap.xml
 - Keine weiteren Pflicht-Einträge für GitHub Pages
 
 **Indexierung:** oft **3–14 Tage** bis „Redline Gaming Optimizer“ in Google erscheint.
+
+</details>
 
 ---
 
