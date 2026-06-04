@@ -10,6 +10,21 @@ All notable changes to **Redline Gaming Optimizer** are listed here (newest firs
 
 ---
 
+## [1.1] — 2026-06-04
+
+### Added
+- **Setup installer cleanup** — official Setup EXE scans for old Redline/GamingBooster EXEs on desktop and legacy folders, lists them, and deletes before install
+- **Update install prompt** — in-app update shows which old files are removed before installing a new version
+
+### Improved
+- **Release hardening** — Obfuscar, no debug symbols, no dev license backdoors in public builds
+- **Version display** — sidebar and title bar show running EXE version (V1.1)
+
+### Fixed
+- **Version metadata** — `FileVersion` and `AssemblyVersion` stay in sync with displayed version
+
+---
+
 ## [1.0] — 2026-06-03
 
 ### Added
