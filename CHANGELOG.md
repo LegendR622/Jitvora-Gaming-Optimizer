@@ -10,6 +10,17 @@ All notable changes to **Redline Gaming Optimizer** are listed here (newest firs
 
 ---
 
+## [1.7] — 2026-06-04
+
+### Fixed
+- **Autostart page** — scan no longer stuck on “Please wait…”; result panel shows entry count and status
+- **Autostart scan** — runs in background so the scan button stays responsive
+
+### Improved
+- **Code signing** — build scripts for Authenticode (optional PFX); trust manifest reflects signature status
+
+---
+
 ## [1.6] — 2026-06-04
 
 ### Improved

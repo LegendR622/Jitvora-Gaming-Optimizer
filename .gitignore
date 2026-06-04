@@ -15,6 +15,12 @@ archiv/
 *.exe
 Redline_Gaming_Optimizer_Setup_v*.exe
 
+# Code signing (never commit)
+secrets/
+*.pfx
+*.p12
+codesign-password.txt
+
 # --- never push source to public GitHub main ---
 /GamingBooster_Pro/
 /scripts/

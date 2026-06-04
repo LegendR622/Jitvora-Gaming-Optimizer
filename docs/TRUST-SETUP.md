@@ -30,15 +30,22 @@ Warten (~1–2 Min), dann prüfen: https://legendr622.github.io/Redline-Gaming-O
 
 **Hinweis:** Der Hash-Link auf der Trust-Seite zeigt Ergebnisse erst, wenn die Datei bei VirusTotal mindestens einmal bekannt ist (Upload oder Hash-Suche).
 
-## Schritt 4 — Code-Signing (später)
+## Schritt 4 — Code-Signing
 
-Wenn EV-Zertifikat da ist:
+Vollständige Anleitung: **docs/CODE-SIGNING.md**
 
 ```powershell
-$env:REDLINE_CODE_SIGN_PFX = "C:\path\cert.pfx"
-$env:REDLINE_CODE_SIGN_PASSWORD = "..."
-.\scripts\build\sign-installer.ps1 -Version 1.6
-.\scripts\release\write-trust-manifest.ps1 -Version 1.6
+# Dev-Test (selbstsigniert):
+.\scripts\build\new-dev-code-sign-cert.ps1
+$env:REDLINE_CODE_SIGN_PFX = "$PWD\secrets\redline-codesign.pfx"
+$env:REDLINE_CODE_SIGN_PASSWORD = Get-Content .\secrets\codesign-password.txt -Raw
+
+# Oder OV/EV-PFX vom Anbieter:
+# $env:REDLINE_CODE_SIGN_PFX = "C:\secure\cert.pfx"
+# $env:REDLINE_CODE_SIGN_PASSWORD = "..."
+
+.\scripts\build\build-release.ps1 -Version 1.6
+.\scripts\build\verify-code-signature.ps1 -Version 1.6
 git add docs/trust-latest.json
 git push origin main
 ```
