@@ -10,6 +10,18 @@ All notable changes to **Redline Gaming Optimizer** are listed here (newest firs
 
 ---
 
+## [1.4] — 2026-06-04
+
+### Fixed
+- **Network page** — clearer status text and more reliable DNS actions
+- **Update check** — version manifest handling improved
+- **UI** — minor layout and navigation stability fixes
+
+### Improved
+- **Network check** — adapter list refreshes more reliably after tests
+
+---
+
 ## [1.3] — 2026-06-03
 
 ### Added
