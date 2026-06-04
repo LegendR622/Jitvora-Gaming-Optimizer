@@ -10,6 +10,16 @@ All notable changes to **Redline Gaming Optimizer** are listed here (newest firs
 
 ---
 
+## [1.8] — 2026-06-04
+
+### Added
+- **Settings — license key** — compact password field and activate button; hint that all features are currently free
+
+### Improved
+- **License security** — keys are never stored in plain text (hash only in settings); master keys embedded as obfuscated hashes in family builds only
+
+---
+
 ## [1.7] — 2026-06-04
 
 ### Fixed
