@@ -8,6 +8,7 @@
 - [x] **GitHub About:** Beschreibung, Homepage, Topics (`setup-github-seo.ps1`)
 - [x] **GitHub Pages** aktiviert: **https://legendr622.github.io/Redline-Gaming-Optimizer/**
 - [x] **Release V1.3** + **`version.json`** auf `main`
+- [x] **Search Console Verifizierung** — `google2155792da4e8c226.html` in `docs/`
 
 Skripte (lokal):
 
@@ -50,13 +51,29 @@ Google-Indexierung läuft **nur über dein Google-Konto** — das kann die App n
 1. Öffne https://search.google.com/search-console (anmelden)  
 2. **Property hinzufügen** → **URL-Präfix** (nicht Domain)  
 3. URL einfügen: `https://legendr622.github.io/Redline-Gaming-Optimizer/`  
-4. **Verifizierung** (eine Methode wählen):
-   - **HTML-Tag:** Meta-Tag aus Search Console kopieren → in `docs/index.html` unter dem Kommentar `Google Search Console` einfügen → `push-public-main.ps1` oder Commit auf `main` → Pages neu bauen (1–2 Min.)
-   - **HTML-Datei:** Datei in `docs/` legen, pushen
-4. **Sitemap einreichen:**  
-   `https://legendr622.github.io/Redline-Gaming-Optimizer/sitemap.xml`
-5. Optional zweite Property:  
-   `https://github.com/LegendR622/Redline-Gaming-Optimizer`
+4. **Verifizierung:** HTML-Datei (bereits erledigt) → **BESTÄTIGEN**
+
+### Nach der Bestätigung (in deinem offenen Search Console-Tab)
+
+**1. Sitemaps (wichtig)**  
+- Linkes Menü: **Sitemaps**  
+- **Volle URL** eintragen (kurz nur `sitemap.xml` schlägt bei GitHub Pages oft fehl):
+
+```text
+https://legendr622.github.io/Redline-Gaming-Optimizer/sitemap.xml
+```
+
+- Alte Zeile mit Status **„Konnte nicht abgerufen werden“** (`/sitemap.xml`) → drei Punkte → **Sitemap entfernen**  
+- **Senden** — Status nach einiger Zeit **„Erfolgreich“**
+
+**2. URL-Prüfung (empfohlen, einmal)**  
+- Menü: **URL-Prüfung**  
+- URL: `https://legendr622.github.io/Redline-Gaming-Optimizer/`  
+- **Indexierung beantragen** (wenn angeboten)
+
+**3. Optional**  
+- Menü: **Seiten** — später prüfen, ob URLs indexiert werden  
+- Keine weiteren Pflicht-Einträge für GitHub Pages
 
 **Indexierung:** oft **3–14 Tage** bis „Redline Gaming Optimizer“ in Google erscheint.
 
