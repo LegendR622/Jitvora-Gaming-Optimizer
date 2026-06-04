@@ -10,6 +10,17 @@ All notable changes to **Redline Gaming Optimizer** are listed here (newest firs
 
 ---
 
+## [1.5] — 2026-06-03
+
+### Fixed
+- **Network** — active adapter detection uses Windows default route (more reliable than speed-only guess)
+- **Network check** — clearer results when IPv4 gateway is missing
+
+### Improved
+- **Stability** — minor UI and logging polish on the network page
+
+---
+
 ## [1.4] — 2026-06-04
 
 ### Fixed
