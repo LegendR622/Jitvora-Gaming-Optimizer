@@ -1,0 +1,9 @@
+{
+  "version": "1.6",
+  "fileName": "Redline_Gaming_Optimizer_Setup_v1.6.exe",
+  "sha256": "",
+  "signed": false,
+  "signSubject": "",
+  "generatedUtc": "2026-06-04T00:00:00Z",
+  "note": "Run scripts/release/write-trust-manifest.ps1 after build-release to fill sha256."
+}

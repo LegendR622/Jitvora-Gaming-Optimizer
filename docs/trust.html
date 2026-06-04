@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trust Center — Redline Gaming Optimizer</title>
+  <link rel="stylesheet" href="_site.css" />
+</head>
+<body>
+  <main class="wrap">
+    <nav class="nav"><a href="index.html">Start</a><a href="support.html">Support</a></nav>
+    <h1>Trust Center</h1>
+    <p>Transparenz für Download, Signierung und Malware-Prüfung.</p>
+
+    <div class="card">
+      <h2>Code-Signing (Authenticode)</h2>
+      <p id="signing-status">Status wird geladen…</p>
+      <p><strong>Ziel für Pro/Aufkauf:</strong> EV-Code-Signing-Zertifikat, Installer und EXE signiert (SmartScreen-Vertrauen).</p>
+      <p>Aktuell: Installer wird mit Inno Setup gebaut; Signierung über <code>scripts/build/sign-installer.ps1</code> sobald Zertifikat hinterlegt ist.</p>
+    </div>
+
+    <div class="card">
+      <h2>SHA256 (Setup-EXE)</h2>
+      <p id="sha256">—</p>
+      <p id="file-name" style="font-size:0.9rem"></p>
+      <p>Prüfen (PowerShell): <code>Get-FileHash .\Redline_Gaming_Optimizer_Setup_vX.exe -Algorithm SHA256</code></p>
+    </div>
+
+    <div class="card">
+      <h2>VirusTotal</h2>
+      <p id="vt-link">Nach jedem Release: Setup hochladen oder Hash prüfen.</p>
+      <p><a href="https://www.virustotal.com/gui/home/upload">VirusTotal Upload</a> ·
+         <a href="https://www.virustotal.com/gui/home/search">Hash-Suche</a></p>
+    </div>
+
+    <div class="card">
+      <h2>Update-Sicherheit</h2>
+      <ul>
+        <li>In-App-Update nur von <code>github.com/LegendR622/Redline-Gaming-Optimizer/releases</code></li>
+        <li>Download-URL wird gegen offizielles Repo geprüft</li>
+        <li>Installation nur nach Nutzerbestätigung</li>
+      </ul>
+    </div>
+
+    <footer><a href="datenschutz.html">Datenschutz</a> · <a href="permissions.html">Berechtigungen</a></footer>
+  </main>
+  <script>
+    fetch('trust-latest.json').then(r => r.json()).then(d => {
+      document.getElementById('sha256').textContent = d.sha256 || '—';
+      document.getElementById('file-name').textContent = (d.fileName || '') + ' · V' + (d.version || '');
+      const signed = d.signed === true;
+      document.getElementById('signing-status').innerHTML = signed
+        ? '✅ Installer signiert (' + (d.signSubject || 'Zertifikat') + ')'
+        : '⚠️ Installer noch <strong>nicht</strong> signiert — SmartScreen kann warnen. Signierung geplant.';
+      if (d.sha256 && d.sha256.length === 64) {
+        const vt = 'https://www.virustotal.com/gui/file-details/' + d.sha256;
+        document.getElementById('vt-link').innerHTML =
+          '<a href="' + vt + '">VirusTotal: Datei-Details (SHA256)</a> · Version ' + (d.version || '');
+      }
+    }).catch(() => {
+      document.getElementById('signing-status').textContent =
+        '⚠️ trust-latest.json fehlt — nach Release scripts/release/write-trust-manifest.ps1 ausführen.';
+    });
+  </script>
+</body>
+</html>

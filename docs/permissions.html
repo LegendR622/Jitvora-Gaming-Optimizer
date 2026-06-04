@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Berechtigungen — Redline Gaming Optimizer</title>
+  <link rel="stylesheet" href="_site.css" />
+</head>
+<body>
+  <main class="wrap">
+    <nav class="nav"><a href="index.html">Start</a><a href="trust.html">Trust</a></nav>
+    <h1>Berechtigungen &amp; Admin</h1>
+    <p>Redline verlangt <strong>kein</strong> Dauer-Admin. Der Installer nutzt <code>PrivilegesRequired=lowest</code>.</p>
+
+    <table>
+      <tr><th>Funktion</th><th>Admin</th><th>Hinweis</th></tr>
+      <tr><td>Dashboard, Gaming-Tipps, Scans (lesen)</td><td>Nein</td><td>Lokale WMI/LHM-Sensoren</td></tr>
+      <tr><td>DNS setzen / Flush</td><td>Oft ja</td><td>Nur nach Bestätigung</td></tr>
+      <tr><td>Winsock, SFC, DISM</td><td>Ja</td><td>Reparatur-Seite</td></tr>
+      <tr><td>Wiederherstellungspunkt</td><td>Meist ja</td><td>Windows Checkpoint</td></tr>
+      <tr><td>Autostart deaktivieren</td><td>Teils</td><td>Registry-Backup vorher</td></tr>
+      <tr><td>CPU-Temperatur (Ryzen)</td><td>Oft ja</td><td>Sensor sonst 0°C — Hinweis in App</td></tr>
+      <tr><td>Update von GitHub</td><td>Nein</td><td>HTTPS, Nutzer startet Installer</td></tr>
+    </table>
+
+    <p lang="en">Redline does not require permanent administrator. Elevation only for actions you confirm (DNS, repair, restore point).</p>
+    <footer><a href="datenschutz.html">Datenschutz</a></footer>
+  </main>
+</body>
+</html>

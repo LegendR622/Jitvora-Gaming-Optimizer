@@ -78,6 +78,13 @@ Ja — Sprache in den Einstellungen umschaltbar (Deutsch / English).
 - **[CHANGELOG.md](CHANGELOG.md)** — version history  
 - App checks **`version.json`** and GitHub Releases for new installers  
 
+## Trust, legal & acquisition
+
+- **Website (GitHub Pages):** `docs/` — [Trust](docs/trust.html), [Privacy](docs/datenschutz.html), [Impressum](docs/impressum.html), [Support](docs/support.html)  
+- **Due diligence checklist:** [docs/ACQUISITION-READY.md](docs/ACQUISITION-READY.md)  
+- **Release trust manifest:** `scripts/release/write-trust-manifest.ps1` (SHA256 + VirusTotal URL)  
+- **Optional code signing:** `scripts/build/sign-installer.ps1`  
+
 ---
 
 ## Google / findability

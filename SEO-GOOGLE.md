@@ -5,7 +5,7 @@
 - [x] **SEO-Landingpage** in `docs/index.html` (Titel, Meta, Schema.org, FAQ, V1.3-Download)
 - [x] **`robots.txt`** und **`sitemap.xml`**
 - [x] **`README.md`** mit Suchbegriffen und FAQ
-- [x] **GitHub About:** Beschreibung, Homepage, Topics (`setup-github-seo.ps1`)
+- [x] **GitHub About:** Beschreibung, Homepage, Topics
 - [x] **GitHub Pages** aktiviert: **https://legendr622.github.io/Redline-Gaming-Optimizer/**
 - [x] **Release V1.3** + **`version.json`** auf `main`
 - [x] **Search Console Verifizierung** — `google2155792da4e8c226.html` in `docs/`
@@ -15,8 +15,7 @@
 Skripte (lokal):
 
 ```powershell
-.\scripts\release\complete-seo-setup.ps1   # alles prüfen + Pages
-.\scripts\release\verify-seo-online.ps1    # nur prüfen
+.\scripts\release\verify-seo-online.ps1
 ```
 
 ---
