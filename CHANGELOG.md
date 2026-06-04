@@ -10,6 +10,23 @@ All notable changes to **Redline Gaming Optimizer** are listed here (newest firs
 
 ---
 
+## [1.9] — 2026-06-04 (public release — Pro Center preview)
+
+### Added
+- **Pro Center** — 35 upcoming Pro tools visible in the app (Gaming, Network, System, Security, Maintenance, Bundle)
+- **Pro Center preview mode** — cards show **Coming soon** / **Demnächst**; **Preview** button explains the roadmap (features are not runnable for public users yet)
+- **Read-before-apply** — GPU scheduling, fullscreen optimizations, core parking, registry gaming read, and more ask or show current values before changes (when Pro Center is unlocked)
+
+### Improved
+- **Settings (public build)** — “Your edition / Full version” without license-key field (less confusion; app stays fully free)
+- **Pro Center info banner** — clear note that Cleaner, drivers, network, and the rest of the app remain fully usable
+
+### In development (not runnable in this public build)
+- **Pro Center — run features** — unlock for customers after internal QA (`ProHubReleasedForCustomers`)
+- **Smart Network Pro** — one-click DNS + latency tuning (developer preview)
+
+---
+
 ## [1.8] — 2026-06-04
 
 ### Added

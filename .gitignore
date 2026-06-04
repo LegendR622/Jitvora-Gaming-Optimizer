@@ -15,8 +15,10 @@ archiv/
 *.exe
 Redline_Gaming_Optimizer_Setup_v*.exe
 
-# Code signing (never commit)
-secrets/
+# Code signing & license keys (never commit)
+secrets/*
+!secrets/master-keys.example.txt
+GamingBooster_Pro/RedlineAppData.MasterKeys.gen.cs
 *.pfx
 *.p12
 codesign-password.txt

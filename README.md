@@ -39,8 +39,9 @@ Also searched as: *Gaming Optimizer Windows*, *FPS Booster PC*, *Windows 11 gami
 | **Network** | Adapters, DNS tools |
 | **Repair** | SFC, DISM shortcuts (admin) |
 | **App** | Dark UI, DE/EN, font size & monitor fit in settings |
+| **Pro Center** *(preview)* | **35** upcoming Pro tools visible — **Coming soon** in public builds until QA unlock |
 
-**Current status:** full version is **free**.
+**Current status:** full version is **free**. Pro Center shows what’s planned; **running** Pro tools follows in a later update (see [docs/PUBLIC-RELEASE.md](docs/PUBLIC-RELEASE.md)).
 
 ---
 
