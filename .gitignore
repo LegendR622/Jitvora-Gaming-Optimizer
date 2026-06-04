@@ -1,0 +1,24 @@
+bin/
+obj/
+publish/
+dist/
+*.user
+*.suo
+.vs/
+screenshots/
+*.pdb
+*.cache
+**/PublishOutputs.*.txt
+FUNktionstest.log
+Redline_V*_win-x64.zip
+archiv/
+*.exe
+Redline_Gaming_Optimizer_Setup_v*.exe
+
+# --- never push source to public GitHub main ---
+/GamingBooster_Pro/
+/scripts/
+/tools/
+/video/
+/.github/
+/LIESMICH.txt
