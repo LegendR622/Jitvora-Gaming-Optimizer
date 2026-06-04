@@ -10,6 +10,17 @@ All notable changes to **Redline Gaming Optimizer** are listed here (newest firs
 
 ---
 
+## [1.6] — 2026-06-04
+
+### Improved
+- **Network** — smarter DNS apply (skips when already optimal), safer IPv4/IPv6 rules for fast connections
+- **Code** — `MainWindow` UI helpers split into smaller files for easier maintenance
+
+### In development (not in this build)
+- **Smart Network Pro** — one-click DNS + browser/latency tuning for Pro (dev preview on author PC only)
+
+---
+
 ## [1.5] — 2026-06-03
 
 ### Fixed
