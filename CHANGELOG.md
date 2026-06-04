@@ -10,6 +10,40 @@ All notable changes to **Redline Gaming Optimizer** are listed here (newest firs
 
 ---
 
+## [1.3] — 2026-06-03
+
+### Added
+- **Display settings** — font size Small / Normal / Large / XL; **monitor auto-fit** keeps window and controls readable on smaller screens
+- **Compact settings page** — two-column layout (language, theme, font, scan depth, notifications) plus slim system row
+- **SEO landing page** (`docs/`) for GitHub Pages — better findability on Google (see `SEO-GOOGLE.md`)
+
+### Improved
+- **Driver download (↗)** — opens the correct vendor download page (motherboard, GPU, LAN, Wi‑Fi); on failed auto-install, browser opens automatically
+- **Vendor links action** — opens only hardware-matched URLs (not generic NVIDIA/AMD spam tabs)
+- **Status & results** — “Please wait…” while working; clean user-facing result lines (no PowerShell/step dumps)
+- **UI shell** — compact footer; sidebar without duplicate version / SYSTEMSTATUS boxes
+- **Code structure** — `MainWindow` split into partial files (pages, actions, navigation, log)
+- **README & GitHub** — search-friendly description, topics, and FAQ for “Redline Gaming Optimizer”
+
+### Fixed
+- **Settings layout** — controls no longer overlap on narrow widths
+- **Update check** — `version.json` stays in sync with the published Setup EXE (V1.3)
+
+---
+
+## [1.2] — 2026-06-04
+
+### Fixed
+- **Driver vendor links (↗)** — ASUS/MediaTek/Wi-Fi arrows open your detected motherboard support page, not a hardcoded ROG X670E URL
+- **AMD chipset links** — AM4 boards (e.g. B550) route to the correct AMD chipset page instead of AM5-only
+
+### Improved
+- **Settings layout** — language, scan depth, theme, and action buttons align in one column (380px)
+- **Driver page** — vendor tiles (ASUS mainboard, AMD chipset) use detected hardware URLs
+- **Testing** — `TEST-VOLL.bat` runs a slow sidebar audit (4s pause per menu) plus full UI selftest
+
+---
+
 ## [1.1] — 2026-06-04
 
 ### Added

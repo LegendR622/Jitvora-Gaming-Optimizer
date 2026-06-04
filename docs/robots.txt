@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://legendr622.github.io/Redline-Gaming-Optimizer/sitemap.xml

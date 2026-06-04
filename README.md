@@ -1,81 +1,88 @@
 # Redline Gaming Optimizer
 
-<p align="center">
-  <strong>Windows gaming optimizer</strong> — FPS tuning, PC cleanup, drivers, and safe system tweaks.<br/>
-  Built for gamers who want one clean app instead of ten scattered tools.
-</p>
+**Free Windows gaming optimizer** — FPS tuning, PC cleanup, driver updates, and safe system tweaks for **Windows 10 & 11**.
+
+| | |
+|---|---|
+| **Download** | [**Latest release (Setup EXE)**](https://github.com/LegendR622/Redline-Gaming-Optimizer/releases) |
+| **Website** | [legendr622.github.io/Redline-Gaming-Optimizer](https://legendr622.github.io/Redline-Gaming-Optimizer/) *(enable GitHub Pages from `/docs`)* |
+| **Author** | Tobias Immisch |
+| **Language** | English & Deutsch |
 
 <p align="center">
-  <a href="https://github.com/LegendR622/Redline-Gaming-Optimizer/releases"><strong>⬇ Download latest release</strong></a>
+  <a href="https://github.com/LegendR622/Redline-Gaming-Optimizer/releases"><strong>⬇ Download Redline Gaming Optimizer</strong></a>
 </p>
 
 ---
 
-## Why Redline?
+## Redline Gaming Optimizer — what is it?
 
-| Problem | Redline helps with |
-|--------|---------------------|
-| FPS drops in games | Game Mode, power plan, graphics, Windows FPS Boost |
-| Bloated Windows | Smart cleaner (temp, cache, categories) |
-| Outdated drivers | Driver scan + vendor links + in-app updates |
-| Too many tweak tools | One modern UI — Dashboard, Gaming, Performance, Repair |
-| Unsafe “game hacks” | **No game file edits** — only safe Windows settings |
+**Redline Gaming Optimizer** is a **PC optimizer for gamers**: improve FPS, clean temp files, scan drivers with **official vendor download links** (motherboard, GPU, LAN, Wi‑Fi), and apply **safe Windows tweaks** — **without editing game files** (anti-cheat friendly approach).
 
-**Current status:** full version is **free**. Paid Pro and license keys are planned for later.
+Also searched as: *Gaming Optimizer Windows*, *FPS Booster PC*, *Windows 11 gaming tweak tool*, *PC optimieren Gaming*, *Treiber Tool Windows*.
 
-> **This repository is public for downloads only** — installer releases and `version.json` for updates. **Source code is not published here** (build and development stay local).
+> **This repository** hosts **releases**, `version.json`, and the **SEO landing page** in `docs/`. Source code is built locally (not published here).
 
-- **Latest version:** **[V1.0](https://github.com/LegendR622/Redline-Gaming-Optimizer/releases/tag/v1.0)** — see [Releases](https://github.com/LegendR622/Redline-Gaming-Optimizer/releases) or `version.json`
-- **Author:** Tobias Immisch
-- **Platform:** Windows 10/11 (64-bit)
+- **Latest release:** see [Releases](https://github.com/LegendR622/Redline-Gaming-Optimizer/releases) and [CHANGELOG.md](CHANGELOG.md)
+- **In-app updates:** official Setup EXE from GitHub only
 
 ---
 
 ## Features
 
-### Gaming
-- Detect games from shortcuts (Desktop / Start Menu)
-- Per-game tips and safe “apply” actions (Game Mode, power, DNS)
-- Anti-cheat safe mode — won’t touch files while a game is running
+| Area | What you get |
+|------|----------------|
+| **Gaming / FPS** | Game profiles, Windows FPS Boost, Game Mode, power plan |
+| **Drivers** | Scan, status, **↗ opens correct vendor download page** (ASUS/MSI/NVIDIA/AMD/Intel/Realtek) |
+| **Cleaner** | Categorized cleanup with size preview |
+| **Performance** | Autostart, services, graphics settings |
+| **Network** | Adapters, DNS tools |
+| **Repair** | SFC, DISM shortcuts (admin) |
+| **App** | Dark UI, DE/EN, font size & monitor fit in settings |
 
-### Performance
-- Game Mode, high performance power plan, visual effects
-- Background services and autostart manager
-- **Windows FPS Boost** — one-click tuning bundle
-
-### System
-- **Cleaner** — categorized cleanup with size preview
-- **Security** — overview and guidance
-- **Network** — adapters, DNS, tools
-- **Drivers** — status, risk hints, winget / vendor install
-- **Repair** — admin repair shortcuts
-
-### App
-- Dark modern UI (English / German)
-- **Manual update** from official GitHub releases (Setup EXE, in-app **Update** page)
-- Local settings — no cloud account required
+**Current status:** full version is **free**.
 
 ---
 
-## Download (end users)
+## Download & install
 
 1. Open **[Releases](https://github.com/LegendR622/Redline-Gaming-Optimizer/releases)**
-2. Download **`Redline_Gaming_Optimizer_Setup_v1.0.exe`** (only the latest Setup — no old ZIPs)
+2. Download **`Redline_Gaming_Optimizer_Setup_v*.exe`** (latest version)
 3. Install → launch **Redline Gaming Optimizer**
 
-> Run as **Administrator** for repair, DNS, and some driver actions.
+Run as **Administrator** for repair, DNS, and some driver actions.
 
 ---
 
-## Changelog
+## FAQ
 
-See **[CHANGELOG.md](CHANGELOG.md)** for version history (English entries: **Fixed** / **Improved** / **Added**).
+**Is Redline Gaming Optimizer free?**  
+Yes — the full version is currently free.
+
+**Does it work on Windows 11?**  
+Yes — Windows 10 and 11 (64-bit).
+
+**Is it safe for online games / anti-cheat?**  
+Redline changes **Windows settings only**, not game binaries or game folders.
+
+**Where is the official download?**  
+Only from this GitHub repo: [Releases](https://github.com/LegendR622/Redline-Gaming-Optimizer/releases). Avoid third-party download sites.
+
+**Ist Redline auf Deutsch?**  
+Ja — Sprache in den Einstellungen umschaltbar (Deutsch / English).
 
 ---
 
-## Updates
+## Changelog & updates
 
-The app checks **GitHub Releases** and `version.json` on this repo for new Setup installers. Only official `.exe` files from [Releases](https://github.com/LegendR622/Redline-Gaming-Optimizer/releases) are supported.
+- **[CHANGELOG.md](CHANGELOG.md)** — version history  
+- App checks **`version.json`** and GitHub Releases for new installers  
+
+---
+
+## Google / findability
+
+To index the project in search engines, enable **GitHub Pages** (`main` → `/docs`) and follow **[SEO-GOOGLE.md](SEO-GOOGLE.md)** (Search Console, repo topics).
 
 ---
 
@@ -83,8 +90,8 @@ The app checks **GitHub Releases** and `version.json` on this repo for new Setup
 
 © 2026 **Tobias Immisch**. All rights reserved.
 
-Redline Gaming Optimizer is distributed via GitHub releases. Do not redistribute modified installers without permission.
+Do not redistribute modified installers without permission.
 
 ---
 
-<p align="center"><sub>Redline Gaming Optimizer · Made for PC gamers</sub></p>
+<p align="center"><sub>Redline Gaming Optimizer · Windows gaming optimizer · Made for PC gamers</sub></p>
