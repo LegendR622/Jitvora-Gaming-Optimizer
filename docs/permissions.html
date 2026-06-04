@@ -3,28 +3,46 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Berechtigungen — Redline Gaming Optimizer</title>
+  <title>Berechtigungen / Permissions — Redline Gaming Optimizer</title>
   <link rel="stylesheet" href="_site.css" />
 </head>
 <body>
   <main class="wrap">
-    <nav class="nav"><a href="index.html">Start</a><a href="trust.html">Trust</a></nav>
-    <h1>Berechtigungen &amp; Admin</h1>
-    <p>Redline verlangt <strong>kein</strong> Dauer-Admin. Der Installer nutzt <code>PrivilegesRequired=lowest</code>.</p>
+    <nav class="nav" aria-label="Legal navigation">
+      <a href="index.html">Start / Home</a>
+      <a href="trust.html">Trust</a>
+      <a href="datenschutz.html">Datenschutz / Privacy</a>
+    </nav>
+    <p class="tag-lang">Deutsch · English</p>
+    <h1>Berechtigungen <span class="title-en">/ Permissions &amp; Admin</span></h1>
 
-    <table>
-      <tr><th>Funktion</th><th>Admin</th><th>Hinweis</th></tr>
-      <tr><td>Dashboard, Gaming-Tipps, Scans (lesen)</td><td>Nein</td><td>Lokale WMI/LHM-Sensoren</td></tr>
-      <tr><td>DNS setzen / Flush</td><td>Oft ja</td><td>Nur nach Bestätigung</td></tr>
-      <tr><td>Winsock, SFC, DISM</td><td>Ja</td><td>Reparatur-Seite</td></tr>
-      <tr><td>Wiederherstellungspunkt</td><td>Meist ja</td><td>Windows Checkpoint</td></tr>
-      <tr><td>Autostart deaktivieren</td><td>Teils</td><td>Registry-Backup vorher</td></tr>
-      <tr><td>CPU-Temperatur (Ryzen)</td><td>Oft ja</td><td>Sensor sonst 0°C — Hinweis in App</td></tr>
-      <tr><td>Update von GitHub</td><td>Nein</td><td>HTTPS, Nutzer startet Installer</td></tr>
-    </table>
+    <section class="bilingual-block" lang="de">
+      <p class="lang-heading">Deutsch</p>
+      <p>Redline verlangt <strong>kein</strong> Dauer-Admin. Installer: <code>PrivilegesRequired=lowest</code>.</p>
+      <table>
+        <tr><th>Funktion</th><th>Admin</th><th>Hinweis</th></tr>
+        <tr><td>Dashboard, Tipps, Scans</td><td>Nein</td><td>Lokale Sensoren</td></tr>
+        <tr><td>DNS / Flush</td><td>Oft ja</td><td>Nach Bestätigung</td></tr>
+        <tr><td>SFC, DISM, Winsock</td><td>Ja</td><td>Reparatur</td></tr>
+        <tr><td>Wiederherstellungspunkt</td><td>Meist ja</td><td>Windows</td></tr>
+        <tr><td>Update GitHub</td><td>Nein</td><td>HTTPS</td></tr>
+      </table>
+    </section>
 
-    <p lang="en">Redline does not require permanent administrator. Elevation only for actions you confirm (DNS, repair, restore point).</p>
-    <footer><a href="datenschutz.html">Datenschutz</a></footer>
+    <section class="bilingual-block" lang="en">
+      <p class="lang-heading">English</p>
+      <p>Redline does <strong>not</strong> require permanent administrator. Installer runs without admin by default.</p>
+      <table>
+        <tr><th>Feature</th><th>Admin</th><th>Note</th></tr>
+        <tr><td>Dashboard, tips, scans</td><td>No</td><td>Local sensors</td></tr>
+        <tr><td>DNS / flush</td><td>Often yes</td><td>After confirmation</td></tr>
+        <tr><td>SFC, DISM, Winsock</td><td>Yes</td><td>Repair</td></tr>
+        <tr><td>Restore point</td><td>Usually yes</td><td>Windows</td></tr>
+        <tr><td>GitHub update</td><td>No</td><td>HTTPS</td></tr>
+      </table>
+    </section>
+
+    <footer><a href="datenschutz.html">Privacy</a> · <a href="trust.html">Trust</a></footer>
   </main>
 </body>
 </html>
