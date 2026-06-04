@@ -10,6 +10,19 @@ All notable changes to **Redline Gaming Optimizer** are listed here (newest firs
 
 ---
 
+## [1.9.1] — 2026-06-04
+
+### Added
+- **Release hardening** — Obfuscar (private API + hidden strings), integrity check on startup, signed public builds
+
+### Improved
+- **Pro Center UI** — clearer layout (hero, categories, cards); preview mode unchanged (35 tools, Coming soon)
+
+### Fixed
+- **Release pipeline** — public setup build and trust manifest aligned to V1.9.1
+
+---
+
 ## [1.9] — 2026-06-04 (public release — Pro Center preview)
 
 ### Added
