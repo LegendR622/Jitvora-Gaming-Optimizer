@@ -3,8 +3,8 @@
     "signed":  true,
     "signSubject":  "CN=Tobias Immisch, O=Redline Gaming Optimizer, C=DE",
     "fileName":  "Redline_Gaming_Optimizer_Setup_v1.9.exe",
-    "generatedUtc":  "2026-06-04T20:05:56.5690281Z",
-    "virusTotalUrl":  "https://www.virustotal.com/gui/file-details/6b3f6430f0189a28cd7667041de5644ca97012086881f4a4f4232d134ff3c5f4",
+    "generatedUtc":  "2026-06-04T20:13:47.4071699Z",
+    "virusTotalUrl":  "https://www.virustotal.com/gui/file-details/4fafe1ad6f120bfd53e19cc5c306e8332c02b4dab9e2295d8d20a179bbae1237",
     "downloadUrl":  "https://github.com/LegendR622/Redline-Gaming-Optimizer/releases/download/v1.9/Redline_Gaming_Optimizer_Setup_v1.9.exe",
-    "sha256":  "6b3f6430f0189a28cd7667041de5644ca97012086881f4a4f4232d134ff3c5f4"
+    "sha256":  "4fafe1ad6f120bfd53e19cc5c306e8332c02b4dab9e2295d8d20a179bbae1237"
 }
