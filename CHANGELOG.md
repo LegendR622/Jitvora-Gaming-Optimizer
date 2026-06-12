@@ -10,6 +10,18 @@ All notable changes to **Redline Gaming Optimizer** are listed here (newest firs
 
 ---
 
+## [1.9.3] — 2026-06-12
+
+### Fixed
+- **Public release executable** — fixed silent startup failure on unsigned public builds (IntegrityGuard)
+- **Release pipeline** — one public app EXE (`Redline Gaming Optimizer.exe`) in installer; no duplicate public builds
+
+### Improved
+- **Startup window** — default 1400×900, minimum 1200×760 for clearer UI on first launch
+- **Website** — mobile hero button layout polish on landing page
+
+---
+
 ## [1.9.2] — 2026-06-12
 
 ### Fixed
