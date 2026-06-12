@@ -23,7 +23,7 @@ EN = {
     "lang.more": "More languages",
     "hero.badge": "Windows 10/11 · 64-bit · Free",
     "hero.sub": "Tune FPS, clean your PC, check drivers and fix network issues — safely from one desktop app.",
-    "hero.download": "Download V1.9.3",
+    "hero.download": "Download V1.9.4",
     "hero.trust": "Trust & SHA256",
     "hero.trustAria": "Trust highlights",
     "hero.pill1": "Official GitHub release",
@@ -52,7 +52,7 @@ EN = {
     "feat.repair.title": "Repair tools",
     "feat.repair.text": "Shortcuts to SFC, DISM and common Windows repair actions.",
     "feat.pro.title": "Pro Center",
-    "feat.pro.text": "28 pro tools in Gaming, Network, System & more — browse in the app (preview in V1.9.3).",
+    "feat.pro.text": "28 pro tools in Gaming, Network, System & more — browse in the app (preview in V1.9.4).",
     "how.label": "How it works",
     "how.title": "Three simple steps",
     "how.lead": "Scan, review, then apply — you stay in control.",
@@ -80,7 +80,7 @@ EN = {
     "faq.label": "FAQ",
     "faq.title": "Quick answers",
     "faq.q1": "Is Redline free on Windows 10 and 11?",
-    "faq.a1": "Yes — the full version is free on 64-bit Windows 10 and 11. No license key for V1.9.3.",
+    "faq.a1": "Yes — the full version is free on 64-bit Windows 10 and 11. No license key for V1.9.4.",
     "faq.q2": "Where do I download safely?",
     "faq.a2.html": 'Only from <a href="https://github.com/LegendR622/Redline-Gaming-Optimizer/releases">GitHub Releases</a>. Avoid third-party download sites.',
     "faq.q3": "Safe for online games?",
@@ -91,7 +91,7 @@ EN = {
     "faq.a5": "The app supports German and English in settings. This website is available in many languages.",
     "footer.aria": "Legal and resources",
     "meta.title": "Redline Gaming Optimizer — Windows Gaming Optimizer, FPS & PC Cleaner",
-    "meta.description": "Redline Gaming Optimizer — premium Windows gaming optimizer for FPS tuning, PC cleaner, driver check and network tools. Safe Windows tweaks. Free download V1.9.3 for Windows 10/11.",
+    "meta.description": "Redline Gaming Optimizer — premium Windows gaming optimizer for FPS tuning, PC cleaner, driver check and network tools. Safe Windows tweaks. Free download V1.9.4 for Windows 10/11.",
 }
 
 ALLOW_SAME = {

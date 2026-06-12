@@ -1,10 +1,10 @@
 ﻿{
-    "version":  "1.9.3",
+    "version":  "1.9.4",
     "signed":  false,
     "signSubject":  "",
-    "fileName":  "Redline_Gaming_Optimizer_Setup_v1.9.3.exe",
-    "generatedUtc":  "2026-06-12T14:44:21.7338226Z",
-    "virusTotalUrl":  "https://www.virustotal.com/gui/file-details/290c1024ba5ac258598635026841e34f91aa4bf70d849dc6556d6a91b1db64b1",
-    "downloadUrl":  "https://github.com/LegendR622/Redline-Gaming-Optimizer/releases/download/v1.9.3/Redline_Gaming_Optimizer_Setup_v1.9.3.exe",
-    "sha256":  "290c1024ba5ac258598635026841e34f91aa4bf70d849dc6556d6a91b1db64b1"
+    "fileName":  "Redline_Gaming_Optimizer_Setup_v1.9.4.exe",
+    "generatedUtc":  "2026-06-12T15:53:50.9947651Z",
+    "virusTotalUrl":  "https://www.virustotal.com/gui/file-details/9d5c65ee8f657afabf3085213eab8f39770d186e3735b27180be356549dad771",
+    "downloadUrl":  "https://github.com/LegendR622/Redline-Gaming-Optimizer/releases/download/v1.9.4/Redline_Gaming_Optimizer_Setup_v1.9.4.exe",
+    "sha256":  "9d5c65ee8f657afabf3085213eab8f39770d186e3735b27180be356549dad771"
 }

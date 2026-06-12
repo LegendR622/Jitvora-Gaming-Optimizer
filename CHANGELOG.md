@@ -10,6 +10,20 @@ All notable changes to **Redline Gaming Optimizer** are listed here (newest firs
 
 ---
 
+## [1.9.4] — 2026-06-12
+
+### Fixed
+- **Performance page** — gaming score refresh opens the correct Optimierung page again
+- **AI Advisor** — advisor no longer stays locked after an error during live measurement
+- **DNS flush** — Network and Repair ask for confirmation before flushing the DNS cache
+- **Live Log** — copy/export respects the same user-facing filter as the UI; duplicate consecutive lines suppressed
+
+### Improved
+- **Website** — multilingual landing page (DE/EN switcher + 25 additional read languages, 87 translated strings each)
+- **QA & release** — trust manifest and update check aligned to V1.9.4
+
+---
+
 ## [1.9.3] — 2026-06-12
 
 ### Fixed
