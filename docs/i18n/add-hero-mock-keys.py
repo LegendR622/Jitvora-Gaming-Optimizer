@@ -4,7 +4,7 @@
 import json
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
 path = ROOT / "i18n-full.json"
 data = json.loads(path.read_text(encoding="utf-8"))
 

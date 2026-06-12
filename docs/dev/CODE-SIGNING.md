@@ -2,6 +2,8 @@
 
 Signiert **App-EXE** und **Setup-EXE** mit SHA256 + Zeitstempel. Hilft bei SmartScreen und reduziert AV-Heuristik (z. B. Kaspersky HEUR).
 
+**SmartScreen komplett „ruhig“:** nur mit **OV/EV-Zertifikat** von einer echten CA + Reputation — siehe **[SMARTSCREEN.md](SMARTSCREEN.md)**.
+
 ## Schnelltest (selbstsigniert, nur Pipeline)
 
 **Nicht** für öffentliche Releases (Windows zeigt „Unbekannter Herausgeber“).
