@@ -14,6 +14,7 @@ All notable changes to **Redline Gaming Optimizer** are listed here (newest firs
 
 ### Fixed
 - **Drivers** — vendor ↗ button opens official support pages instead of direct ZIP/EXE downloads
+- **Drivers** — AMD High Definition Audio on ASUS boards opens the board helpdesk download page
 - **Drivers** — no duplicate floating Live Log on the Drivers page; activity no longer stuck on “Working…”
 - **Drivers** — winget verification no longer shown as “Updated”; verified devices use a clear “Verified” status
 - **Drivers** — auto-install only runs on verified hardware matches; unsafe cases skip install and open the vendor page
