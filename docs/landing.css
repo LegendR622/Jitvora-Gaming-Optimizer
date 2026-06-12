@@ -104,8 +104,17 @@ a:hover { color: #ff7a93; }
 
 .nav-links a:hover { color: var(--text); }
 
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
 @media (max-width: 640px) {
   .nav-links { gap: 1rem; font-size: 0.78rem; }
+  .nav-right { gap: 0.5rem; }
 }
 
 /* —— Hero —— */

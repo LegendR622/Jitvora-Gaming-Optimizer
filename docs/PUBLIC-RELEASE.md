@@ -7,7 +7,7 @@ Use this checklist when you publish the next **public** installer. The app stays
 | Area | Behavior |
 |------|----------|
 | **Cleaner, Treiber, Netzwerk, Gaming, …** | Fully usable, free |
-| **Pro Center** | 35 feature cards, filter by category, **◷ Demnächst** / **Coming soon** |
+| **Pro Center** | 28 tools, category filter & search, **◷ Demnächst** / **Coming soon** |
 | **Preview button** | Short description + “starts in a later update” |
 | **Settings** | “Deine Edition / Vollversion” — no license key field |
 | **Not on GitHub** | `dist/family/`, master keys, Family-only EXE |
@@ -44,7 +44,7 @@ Use this checklist when you publish the next **public** installer. The app stays
 
 ## When Pro Center is ready for everyone
 
-1. Finish QA on Family/dev build (`--pro-live-test` → 35 OK).
+1. Finish QA on Family/dev build (`--pro-live-test` → 28 OK).
 2. Set `ProHubReleasedForCustomers = true` in `RedlineFeatureGate.cs`.
 3. New release notes: “Pro Center — features can now be started”.
 4. Rebuild and publish **V1.10** (or next version).
@@ -53,8 +53,8 @@ Use this checklist when you publish the next **public** installer. The app stays
 
 **English**
 
-> **Pro Center (preview)** — Browse 35 upcoming Pro tools (DNS benchmark, registry read, GPU scheduling, FPS boost, and more). They show **Coming soon** in this release; running them will arrive in a later update. The rest of Redline stays **fully free and usable**.
+> **Pro Center (preview)** — Browse **28** Pro tools (DNS benchmark, registry read, GPU scheduling, FPS boost, and more). They show **Coming soon** in this release; running them will arrive in a later update. The rest of Redline stays **fully free and usable**.
 
 **Deutsch**
 
-> **Pro Center (Vorschau)** — 35 geplante Pro-Werkzeuge ansehen (DNS-Benchmark, Registry-Lesen, GPU-Planung, FPS-Boost, …). In diesem Release **Demnächst** — Starten folgt in einem späteren Update. Der Rest von Redline bleibt **voll nutzbar und kostenlos**.
+> **Pro Center (Vorschau)** — **28** Pro-Werkzeuge ansehen (DNS-Benchmark, Registry-Lesen, GPU-Planung, FPS-Boost, …). In diesem Release **Demnächst** — Starten folgt in einem späteren Update. Der Rest von Redline bleibt **voll nutzbar und kostenlos**.

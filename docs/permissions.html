@@ -4,17 +4,19 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Berechtigungen / Permissions — Redline Gaming Optimizer</title>
+  <script src="site-i18n.js"></script>
+  <script src="site-lang-boot.js"></script>
   <link rel="stylesheet" href="_site.css" />
 </head>
 <body>
   <main class="wrap">
     <nav class="nav" aria-label="Legal navigation">
-      <a href="index.html">Start / Home</a>
-      <a href="trust.html">Trust</a>
-      <a href="datenschutz.html">Datenschutz / Privacy</a>
+      <a href="index.html" data-i18n="nav.home">Start</a>
+      <a href="trust.html" data-i18n="nav.trust">Trust</a>
+      <a href="datenschutz.html" data-i18n="nav.privacy">Datenschutz</a>
     </nav>
-    <p class="tag-lang">Deutsch · English</p>
-    <h1>Berechtigungen <span class="title-en">/ Permissions &amp; Admin</span></h1>
+    <div class="lang-switch-wrap" data-lang-switch></div>
+    <h1><span lang="de">Berechtigungen</span><span lang="en">Permissions &amp; Admin</span></h1>
 
     <section class="bilingual-block" lang="de">
       <p class="lang-heading">Deutsch</p>
@@ -42,7 +44,8 @@
       </table>
     </section>
 
-    <footer><a href="datenschutz.html">Privacy</a> · <a href="trust.html">Trust</a></footer>
+    <footer><a href="datenschutz.html" data-i18n="nav.privacy">Privacy</a> · <a href="trust.html" data-i18n="nav.trust">Trust</a></footer>
   </main>
+  <script src="site-lang.js" defer></script>
 </body>
 </html>

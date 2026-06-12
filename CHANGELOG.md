@@ -19,6 +19,8 @@ All notable changes to **Redline Gaming Optimizer** are listed here (newest firs
 ### Improved
 - **Startup window** — default 1400×900, minimum 1200×760 for clearer UI on first launch
 - **Website** — mobile hero button layout polish on landing page
+- **User messages** — Live Log, status colors, and hardware card wording polished (EN/DE)
+- **Pro Center** — grouped layout, duplicate tools hidden; preview for users, full access on developer PC only (no license keys)
 
 ---
 
@@ -39,7 +41,7 @@ All notable changes to **Redline Gaming Optimizer** are listed here (newest firs
 - **Release hardening** — Obfuscar (private API + hidden strings), integrity check on startup, signed public builds
 
 ### Improved
-- **Pro Center UI** — clearer layout (hero, categories, cards); preview mode unchanged (35 tools, Coming soon)
+- **Pro Center UI** — grouped 2-column layout (hero, search, categories); preview mode unchanged (28 tools, Coming soon)
 
 ### Fixed
 - **Release pipeline** — public setup build and trust manifest aligned to V1.9.1
@@ -49,7 +51,7 @@ All notable changes to **Redline Gaming Optimizer** are listed here (newest firs
 ## [1.9] — 2026-06-04 (public release — Pro Center preview)
 
 ### Added
-- **Pro Center** — 35 upcoming Pro tools visible in the app (Gaming, Network, System, Security, Maintenance, Bundle)
+- **Pro Center** — 28 Pro tools visible in the app (Gaming, Network, System, Security, Maintenance, Bundle)
 - **Pro Center preview mode** — cards show **Coming soon** / **Demnächst**; **Preview** button explains the roadmap (features are not runnable for public users yet)
 - **Read-before-apply** — GPU scheduling, fullscreen optimizations, core parking, registry gaming read, and more ask or show current values before changes (when Pro Center is unlocked)
 

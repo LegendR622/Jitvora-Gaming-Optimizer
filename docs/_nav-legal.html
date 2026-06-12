@@ -1,9 +1,13 @@
-<!-- Copy into pages: legal nav (DE / EN labels) -->
+<!-- Copy into pages: legal nav + language switcher -->
+<script src="site-i18n.js"></script>
+<script src="site-lang-boot.js"></script>
 <nav class="nav" aria-label="Legal navigation">
-  <a href="index.html">Start / Home</a>
-  <a href="trust.html">Trust</a>
-  <a href="datenschutz.html">Datenschutz / Privacy</a>
-  <a href="impressum.html">Impressum / Legal</a>
-  <a href="support.html">Support</a>
-  <a href="haftung.html">Haftung / Terms</a>
+  <a href="index.html" data-i18n="nav.home">Start</a>
+  <a href="trust.html" data-i18n="nav.trust">Trust</a>
+  <a href="datenschutz.html" data-i18n="nav.privacy">Datenschutz</a>
+  <a href="impressum.html" data-i18n="nav.imprint">Impressum</a>
+  <a href="support.html" data-i18n="nav.support">Support</a>
+  <a href="haftung.html" data-i18n="nav.terms">Haftung</a>
 </nav>
+<div class="lang-switch-wrap" data-lang-switch></div>
+<script src="site-lang.js" defer></script>

@@ -5,18 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Support — Redline Gaming Optimizer</title>
   <meta name="description" content="Support DE/EN — Redline Gaming Optimizer, E-Mail und GitHub." />
+  <script src="site-i18n.js"></script>
+  <script src="site-lang-boot.js"></script>
   <link rel="stylesheet" href="_site.css" />
 </head>
 <body>
   <main class="wrap">
     <nav class="nav" aria-label="Legal navigation">
-      <a href="index.html">Start / Home</a>
-      <a href="trust.html">Trust</a>
-      <a href="impressum.html">Impressum / Legal</a>
-      <a href="datenschutz.html">Datenschutz / Privacy</a>
-      <a href="haftung.html">Haftung / Terms</a>
+      <a href="index.html" data-i18n="nav.home">Start</a>
+      <a href="trust.html" data-i18n="nav.trust">Trust</a>
+      <a href="impressum.html" data-i18n="nav.imprint">Impressum</a>
+      <a href="datenschutz.html" data-i18n="nav.privacy">Datenschutz</a>
+      <a href="haftung.html" data-i18n="nav.terms">Haftung</a>
     </nav>
-    <p class="tag-lang">Deutsch · English</p>
+    <div class="lang-switch-wrap" data-lang-switch></div>
     <h1>Support</h1>
 
     <div class="card">
@@ -61,8 +63,9 @@
     </section>
 
     <footer>
-      <a href="changelog.html">Changelog</a> · <a href="licenses.html">Lizenzen / Licenses</a>
+      <a href="changelog.html" data-i18n="nav.changelog">Changelog</a> · <a href="licenses.html" data-i18n="nav.licenses">Lizenzen</a>
     </footer>
   </main>
+  <script src="site-lang.js" defer></script>
 </body>
 </html>

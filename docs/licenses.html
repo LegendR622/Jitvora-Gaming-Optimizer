@@ -4,16 +4,18 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lizenzen / Licenses — Redline Gaming Optimizer</title>
+  <script src="site-i18n.js"></script>
+  <script src="site-lang-boot.js"></script>
   <link rel="stylesheet" href="_site.css" />
 </head>
 <body>
   <main class="wrap">
     <nav class="nav" aria-label="Legal navigation">
-      <a href="index.html">Start / Home</a>
-      <a href="support.html">Support</a>
+      <a href="index.html" data-i18n="nav.home">Start</a>
+      <a href="support.html" data-i18n="nav.support">Support</a>
     </nav>
-    <p class="tag-lang">Deutsch · English</p>
-    <h1>Lizenzen <span class="title-en">/ Licenses</span></h1>
+    <div class="lang-switch-wrap" data-lang-switch></div>
+    <h1><span lang="de">Lizenzen</span><span lang="en">Licenses</span></h1>
 
     <section class="bilingual-block card" lang="de">
       <p class="lang-heading">Deutsch</p>
@@ -37,7 +39,8 @@
       <p>License checked locally (hash), no cloud account required.</p>
     </section>
 
-    <footer><a href="support.html">Support</a></footer>
+    <footer><a href="support.html" data-i18n="nav.support">Support</a></footer>
   </main>
+  <script src="site-lang.js" defer></script>
 </body>
 </html>
