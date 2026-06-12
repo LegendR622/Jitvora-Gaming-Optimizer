@@ -10,6 +10,19 @@ All notable changes to **Redline Gaming Optimizer** are listed here (newest firs
 
 ---
 
+## [1.9.5] — 2026-06-12
+
+### Fixed
+- **Drivers** — vendor ↗ button opens official support pages instead of direct ZIP/EXE downloads
+- **Drivers** — no duplicate floating Live Log on the Drivers page; activity no longer stuck on “Working…”
+- **Drivers** — winget verification no longer shown as “Updated”; verified devices use a clear “Verified” status
+- **Drivers** — auto-install only runs on verified hardware matches; unsafe cases skip install and open the vendor page
+
+### Improved
+- **Drivers UI** — clearer status pills, “Driver page” buttons, vendor cards (“Driver page →”), and device-type icons (EN/DE)
+
+---
+
 ## [1.9.4] — 2026-06-12
 
 ### Fixed
