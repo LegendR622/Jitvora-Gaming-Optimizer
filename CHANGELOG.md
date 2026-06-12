@@ -10,6 +10,17 @@ All notable changes to **Redline Gaming Optimizer** are listed here (newest firs
 
 ---
 
+## [1.9.2] — 2026-06-12
+
+### Fixed
+- **Stability** — bug fixes and general maintenance update
+
+### Improved
+- **Hardware detection** — dashboard and system info polish
+- **Website & SEO** — landing page, version.json, and sitemap updated for V1.9.2
+
+---
+
 ## [1.9.1] — 2026-06-04
 
 ### Added

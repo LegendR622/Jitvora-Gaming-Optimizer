@@ -1,6 +1,6 @@
 ﻿{
-    "packageType":  "setup",
-    "version":  "1.9.1",
-    "downloadUrl":  "https://github.com/LegendR622/Redline-Gaming-Optimizer/releases/download/v1.9.1/Redline_Gaming_Optimizer_Setup_v1.9.1.exe",
-    "notes":  "Redline Gaming Optimizer V1.9.1 - see release notes for bug fixes and changes. Full version free. Setup EXE."
+    "packageType": "setup",
+    "version": "1.9.2",
+    "downloadUrl": "https://github.com/LegendR622/Redline-Gaming-Optimizer/releases/download/v1.9.2/Redline_Gaming_Optimizer_Setup_v1.9.2.exe",
+    "notes": "Redline Gaming Optimizer V1.9.2 - bug fixes and stability improvements. Full version free. Setup EXE."
 }

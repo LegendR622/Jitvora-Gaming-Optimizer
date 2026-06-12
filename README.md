@@ -4,8 +4,8 @@
 
 | | |
 |---|---|
-| **Download** | [**Latest release (Setup EXE)**](https://github.com/LegendR622/Redline-Gaming-Optimizer/releases) |
-| **Website** | [legendr622.github.io/Redline-Gaming-Optimizer](https://legendr622.github.io/Redline-Gaming-Optimizer/) *(enable GitHub Pages from `/docs`)* |
+| **Download** | [**Latest release V1.9.2 (Setup EXE)**](https://github.com/LegendR622/Redline-Gaming-Optimizer/releases/download/v1.9.2/Redline_Gaming_Optimizer_Setup_v1.9.2.exe) |
+| **Website** | [legendr622.github.io/Redline-Gaming-Optimizer](https://legendr622.github.io/Redline-Gaming-Optimizer/) |
 | **Author** | Tobias Immisch |
 | **Language** | English & Deutsch |
 
@@ -23,7 +23,7 @@ Also searched as: *Gaming Optimizer Windows*, *FPS Booster PC*, *Windows 11 gami
 
 > **This repository** hosts **releases**, `version.json`, and the **SEO landing page** in `docs/`. Source code is built locally (not published here).
 
-- **Latest release:** see [Releases](https://github.com/LegendR622/Redline-Gaming-Optimizer/releases) and [CHANGELOG.md](CHANGELOG.md)
+- **Latest release:** [**V1.9.2**](https://github.com/LegendR622/Redline-Gaming-Optimizer/releases/download/v1.9.2/Redline_Gaming_Optimizer_Setup_v1.9.2.exe) — see [Releases](https://github.com/LegendR622/Redline-Gaming-Optimizer/releases) and [CHANGELOG.md](CHANGELOG.md)
 - **In-app updates:** official Setup EXE from GitHub only
 
 ---

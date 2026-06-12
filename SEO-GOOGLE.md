@@ -2,12 +2,12 @@
 
 ## Erledigt (automatisch / bereits aktiv)
 
-- [x] **SEO-Landingpage** in `docs/index.html` (Titel, Meta, Schema.org, FAQ, V1.3-Download)
+- [x] **SEO-Landingpage** in `docs/index.html` (Titel, Meta, Schema.org, FAQ, V1.9.2-Download)
 - [x] **`robots.txt`** und **`sitemap.xml`**
 - [x] **`README.md`** mit Suchbegriffen und FAQ
 - [x] **GitHub About:** Beschreibung, Homepage, Topics
 - [x] **GitHub Pages** aktiviert: **https://legendr622.github.io/Redline-Gaming-Optimizer/**
-- [x] **Release V1.3** + **`version.json`** auf `main`
+- [x] **Release V1.9.2** + **`version.json`** auf `main`
 - [x] **Search Console Verifizierung** — `google2155792da4e8c226.html` in `docs/`
 - [x] **Sitemap** in Search Console eingereicht (`sitemap.xml`)
 - [x] **URL-Prüfung** — Indexierung für die Startseite beantragt (Crawl-Warteschlange)
@@ -110,5 +110,5 @@ sitemap.xml
 ## Optional später
 
 - Eigene Domain → CNAME auf GitHub Pages  
-- YouTube „Install V1.3“ mit Link zur Releases-URL  
+- YouTube „Install V1.9.2“ mit Link zur Releases-URL  
 - Bing Webmaster Tools (gleiche Sitemap URL)
