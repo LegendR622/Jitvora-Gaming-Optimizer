@@ -17,7 +17,8 @@ Fixed widespread UTF-8 mojibake across all 27 website locales, repaired `index.h
 | `docs/site-i18n.js` | Regenerated from fixed `i18n-full.json` |
 | `docs/index.html` | Fixed meta/title/fallback mojibake; SVG feature icons instead of broken emoji |
 | `docs/landing.css` | Mobile polish (768px/520px): nav, hero, cards, FAQ, footer; SVG icon styling |
-| `docs/i18n/fix-website-encoding.py` | Safe mojibake repair + validation |
+| `docs/i18n/rebuild-from-good.py` | Rebuild all 26 locales from known-good UTF-8 git baseline (`debbd84`) |
+| `docs/i18n/restore-script-locales.py` | Restore CJK/script locales from history |
 | `docs/i18n/fix-index-html.py` | HTML fallback encoding + icon repair |
 | `docs/i18n/scan-website-i18n.py` | Automated encoding/completeness scan |
 | `docs/i18n/qa-all-languages.py` | Per-locale key/encoding QA |
@@ -69,7 +70,8 @@ Test widths: **390px**, **430px**, **768px**, desktop.
 ## 6. Live GitHub Pages status
 
 - **Before deploy:** Live site showed broken encoding (pre-fix `site-i18n.js`).
-- **After deploy:** Verified at `?encoding-check=latest` — all locales render correct UTF-8; no mojibake in page text or language labels.
+- **After deploy:** Verified at `?encoding-check=latest` (commit `de36d32`) — all 27 locales render correct UTF-8; language dropdown labels correct (e.g. 日本語, Русский, Français); Download v1.9.6 on all locales.
+- **Cache bust:** Asset query `?v=20260612c` on `site-i18n.js`, `site-lang.js`, `site-lang-boot.js`, `landing.css`, `site-lang.css` so browsers fetch repaired translations.
 
 ## 7. Remaining website issues
 
