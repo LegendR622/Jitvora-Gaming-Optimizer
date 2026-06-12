@@ -10,6 +10,16 @@ All notable changes to **Redline Gaming Optimizer** are listed here (newest firs
 
 ---
 
+## [1.9.6] — 2026-06-12
+
+### Fixed
+- **Dashboard** — AMD Ryzen CPU temperature no longer shows invalid readings (0°C / 1°C); only valid sensor values (10–125°C) are displayed
+
+### Improved
+- **Dashboard** — clearer CPU temp hints for AMD Ryzen (admin required / unavailable), short UI text, Help and Retry buttons, official LibreHardwareMonitor info link only (no auto-install)
+
+---
+
 ## [1.9.5] — 2026-06-12
 
 ### Fixed

@@ -1,32 +1,30 @@
-# Redline Gaming Optimizer — Release Status (V1.9.4)
+# Redline Gaming Optimizer — Release Status (V1.9.6)
 
 **Date:** 2026-06-12  
-**Status:** Published online
+**Status:** Published online (AMD CPU temp dashboard patch)
 
 | Item | Value |
 |------|--------|
-| **Version** | **1.9.4** |
-| **Installer** | `Redline_Gaming_Optimizer_Setup_v1.9.4.exe` |
+| **Version** | **1.9.6** |
+| **Installer** | `Redline_Gaming_Optimizer_Setup_v1.9.6.exe` |
 | **Public EXE** | `Redline Gaming Optimizer.exe` |
-| **Release** | https://github.com/LegendR622/Redline-Gaming-Optimizer/releases/tag/v1.9.4 |
+| **Release** | https://github.com/LegendR622/Redline-Gaming-Optimizer/releases/tag/v1.9.6 |
 | **Website** | https://legendr622.github.io/Redline-Gaming-Optimizer/ |
 | **Desktop** | `C:\Users\Tobi\Desktop\Redline_Release_Latest` |
 
-## What's new in V1.9.4
+## V1.9.6 patch (dashboard / AMD CPU temp)
 
-- Performance score refresh navigation fix
-- AI Advisor busy-lock fix
-- DNS flush confirmation (Network/Repair)
-- Live Log copy/export filter + duplicate suppression
-- Website: 27 languages (DE/EN + dropdown)
+- AMD Ryzen CPU temp: no fake/invalid readings (10–125°C only)
+- Clear hints: admin required / unavailable, short UI text
+- Help + Retry buttons; official LibreHardwareMonitor link only (no auto-install)
 
-## SHA256
+## SHA256 (current build)
 
 ```
-9d5c65ee8f657afabf3085213eab8f39770d186e3735b27180be356549dad771
+ac648dc475a7441df70893dda109bf476f40c8452ca4db70cf41f2c4250cfa62
 ```
 
 ## Notes
 
-- Unsigned build (PFX password not configured — SmartScreen warning expected)
-- Users on V1.9.3 will see an in-app update prompt for V1.9.4
+- Unsigned build (PFX not configured — SmartScreen warning expected)
+- Selftest: 272/273 OK (only Authenticode missing)
