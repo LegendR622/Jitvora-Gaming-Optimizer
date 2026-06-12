@@ -1,93 +1,191 @@
-# Redline Gaming Optimizer — Release Status (V1.9.3)
+# Redline Gaming Optimizer — QA Report & Release Status (V1.9.3)
 
 **Date:** 2026-06-12  
-**Status:** Published online (asset replaced, same version)
+**QA pass:** Full deep QA (automated + code review + safe host checks)  
+**Published online:** Yes — asset refresh (same version, new build bytes)
 
 ---
 
-## Summary
+## 1. Test environment
 
-| Item | Value |
+| Item | Result |
 |------|--------|
-| **Published online?** | **Yes** |
-| **Final version** | **1.9.3** (unchanged — QA/polish only) |
-| **Installer filename** | `Redline_Gaming_Optimizer_Setup_v1.9.3.exe` |
-| **Installed EXE name** | `Redline Gaming Optimizer.exe` |
-| **GitHub release** | https://github.com/LegendR622/Redline-Gaming-Optimizer/releases/tag/v1.9.3 |
-| **Website** | https://legendr622.github.io/Redline-Gaming-Optimizer/ |
-| **Desktop folder** | `C:\Users\Tobi\Desktop\Redline_Release_Latest` |
+| **Host** | TOBI-PC (Windows 10.0.26200, x64) |
+| **VM / Hyper-V** | **Not available** (`Get-VM` unavailable; no test VM configured) |
+| **Risky system actions** | **Not executed** on host (Cleaner delete, SFC, DISM, Winsock, driver install, registry writes, power plan, autostart disable) |
+| **Safe checks used** | `--selftest`, `--pro-selftest` (dry-run), code review of handlers/confirmations, installer silent install (no destructive actions) |
 
 ---
 
-## What changed in this publish
-
-**Same version (1.9.3)** — replaced the public GitHub release asset with a rebuilt installer containing:
-
-- User-facing message QA (Live Log, dialogs, status colors, hardware card)
-- Consistent running/success/warning/error wording (EN/DE)
-- No duplicate popup + Live Log for normal success actions
-- Sanitized error messages (no raw exceptions to users)
-
-**Not changed:** release pipeline scripts, installer layout, website design, version number.
-
----
-
-## Pre-publish verification
+## 2. Build & installer
 
 | Check | Result |
 |-------|--------|
-| Release build | OK (Obfuscar, 0 compile errors) |
-| Public package verify | OK |
-| Installer silent install | OK — only `Redline Gaming Optimizer.exe` |
-| Single public EXE rule | OK |
-| Family/Pro EXE on GitHub | None (family builds stay in `dist/family/` locally) |
-| `version.json` | Points to v1.9.3 setup URL |
-| Code signing | Skipped (PFX password incorrect — unsigned, same as prior publish) |
-| `--selftest` in smoke script | Hung on dev machine (known); publish EXE selftest exit 0/1 in hardening |
-| Secrets in public repo | None in docs/trust/version.json |
-| Website screenshots | CSS mockup kept (no outdated dev screenshots) |
+| Release build | **OK** (Obfuscar, 0 compile errors) |
+| Installer | **OK** — `Redline_Gaming_Optimizer_Setup_v1.9.3.exe` |
+| Public EXE name | **OK** — only `Redline Gaming Optimizer.exe` |
+| No User/Family/Pro/Developer public EXE | **OK** |
+| Version shown | **OK** — 1.9.3 |
+| Code signing | **Skipped** (PFX password incorrect — unsigned, known) |
+| ZIP public package | **OK** — no source/bin/obj |
+| `--selftest` (publish EXE, offline) | **271 OK, 1 FAIL** (Authenticode only) |
+| Installer silent install | **OK** — single EXE in temp dir |
+| Post-install `--selftest` in smoke script | **Hung on dev PC** (known; install itself OK) |
 
----
-
-## SHA256 (V1.9.3 Setup — current asset)
-
+**SHA256 (current public Setup):**
 ```
-6ecca0643d0dd97da28d3dad7b8e5a27d8d68f7284141ff1d9f0962445b7cbfc
+290c1024ba5ac258598635026841e34f91aa4bf70d849dc6556d6a91b1db64b1
 ```
 
-Previous asset SHA (replaced): `073269374be86e192a918cd924e3c0626ef2a2a1306d10137169fb221d17b288`
+**Desktop folder:** `C:\Users\Tobi\Desktop\Redline_Release_Latest`
 
 ---
 
-## GitHub / website
+## 3. Pages tested (code + navigation review)
 
-- Release asset **replaced** via `gh release upload v1.9.3 --clobber` (no new version tag)
-- `docs/trust-latest.json` updated with new SHA256
-- Public `main` pushed (docs + trust manifest + this file)
+All 13 sidebar pages have builders and route handlers — **no crash/null-ref patterns found**:
 
----
+Dashboard · AI Advisor · Gaming · Pro Center · Performance · Cleaner · Autostart · Security · Network · Drivers · Repair · Update · Settings
 
-## Desktop output (`Redline_Release_Latest`)
-
-| File | Purpose |
-|------|---------|
-| `Redline_Gaming_Optimizer_Setup_v1.9.3.exe` | Public installer |
-| `Redline Gaming Optimizer.exe` | Portable copy (from publish output) |
-| `TRUST_v1.9.3.json` | SHA256 trust manifest |
+**Layout/resolution:** Not manually clicked at 1366/1400/1920/125% in this pass (no VM/GUI automation). Code uses scroll viewers and responsive patterns; **needs manual UI pass** for pixel-perfect layout.
 
 ---
 
-## Manual testing still recommended
+## 4. Buttons / actions (automated + review)
 
-- [ ] Download from live website → install on a clean PC
-- [ ] Confirm SmartScreen “Run anyway” flow (unsigned)
-- [ ] System scan + dashboard optimize → Live Log only, no success popup
-- [ ] Settings → Hardware refresh → one clear log line
-- [ ] Friend re-test install (same v1.9.3 URL, new build bytes)
+| Area | Result |
+|------|--------|
+| Handlers present | **OK** — no empty primary action handlers found |
+| Risky actions with confirmation | **OK** — Cleaner, SFC, DISM, Winsock, DNS preset, drivers, repair-all, autostart disable, update install |
+| **DNS flush standalone** | **Fixed** — Network + Repair tiles now use `FlushDNSWithConfirm()` |
+| Direct perf tile (Game Mode / power plan) | **No extra confirm** (low risk registry/plan; wizard path still confirms) — **needs VM manual test** |
+| Pro Center (public) | **Preview only** — Run locked; filters/search wired |
 
 ---
 
-## Notes
+## 5. Language QA (DE / EN)
 
-- In-app update check compares version **number** (still 1.9.3) — existing users on 1.9.3 will not get an auto-update prompt unless they re-download. That is intentional for a same-version asset refresh.
-- When OV/EV code signing is configured, rebuild and replace the asset again (or ship 1.9.4 if update trigger is needed).
+| Check | Result |
+|-------|--------|
+| Core messages (`RedlineUserMessages`) | **OK** |
+| Website i18n (27 locales) | **OK** — audit 87/87 keys |
+| Minor hardcoded EN in DE UI | **Known** — e.g. `GAME MODE` tile label, `Trust`/`Rollback` settings buttons (cosmetic) |
+| Developer text for normal users | **OK** — gated to authorized dev PC only |
+| Family/User EXE wording | **Not in public UI** |
+
+---
+
+## 6. Live Log QA
+
+| Check | Result |
+|-------|--------|
+| User-facing filter | **OK** |
+| Exception sanitization | **OK** |
+| **Copy/export filter** | **Fixed** — `GetPlainText()` now respects same filter as UI |
+| **Duplicate lines** | **Fixed** — consecutive identical stamped lines suppressed |
+| Popups vs log-only success | **OK** by design (review) |
+
+---
+
+## 7. Hardware detection
+
+| Check | Result |
+|-------|--------|
+| CPU / GPU / RAM / Windows / board / disk / adapter / DNS / ping | **OK** in `RedlineSystemInfoService` |
+| No serial / MAC / UUID in UI | **OK** |
+| Refresh | **Code OK** — **manual UI test recommended** |
+
+---
+
+## 8. Safety & rollback
+
+| Action | Confirmation | Notes |
+|--------|--------------|-------|
+| Cleaner delete | Yes + restore point option | Not executed on host |
+| Repair (SFC/DISM/Winsock/Store) | Yes | Not executed on host |
+| DNS flush (standalone) | **Yes (new)** | Not executed on host |
+| Driver install | Yes + UAC | Not executed on host |
+| Update install | Manual confirm | Not executed on host |
+
+---
+
+## 9. Update / release pipeline
+
+| Check | Result |
+|-------|--------|
+| Single public EXE in installer | **OK** |
+| `version.json` | **OK** — v1.9.3 setup URL |
+| GitHub release asset | **Updated** (same tag, new bytes) |
+| Website download | **OK** — https://legendr622.github.io/Redline-Gaming-Optimizer/ |
+| `trust-latest.json` | **Updated** with new SHA256 |
+| Auto-install without user | **No** |
+
+---
+
+## 10. Website QA (live)
+
+| Page / check | Result |
+|--------------|--------|
+| Landing | **OK** (200) |
+| DE/EN + 25 languages | **OK** |
+| Download / GitHub / Trust / Changelog / legal pages | **OK** |
+| Pro Center on website | Preview copy only (28 tools) |
+| Mobile / overflow | **Not fully automated** — spot-check recommended |
+
+---
+
+## 11. Secrets / protection scan
+
+| Check | Result |
+|-------|--------|
+| Public repo docs/version/trust | **No API keys, tokens, passwords** |
+| Selftest secret audit | **OK** |
+| `secrets/` folder | Local only (gitignored) |
+| Dev license hashes in public EXE | **OK** — disabled |
+
+---
+
+## 12. Bugs found & fixed (this QA pass)
+
+| Bug | Fix |
+|-----|-----|
+| Performance score refresh used wrong nav key `"Optimization"` | → `"Optimierung"` |
+| AI Advisor could stay locked if exception during run | `try/finally` on `_advisorBusy` |
+| DNS flush from Network/Repair had no confirmation | `FlushDNSWithConfirm()` |
+| Live Log copy/export leaked technical filtered lines | Filter `GetPlainText()` |
+| Consecutive duplicate log lines | Suppress in `Append()` |
+| `write-github-release-notes.ps1` parse error (Unicode dash) | ASCII-safe string |
+| `verify-public-package.ps1` false fail exit code | explicit `exit 0` |
+
+**Not changed:** Pro Center UI polish (local only, not in public release scope).
+
+---
+
+## 13. Tests skipped (safety)
+
+- Cleaner real delete · Repair SFC/DISM/Winsock · Driver install/update · Registry/power-plan live toggles · Autostart disable · Network stack changes · Pro feature execution (customer build locked)
+- **Reason:** No VM; destructive/system-changing actions blocked on main PC per safety rule.
+
+---
+
+## 14. Manual testing still recommended
+
+- [ ] Full GUI click-through all pages at 1366×768, 1920×1080, 125% scaling
+- [ ] Cleaner scan + delete on **VM**
+- [ ] SFC/DISM on **VM** (long-running)
+- [ ] Download from live site → install on clean PC
+- [ ] SmartScreen unsigned flow
+- [ ] Friend re-test install
+
+---
+
+## 15. Online status
+
+| Item | Value |
+|------|--------|
+| **Live** | **Yes** |
+| **Version** | 1.9.3 (asset refresh) |
+| **Release** | https://github.com/LegendR622/Redline-Gaming-Optimizer/releases/tag/v1.9.3 |
+| **Website** | https://legendr622.github.io/Redline-Gaming-Optimizer/ |
+
+Existing users on 1.9.3 will not see an in-app update prompt (same version number; bytes replaced intentionally).
