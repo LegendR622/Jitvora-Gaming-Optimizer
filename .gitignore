@@ -2,6 +2,7 @@ bin/
 obj/
 publish/
 dist/
+latest/
 *.user
 *.suo
 .vs/
@@ -12,6 +13,10 @@ screenshots/
 FUNktionstest.log
 Redline_V*_win-x64.zip
 archiv/
+qa-build*.txt
+live-*.txt
+pro-live-out.txt
+selftest-out.txt
 *.exe
 Redline_Gaming_Optimizer_Setup_v*.exe
 
