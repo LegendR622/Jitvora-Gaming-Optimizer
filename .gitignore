@@ -2,7 +2,7 @@ bin/
 obj/
 publish/
 dist/
-latest/
+build/
 *.user
 *.suo
 .vs/
