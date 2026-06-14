@@ -111,7 +111,9 @@ print("keys:", len(keys))
 errors = 0
 for lang, table in sorted(FULL.items()):
     missing = [k for k in keys if k not in table]
-    same = [k for k in keys if table.get(k) == EN.get(k) and k not in ALLOW_SAME]
+    same = []
+    if lang != "en":
+        same = [k for k in keys if table.get(k) == EN.get(k) and k not in ALLOW_SAME]
     if missing:
         print(f"{lang}: MISSING {len(missing)}")
         errors += 1

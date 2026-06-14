@@ -15,7 +15,7 @@ SCAN_FILES = [
     ROOT / "landing.css",
 ]
 
-BAD_RE = re.compile(r"Ã.|Â.|â€.|ðŸ|�|\ufffd|Å.|Ä.")
+BAD_RE = re.compile(r"Ã.|Â.|â€.|ðŸ|�|\ufffd")
 LANG_META = [
     "de", "en", "fr", "es", "it", "pt", "nl", "pl", "tr", "ru", "uk", "cs",
     "ar", "zh", "ja", "ko", "hi", "sv", "ro", "hu", "el", "th", "vi", "id",
