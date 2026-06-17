@@ -79,19 +79,19 @@ EN = {
     "safe.6.text": "Runs locally on your PC. No login needed.",
     "faq.label": "FAQ",
     "faq.title": "Quick answers",
-    "faq.q1": "Is Redline free on Windows 10 and 11?",
+    "faq.q1": "Is Jitvora free on Windows 10 and 11?",
     "faq.a1": "Yes — the full version is free on 64-bit Windows 10 and 11. No license key for V1.9.4.",
     "faq.q2": "Where do I download safely?",
     "faq.a2.html": 'Only from <a href="https://github.com/LegendR622/Redline-Gaming-Optimizer/releases">GitHub Releases</a>. Avoid third-party download sites.',
     "faq.q3": "Safe for online games?",
-    "faq.a3": "No game file changes — Redline adjusts Windows settings only.",
+    "faq.a3": "No game file changes — Jitvora adjusts Windows settings only.",
     "faq.q4": "How do updates work?",
     "faq.a4": "Manual only — check the in-app Update page or GitHub. You confirm before installing.",
     "faq.q5": "German and English?",
     "faq.a5": "The app supports German and English in settings. This website is available in many languages.",
     "footer.aria": "Legal and resources",
-    "meta.title": "Redline Gaming Optimizer — Windows Gaming Optimizer, FPS & PC Cleaner",
-    "meta.description": "Redline Gaming Optimizer — premium Windows gaming optimizer for FPS tuning, PC cleaner, driver check and network tools. Safe Windows tweaks. Free download V1.9.4 for Windows 10/11.",
+    "meta.title": "Jitvora Gaming Optimizer — Windows Gaming Optimizer, FPS & PC Cleaner",
+    "meta.description": "Jitvora Gaming Optimizer — Windows gaming optimizer for FPS tuning, PC cleaner, driver check and network tools. Safe Windows tweaks. Free download V1.9.4 for Windows 10/11.",
 }
 
 ALLOW_SAME = {
