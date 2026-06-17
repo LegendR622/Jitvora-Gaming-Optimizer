@@ -1,10 +1,12 @@
 <p align="center">
-  <img src="docs/assets/brand/jitvora-logo-horizontal.png" alt="Jitvora Gaming Optimizer" width="480" />
+  <img src="docs/assets/brand/jitvora-logo-mark.png" alt="Jitvora logo" width="96">
 </p>
 
-# Jitvora Gaming Optimizer
+<h1 align="center">Jitvora Gaming Optimizer</h1>
 
-Free Windows gaming optimizer with cleaner, driver checks, Network Watch and safe system tools.
+<p align="center">
+  Free Windows gaming optimizer with cleaner, driver checks, Network Watch and safe system tools.
+</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Windows-10%2F11-0078D4?style=flat-square" alt="Windows 10/11" />
