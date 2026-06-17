@@ -1,0 +1,19 @@
+{
+  "name": "Jitvora Gaming Optimizer",
+  "short_name": "Jitvora",
+  "icons": [
+    {
+      "src": "assets/brand/jitvora-logo-mark.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#00a3ff",
+  "background_color": "#050608",
+  "display": "standalone"
+}

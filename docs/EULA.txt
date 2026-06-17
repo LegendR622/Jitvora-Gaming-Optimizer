@@ -1,18 +1,18 @@
-REDLINE GAMING OPTIMIZER — NUTZUNGSBEDINGUNGEN / TERMS OF USE
+JITVORA GAMING OPTIMIZER — NUTZUNGSBEDINGUNGEN / TERMS OF USE
 Version 1.8 · Stand / as of 2026-06-04
 
 DEUTSCH
 -------
 Mit Installation oder Nutzung akzeptierst du diese Bedingungen.
 
-1. Redline ist ein Windows-Optimierungstool für Gamer. Es ändert keine Spieldateien.
+1. Jitvora Gaming Optimizer ist ein Windows-Optimierungstool für Gamer. Es ändert keine Spieldateien.
 2. Viele Funktionen ändern Windows-Einstellungen (Energieplan, DNS, Cleaner, Autostart, Reparatur).
    Du bestätigst jede Aktion in der App. Risiken liegen beim Nutzer.
-3. Vor größeren Optimierungen empfiehlt Redline einen Windows-Wiederherstellungspunkt (wenn aktiviert).
+3. Vor größeren Optimierungen empfiehlt Jitvora einen Windows-Wiederherstellungspunkt (wenn aktiviert).
 4. Keine Gewährleitung. Keine Haftung für Datenverlust, Systemausfälle oder indirekte Schäden.
 5. Telemetrie: Nur lokale Hardware-Sensoren (CPU/GPU/RAM). Keine Cloud-Analyse, keine Verkauf deiner Daten.
 6. Updates nur von offiziellen GitHub-Releases. Prüfe SHA256 und VirusTotal auf der Trust-Seite.
-7. Support: RedlineOpti@gmx.com und GitHub Issues. Kein 24/7-SLA in der Free-Version.
+7. Support: jitvora.support@gmx.com und GitHub Issues. Kein 24/7-SLA in der Free-Version.
 8. © 2026 Tobias Immisch. Weiterverbreitung modifizierter Installer ohne Zustimmung untersagt.
 
 Vollständig: https://legendr622.github.io/Redline-Gaming-Optimizer/haftung.html
@@ -20,16 +20,16 @@ Datenschutz: https://legendr622.github.io/Redline-Gaming-Optimizer/datenschutz.h
 
 ENGLISH
 -------
-By installing or using Redline you accept these terms.
+By installing or using Jitvora Gaming Optimizer you accept these terms.
 
-1. Redline is a Windows optimization tool for gamers. It does not modify game files.
+1. Jitvora Gaming Optimizer is a Windows optimization tool for gamers. It does not modify game files.
 2. Many features change Windows settings (power plan, DNS, cleaner, startup, repair).
    You confirm each action in the app. Use at your own risk.
-3. Before major optimizations Redline may create a Windows restore point (if enabled).
+3. Before major optimizations Jitvora may create a Windows restore point (if enabled).
 4. No warranty. No liability for data loss, system failure or indirect damages.
 5. Telemetry: local hardware sensors only (CPU/GPU/RAM). No cloud analytics, no sale of your data.
 6. Updates only from official GitHub releases. Verify SHA256 and VirusTotal on the trust page.
-7. Support: RedlineOpti@gmx.com and GitHub Issues. No 24/7 SLA in the free version.
+7. Support: jitvora.support@gmx.com and GitHub Issues. No 24/7 SLA in the free version.
 8. © 2026 Tobias Immisch. Do not redistribute modified installers without permission.
 
 Full text: https://legendr622.github.io/Redline-Gaming-Optimizer/haftung.html
