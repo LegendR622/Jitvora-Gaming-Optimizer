@@ -1,109 +1,101 @@
 # Jitvora Gaming Optimizer
 
-**Free Windows gaming optimizer** — FPS tuning, PC cleanup, driver updates, and safe system tweaks for **Windows 10 & 11**.
+Free Windows gaming optimizer with cleaner, driver checks, Network Watch and safe system tools.
 
-| | |
-|---|---|
-| **Download** | [**Latest release V2.0.0 (Setup EXE)**](https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases/download/v2.0.0/Jitvora_Gaming_Optimizer_Setup_v2.0.0.exe) |
-| **Website** | [legendr622.github.io/Jitvora-Gaming-Optimizer](https://legendr622.github.io/Jitvora-Gaming-Optimizer/) |
-| **Author** | Tobias Immisch |
-| **Language** | English & Deutsch |
+Windows 10/11 · **v2.0.0** · Free · SHA256 available · GitHub Release
+
+<p align="center">
+  <a href="https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases/latest"><strong>Download latest</strong></a>
+  ·
+  <a href="https://legendr622.github.io/Jitvora-Gaming-Optimizer/">Website</a>
+  ·
+  <a href="https://legendr622.github.io/Jitvora-Gaming-Optimizer/trust.html">Trust &amp; SHA256</a>
+  ·
+  <a href="CHANGELOG.md">Changelog</a>
+  ·
+  <a href="https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases">Releases</a>
+</p>
 
 <p align="center">
   <img src="docs/assets/brand/jitvora-logo-horizontal.png" alt="Jitvora Gaming Optimizer" width="420" />
 </p>
 
-<p align="center">
-  <a href="https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases"><strong>⬇ Download Jitvora Gaming Optimizer</strong></a>
-</p>
+---
+
+## Overview
+
+Jitvora Gaming Optimizer is a Windows desktop utility for gamers. It helps clean temporary files, review drivers, check network status with Network Watch and access safe Windows-focused optimization tools from one app.
+
+> This repository hosts **releases**, `version.json`, and the public website in `docs/`. App source is built locally and is not published here.
 
 ---
 
-## Jitvora Gaming Optimizer — what is it?
+## Highlights
 
-**Jitvora Gaming Optimizer** is a **PC optimizer for gamers**: improve FPS, clean temp files, scan drivers with **official vendor download links** (motherboard, GPU, LAN, Wi‑Fi), monitor network latency with **Network Watch**, and apply **safe Windows tweaks** — **without editing game files** (anti-cheat friendly approach).
-
-Also searched as: *Gaming Optimizer Windows*, *FPS Booster PC*, *Windows 11 gaming tweak tool*, *PC optimieren Gaming*, *Treiber Tool Windows*.
-
-> **This repository** hosts **releases**, `version.json`, and the **SEO landing page** in `docs/`. Source code is built locally (not published here).
-
-- **Latest release:** [**V2.0.0**](https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases/download/v2.0.0/Jitvora_Gaming_Optimizer_Setup_v2.0.0.exe) — see [Releases](https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases) and [CHANGELOG.md](CHANGELOG.md)
-- **In-app updates:** official Setup EXE from GitHub only
+- Jitvora **v2.0.0** public release
+- Premium website and clean GitHub presentation
+- Cleaner, driver check, repair tools and gaming settings
+- Network Watch for network/server diagnostics where available
+- Manual updates and SHA256 verification
+- No game file modifications
 
 ---
 
 ## Features
 
-| Area | What you get |
-|------|----------------|
-| **Gaming / FPS** | Game profiles, Windows FPS Boost, Game Mode, power plan |
-| **Drivers** | Scan, status, **↗ opens correct vendor download page** (ASUS/MSI/NVIDIA/AMD/Intel/Realtek) |
-| **Cleaner** | Categorized cleanup with size preview |
-| **Performance** | Autostart, services, graphics settings |
-| **Network** | Adapters, DNS tools |
-| **Repair** | SFC, DISM shortcuts (admin) |
-| **App** | Dark UI, DE/EN, font size & monitor fit in settings |
-| **Pro Center** *(preview)* | **28** Pro tools — grouped layout, search & categories — **Coming soon** for public users |
+| Feature | What it does |
+| --- | --- |
+| Gaming / FPS | Game Mode, power plan and safe Windows settings for gaming. |
+| Cleaner | Temporary file cleanup with preview. |
+| Driver check | Hardware scan and official vendor download links. |
+| Network Watch | Network diagnostics and server/connection visibility where available. |
+| Security | Basic Windows security overview. |
+| Repair | Shortcuts for SFC, DISM and common repair actions. |
+| Pro Center | Advanced tools preview for future versions. |
 
-**Current status:** full version is **free**. Pro Center shows what’s planned; **running** Pro tools follows in a later update (see [docs/PUBLIC-RELEASE.md](docs/PUBLIC-RELEASE.md)).
-
----
-
-## Download & install
-
-1. Open **[Releases](https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases)**
-2. Download **`Jitvora_Gaming_Optimizer_Setup_v*.exe`** (latest version)
-3. Install → launch **Jitvora Gaming Optimizer**
-
-Run as **Administrator** for repair, DNS, and some driver actions.
+Full version is **free**. Pro Center shows planned tools; running Pro tools follows in a later update.
 
 ---
 
-## FAQ
+## Network Watch
 
-**Is Jitvora Gaming Optimizer free?**  
-Yes — the full version is currently free.
-
-**Does it work on Windows 11?**  
-Yes — Windows 10 and 11 (64-bit).
-
-**Is it safe for online games / anti-cheat?**  
-Jitvora changes **Windows settings only**, not game binaries or game folders.
-
-**Where is the official download?**  
-Only from this GitHub repo: [Releases](https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases). Avoid third-party download sites.
-
-**Ist Jitvora auf Deutsch?**  
-Ja — Sprache in den Einstellungen umschaltbar (Deutsch / English).
+Network Watch shows network diagnostics and server visibility where available. Real game ping is only shown when a real source is available. UDP flow timing is diagnostic only and is not presented as real game ping.
 
 ---
 
-## Changelog & updates
+## Trust & safety
 
-- **[CHANGELOG.md](CHANGELOG.md)** — version history  
-- App checks **`version.json`** and GitHub Releases for new installers  
+Jitvora focuses on Windows settings, diagnostics and safe utilities.  
+It does not modify game files and does not use memory reading, injection, hooks or anti-cheat bypass methods.
 
-## Trust, legal & acquisition
+- [Trust page](https://legendr622.github.io/Jitvora-Gaming-Optimizer/trust.html)
+- [trust-latest.json](https://legendr622.github.io/Jitvora-Gaming-Optimizer/trust-latest.json) — SHA256 `eeab9a95872c3b8bbc2ef84338dfab96f05b89a43b59ff1bc8f5ce4998845be3`
+- [GitHub Releases](https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases)
 
-- **Website (GitHub Pages):** `docs/` — [Trust](docs/trust.html), [Privacy](docs/datenschutz.html), [Impressum](docs/impressum.html), [Support](docs/support.html)  
-- **Due diligence checklist:** [docs/ACQUISITION-READY.md](docs/ACQUISITION-READY.md)  
-- **Release trust manifest:** `scripts/release/write-trust-manifest.ps1` (SHA256 + VirusTotal URL)  
-- **Optional code signing:** `scripts/build/sign-installer.ps1`  
-
----
-
-## Google / findability
-
-To index the project in search engines, enable **GitHub Pages** (`main` → `/docs`) and follow **[SEO-GOOGLE.md](SEO-GOOGLE.md)** (Search Console, repo topics).
+**v2.0.0 installer:** currently **unsigned** (Authenticode NotSigned). Verify the SHA256 from `trust-latest.json` before installing. Windows SmartScreen may show a warning.
 
 ---
 
-## License & copyright
+## Download
 
-© 2026 **Tobias Immisch**. All rights reserved.
+Download the latest installer from the official GitHub release or the official website only.
+
+- **Latest:** [GitHub Releases](https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases/latest)
+- **Direct:** [Jitvora_Gaming_Optimizer_Setup_v2.0.0.exe](https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases/download/v2.0.0/Jitvora_Gaming_Optimizer_Setup_v2.0.0.exe)
+- **Website:** [legendr622.github.io/Jitvora-Gaming-Optimizer](https://legendr622.github.io/Jitvora-Gaming-Optimizer/)
+
+Run as Administrator only for actions that require it, such as repair tools, DNS actions, driver/system tasks or deeper diagnostics.
+
+---
+
+## Support
+
+Support: [jitvora.support@gmx.com](mailto:jitvora.support@gmx.com)
+
+---
+
+## License
+
+© 2026 Tobias Immisch · Jitvora Gaming Optimizer
 
 Do not redistribute modified installers without permission.
-
----
-
-<p align="center"><sub>Jitvora Gaming Optimizer · Windows gaming optimizer · Made for PC gamers</sub></p>

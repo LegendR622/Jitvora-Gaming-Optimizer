@@ -176,7 +176,7 @@ All notable changes to **Jitvora Gaming Optimizer** are listed here (newest firs
 ### Added
 - **Display settings** — font size Small / Normal / Large / XL; **monitor auto-fit** keeps window and controls readable on smaller screens
 - **Compact settings page** — two-column layout (language, theme, font, scan depth, notifications) plus slim system row
-- **SEO landing page** (`docs/`) for GitHub Pages — better findability on Google (see `SEO-GOOGLE.md`)
+- **SEO landing page** (`docs/`) for GitHub Pages — better findability on Google (see `docs/dev/SEO-GOOGLE.md`)
 
 ### Improved
 - **Driver download (↗)** — opens the correct vendor download page (motherboard, GPU, LAN, Wi‑Fi); on failed auto-install, browser opens automatically

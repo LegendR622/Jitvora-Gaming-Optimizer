@@ -17,7 +17,7 @@ Stand: 2026-06-04. Checkliste für Due Diligence / Aufkauf.
 | Saubere Code-Trennung | ✅ | `CODEBASE.md`, `Features/`, MainWindow-Partials |
 | Automatisierte Tests | 🟡 | `TEST.bat`, `--selftest`; keine Unit-Test-Suite |
 | Update nur offizielles GitHub | ✅ | `RedlineOnlineUpdate.cs` |
-| Admin nur bei Bedarf | ✅ | `permissions.html`, `SECURITY-REVIEW.md` |
+| Admin nur bei Bedarf | ✅ | `permissions.html`, `docs/dev/SECURITY-REVIEW.md` |
 
 ## Trust & Legal (Website)
 
