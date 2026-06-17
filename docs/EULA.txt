@@ -12,7 +12,7 @@ Mit Installation oder Nutzung akzeptierst du diese Bedingungen.
 4. Keine Gewährleitung. Keine Haftung für Datenverlust, Systemausfälle oder indirekte Schäden.
 5. Telemetrie: Nur lokale Hardware-Sensoren (CPU/GPU/RAM). Keine Cloud-Analyse, keine Verkauf deiner Daten.
 6. Updates nur von offiziellen GitHub-Releases. Prüfe SHA256 und VirusTotal auf der Trust-Seite.
-7. Support: jitvora.support@gmx.com und GitHub Issues. Kein 24/7-SLA in der Free-Version.
+7. Support: jitvora.optimizer@gmx.com und GitHub Issues. Kein 24/7-SLA in der Free-Version.
 8. © 2026 Tobias Immisch. Weiterverbreitung modifizierter Installer ohne Zustimmung untersagt.
 
 Vollständig: https://legendr622.github.io/Jitvora-Gaming-Optimizer/haftung.html
@@ -29,7 +29,7 @@ By installing or using Jitvora Gaming Optimizer you accept these terms.
 4. No warranty. No liability for data loss, system failure or indirect damages.
 5. Telemetry: local hardware sensors only (CPU/GPU/RAM). No cloud analytics, no sale of your data.
 6. Updates only from official GitHub releases. Verify SHA256 and VirusTotal on the trust page.
-7. Support: jitvora.support@gmx.com and GitHub Issues. No 24/7 SLA in the free version.
+7. Support: jitvora.optimizer@gmx.com and GitHub Issues. No 24/7 SLA in the free version.
 8. © 2026 Tobias Immisch. Do not redistribute modified installers without permission.
 
 Full text: https://legendr622.github.io/Jitvora-Gaming-Optimizer/haftung.html

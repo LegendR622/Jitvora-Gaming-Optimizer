@@ -90,7 +90,7 @@ Run as Administrator only for actions that require it, such as repair tools, DNS
 
 ## Support
 
-Support: [jitvora.support@gmx.com](mailto:jitvora.support@gmx.com)
+Support: [jitvora.optimizer@gmx.com](mailto:jitvora.optimizer@gmx.com)
 
 ---
 
