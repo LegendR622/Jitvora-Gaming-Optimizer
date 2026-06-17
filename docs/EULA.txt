@@ -15,8 +15,8 @@ Mit Installation oder Nutzung akzeptierst du diese Bedingungen.
 7. Support: jitvora.support@gmx.com und GitHub Issues. Kein 24/7-SLA in der Free-Version.
 8. © 2026 Tobias Immisch. Weiterverbreitung modifizierter Installer ohne Zustimmung untersagt.
 
-Vollständig: https://legendr622.github.io/Redline-Gaming-Optimizer/haftung.html
-Datenschutz: https://legendr622.github.io/Redline-Gaming-Optimizer/datenschutz.html
+Vollständig: https://legendr622.github.io/Jitvora-Gaming-Optimizer/haftung.html
+Datenschutz: https://legendr622.github.io/Jitvora-Gaming-Optimizer/datenschutz.html
 
 ENGLISH
 -------
@@ -32,5 +32,5 @@ By installing or using Jitvora Gaming Optimizer you accept these terms.
 7. Support: jitvora.support@gmx.com and GitHub Issues. No 24/7 SLA in the free version.
 8. © 2026 Tobias Immisch. Do not redistribute modified installers without permission.
 
-Full text: https://legendr622.github.io/Redline-Gaming-Optimizer/haftung.html
-Privacy: https://legendr622.github.io/Redline-Gaming-Optimizer/datenschutz.html
+Full text: https://legendr622.github.io/Jitvora-Gaming-Optimizer/haftung.html
+Privacy: https://legendr622.github.io/Jitvora-Gaming-Optimizer/datenschutz.html

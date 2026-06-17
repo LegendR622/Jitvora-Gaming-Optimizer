@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to **Redline Gaming Optimizer** are listed here (newest first).
+All notable changes to **VantaCore Gaming Optimizer** are listed here (newest first).
 
 **Writing rules (for releases & GitHub notes):**
 - Use **English** for all new entries (`### Fixed`, `### Improved`, `### Added`, `### Changed`).
@@ -52,7 +52,7 @@ All notable changes to **Redline Gaming Optimizer** are listed here (newest firs
 
 ### Fixed
 - **Public release executable** — fixed silent startup failure on unsigned public builds (IntegrityGuard)
-- **Release pipeline** — one public app EXE (`Redline Gaming Optimizer.exe`) in installer; no duplicate public builds
+- **Release pipeline** — one public app EXE (`VantaCore Gaming Optimizer.exe`) in installer; no duplicate public builds
 
 ### Improved
 - **Startup window** — default 1400×900, minimum 1200×760 for clearer UI on first launch
@@ -171,7 +171,7 @@ All notable changes to **Redline Gaming Optimizer** are listed here (newest firs
 - **Status & results** — “Please wait…” while working; clean user-facing result lines (no PowerShell/step dumps)
 - **UI shell** — compact footer; sidebar without duplicate version / SYSTEMSTATUS boxes
 - **Code structure** — `MainWindow` split into partial files (pages, actions, navigation, log)
-- **README & GitHub** — search-friendly description, topics, and FAQ for “Redline Gaming Optimizer”
+- **README & GitHub** — search-friendly description, topics, and FAQ for “VantaCore Gaming Optimizer”
 
 ### Fixed
 - **Settings layout** — controls no longer overlap on narrow widths
@@ -338,6 +338,6 @@ All notable changes to **Redline Gaming Optimizer** are listed here (newest firs
 ## Download
 
 Always use the latest **Setup EXE** from:  
-https://github.com/LegendR622/Redline-Gaming-Optimizer/releases
+https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases
 
 © 2026 Tobias Immisch

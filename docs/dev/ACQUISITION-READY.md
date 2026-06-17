@@ -1,4 +1,4 @@
-# Acquisition readiness — Redline Gaming Optimizer
+# Acquisition readiness — Jitvora Gaming Optimizer
 
 Stand: 2026-06-04. Checkliste für Due Diligence / Aufkauf.
 

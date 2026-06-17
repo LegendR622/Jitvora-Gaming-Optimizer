@@ -1,4 +1,4 @@
-# Backup — Redline Gaming Optimizer
+# Backup — Jitvora Gaming Optimizer
 
 Wenn Windows, die Festplatte oder das Projekt kaputt geht, brauchst du eine **zweite Kopie** des **kompletten** Projekts — nicht nur die öffentliche GitHub-Seite.
 
@@ -6,7 +6,7 @@ Wenn Windows, die Festplatte oder das Projekt kaputt geht, brauchst du eine **zw
 
 | Speicher | Inhalt |
 |----------|--------|
-| **Öffentliches GitHub** (`LegendR622/Redline-Gaming-Optimizer`) | Nur **~26 Dateien**: README, CHANGELOG, `docs/`, `version.json` — **kein App-Quellcode** |
+| **Öffentliches GitHub** (`LegendR622/Jitvora-Gaming-Optimizer`) | Nur **~26 Dateien**: README, CHANGELOG, `docs/`, `version.json` — **kein App-Quellcode** |
 | **Lokales Backup (Festplatte)** | **Alles**: `GamingBooster_Pro\`, `scripts\`, `secrets\`, `dist\`, Family-Builds, … |
 | **Privates GitHub** (optional) | Vollständiger Quellcode in einem **Private** Repository |
 

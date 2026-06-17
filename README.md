@@ -1,29 +1,33 @@
-# Redline Gaming Optimizer
+# Jitvora Gaming Optimizer
 
 **Free Windows gaming optimizer** — FPS tuning, PC cleanup, driver updates, and safe system tweaks for **Windows 10 & 11**.
 
 | | |
 |---|---|
-| **Download** | [**Latest release V1.9.4 (Setup EXE)**](https://github.com/LegendR622/Redline-Gaming-Optimizer/releases/download/v1.9.4/Redline_Gaming_Optimizer_Setup_v1.9.4.exe) |
-| **Website** | [legendr622.github.io/Redline-Gaming-Optimizer](https://legendr622.github.io/Redline-Gaming-Optimizer/) |
+| **Download** | [**Latest release V1.9.10 (Setup EXE)**](https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases/download/v1.9.10/Jitvora_Gaming_Optimizer_Setup_v1.9.10.exe) |
+| **Website** | [legendr622.github.io/Jitvora-Gaming-Optimizer](https://legendr622.github.io/Jitvora-Gaming-Optimizer/) |
 | **Author** | Tobias Immisch |
 | **Language** | English & Deutsch |
 
 <p align="center">
-  <a href="https://github.com/LegendR622/Redline-Gaming-Optimizer/releases"><strong>⬇ Download Redline Gaming Optimizer</strong></a>
+  <img src="docs/assets/brand/jitvora-logo-horizontal.png" alt="Jitvora Gaming Optimizer" width="420" />
+</p>
+
+<p align="center">
+  <a href="https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases"><strong>⬇ Download Jitvora Gaming Optimizer</strong></a>
 </p>
 
 ---
 
-## Redline Gaming Optimizer — what is it?
+## Jitvora Gaming Optimizer — what is it?
 
-**Redline Gaming Optimizer** is a **PC optimizer for gamers**: improve FPS, clean temp files, scan drivers with **official vendor download links** (motherboard, GPU, LAN, Wi‑Fi), and apply **safe Windows tweaks** — **without editing game files** (anti-cheat friendly approach).
+**Jitvora Gaming Optimizer** is a **PC optimizer for gamers**: improve FPS, clean temp files, scan drivers with **official vendor download links** (motherboard, GPU, LAN, Wi‑Fi), monitor network latency with **Network Watch**, and apply **safe Windows tweaks** — **without editing game files** (anti-cheat friendly approach).
 
 Also searched as: *Gaming Optimizer Windows*, *FPS Booster PC*, *Windows 11 gaming tweak tool*, *PC optimieren Gaming*, *Treiber Tool Windows*.
 
 > **This repository** hosts **releases**, `version.json`, and the **SEO landing page** in `docs/`. Source code is built locally (not published here).
 
-- **Latest release:** [**V1.9.4**](https://github.com/LegendR622/Redline-Gaming-Optimizer/releases/download/v1.9.4/Redline_Gaming_Optimizer_Setup_v1.9.4.exe) — see [Releases](https://github.com/LegendR622/Redline-Gaming-Optimizer/releases) and [CHANGELOG.md](CHANGELOG.md)
+- **Latest release:** [**V1.9.10**](https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases/download/v1.9.10/Jitvora_Gaming_Optimizer_Setup_v1.9.10.exe) — see [Releases](https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases) and [CHANGELOG.md](CHANGELOG.md)
 - **In-app updates:** official Setup EXE from GitHub only
 
 ---
@@ -47,9 +51,9 @@ Also searched as: *Gaming Optimizer Windows*, *FPS Booster PC*, *Windows 11 gami
 
 ## Download & install
 
-1. Open **[Releases](https://github.com/LegendR622/Redline-Gaming-Optimizer/releases)**
-2. Download **`Redline_Gaming_Optimizer_Setup_v*.exe`** (latest version)
-3. Install → launch **Redline Gaming Optimizer**
+1. Open **[Releases](https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases)**
+2. Download **`Jitvora_Gaming_Optimizer_Setup_v*.exe`** (latest version)
+3. Install → launch **Jitvora Gaming Optimizer**
 
 Run as **Administrator** for repair, DNS, and some driver actions.
 
@@ -57,19 +61,19 @@ Run as **Administrator** for repair, DNS, and some driver actions.
 
 ## FAQ
 
-**Is Redline Gaming Optimizer free?**  
+**Is Jitvora Gaming Optimizer free?**  
 Yes — the full version is currently free.
 
 **Does it work on Windows 11?**  
 Yes — Windows 10 and 11 (64-bit).
 
 **Is it safe for online games / anti-cheat?**  
-Redline changes **Windows settings only**, not game binaries or game folders.
+Jitvora changes **Windows settings only**, not game binaries or game folders.
 
 **Where is the official download?**  
-Only from this GitHub repo: [Releases](https://github.com/LegendR622/Redline-Gaming-Optimizer/releases). Avoid third-party download sites.
+Only from this GitHub repo: [Releases](https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases). Avoid third-party download sites.
 
-**Ist Redline auf Deutsch?**  
+**Ist Jitvora auf Deutsch?**  
 Ja — Sprache in den Einstellungen umschaltbar (Deutsch / English).
 
 ---
@@ -102,4 +106,4 @@ Do not redistribute modified installers without permission.
 
 ---
 
-<p align="center"><sub>Redline Gaming Optimizer · Windows gaming optimizer · Made for PC gamers</sub></p>
+<p align="center"><sub>Jitvora Gaming Optimizer · Windows gaming optimizer · Made for PC gamers</sub></p>

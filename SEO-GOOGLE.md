@@ -6,7 +6,7 @@
 - [x] **`robots.txt`** und **`sitemap.xml`**
 - [x] **`README.md`** mit Suchbegriffen und FAQ
 - [x] **GitHub About:** Beschreibung, Homepage, Topics
-- [x] **GitHub Pages** aktiviert: **https://legendr622.github.io/Redline-Gaming-Optimizer/**
+- [x] **GitHub Pages** aktiviert: **https://legendr622.github.io/Jitvora-Gaming-Optimizer/**
 - [x] **Release V1.9.2** + **`version.json`** auf `main`
 - [x] **Search Console Verifizierung** — `google2155792da4e8c226.html` in `docs/`
 - [x] **Sitemap** in Search Console eingereicht (`sitemap.xml`)
@@ -30,13 +30,13 @@ Skripte (lokal):
 **Eintragen (exakt so, mit `https` und Schrägstrich am Ende):**
 
 ```text
-https://legendr622.github.io/Redline-Gaming-Optimizer/
+https://legendr622.github.io/Jitvora-Gaming-Optimizer/
 ```
 
 Optional **zweite** Property (auch URL-Präfix):
 
 ```text
-https://github.com/LegendR622/Redline-Gaming-Optimizer
+https://github.com/LegendR622/Jitvora-Gaming-Optimizer
 ```
 
 **Nicht** `legendr622.github.io` als Domain-Property — die ganze Domain `github.io` gehört GitHub, nicht dir.
@@ -56,7 +56,7 @@ Google-Indexierung läuft über dein Google-Konto — die App kann das nicht ers
 
 1. Öffne https://search.google.com/search-console (anmelden)  
 2. **Property hinzufügen** → **URL-Präfix** (nicht Domain)  
-3. URL einfügen: `https://legendr622.github.io/Redline-Gaming-Optimizer/`  
+3. URL einfügen: `https://legendr622.github.io/Jitvora-Gaming-Optimizer/`  
 4. **Verifizierung:** HTML-Datei (bereits erledigt) → **BESTÄTIGEN**
 
 ### Nach der Bestätigung (in deinem offenen Search Console-Tab)
@@ -74,7 +74,7 @@ sitemap.xml
 
 **2. URL-Prüfung (empfohlen, einmal)**  
 - Menü: **URL-Prüfung**  
-- URL: `https://legendr622.github.io/Redline-Gaming-Optimizer/`  
+- URL: `https://legendr622.github.io/Jitvora-Gaming-Optimizer/`  
 - **Indexierung beantragen** (wenn angeboten)
 
 **3. Optional**  
