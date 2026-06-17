@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| **Download** | [**Latest release V1.9.10 (Setup EXE)**](https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases/download/v1.9.10/Jitvora_Gaming_Optimizer_Setup_v1.9.10.exe) |
+| **Download** | [**Latest release V2.0.0 (Setup EXE)**](https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases/download/v2.0.0/Jitvora_Gaming_Optimizer_Setup_v2.0.0.exe) |
 | **Website** | [legendr622.github.io/Jitvora-Gaming-Optimizer](https://legendr622.github.io/Jitvora-Gaming-Optimizer/) |
 | **Author** | Tobias Immisch |
 | **Language** | English & Deutsch |
@@ -27,7 +27,7 @@ Also searched as: *Gaming Optimizer Windows*, *FPS Booster PC*, *Windows 11 gami
 
 > **This repository** hosts **releases**, `version.json`, and the **SEO landing page** in `docs/`. Source code is built locally (not published here).
 
-- **Latest release:** [**V1.9.10**](https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases/download/v1.9.10/Jitvora_Gaming_Optimizer_Setup_v1.9.10.exe) — see [Releases](https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases) and [CHANGELOG.md](CHANGELOG.md)
+- **Latest release:** [**V2.0.0**](https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases/download/v2.0.0/Jitvora_Gaming_Optimizer_Setup_v2.0.0.exe) — see [Releases](https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases) and [CHANGELOG.md](CHANGELOG.md)
 - **In-app updates:** official Setup EXE from GitHub only
 
 ---

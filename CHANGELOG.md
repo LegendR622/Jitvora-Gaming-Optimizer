@@ -1,12 +1,25 @@
 # Changelog
 
-All notable changes to **VantaCore Gaming Optimizer** are listed here (newest first).
+All notable changes to **Jitvora Gaming Optimizer** are listed here (newest first).
 
 **Writing rules (for releases & GitHub notes):**
 - Use **English** for all new entries (`### Fixed`, `### Improved`, `### Added`, `### Changed`).
 - Put **bug fixes** under `### Fixed` (e.g. “CPU temperature on AMD Ryzen”).
 - Use `### Improved` for UX/performance, `### Added` for new features, `### Changed` for behavior changes.
-- Version format: **1.0**, **1.1** (no more 9.x).
+- Version format: **2.0**, **2.1** (semantic major/minor).
+
+---
+
+## [2.0.0] — 2026-06-17
+
+### Changed
+- **Public branding** — product, website, GitHub repo, and release assets now use **Jitvora Gaming Optimizer**
+- **GitHub Pages** — new site URL under `Jitvora-Gaming-Optimizer`
+- **Trust manifest** — download metadata and SHA256 for v2.0.0 installer
+
+### Improved
+- **Website** — premium homepage, multilingual public i18n, sitemap and robots for new URL
+- **Network Watch** — clearer presentation and wording (no game file modifications)
 
 ---
 
