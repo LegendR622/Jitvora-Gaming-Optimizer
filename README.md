@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/assets/brand/jitvora-logo-mark.png" alt="Jitvora logo" width="96">
+  <img src="docs/assets/brand/jitvora-logo-mark.png" alt="Jitvora logo" width="88">
 </p>
 
 <h1 align="center">Jitvora Gaming Optimizer</h1>
@@ -28,15 +28,11 @@
   <a href="https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases">Releases</a>
 </p>
 
----
-
 ## Overview
 
 Jitvora Gaming Optimizer is a Windows desktop utility for gamers. It helps clean temporary files, review drivers, check network status with Network Watch and access safe Windows-focused optimization tools from one app.
 
-> **Note:** This repository hosts public releases, version metadata and the GitHub Pages website. The app source is currently built locally and is not published here.
-
----
+> Note: This repository contains public releases, metadata and the GitHub Pages website. App source is not published here yet.
 
 ## Highlights
 
@@ -46,8 +42,6 @@ Jitvora Gaming Optimizer is a Windows desktop utility for gamers. It helps clean
 - Network Watch for network/server diagnostics where available
 - Manual updates and SHA256 verification
 - No game file modifications
-
----
 
 ## Features
 
@@ -63,8 +57,6 @@ Jitvora Gaming Optimizer is a Windows desktop utility for gamers. It helps clean
 
 Full version is **free**. Pro Center currently shows planned/preview tools; advanced Pro tools may be expanded in future versions.
 
----
-
 ## Download
 
 Download Jitvora only from the official website or official GitHub Releases.
@@ -74,8 +66,6 @@ Download Jitvora only from the official website or official GitHub Releases.
 - **Website:** https://legendr622.github.io/Jitvora-Gaming-Optimizer/
 
 **Installer:** `Jitvora_Gaming_Optimizer_Setup_v2.0.0.exe`
-
----
 
 ## Trust & safety
 
@@ -88,15 +78,11 @@ It does not modify game files and does not use memory reading, injection, hooks 
 
 **v2.0.0 installer is currently unsigned.** Verify the SHA256 from `trust-latest.json` before installing. Windows SmartScreen may show a warning.
 
----
-
 ## Network Watch
 
 Network Watch shows network diagnostics and server visibility where available.  
 Real game ping is only shown when a real source is available.  
 UDP flow timing is diagnostic only and is not presented as real game ping.
-
----
 
 ## Install
 
@@ -105,13 +91,9 @@ UDP flow timing is diagnostic only and is not presented as real game ping.
 3. Start **Jitvora Gaming Optimizer**.
 4. Run as Administrator only for actions that require it, such as repair tools, DNS actions, driver/system tasks or deeper diagnostics.
 
----
-
 ## Support
 
 Support: [jitvora.optimizer@gmx.com](mailto:jitvora.optimizer@gmx.com)
-
----
 
 ## License
 
