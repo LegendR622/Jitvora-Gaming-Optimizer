@@ -125,7 +125,7 @@ else:
         "faq.q1": "Is Jitvora free on Windows 10 and 11?",
         "faq.a1": "Yes — the full version is free on 64-bit Windows 10 and 11. No license key for V1.9.4.",
         "faq.q2": "Where do I download safely?",
-        "faq.a2.html": 'Only from <a href="https://github.com/LegendR622/Redline-Gaming-Optimizer/releases">GitHub Releases</a>. Avoid third-party download sites.',
+        "faq.a2.html": 'Only from <a href="https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases">GitHub Releases</a>. Avoid third-party download sites.',
         "faq.q3": "Safe for online games?",
         "faq.a3": "No game file changes — Jitvora adjusts Windows settings only.",
         "faq.q4": "How do updates work?",

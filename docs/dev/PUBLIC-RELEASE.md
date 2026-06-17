@@ -33,7 +33,7 @@ Use this checklist when you publish the next **public** installer. The app stays
 5. **Update `version.json`** (in-app update + download URL):
    ```json
    "version": "1.9",
-   "downloadUrl": "https://github.com/LegendR622/Redline-Gaming-Optimizer/releases/download/v1.9/Redline_Gaming_Optimizer_Setup_v1.9.exe"
+   "downloadUrl": "https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases/download/v1.9/Jitvora_Gaming_Optimizer_Setup_v1.9.exe"
    ```
 6. **Website** — `docs/index.html`, `docs/changelog.html` (download links + “Pro Center preview” text)
 7. **Publish**:

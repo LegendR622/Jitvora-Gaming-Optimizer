@@ -20,7 +20,7 @@ git commit -m "chore: trust SHA256 and sitemap"
 git push origin main
 ```
 
-Warten (~1–2 Min), dann prüfen: https://legendr622.github.io/Redline-Gaming-Optimizer/trust.html
+Warten (~1–2 Min), dann prüfen: https://legendr622.github.io/Jitvora-Gaming-Optimizer/trust.html
 
 ## Schritt 3 — VirusTotal (manuell, einmal pro Version)
 

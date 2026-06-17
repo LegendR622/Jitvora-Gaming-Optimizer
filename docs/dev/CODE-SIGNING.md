@@ -31,7 +31,7 @@ Rechtsklick Setup → Eigenschaften → **Digitale Signaturen** muss „Tobias I
 
 Anbieter: [Certum Open Source](https://www.certum.eu/en/cert_offer_code_signing/), Sectigo, DigiCert, SSL.com.
 
-**Antrag:** Firma/Publisher = **Tobias Immisch**, Produkt **Redline Gaming Optimizer**, Website + Impressum verlinken.
+**Antrag:** Firma/Publisher = **Tobias Immisch**, Produkt **Jitvora Gaming Optimizer**, Website + Impressum verlinken.
 
 ### Zertifikat als PFX nutzen
 

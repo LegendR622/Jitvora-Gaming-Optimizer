@@ -48,7 +48,7 @@ Ausgabe muss **`Valid (trusted CA)`** sein, nicht nur „Signed (UnknownError)�
 Einmalig nach Download:
 
 - Rechtsklick Setup → **Eigenschaften** → unten **„Zulassen“** / **Unblock** (falls sichtbar), oder  
-- PowerShell: `Unblock-File .\Redline_Gaming_Optimizer_Setup_v1.9.exe`
+- PowerShell: `Unblock-File .\Jitvora_Gaming_Optimizer_Setup_v1.9.exe`
 
 Das ist normal bei **jedem** kleinen Publisher, bis Reputation da ist.
 

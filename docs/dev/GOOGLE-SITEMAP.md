@@ -2,7 +2,7 @@
 
 Die Sitemap liegt bereits auf der Website:
 
-**https://legendr622.github.io/Redline-Gaming-Optimizer/sitemap.xml**
+**https://legendr622.github.io/Jitvora-Gaming-Optimizer/sitemap.xml**
 
 `robots.txt` verweist darauf automatisch.
 
@@ -17,7 +17,7 @@ Alle `sitemap URL` Zeilen müssen `[OK]` sein.
 ## 2. Google Search Console (einmalig, manuell)
 
 1. Öffne https://search.google.com/search-console  
-2. Property: `https://legendr622.github.io/Redline-Gaming-Optimizer/`  
+2. Property: `https://legendr622.github.io/Jitvora-Gaming-Optimizer/`  
 3. Links: **Sitemaps** → neue Sitemap hinzufügen  
 4. Nur den Pfad eintragen: `sitemap.xml`  
 5. **Senden** — Status wird „Erfolgreich“ (kann einige Stunden dauern)
