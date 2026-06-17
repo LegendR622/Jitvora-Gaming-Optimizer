@@ -1,4 +1,4 @@
-/* Redline website — language switcher & visibility */
+/* Jitvora website — language switcher & visibility */
 
 html[data-legal-lang="de"] [lang="en"]:not(.lang-always),
 html[data-legal-lang="de"] .lang-en:not(.lang-always) {
@@ -70,7 +70,7 @@ html[dir="rtl"] .nav-right {
 }
 
 .lang-btn.is-active {
-  background: var(--red, #e71c3c);
+  background: var(--red, #00b4ff);
   color: #fff;
 }
 
@@ -100,9 +100,9 @@ html[dir="rtl"] .nav-right {
 }
 
 .lang-select-more.is-active {
-  border-color: rgba(231, 28, 60, 0.55);
+  border-color: rgba(0, 180, 255, 0.55);
   color: var(--text, #f5f7fb);
-  background-color: rgba(231, 28, 60, 0.12);
+  background-color: rgba(0, 180, 255, 0.12);
 }
 
 .lang-select-more option {
@@ -131,6 +131,14 @@ html[dir="rtl"] .nav-right {
 
 .nav-right .lang-switch-note {
   display: none;
+}
+
+.nav-actions .lang-switch-note {
+  display: none;
+}
+
+.nav-actions .lang-switch {
+  align-items: flex-end;
 }
 
 .wrap .lang-switch-wrap {

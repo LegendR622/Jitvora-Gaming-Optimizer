@@ -69,7 +69,8 @@
     document.querySelectorAll("[data-i18n]").forEach(function (el) {
       var key = el.getAttribute("data-i18n");
       var htmlKey = key + ".html";
-      if (table[htmlKey]) el.innerHTML = table[htmlKey];
+      if (key.slice(-5) === ".html" && table[key]) el.innerHTML = table[key];
+      else if (table[htmlKey]) el.innerHTML = table[htmlKey];
       else if (table[key]) el.textContent = table[key];
     });
 
