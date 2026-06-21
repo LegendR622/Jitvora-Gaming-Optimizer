@@ -1,6 +1,6 @@
 ﻿{
     "packageType":  "setup",
-    "version":  "2.0.0",
-    "downloadUrl":  "https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases/download/v2.0.0/Jitvora_Gaming_Optimizer_Setup_v2.0.0.exe",
-    "notes":  "Jitvora Gaming Optimizer V2.0.0 - see release notes for bug fixes and changes. Full version free. Setup EXE."
+    "version":  "3.0",
+    "downloadUrl":  "https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases/download/v3.0/Jitvora_Gaming_Optimizer_Setup_v3.0.exe",
+    "notes":  "Jitvora Gaming Optimizer V3.0 Stable — major UI polish, honest dashboard data, improved update check. Full version free. Setup EXE."
 }
