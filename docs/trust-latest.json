@@ -1,10 +1,10 @@
 {
-    "version":  "3.0.1",
+    "version":  "3.0.2",
     "signed":  false,
     "signSubject":  "",
-    "fileName":  "Jitvora_Gaming_Optimizer_Setup_v3.0.1.exe",
-    "generatedUtc":  "2026-06-21T15:35:20.7240378Z",
-    "virusTotalUrl":  "https://www.virustotal.com/gui/file-details/7d61f44627405d594337ffbeda3221d53f33bbcc0fa201197eb97c404316c66a",
-    "downloadUrl":  "https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases/download/v3.0.1/Jitvora_Gaming_Optimizer_Setup_v3.0.1.exe",
-    "sha256":  "7d61f44627405d594337ffbeda3221d53f33bbcc0fa201197eb97c404316c66a"
+    "fileName":  "Jitvora_Gaming_Optimizer_Setup_v3.0.2.exe",
+    "generatedUtc":  "2026-06-21T16:06:15.4668278Z",
+    "virusTotalUrl":  "https://www.virustotal.com/gui/file-details/0b958d4359125da5ca26b93f0c6d98014edf2ed87d93bcf6505715f899818dc2",
+    "downloadUrl":  "https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases/download/v3.0.2/Jitvora_Gaming_Optimizer_Setup_v3.0.2.exe",
+    "sha256":  "0b958d4359125da5ca26b93f0c6d98014edf2ed87d93bcf6505715f899818dc2"
 }
