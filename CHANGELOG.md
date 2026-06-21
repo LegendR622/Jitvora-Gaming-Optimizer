@@ -10,6 +10,16 @@ All notable changes to **Jitvora Gaming Optimizer** are listed here (newest firs
 
 ---
 
+## [3.0.2] — 2026-06-21
+
+### Fixed
+- **Network Adapter Gaming Profile** — robust multi-stage adapter detection (default route, gateway fallback, physical Ethernet fallback); fixes false “no active adapter” when PowerShell script was broken by one-line mangling
+
+### Improved
+- **Network Adapter Gaming Profile** — “Already optimal” state with green status, full preview table when 0 changes, honest export/restore behavior, disconnected adapter labels, Apply disabled with tooltip when nothing to change
+
+---
+
 ## [3.0.1] — 2026-06-21
 
 ### Added
