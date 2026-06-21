@@ -10,7 +10,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Windows-10%2F11-0078D4?style=flat-square" alt="Windows 10/11" />
-  <img src="https://img.shields.io/badge/version-v3.0%20Stable-00a3ff?style=flat-square" alt="v3.0 Stable" />
+  <img src="https://img.shields.io/badge/version-v3.0.1-00a3ff?style=flat-square" alt="v3.0.1" />
   <img src="https://img.shields.io/badge/price-Free-success?style=flat-square" alt="Free" />
   <img src="https://img.shields.io/badge/SHA256-available-informational?style=flat-square" alt="SHA256 available" />
   <img src="https://img.shields.io/badge/GitHub-Release-181717?style=flat-square" alt="GitHub Release" />
