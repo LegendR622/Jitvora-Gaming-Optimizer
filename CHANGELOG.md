@@ -10,6 +10,16 @@ All notable changes to **Jitvora Gaming Optimizer** are listed here (newest firs
 
 ---
 
+## [3.0.1] — 2026-06-21
+
+### Added
+- **Network Adapter Gaming Profile** — scan active adapter via default route, preview safe gaming advanced properties, restore script, and apply with confirmation (no DNS/router/firewall changes)
+
+### Improved
+- **Network page** — Intel I225-V oriented gaming profile with honest before/after reports and IPv6 left enabled by default
+
+---
+
 ## [3.0] — 2026-06-21 (Stable)
 
 ### Fixed
