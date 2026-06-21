@@ -10,6 +10,21 @@ All notable changes to **Jitvora Gaming Optimizer** are listed here (newest firs
 
 ---
 
+## [3.0.5] — 2026-06-21 (local build — source gitignored on GitHub)
+
+### Added
+- **Safe Visual Selftest** — read-only UI walkthrough with screenshots; Apply/Reconnect blocked on main PC (`--safe-visual-selftest`, Settings button)
+
+### Improved
+- **Network Adapter Gaming Profile** — “Apply Recommended Settings” stays available when scan reports 0 changes but force-applicable registry values exist (Intel I225-V / unsupported rows); confirmation dialog explains force mode
+- **Network Adapter Gaming Profile** — manual adapter switch via “Wählen/Select” without requiring a restore script first; backup/restore script on Apply or “Create Restore Script” when changes are planned
+- **Network Adapter Gaming Profile** — admin restart passes `--elevated-network-adapter {InterfaceIndex}` and resumes scan on the Network page
+
+### Fixed
+- **Network Adapter Gaming Profile** — elevated admin restart no longer loses the selected adapter index
+
+---
+
 ## [3.0.4] — 2026-06-21
 
 ### Fixed
