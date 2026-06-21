@@ -10,7 +10,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Windows-10%2F11-0078D4?style=flat-square" alt="Windows 10/11" />
-  <img src="https://img.shields.io/badge/version-v2.0.0-00a3ff?style=flat-square" alt="v2.0.0" />
+  <img src="https://img.shields.io/badge/version-v3.0%20Stable-00a3ff?style=flat-square" alt="v3.0 Stable" />
   <img src="https://img.shields.io/badge/price-Free-success?style=flat-square" alt="Free" />
   <img src="https://img.shields.io/badge/SHA256-available-informational?style=flat-square" alt="SHA256 available" />
   <img src="https://img.shields.io/badge/GitHub-Release-181717?style=flat-square" alt="GitHub Release" />
@@ -36,7 +36,7 @@ Jitvora Gaming Optimizer is a Windows desktop utility for gamers. It helps clean
 
 ## Highlights
 
-- Jitvora **v2.0.0** public release
+- Jitvora **v3.0 Stable** public release — redesigned UI, honest dashboard data, improved update check
 - Premium website and clean GitHub presentation
 - Cleaner, driver check, repair tools and gaming settings
 - Network Watch for network/server diagnostics where available
@@ -62,10 +62,10 @@ Full version is **free**. Pro Center currently shows planned/preview tools; adva
 Download Jitvora only from the official website or official GitHub Releases.
 
 - **Latest release:** https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases/latest
-- **Direct installer:** https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases/download/v2.0.0/Jitvora_Gaming_Optimizer_Setup_v2.0.0.exe
+- **Direct installer:** https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases/download/v3.0/Jitvora_Gaming_Optimizer_Setup_v3.0.exe
 - **Website:** https://legendr622.github.io/Jitvora-Gaming-Optimizer/
 
-**Installer:** `Jitvora_Gaming_Optimizer_Setup_v2.0.0.exe`
+**Installer:** `Jitvora_Gaming_Optimizer_Setup_v3.0.exe`
 
 ## Trust & safety
 
@@ -76,7 +76,7 @@ It does not modify game files and does not use memory reading, injection, hooks 
 - **Trust manifest:** https://legendr622.github.io/Jitvora-Gaming-Optimizer/trust-latest.json
 - **GitHub Releases:** https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases
 
-**v2.0.0 installer is currently unsigned.** Verify the SHA256 from `trust-latest.json` before installing. Windows SmartScreen may show a warning.
+**v3.0 installer may be unsigned.** Verify the SHA256 from `trust-latest.json` before installing. Windows SmartScreen may show a warning.
 
 ## Network Watch
 

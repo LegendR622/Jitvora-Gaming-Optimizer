@@ -10,6 +10,24 @@ All notable changes to **Jitvora Gaming Optimizer** are listed here (newest firs
 
 ---
 
+## [3.0] — 2026-06-21 (Stable)
+
+### Fixed
+- **Dashboard** — no fake ping, live logs, scan time, or score before a real scan; honest placeholders (N/A, Not measured, Not scanned yet)
+- **Update page** — honest offline/unreachable state; progress bar hidden when online check fails
+- **GitHub update check** — app reads `version.json` from Jitvora-Gaming-Optimizer repo (legacy Redline URLs still accepted)
+
+### Improved
+- **Jitvora UI** — sidebar redesign (no chevrons), custom title bar, dashboard polish, cyan/green theme, RAM/live-system icons
+- **Drivers page** — honest vendor labels (“Open official page”); header no longer claims automatic install
+- **Last scan / perf hints** — real dates (Today/Yesterday/actual date), not always “Today”
+- **Website & GitHub** — release metadata, trust manifest, and download links aligned to v3.0 Stable
+
+### Changed
+- **Public version** — v3.0 Stable replaces v2.0.0 as the recommended public download
+
+---
+
 ## [2.0.0] — 2026-06-17
 
 ### Changed
