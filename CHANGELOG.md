@@ -10,6 +10,14 @@ All notable changes to **Jitvora Gaming Optimizer** are listed here (newest firs
 
 ---
 
+## [3.0.3] — 2026-06-21
+
+### Fixed
+- **Installer** — EULA no longer shows outdated “Version 1.8”; welcome and legacy-cleanup messages use Jitvora branding instead of Redline
+- **Network Adapter Gaming Profile** — Apply button works after scan (no longer requires a separate preview/restore step before apply)
+
+---
+
 ## [3.0.2] — 2026-06-21
 
 ### Fixed
