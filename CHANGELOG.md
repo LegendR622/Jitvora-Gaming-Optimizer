@@ -10,6 +10,14 @@ All notable changes to **Jitvora Gaming Optimizer** are listed here (newest firs
 
 ---
 
+## [3.0.4] — 2026-06-21
+
+### Fixed
+- **Network Adapter Gaming Profile** — manual “Wählen/Select” now switches adapters reliably (no auto-fallback override); apply uses interface index instead of adapter name
+- **Website i18n** — fixed mojibake in translations (`·`, `—`, umlauts); regenerated `site-i18n.js`
+
+---
+
 ## [3.0.3] — 2026-06-21
 
 ### Fixed

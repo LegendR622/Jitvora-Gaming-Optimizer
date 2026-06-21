@@ -28,7 +28,7 @@ EN = {
     "lang.more": "More languages",
     "hero.badge": "Windows 10/11 · 64-bit · Free",
     "hero.sub": "Tune FPS, clean your PC, check drivers and fix network issues — safely from one desktop app.",
-    "hero.download": "Download v1.9.6",
+    "hero.download": "Download v3.0.4",
     "hero.trust": "Trust & SHA256",
     "hero.trustAria": "Trust highlights",
     "hero.pill1": "Official GitHub release",
@@ -57,7 +57,7 @@ EN = {
     "feat.repair.title": "Repair tools",
     "feat.repair.text": "Shortcuts to SFC, DISM and common Windows repair actions.",
     "feat.pro.title": "Pro Center",
-    "feat.pro.text": "28 pro tools in Gaming, Network, System & more — browse in the app (preview in v1.9.6).",
+    "feat.pro.text": "28 pro tools in Gaming, Network, System & more — browse in the app (preview in v3.0.4).",
     "how.label": "How it works",
     "how.title": "Three simple steps",
     "how.lead": "Scan, review, then apply — you stay in control.",
@@ -85,7 +85,7 @@ EN = {
     "faq.label": "FAQ",
     "faq.title": "Quick answers",
     "faq.q1": "Is Jitvora free on Windows 10 and 11?",
-    "faq.a1": "Yes — the full version is free on 64-bit Windows 10 and 11. No license key for v1.9.6.",
+    "faq.a1": "Yes — the full version is free on 64-bit Windows 10 and 11. No license key for v3.0.4.",
     "faq.q2": "Where do I download safely?",
     "faq.a2.html": 'Only from <a href="https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases">GitHub Releases</a>. Avoid third-party download sites.',
     "faq.q3": "Safe for online games?",
@@ -96,7 +96,7 @@ EN = {
     "faq.a5": "The app supports German and English in settings. This website is available in many languages.",
     "footer.aria": "Legal and resources",
     "meta.title": "Jitvora Gaming Optimizer — Windows Gaming Optimizer, FPS & PC Cleaner",
-    "meta.description": "Jitvora Gaming Optimizer — Windows gaming optimizer for FPS tuning, PC cleaner, driver check and network tools. Safe Windows tweaks. Free download v1.9.6 for Windows 10/11.",
+    "meta.description": "Jitvora Gaming Optimizer — Windows gaming optimizer with Network Watch, game latency monitoring, gaming network diagnostics, FPS tuning, PC cleanup, driver checks and safe Windows tweaks. Free download v3.0.4 for Windows 10/11.",
 }
 
 # Literal mojibake sequences still seen after byte-roundtrip fixes
