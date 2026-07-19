@@ -71,7 +71,7 @@ html[dir="rtl"] .nav-right {
 
 .lang-btn.is-active {
   background: var(--red, #00b4ff);
-  color: #fff;
+  color: var(--accent-ink, #051018);
 }
 
 .lang-select-more {
