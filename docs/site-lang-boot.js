@@ -1,6 +1,13 @@
+/* Early language boot — self-contained so the big site-i18n.js dictionary can load deferred.
+   Keep this code list in sync with REDLINE_LANG_META in docs/i18n-full.json / site-i18n.js. */
 (function () {
   var k = "redline-site-lang";
-  var codes = window.REDLINE_LANG_CODES || ["de", "en"];
+  var codes = window.REDLINE_LANG_CODES || [
+    "de", "en", "fr", "es", "it", "pt", "nl", "pl", "tr", "ru", "uk", "cs",
+    "ar", "zh", "ja", "ko", "hi", "sv", "ro", "hu", "el", "th", "vi", "id",
+    "da", "no", "fi"
+  ];
+  var rtl = { ar: true };
   var l = localStorage.getItem(k);
   if (!l) {
     var n = (navigator.language || "en").toLowerCase();
@@ -19,5 +26,5 @@
   document.documentElement.setAttribute("data-site-lang", l);
   document.documentElement.setAttribute("data-legal-lang", l === "de" ? "de" : "en");
   document.documentElement.lang = l;
-  document.documentElement.dir = meta.rtl ? "rtl" : "ltr";
+  document.documentElement.dir = (meta.rtl || rtl[l]) ? "rtl" : "ltr";
 })();
