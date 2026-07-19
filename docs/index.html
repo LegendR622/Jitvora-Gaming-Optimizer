@@ -25,8 +25,8 @@
   <meta name="twitter:image" content="https://legendr622.github.io/Jitvora-Gaming-Optimizer/og-image.png" />
   <script>document.documentElement.classList.remove('no-js');</script>
   <script src="site-lang-boot.js?v=20260719f"></script>
-  <script src="site-i18n.js?v=20260719f" defer></script>
-  <link rel="stylesheet" href="landing.css?v=20260719f" />
+  <script src="site-i18n.js?v=20260719g" defer></script>
+  <link rel="stylesheet" href="landing.css?v=20260719h" />
   <link rel="stylesheet" href="site-lang.css?v=20260719f" />
   <script type="application/ld+json">
   {
@@ -264,7 +264,7 @@
           <p class="mock-note" data-i18n="hero.mock.note">Illustration of the app layout — not a live screenshot.</p>
         </div>
 
-        <ul class="cap-list reveal">
+        <ul class="cap-list perf-control-map reveal">
           <li>
             <span class="cap-ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
             <div><strong data-i18n="feat.fps.title">FPS tuning</strong><span data-i18n="feat.fps.text">Game Mode, power plan and safe Windows tweaks for gaming.</span></div>
@@ -310,63 +310,72 @@
         <path d="M-60 470 C 300 470, 460 250, 720 250 S 1120 90, 1500 90" fill="none" stroke="currentColor" stroke-width="1" opacity="0.35"/>
       </svg>
       <div class="net-inner">
-        <div class="chapter-head net-head reveal">
-          <span class="chapter-index" aria-hidden="true">03</span>
-          <div class="chapter-head-copy">
-            <p class="section-label" data-i18n="netwatch.label">Network Watch</p>
-            <h2 id="netwatch-title" data-i18n="netwatch.title">See your connection clearly while you play.</h2>
-            <p class="section-lead" data-i18n="netwatch.lead">Live ping, jitter and packet loss during your game — with a clear diagnosis instead of guesswork.</p>
+        <div class="net-story">
+          <div class="chapter-head net-head reveal">
+            <span class="chapter-index" aria-hidden="true">03</span>
+            <div class="chapter-head-copy">
+              <p class="section-label" data-i18n="netwatch.label">Network Watch</p>
+              <h2 id="netwatch-title" data-i18n="netwatch.title">See your connection clearly while you play.</h2>
+              <p class="section-lead" data-i18n="netwatch.lead">Live ping, jitter and packet loss during your game — with a clear diagnosis instead of guesswork.</p>
+            </div>
           </div>
-        </div>
 
-        <div class="net-route reveal" aria-label="Route from your PC to the game server">
-          <div class="net-node">
-            <span class="net-node-dot"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
-            <span class="net-node-label" data-i18n="netwatch.node.pc">Your PC</span>
-          </div>
-          <div class="net-link"><span class="net-link-pulse" aria-hidden="true"></span></div>
-          <div class="net-node">
-            <span class="net-node-dot"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="8" width="20" height="10" rx="2"/><path d="M6 13h.01M10 13h.01M8 4l4 4 4-4"/></svg></span>
-            <span class="net-node-label" data-i18n="netwatch.node.router">Router</span>
-          </div>
-          <div class="net-link"><span class="net-link-pulse net-link-pulse--2" aria-hidden="true"></span></div>
-          <div class="net-node net-node--dest">
-            <span class="net-node-dot"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><path d="M7 7h.01M7 17h.01"/></svg></span>
-            <span class="net-node-label" data-i18n="netwatch.node.server">Game server</span>
-          </div>
-        </div>
+          <div class="net-stage">
+            <div class="net-route reveal" aria-label="Route from your PC to the game server">
+              <div class="net-node">
+                <span class="net-node-dot"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
+                <span class="net-node-label" data-i18n="netwatch.node.pc">Your PC</span>
+              </div>
+              <div class="net-link"><span class="net-link-pulse" aria-hidden="true"></span></div>
+              <div class="net-node">
+                <span class="net-node-dot"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="8" width="20" height="10" rx="2"/><path d="M6 13h.01M10 13h.01M8 4l4 4 4-4"/></svg></span>
+                <span class="net-node-label" data-i18n="netwatch.node.router">Router</span>
+              </div>
+              <div class="net-link"><span class="net-link-pulse net-link-pulse--2" aria-hidden="true"></span></div>
+              <div class="net-node net-node--dest">
+                <span class="net-node-dot"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><path d="M7 7h.01M7 17h.01"/></svg></span>
+                <span class="net-node-label" data-i18n="netwatch.node.server">Game server</span>
+              </div>
+            </div>
 
-        <div class="net-diag reveal">
-          <div class="net-stats">
-            <div class="net-stat net-stat--good">
-              <span class="net-stat-k" data-i18n="netwatch.row1">Ping to game server</span>
-              <span class="net-stat-v">14<small>ms</small></span>
-              <span class="net-stat-s" data-i18n="netwatch.rowLive">live</span>
-            </div>
-            <div class="net-stat">
-              <span class="net-stat-k" data-i18n="netwatch.row2">Jitter</span>
-              <span class="net-stat-v">3<small>ms</small></span>
-              <span class="net-stat-s" data-i18n="netwatch.rowLive">live</span>
-            </div>
-            <div class="net-stat">
-              <span class="net-stat-k" data-i18n="netwatch.row3">Packet loss</span>
-              <span class="net-stat-v">0<small>%</small></span>
-              <span class="net-stat-s" data-i18n="netwatch.rowLive">live</span>
+            <div class="net-diag reveal">
+              <div class="net-console-bar" aria-hidden="true">
+                <span class="net-console-dots"><i></i><i></i><i></i></span>
+                <span class="net-console-title" data-i18n="netwatch.label">Network Watch</span>
+                <span class="net-console-live"><i></i><span data-i18n="netwatch.rowLive">live</span></span>
+              </div>
+              <div class="net-stats">
+                <div class="net-stat net-stat--good">
+                  <span class="net-stat-k" data-i18n="netwatch.row1">Ping to game server</span>
+                  <span class="net-stat-v">14<small>ms</small></span>
+                  <span class="net-stat-s" data-i18n="netwatch.rowLive">live</span>
+                </div>
+                <div class="net-stat">
+                  <span class="net-stat-k" data-i18n="netwatch.row2">Jitter</span>
+                  <span class="net-stat-v">3<small>ms</small></span>
+                  <span class="net-stat-s" data-i18n="netwatch.rowLive">live</span>
+                </div>
+                <div class="net-stat">
+                  <span class="net-stat-k" data-i18n="netwatch.row3">Packet loss</span>
+                  <span class="net-stat-v">0<small>%</small></span>
+                  <span class="net-stat-s" data-i18n="netwatch.rowLive">live</span>
+                </div>
+              </div>
+              <div class="net-graphwrap">
+                <svg class="net-graph" viewBox="0 0 900 120" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="ng" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0" stop-color="currentColor" stop-opacity="0.24"/>
+                      <stop offset="1" stop-color="currentColor" stop-opacity="0"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M0 80 L64 72 L128 84 L192 60 L256 70 L320 50 L384 64 L448 42 L512 58 L576 38 L640 54 L704 34 L768 48 L832 28 L900 40 L900 120 L0 120 Z" fill="url(#ng)"/>
+                  <path class="net-graph-line" d="M0 80 L64 72 L128 84 L192 60 L256 70 L320 50 L384 64 L448 42 L512 58 L576 38 L640 54 L704 34 L768 48 L832 28 L900 40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <p class="net-caption" data-i18n="netwatch.caption">Sample visualization — real values are measured in the app.</p>
             </div>
           </div>
-          <div class="net-graphwrap">
-            <svg class="net-graph" viewBox="0 0 900 120" preserveAspectRatio="none" aria-hidden="true">
-              <defs>
-                <linearGradient id="ng" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0" stop-color="currentColor" stop-opacity="0.24"/>
-                  <stop offset="1" stop-color="currentColor" stop-opacity="0"/>
-                </linearGradient>
-              </defs>
-              <path d="M0 80 L64 72 L128 84 L192 60 L256 70 L320 50 L384 64 L448 42 L512 58 L576 38 L640 54 L704 34 L768 48 L832 28 L900 40 L900 120 L0 120 Z" fill="url(#ng)"/>
-              <path class="net-graph-line" d="M0 80 L64 72 L128 84 L192 60 L256 70 L320 50 L384 64 L448 42 L512 58 L576 38 L640 54 L704 34 L768 48 L832 28 L900 40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <p class="net-caption" data-i18n="netwatch.caption">Sample visualization — real values are measured in the app.</p>
         </div>
 
         <ul class="net-points reveal">
@@ -441,6 +450,7 @@
     <!-- ————— Chapter 05 · Trust (minimal, confident) ————— -->
     <section class="section chapter chapter--trust" id="trust" aria-labelledby="trust-title">
       <div class="trust-band">
+        <span class="trust-watermark" aria-hidden="true">SHA256</span>
         <div class="trust-lead-col">
           <span class="chapter-index" aria-hidden="true">05</span>
           <p class="section-label" data-i18n="nav.trust">Trust</p>
@@ -472,8 +482,14 @@
         <span class="finale-ghost" aria-hidden="true">Jitvora</span>
         <div class="finale-inner reveal">
           <span class="chapter-index" aria-hidden="true">06</span>
-          <div class="finale-icon" aria-hidden="true">
-            <img src="assets/brand/jitvora-logo-mark-64.png" alt="" width="56" height="56" decoding="async" />
+          <div class="finale-mark" aria-hidden="true">
+            <span class="finale-orbit finale-orbit--outer"></span>
+            <span class="finale-orbit finale-orbit--inner"></span>
+            <span class="finale-signal finale-signal--a"></span>
+            <span class="finale-signal finale-signal--b"></span>
+            <div class="finale-icon">
+              <img src="assets/brand/jitvora-logo-mark-64.png" alt="" width="56" height="56" decoding="async" />
+            </div>
           </div>
           <p class="section-label" data-i18n="dl.label">Download</p>
           <h2 id="download-title" data-i18n="dl.title">Get Jitvora for Windows.</h2>
