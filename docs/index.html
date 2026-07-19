@@ -1,5 +1,5 @@
-﻿<!DOCTYPE html>
-<html lang="de">
+<!DOCTYPE html>
+<html lang="de" class="no-js">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -23,16 +23,18 @@
   <meta name="twitter:title" content="Jitvora Gaming Optimizer" />
   <meta name="twitter:description" content="Windows gaming optimizer — FPS, PC cleaner, Network Watch and safe Windows tweaks." />
   <meta name="twitter:image" content="https://legendr622.github.io/Jitvora-Gaming-Optimizer/og-image.png" />
-  <script src="site-i18n.js?v=20260622a"></script>
-  <script src="site-lang-boot.js?v=20260622a"></script>
-  <link rel="stylesheet" href="landing.css?v=20260622a" />
-  <link rel="stylesheet" href="site-lang.css?v=20260622a" />
+  <script>document.documentElement.classList.remove('no-js');</script>
+  <script src="site-lang-boot.js?v=20260718g"></script>
+  <script src="site-i18n.js?v=20260718g" defer></script>
+  <link rel="stylesheet" href="landing.css?v=20260718g" />
+  <link rel="stylesheet" href="site-lang.css?v=20260718g" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Jitvora Gaming Optimizer",
     "operatingSystem": "Windows 10, Windows 11",
+    "applicationCategory": "UtilitiesApplication",
     "description": "Jitvora Gaming Optimizer — Windows gaming optimizer with Network Watch, game latency monitoring, gaming network diagnostics, FPS tuning, PC cleanup, driver checks and safe Windows tweaks.",
     "downloadUrl": "https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases/download/v3.0.5/Jitvora_Gaming_Optimizer_Setup_v3.0.5.exe",
     "softwareVersion": "3.0.5",
@@ -47,7 +49,7 @@
     <header class="nav">
       <div class="nav-inner">
         <a class="nav-logo" href="index.html">
-          <img class="nav-logo-mark" src="assets/brand/jitvora-logo-mark.png" alt="" width="36" height="36" decoding="async" />
+          <img class="nav-logo-mark" src="assets/brand/jitvora-logo-mark-64.png" alt="" width="30" height="30" decoding="async" />
           <span class="nav-logo-copy">
             <span class="nav-logo-name">Jitvora</span>
             <span class="nav-logo-tag">Gaming Optimizer</span>
@@ -55,50 +57,46 @@
         </a>
         <nav class="nav-links" aria-label="Main">
           <a href="#features" data-i18n="nav.features">Features</a>
+          <a href="#netwatch" data-i18n="netwatch.label">Network Watch</a>
           <a href="#faq" data-i18n="nav.faq">FAQ</a>
           <a href="trust.html" data-i18n="nav.trust">Trust</a>
           <a href="https://github.com/LegendR622/Jitvora-Gaming-Optimizer" data-i18n="nav.github">GitHub</a>
         </nav>
         <div class="nav-actions">
           <div class="lang-switch-wrap" data-lang-switch></div>
-          <a class="btn btn-primary btn-nav" href="https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases/download/v3.0.5/Jitvora_Gaming_Optimizer_Setup_v3.0.5.exe" data-i18n="hero.download"><svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5L12 3l9 2.5v13L12 21l-9-2.5V5.5zm2 .8v10.2l7 1.9V7.2L5 6.3zm9 .9v10.2l7-1.9V6.3l-7 1.9z"/></svg>Download for Windows</a>
+          <a class="btn btn-primary btn-nav" href="#download" data-i18n="dl.navCta">Download</a>
         </div>
       </div>
     </header>
 
     <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-bg" aria-hidden="true"></div>
       <div class="hero-inner">
-        <div class="hero-copy">
-          <div class="hero-badge" data-i18n="hero.badge">Windows 10/11 · 64-bit · Free · v3.0.5</div>
-          <h1 id="hero-title">Jitvora Gaming <span class="hero-accent">Optimizer</span></h1>
-          <p class="hero-sub" data-i18n="hero.sub">Tune FPS, clean your PC, check drivers and fix network issues — safely from one desktop app.</p>
-          <div class="hero-cta">
-            <a class="btn btn-primary" href="https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases/download/v3.0.5/Jitvora_Gaming_Optimizer_Setup_v3.0.5.exe" data-i18n="hero.download"><svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5L12 3l9 2.5v13L12 21l-9-2.5V5.5zm2 .8v10.2l7 1.9V7.2L5 6.3zm9 .9v10.2l7-1.9V6.3l-7 1.9z"/></svg>Download for Windows</a>
-            <a class="btn btn-ghost" href="https://github.com/LegendR622/Jitvora-Gaming-Optimizer" data-i18n="hero.github"><svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>View on GitHub</a>
-            <a class="btn btn-ghost" href="trust.html" data-i18n="hero.trust"><svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Trust &amp; SHA256</a>
-          </div>
-          <ul class="trust-strip" data-i18n-aria="hero.trustAria" aria-label="Trust highlights">
-            <li data-i18n="hero.pill1">Official GitHub release</li>
-            <li data-i18n="hero.pill2">Manual updates only</li>
-            <li data-i18n="hero.pill3">No game file changes</li>
-            <li data-i18n="hero.pill4">SHA256 available</li>
-          </ul>
-          <p class="sr-only" lang="de">Jitvora Gaming Optimizer — Windows Gaming Optimizer, FPS Optimizer, PC Cleaner, Treiber-Check, Netzwerk-Tools für Windows 10 und 11.</p>
+        <div class="hero-badge" data-i18n="hero.badge">Windows 10/11 · 64-bit · Free · v3.0.5</div>
+        <h1 id="hero-title" data-i18n="hero.headline.html">Your gaming PC, <span class="hero-accent">at its best.</span></h1>
+        <p class="hero-sub" data-i18n="hero.sub">Tune FPS, clean your PC, check drivers and fix network issues — safely from one desktop app.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases/download/v3.0.5/Jitvora_Gaming_Optimizer_Setup_v3.0.5.exe" data-i18n="hero.download"><svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5L12 3l9 2.5v13L12 21l-9-2.5V5.5zm2 .8v10.2l7 1.9V7.2L5 6.3zm9 .9v10.2l7-1.9V6.3l-7 1.9z"/></svg>Download for Windows</a>
+          <a class="btn btn-ghost" href="trust.html" data-i18n="hero.trust"><svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Trust &amp; SHA256</a>
         </div>
+        <ul class="trust-strip" data-i18n-aria="hero.trustAria" aria-label="Trust highlights">
+          <li data-i18n="hero.pill1">Official GitHub release</li>
+          <li data-i18n="hero.pill2">Manual updates only</li>
+          <li data-i18n="hero.pill3">No game file changes</li>
+          <li data-i18n="hero.pill4">SHA256 available</li>
+        </ul>
+        <p class="sr-only" lang="de">Jitvora Gaming Optimizer — Windows Gaming Optimizer, FPS Optimizer, PC Cleaner, Treiber-Check, Netzwerk-Tools für Windows 10 und 11.</p>
 
-        <div class="hero-visual">
+        <div class="hero-visual reveal">
           <div class="hero-visual-glow" aria-hidden="true"></div>
           <figure class="app-mock" aria-label="App UI preview">
             <div class="app-mock-chrome">
-              <div class="app-mock-dots"><span></span><span></span><span></span></div>
+              <div class="app-mock-dots" aria-hidden="true"><span></span><span></span><span></span></div>
               <span class="app-mock-title">Jitvora Gaming Optimizer</span>
-              <div class="app-mock-win" aria-hidden="true"><span></span><span></span><span></span></div>
             </div>
             <div class="app-mock-body">
-              <aside class="app-mock-sidebar">
+              <aside class="app-mock-sidebar" aria-hidden="true">
                 <div class="app-mock-brand">
-                  <img src="assets/brand/jitvora-logo-mark.png" alt="" width="22" height="22" decoding="async" />
+                  <img src="assets/brand/jitvora-logo-mark-64.png" alt="" width="20" height="20" decoding="async" />
                   <span>Jitvora</span>
                 </div>
                 <div class="app-mock-nav active">Dashboard</div>
@@ -106,8 +104,8 @@
                 <div class="app-mock-nav">Cleaner</div>
                 <div class="app-mock-nav">Drivers</div>
                 <div class="app-mock-nav">Network</div>
+                <div class="app-mock-nav">Network Watch</div>
                 <div class="app-mock-nav">Security</div>
-                <div class="app-mock-nav">Pro Center</div>
                 <div class="app-mock-nav">Settings</div>
               </aside>
               <div class="app-mock-main">
@@ -131,7 +129,7 @@
                 <div class="app-mock-panel">
                   <h3 data-i18n="hero.mock.fps.title">Gaming profile</h3>
                   <p data-i18n="hero.mock.fps.text">Game Mode · power plan · safe Windows tweaks</p>
-                  <div class="app-mock-track"><span></span></div>
+                  <div class="app-mock-track" aria-hidden="true"><span></span></div>
                 </div>
                 <div class="app-mock-panel app-mock-panel--muted app-mock-panel--row">
                   <div>
@@ -143,46 +141,47 @@
               </div>
             </div>
           </figure>
+          <p class="mock-note" data-i18n="hero.mock.note">Illustration of the app layout — not a live screenshot.</p>
         </div>
       </div>
     </section>
 
-    <section class="section features-section" id="features" aria-labelledby="features-title">
+    <section class="section" id="features" aria-labelledby="features-title">
       <p class="section-label" data-i18n="feat.label">Features</p>
       <h2 id="features-title" data-i18n="feat.title">Built for your gaming PC</h2>
       <p class="section-lead" data-i18n="feat.lead">Six core tools. One app. Plus Pro Center with advanced tools.</p>
       <div class="feature-grid">
-        <article class="feature-card">
+        <article class="feature-card reveal">
           <div class="feature-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
           <h3 data-i18n="feat.fps.title">FPS tuning</h3>
           <p data-i18n="feat.fps.text">Game Mode, power plan and safe Windows tweaks for gaming.</p>
         </article>
-        <article class="feature-card">
+        <article class="feature-card reveal">
           <div class="feature-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"/></svg></div>
           <h3 data-i18n="feat.clean.title">Cleaner</h3>
           <p data-i18n="feat.clean.text">Remove temporary files and cache with size preview first.</p>
         </article>
-        <article class="feature-card">
+        <article class="feature-card reveal">
           <div class="feature-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
           <h3 data-i18n="feat.driver.title">Driver check</h3>
           <p data-i18n="feat.driver.text">Scan hardware and open official vendor download pages.</p>
         </article>
-        <article class="feature-card">
+        <article class="feature-card reveal">
           <div class="feature-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></div>
           <h3 data-i18n="feat.net.title">Network tools</h3>
           <p data-i18n="feat.net.text">Adapter info, DNS flush and ping checks in one place.</p>
         </article>
-        <article class="feature-card">
+        <article class="feature-card reveal">
           <div class="feature-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
           <h3 data-i18n="feat.sec.title">Security check</h3>
           <p data-i18n="feat.sec.text">Quick security overview and system status at a glance.</p>
         </article>
-        <article class="feature-card">
+        <article class="feature-card reveal">
           <div class="feature-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
           <h3 data-i18n="feat.repair.title">Repair tools</h3>
           <p data-i18n="feat.repair.text">Shortcuts to SFC, DISM and common Windows repair actions.</p>
         </article>
-        <article class="feature-card feature-card--pro">
+        <article class="feature-card feature-card--pro reveal">
           <span class="feature-preview-badge" data-i18n="feat.pro.badge">Preview</span>
           <div class="feature-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12l4 6-10 13L2 9z"/></svg></div>
           <h3 data-i18n="feat.pro.title">Pro Center</h3>
@@ -191,71 +190,128 @@
       </div>
     </section>
 
-    <section class="section trio-section" aria-label="How it works, Trust and FAQ">
-      <div class="trio-grid">
-        <article class="trio-card" id="how">
-          <p class="section-label" data-i18n="how.label">How it works</p>
-          <h2 data-i18n="how.title">Three simple steps</h2>
-          <p class="trio-lead" data-i18n="how.lead">Scan, review, then apply — you stay in control.</p>
-          <ol class="steps-row">
+    <section class="section" id="netwatch" aria-labelledby="netwatch-title">
+      <p class="section-label" data-i18n="netwatch.label">Network Watch</p>
+      <h2 id="netwatch-title" data-i18n="netwatch.title">See your connection clearly while you play.</h2>
+      <p class="section-lead" data-i18n="netwatch.lead">Live ping, jitter and packet loss during your game — with a clear diagnosis instead of guesswork.</p>
+      <div class="netwatch reveal">
+        <div>
+          <ul class="netwatch-points">
             <li>
-              <span class="step-num">1</span>
-              <strong data-i18n="how.s1.title">Scan</strong>
-              <span data-i18n="how.s1.text">Check your system, hardware and gaming-related settings.</span>
+              <span class="netwatch-point-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
+              <div>
+                <strong data-i18n="netwatch.p1.title">Live in-game monitoring</strong>
+                <span data-i18n="netwatch.p1.text">Ping, jitter and packet loss measured while your game is running.</span>
+              </div>
             </li>
             <li>
-              <span class="step-num">2</span>
-              <strong data-i18n="how.s2.title">Review</strong>
-              <span data-i18n="how.s2.text">See recommendations before anything changes.</span>
+              <span class="netwatch-point-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+              <div>
+                <strong data-i18n="netwatch.p2.title">Real game-server detection</strong>
+                <span data-i18n="netwatch.p2.text">Finds the server your game is actually connected to and measures that route.</span>
+              </div>
             </li>
             <li>
-              <span class="step-num">3</span>
-              <strong data-i18n="how.s3.title">Apply</strong>
-              <span data-i18n="how.s3.text">Apply safe fixes only when you confirm.</span>
+              <span class="netwatch-point-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></span>
+              <div>
+                <strong data-i18n="netwatch.p3.title">Honest diagnosis</strong>
+                <span data-i18n="netwatch.p3.text">Points to Wi-Fi, router or route — and says “not measurable” when a value cannot be trusted.</span>
+              </div>
             </li>
-          </ol>
-        </article>
-
-        <article class="trio-card" id="safety">
-          <p class="section-label" data-i18n="safe.label">Trust built in</p>
-          <h2 data-i18n="safe.title">Trust built in</h2>
-          <p class="trio-lead" data-i18n="safe.lead">Honest, local and transparent — no overpromising.</p>
-          <ul class="trust-mini">
-            <li><span class="trust-mini-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><div><strong data-i18n="safe.1.title">Official GitHub releases only</strong><span data-i18n="safe.1.text">Download from GitHub — not third-party sites.</span></div></li>
-            <li><span class="trust-mini-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22V12M12 12l8-4M12 12L4 8"/></svg></span><div><strong data-i18n="safe.2.title">Manual update confirmation</strong><span data-i18n="safe.2.text">Updates require your approval in the app.</span></div></li>
-            <li><span class="trust-mini-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h10"/></svg></span><div><strong data-i18n="safe.3.title">SHA256 hash available</strong><span data-i18n="safe.3">Verify via the <a href="trust.html">Trust page</a> or <a href="trust-latest.json">trust-latest.json</a>.</span></div></li>
-            <li><span class="trust-mini-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg></span><div><strong data-i18n="safe.4.title">No game file modifications</strong><span data-i18n="safe.4.text">Windows settings only — anti-cheat friendly approach.</span></div></li>
-            <li><span class="trust-mini-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42"/></svg></span><div><strong data-i18n="safe.5.title">Safe Windows settings only</strong><span data-i18n="safe.5.text">Recommendations before changes where possible.</span></div></li>
-            <li><span class="trust-mini-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span><div><strong data-i18n="safe.6.title">No cloud account required</strong><span data-i18n="safe.6.text">Runs locally on your PC. No login needed.</span></div></li>
           </ul>
-        </article>
+        </div>
+        <figure class="netwatch-visual" aria-label="Network Watch sample visualization">
+          <svg class="netwatch-graph" viewBox="0 0 260 64" aria-hidden="true">
+            <path d="M0 40 L20 36 L40 42 L60 30 L80 34 L100 24 L120 30 L140 20 L160 26 L180 16 L200 22 L220 14 L240 20 L260 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+            <path d="M0 40 L20 36 L40 42 L60 30 L80 34 L100 24 L120 30 L140 20 L160 26 L180 16 L200 22 L220 14 L240 20 L260 12 L260 64 L0 64 Z" fill="currentColor" opacity="0.06"/>
+          </svg>
+          <div class="netwatch-row"><span data-i18n="netwatch.row1">Ping to game server</span><span class="val" data-i18n="netwatch.rowLive">live</span></div>
+          <div class="netwatch-row"><span data-i18n="netwatch.row2">Jitter</span><span class="val" data-i18n="netwatch.rowLive">live</span></div>
+          <div class="netwatch-row"><span data-i18n="netwatch.row3">Packet loss</span><span class="val" data-i18n="netwatch.rowLive">live</span></div>
+          <figcaption data-i18n="netwatch.caption">Sample visualization — real values are measured in the app.</figcaption>
+        </figure>
+      </div>
+    </section>
 
-        <article class="trio-card" id="faq">
-          <p class="section-label" data-i18n="faq.label">FAQ</p>
-          <h2 id="faq-title" data-i18n="faq.title">Quick answers</h2>
-          <div class="faq-list faq-list--compact">
-            <details class="faq">
-              <summary data-i18n="faq.q1">Is Jitvora free on Windows 10 and 11?</summary>
-              <p data-i18n="faq.a1">Yes — the full version is free on 64-bit Windows 10 and 11. No license key for v3.0.5.</p>
-            </details>
-            <details class="faq">
-              <summary data-i18n="faq.q2">Where do I download safely?</summary>
-              <p data-i18n="faq.a2">Only from official <a href="https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases">GitHub Releases</a> or this website. Avoid third-party download sites.</p>
-            </details>
-            <details class="faq">
-              <summary data-i18n="faq.q3">Is Jitvora safe for online games?</summary>
-              <p data-i18n="faq.a3">No game files are modified — Jitvora adjusts Windows settings only.</p>
-            </details>
-            <details class="faq">
-              <summary data-i18n="faq.q4">How do updates work?</summary>
-              <p data-i18n="faq.a4">Manual only — check the in-app Update page or GitHub. You confirm before installing.</p>
-            </details>
-            <details class="faq">
-              <summary data-i18n="faq.q5">Is German and English supported?</summary>
-              <p data-i18n="faq.a5">Yes — German and English are supported in the app settings. This website is available in many languages.</p>
-            </details>
-          </div>
-        </article>
+    <section class="section" id="safety" aria-labelledby="safety-title">
+      <p class="section-label" data-i18n="safe.label">Trust built in</p>
+      <h2 id="safety-title" data-i18n="safe.title">Trust built in</h2>
+      <p class="section-lead" data-i18n="safe.lead">Honest, local and transparent — no overpromising.</p>
+      <ul class="trust-mini">
+        <li class="reveal"><span class="trust-mini-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><div><strong data-i18n="safe.1.title">Official GitHub releases only</strong><span data-i18n="safe.1.text">Download from GitHub — not third-party sites.</span></div></li>
+        <li class="reveal"><span class="trust-mini-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22V12M12 12l8-4M12 12L4 8"/></svg></span><div><strong data-i18n="safe.2.title">Manual update confirmation</strong><span data-i18n="safe.2.text">Updates require your approval in the app.</span></div></li>
+        <li class="reveal"><span class="trust-mini-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h10"/></svg></span><div><strong data-i18n="safe.3.title">SHA256 hash available</strong><span data-i18n="safe.3">Verify via the <a href="trust.html">Trust page</a> or <a href="trust-latest.json">trust-latest.json</a>.</span></div></li>
+        <li class="reveal"><span class="trust-mini-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg></span><div><strong data-i18n="safe.4.title">No game file modifications</strong><span data-i18n="safe.4.text">Windows settings only — anti-cheat friendly approach.</span></div></li>
+        <li class="reveal"><span class="trust-mini-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42"/></svg></span><div><strong data-i18n="safe.5.title">Safe Windows settings only</strong><span data-i18n="safe.5.text">Recommendations before changes where possible.</span></div></li>
+        <li class="reveal"><span class="trust-mini-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span><div><strong data-i18n="safe.6.title">No cloud account required</strong><span data-i18n="safe.6.text">Runs locally on your PC. No login needed.</span></div></li>
+      </ul>
+    </section>
+
+    <section class="section" id="how" aria-labelledby="how-title">
+      <p class="section-label" data-i18n="how.label">How it works</p>
+      <h2 id="how-title" data-i18n="how.title">Three simple steps</h2>
+      <p class="section-lead" data-i18n="how.lead">Scan, review, then apply — you stay in control.</p>
+      <ol class="steps-row">
+        <li class="reveal">
+          <span class="step-num" aria-hidden="true">1</span>
+          <strong data-i18n="how.s1.title">Scan</strong>
+          <span data-i18n="how.s1.text">Check your system, hardware and gaming-related settings.</span>
+        </li>
+        <li class="reveal">
+          <span class="step-num" aria-hidden="true">2</span>
+          <strong data-i18n="how.s2.title">Review</strong>
+          <span data-i18n="how.s2.text">See recommendations before anything changes.</span>
+        </li>
+        <li class="reveal">
+          <span class="step-num" aria-hidden="true">3</span>
+          <strong data-i18n="how.s3.title">Apply</strong>
+          <span data-i18n="how.s3.text">Apply safe fixes only when you confirm.</span>
+        </li>
+      </ol>
+    </section>
+
+    <section class="section" id="download" aria-labelledby="download-title">
+      <div class="download-card reveal">
+        <p class="section-label" data-i18n="dl.label">Download</p>
+        <h2 id="download-title" data-i18n="dl.title">Get Jitvora for Windows.</h2>
+        <p class="section-lead" data-i18n="dl.lead">Free for Windows 10 and 11 (64-bit). Official GitHub release with published SHA256 checksum.</p>
+        <div class="download-cta">
+          <a class="btn btn-primary" href="https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases/download/v3.0.5/Jitvora_Gaming_Optimizer_Setup_v3.0.5.exe" data-i18n="hero.download"><svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5L12 3l9 2.5v13L12 21l-9-2.5V5.5zm2 .8v10.2l7 1.9V7.2L5 6.3zm9 .9v10.2l7-1.9V6.3l-7 1.9z"/></svg>Download for Windows</a>
+          <a class="btn btn-ghost" href="https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases" data-i18n="nav.releases">Releases</a>
+        </div>
+        <p class="download-meta">
+          <span data-i18n="dl.verify">Verify your download:</span>
+          <a href="trust.html" data-i18n="hero.trust">Trust &amp; SHA256</a> ·
+          <a href="trust-latest.json">trust-latest.json</a>
+        </p>
+        <p class="download-meta" data-i18n="dl.note">No account required · Manual updates only · Uninstall anytime</p>
+      </div>
+    </section>
+
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <p class="section-label" data-i18n="faq.label">FAQ</p>
+      <h2 id="faq-title" data-i18n="faq.title">Quick answers</h2>
+      <div class="faq-list">
+        <details class="faq">
+          <summary data-i18n="faq.q1">Is Jitvora free on Windows 10 and 11?</summary>
+          <p data-i18n="faq.a1">Yes — the full version is free on 64-bit Windows 10 and 11. No license key for v3.0.5.</p>
+        </details>
+        <details class="faq">
+          <summary data-i18n="faq.q2">Where do I download safely?</summary>
+          <p data-i18n="faq.a2">Only from official <a href="https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases">GitHub Releases</a> or this website. Avoid third-party download sites.</p>
+        </details>
+        <details class="faq">
+          <summary data-i18n="faq.q3">Is Jitvora safe for online games?</summary>
+          <p data-i18n="faq.a3">No game files are modified — Jitvora adjusts Windows settings only.</p>
+        </details>
+        <details class="faq">
+          <summary data-i18n="faq.q4">How do updates work?</summary>
+          <p data-i18n="faq.a4">Manual only — check the in-app Update page or GitHub. You confirm before installing.</p>
+        </details>
+        <details class="faq">
+          <summary data-i18n="faq.q5">Is German and English supported?</summary>
+          <p data-i18n="faq.a5">Yes — German and English are supported in the app settings. This website is available in many languages.</p>
+        </details>
       </div>
     </section>
 
@@ -263,7 +319,7 @@
       <div class="footer-top">
         <div class="footer-brand">
           <a class="footer-logo" href="index.html">
-            <img src="assets/brand/jitvora-logo-mark.png" alt="" width="40" height="40" decoding="async" />
+            <img src="assets/brand/jitvora-logo-mark-64.png" alt="" width="36" height="36" decoding="async" />
             <span class="footer-logo-copy">
               <span class="footer-logo-name">Jitvora</span>
               <span class="footer-logo-tag">Gaming Optimizer</span>
@@ -288,11 +344,31 @@
         </nav>
       </div>
       <div class="footer-bottom">
-        <p class="footer-copy">© 2026 Tobias Immisch · Jitvora Gaming Optimizer</p>
-        <a class="back-top" href="#" aria-label="Back to top">↑</a>
+        <div class="footer-bottom-inner">
+          <p class="footer-copy">© 2026 Tobias Immisch · Jitvora Gaming Optimizer</p>
+          <a class="back-top" href="#" aria-label="Back to top">↑</a>
+        </div>
       </div>
     </footer>
   </div>
-  <script src="site-lang.js?v=20260622a" defer></script>
+  <script src="site-lang.js?v=20260718g" defer></script>
+  <script>
+    (function () {
+      if (!("IntersectionObserver" in window)
+          || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("is-visible"); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            io.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+      document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
+    })();
+  </script>
 </body>
 </html>
