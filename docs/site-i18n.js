@@ -116,7 +116,13 @@
     "hero.win.status.good": "Very good",
     "hero.win.online": "Online",
     "netwatch.node.pc": "Your PC",
-    "netwatch.node.server": "Game server"
+    "netwatch.node.server": "Game server",
+    "perf.label": "Performance",
+    "netwatch.node.router": "Router",
+    "trust.title": "Trust through proof — not promises.",
+    "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
+    "trust.sha": "SHA256 checksum · v3.0.5",
+    "dl.compat": "Windows 10 & 11 · 64-bit"
   };
 
   global.REDLINE_LANG_META = {
@@ -267,7 +273,13 @@
     "hero.win.status.good": "Sehr gut",
     "hero.win.online": "Online",
     "netwatch.node.pc": "Dein PC",
-    "netwatch.node.server": "Game-Server"
+    "netwatch.node.server": "Game-Server",
+    "perf.label": "Performance",
+    "netwatch.node.router": "Router",
+    "trust.title": "Vertrauen durch Nachweis — nicht durch Versprechen.",
+    "trust.lead": "Offizielle GitHub-Releases, eine veröffentlichte SHA256-Prüfsumme und vollständig lokale Verarbeitung.",
+    "trust.sha": "SHA256-Prüfsumme · v3.0.5",
+    "dl.compat": "Windows 10 & 11 · 64-bit"
   },
     fr: {
     "nav.features": "Fonctionnalités",
@@ -383,7 +395,13 @@
     "hero.win.status.good": "Very good",
     "hero.win.online": "Online",
     "netwatch.node.pc": "Your PC",
-    "netwatch.node.server": "Game server"
+    "netwatch.node.server": "Game server",
+    "perf.label": "Performance",
+    "netwatch.node.router": "Router",
+    "trust.title": "Trust through proof — not promises.",
+    "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
+    "trust.sha": "SHA256 checksum · v3.0.5",
+    "dl.compat": "Windows 10 & 11 · 64-bit"
   },
     es: {
     "nav.features": "Funciones",
@@ -499,7 +517,13 @@
     "hero.win.status.good": "Very good",
     "hero.win.online": "Online",
     "netwatch.node.pc": "Your PC",
-    "netwatch.node.server": "Game server"
+    "netwatch.node.server": "Game server",
+    "perf.label": "Performance",
+    "netwatch.node.router": "Router",
+    "trust.title": "Trust through proof — not promises.",
+    "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
+    "trust.sha": "SHA256 checksum · v3.0.5",
+    "dl.compat": "Windows 10 & 11 · 64-bit"
   },
     it: {
     "nav.features": "Funzionalità",
@@ -615,7 +639,13 @@
     "hero.win.status.good": "Very good",
     "hero.win.online": "Online",
     "netwatch.node.pc": "Your PC",
-    "netwatch.node.server": "Game server"
+    "netwatch.node.server": "Game server",
+    "perf.label": "Performance",
+    "netwatch.node.router": "Router",
+    "trust.title": "Trust through proof — not promises.",
+    "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
+    "trust.sha": "SHA256 checksum · v3.0.5",
+    "dl.compat": "Windows 10 & 11 · 64-bit"
   },
     pt: {
     "nav.features": "Recursos",
@@ -731,7 +761,13 @@
     "hero.win.status.good": "Very good",
     "hero.win.online": "Online",
     "netwatch.node.pc": "Your PC",
-    "netwatch.node.server": "Game server"
+    "netwatch.node.server": "Game server",
+    "perf.label": "Performance",
+    "netwatch.node.router": "Router",
+    "trust.title": "Trust through proof — not promises.",
+    "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
+    "trust.sha": "SHA256 checksum · v3.0.5",
+    "dl.compat": "Windows 10 & 11 · 64-bit"
   },
     nl: {
     "nav.features": "Functies",
@@ -847,7 +883,13 @@
     "hero.win.status.good": "Very good",
     "hero.win.online": "Online",
     "netwatch.node.pc": "Your PC",
-    "netwatch.node.server": "Game server"
+    "netwatch.node.server": "Game server",
+    "perf.label": "Performance",
+    "netwatch.node.router": "Router",
+    "trust.title": "Trust through proof — not promises.",
+    "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
+    "trust.sha": "SHA256 checksum · v3.0.5",
+    "dl.compat": "Windows 10 & 11 · 64-bit"
   },
     pl: {
     "nav.features": "Funkcje",
@@ -963,7 +1005,13 @@
     "hero.win.status.good": "Very good",
     "hero.win.online": "Online",
     "netwatch.node.pc": "Your PC",
-    "netwatch.node.server": "Game server"
+    "netwatch.node.server": "Game server",
+    "perf.label": "Performance",
+    "netwatch.node.router": "Router",
+    "trust.title": "Trust through proof — not promises.",
+    "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
+    "trust.sha": "SHA256 checksum · v3.0.5",
+    "dl.compat": "Windows 10 & 11 · 64-bit"
   },
     tr: {
     "nav.features": "Özellikler",
@@ -1079,7 +1127,13 @@
     "hero.win.status.good": "Very good",
     "hero.win.online": "Online",
     "netwatch.node.pc": "Your PC",
-    "netwatch.node.server": "Game server"
+    "netwatch.node.server": "Game server",
+    "perf.label": "Performance",
+    "netwatch.node.router": "Router",
+    "trust.title": "Trust through proof — not promises.",
+    "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
+    "trust.sha": "SHA256 checksum · v3.0.5",
+    "dl.compat": "Windows 10 & 11 · 64-bit"
   },
     ru: {
     "nav.features": "ФÑƒнкÑ†ии",
@@ -1195,7 +1249,13 @@
     "hero.win.status.good": "Very good",
     "hero.win.online": "Online",
     "netwatch.node.pc": "Your PC",
-    "netwatch.node.server": "Game server"
+    "netwatch.node.server": "Game server",
+    "perf.label": "Performance",
+    "netwatch.node.router": "Router",
+    "trust.title": "Trust through proof — not promises.",
+    "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
+    "trust.sha": "SHA256 checksum · v3.0.5",
+    "dl.compat": "Windows 10 & 11 · 64-bit"
   },
     uk: {
     "nav.features": "ФÑƒнкÑ†Ñ–Ñ—",
@@ -1311,7 +1371,13 @@
     "hero.win.status.good": "Very good",
     "hero.win.online": "Online",
     "netwatch.node.pc": "Your PC",
-    "netwatch.node.server": "Game server"
+    "netwatch.node.server": "Game server",
+    "perf.label": "Performance",
+    "netwatch.node.router": "Router",
+    "trust.title": "Trust through proof — not promises.",
+    "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
+    "trust.sha": "SHA256 checksum · v3.0.5",
+    "dl.compat": "Windows 10 & 11 · 64-bit"
   },
     cs: {
     "nav.features": "Funkce",
@@ -1427,7 +1493,13 @@
     "hero.win.status.good": "Very good",
     "hero.win.online": "Online",
     "netwatch.node.pc": "Your PC",
-    "netwatch.node.server": "Game server"
+    "netwatch.node.server": "Game server",
+    "perf.label": "Performance",
+    "netwatch.node.router": "Router",
+    "trust.title": "Trust through proof — not promises.",
+    "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
+    "trust.sha": "SHA256 checksum · v3.0.5",
+    "dl.compat": "Windows 10 & 11 · 64-bit"
   },
     ar: {
     "nav.features": "الميزات",
@@ -1543,7 +1615,13 @@
     "hero.win.status.good": "Very good",
     "hero.win.online": "Online",
     "netwatch.node.pc": "Your PC",
-    "netwatch.node.server": "Game server"
+    "netwatch.node.server": "Game server",
+    "perf.label": "Performance",
+    "netwatch.node.router": "Router",
+    "trust.title": "Trust through proof — not promises.",
+    "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
+    "trust.sha": "SHA256 checksum · v3.0.5",
+    "dl.compat": "Windows 10 & 11 · 64-bit"
   },
     zh: {
     "nav.features": "åŠŸèƒ½",
@@ -1659,7 +1737,13 @@
     "hero.win.status.good": "Very good",
     "hero.win.online": "Online",
     "netwatch.node.pc": "Your PC",
-    "netwatch.node.server": "Game server"
+    "netwatch.node.server": "Game server",
+    "perf.label": "Performance",
+    "netwatch.node.router": "Router",
+    "trust.title": "Trust through proof — not promises.",
+    "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
+    "trust.sha": "SHA256 checksum · v3.0.5",
+    "dl.compat": "Windows 10 & 11 · 64-bit"
   },
     ja: {
     "nav.features": "æ©Ÿèƒ½",
@@ -1775,7 +1859,13 @@
     "hero.win.status.good": "Very good",
     "hero.win.online": "Online",
     "netwatch.node.pc": "Your PC",
-    "netwatch.node.server": "Game server"
+    "netwatch.node.server": "Game server",
+    "perf.label": "Performance",
+    "netwatch.node.router": "Router",
+    "trust.title": "Trust through proof — not promises.",
+    "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
+    "trust.sha": "SHA256 checksum · v3.0.5",
+    "dl.compat": "Windows 10 & 11 · 64-bit"
   },
     ko: {
     "nav.features": "ê¸°ëŠ¥",
@@ -1891,7 +1981,13 @@
     "hero.win.status.good": "Very good",
     "hero.win.online": "Online",
     "netwatch.node.pc": "Your PC",
-    "netwatch.node.server": "Game server"
+    "netwatch.node.server": "Game server",
+    "perf.label": "Performance",
+    "netwatch.node.router": "Router",
+    "trust.title": "Trust through proof — not promises.",
+    "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
+    "trust.sha": "SHA256 checksum · v3.0.5",
+    "dl.compat": "Windows 10 & 11 · 64-bit"
   },
     hi: {
     "nav.features": "à¤¸à¥à¤µà¤¿à¤§à¤¾à¤à¤",
@@ -2007,7 +2103,13 @@
     "hero.win.status.good": "Very good",
     "hero.win.online": "Online",
     "netwatch.node.pc": "Your PC",
-    "netwatch.node.server": "Game server"
+    "netwatch.node.server": "Game server",
+    "perf.label": "Performance",
+    "netwatch.node.router": "Router",
+    "trust.title": "Trust through proof — not promises.",
+    "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
+    "trust.sha": "SHA256 checksum · v3.0.5",
+    "dl.compat": "Windows 10 & 11 · 64-bit"
   },
     sv: {
     "nav.features": "Funktioner",
@@ -2123,7 +2225,13 @@
     "hero.win.status.good": "Very good",
     "hero.win.online": "Online",
     "netwatch.node.pc": "Your PC",
-    "netwatch.node.server": "Game server"
+    "netwatch.node.server": "Game server",
+    "perf.label": "Performance",
+    "netwatch.node.router": "Router",
+    "trust.title": "Trust through proof — not promises.",
+    "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
+    "trust.sha": "SHA256 checksum · v3.0.5",
+    "dl.compat": "Windows 10 & 11 · 64-bit"
   },
     ro: {
     "nav.features": "Funcții",
@@ -2239,7 +2347,13 @@
     "hero.win.status.good": "Very good",
     "hero.win.online": "Online",
     "netwatch.node.pc": "Your PC",
-    "netwatch.node.server": "Game server"
+    "netwatch.node.server": "Game server",
+    "perf.label": "Performance",
+    "netwatch.node.router": "Router",
+    "trust.title": "Trust through proof — not promises.",
+    "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
+    "trust.sha": "SHA256 checksum · v3.0.5",
+    "dl.compat": "Windows 10 & 11 · 64-bit"
   },
     hu: {
     "nav.features": "Funkciók",
@@ -2355,7 +2469,13 @@
     "hero.win.status.good": "Very good",
     "hero.win.online": "Online",
     "netwatch.node.pc": "Your PC",
-    "netwatch.node.server": "Game server"
+    "netwatch.node.server": "Game server",
+    "perf.label": "Performance",
+    "netwatch.node.router": "Router",
+    "trust.title": "Trust through proof — not promises.",
+    "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
+    "trust.sha": "SHA256 checksum · v3.0.5",
+    "dl.compat": "Windows 10 & 11 · 64-bit"
   },
     el: {
     "nav.features": "Î›ειÏ„οÏ…ργίεÏ‚",
@@ -2471,7 +2591,13 @@
     "hero.win.status.good": "Very good",
     "hero.win.online": "Online",
     "netwatch.node.pc": "Your PC",
-    "netwatch.node.server": "Game server"
+    "netwatch.node.server": "Game server",
+    "perf.label": "Performance",
+    "netwatch.node.router": "Router",
+    "trust.title": "Trust through proof — not promises.",
+    "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
+    "trust.sha": "SHA256 checksum · v3.0.5",
+    "dl.compat": "Windows 10 & 11 · 64-bit"
   },
     th: {
     "nav.features": "à¸Ÿà¸µà¹€à¸ˆà¸­à¸£à¹Œ",
@@ -2587,7 +2713,13 @@
     "hero.win.status.good": "Very good",
     "hero.win.online": "Online",
     "netwatch.node.pc": "Your PC",
-    "netwatch.node.server": "Game server"
+    "netwatch.node.server": "Game server",
+    "perf.label": "Performance",
+    "netwatch.node.router": "Router",
+    "trust.title": "Trust through proof — not promises.",
+    "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
+    "trust.sha": "SHA256 checksum · v3.0.5",
+    "dl.compat": "Windows 10 & 11 · 64-bit"
   },
     vi: {
     "nav.features": "Tính năng",
@@ -2703,7 +2835,13 @@
     "hero.win.status.good": "Very good",
     "hero.win.online": "Online",
     "netwatch.node.pc": "Your PC",
-    "netwatch.node.server": "Game server"
+    "netwatch.node.server": "Game server",
+    "perf.label": "Performance",
+    "netwatch.node.router": "Router",
+    "trust.title": "Trust through proof — not promises.",
+    "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
+    "trust.sha": "SHA256 checksum · v3.0.5",
+    "dl.compat": "Windows 10 & 11 · 64-bit"
   },
     id: {
     "nav.features": "Fitur",
@@ -2819,7 +2957,13 @@
     "hero.win.status.good": "Very good",
     "hero.win.online": "Online",
     "netwatch.node.pc": "Your PC",
-    "netwatch.node.server": "Game server"
+    "netwatch.node.server": "Game server",
+    "perf.label": "Performance",
+    "netwatch.node.router": "Router",
+    "trust.title": "Trust through proof — not promises.",
+    "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
+    "trust.sha": "SHA256 checksum · v3.0.5",
+    "dl.compat": "Windows 10 & 11 · 64-bit"
   },
     da: {
     "nav.features": "Funktioner",
@@ -2935,7 +3079,13 @@
     "hero.win.status.good": "Very good",
     "hero.win.online": "Online",
     "netwatch.node.pc": "Your PC",
-    "netwatch.node.server": "Game server"
+    "netwatch.node.server": "Game server",
+    "perf.label": "Performance",
+    "netwatch.node.router": "Router",
+    "trust.title": "Trust through proof — not promises.",
+    "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
+    "trust.sha": "SHA256 checksum · v3.0.5",
+    "dl.compat": "Windows 10 & 11 · 64-bit"
   },
     no: {
     "nav.features": "Funksjoner",
@@ -3051,7 +3201,13 @@
     "hero.win.status.good": "Very good",
     "hero.win.online": "Online",
     "netwatch.node.pc": "Your PC",
-    "netwatch.node.server": "Game server"
+    "netwatch.node.server": "Game server",
+    "perf.label": "Performance",
+    "netwatch.node.router": "Router",
+    "trust.title": "Trust through proof — not promises.",
+    "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
+    "trust.sha": "SHA256 checksum · v3.0.5",
+    "dl.compat": "Windows 10 & 11 · 64-bit"
   },
     fi: {
     "nav.features": "Ominaisuudet",
@@ -3167,7 +3323,13 @@
     "hero.win.status.good": "Very good",
     "hero.win.online": "Online",
     "netwatch.node.pc": "Your PC",
-    "netwatch.node.server": "Game server"
+    "netwatch.node.server": "Game server",
+    "perf.label": "Performance",
+    "netwatch.node.router": "Router",
+    "trust.title": "Trust through proof — not promises.",
+    "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
+    "trust.sha": "SHA256 checksum · v3.0.5",
+    "dl.compat": "Windows 10 & 11 · 64-bit"
   },
   };
 })(typeof window !== "undefined" ? window : globalThis);
