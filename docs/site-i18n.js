@@ -111,7 +111,12 @@
     "dl.lead": "Free for Windows 10 and 11 (64-bit). Official GitHub release with published SHA256 checksum.",
     "dl.verify": "Verify your download:",
     "dl.note": "No account required · Manual updates only · Uninstall anytime",
-    "dl.navCta": "Download"
+    "dl.navCta": "Download",
+    "hero.win.quality": "Connection quality",
+    "hero.win.status.good": "Very good",
+    "hero.win.online": "Online",
+    "netwatch.node.pc": "Your PC",
+    "netwatch.node.server": "Game server"
   };
 
   global.REDLINE_LANG_META = {
@@ -257,7 +262,12 @@
     "dl.lead": "Kostenlos für Windows 10 und 11 (64-bit). Offizielles GitHub-Release mit veröffentlichter SHA256-Prüfsumme.",
     "dl.verify": "Download prüfen:",
     "dl.note": "Kein Konto nötig · Nur manuelle Updates · Jederzeit deinstallierbar",
-    "dl.navCta": "Download"
+    "dl.navCta": "Download",
+    "hero.win.quality": "Verbindungsqualität",
+    "hero.win.status.good": "Sehr gut",
+    "hero.win.online": "Online",
+    "netwatch.node.pc": "Dein PC",
+    "netwatch.node.server": "Game-Server"
   },
     fr: {
     "nav.features": "Fonctionnalités",
@@ -368,7 +378,12 @@
     "dl.lead": "Free for Windows 10 and 11 (64-bit). Official GitHub release with published SHA256 checksum.",
     "dl.verify": "Verify your download:",
     "dl.note": "No account required · Manual updates only · Uninstall anytime",
-    "dl.navCta": "Download"
+    "dl.navCta": "Download",
+    "hero.win.quality": "Connection quality",
+    "hero.win.status.good": "Very good",
+    "hero.win.online": "Online",
+    "netwatch.node.pc": "Your PC",
+    "netwatch.node.server": "Game server"
   },
     es: {
     "nav.features": "Funciones",
@@ -479,7 +494,12 @@
     "dl.lead": "Free for Windows 10 and 11 (64-bit). Official GitHub release with published SHA256 checksum.",
     "dl.verify": "Verify your download:",
     "dl.note": "No account required · Manual updates only · Uninstall anytime",
-    "dl.navCta": "Download"
+    "dl.navCta": "Download",
+    "hero.win.quality": "Connection quality",
+    "hero.win.status.good": "Very good",
+    "hero.win.online": "Online",
+    "netwatch.node.pc": "Your PC",
+    "netwatch.node.server": "Game server"
   },
     it: {
     "nav.features": "Funzionalità",
@@ -590,7 +610,12 @@
     "dl.lead": "Free for Windows 10 and 11 (64-bit). Official GitHub release with published SHA256 checksum.",
     "dl.verify": "Verify your download:",
     "dl.note": "No account required · Manual updates only · Uninstall anytime",
-    "dl.navCta": "Download"
+    "dl.navCta": "Download",
+    "hero.win.quality": "Connection quality",
+    "hero.win.status.good": "Very good",
+    "hero.win.online": "Online",
+    "netwatch.node.pc": "Your PC",
+    "netwatch.node.server": "Game server"
   },
     pt: {
     "nav.features": "Recursos",
@@ -701,7 +726,12 @@
     "dl.lead": "Free for Windows 10 and 11 (64-bit). Official GitHub release with published SHA256 checksum.",
     "dl.verify": "Verify your download:",
     "dl.note": "No account required · Manual updates only · Uninstall anytime",
-    "dl.navCta": "Download"
+    "dl.navCta": "Download",
+    "hero.win.quality": "Connection quality",
+    "hero.win.status.good": "Very good",
+    "hero.win.online": "Online",
+    "netwatch.node.pc": "Your PC",
+    "netwatch.node.server": "Game server"
   },
     nl: {
     "nav.features": "Functies",
@@ -812,7 +842,12 @@
     "dl.lead": "Free for Windows 10 and 11 (64-bit). Official GitHub release with published SHA256 checksum.",
     "dl.verify": "Verify your download:",
     "dl.note": "No account required · Manual updates only · Uninstall anytime",
-    "dl.navCta": "Download"
+    "dl.navCta": "Download",
+    "hero.win.quality": "Connection quality",
+    "hero.win.status.good": "Very good",
+    "hero.win.online": "Online",
+    "netwatch.node.pc": "Your PC",
+    "netwatch.node.server": "Game server"
   },
     pl: {
     "nav.features": "Funkcje",
@@ -923,7 +958,12 @@
     "dl.lead": "Free for Windows 10 and 11 (64-bit). Official GitHub release with published SHA256 checksum.",
     "dl.verify": "Verify your download:",
     "dl.note": "No account required · Manual updates only · Uninstall anytime",
-    "dl.navCta": "Download"
+    "dl.navCta": "Download",
+    "hero.win.quality": "Connection quality",
+    "hero.win.status.good": "Very good",
+    "hero.win.online": "Online",
+    "netwatch.node.pc": "Your PC",
+    "netwatch.node.server": "Game server"
   },
     tr: {
     "nav.features": "Özellikler",
@@ -1034,7 +1074,12 @@
     "dl.lead": "Free for Windows 10 and 11 (64-bit). Official GitHub release with published SHA256 checksum.",
     "dl.verify": "Verify your download:",
     "dl.note": "No account required · Manual updates only · Uninstall anytime",
-    "dl.navCta": "Download"
+    "dl.navCta": "Download",
+    "hero.win.quality": "Connection quality",
+    "hero.win.status.good": "Very good",
+    "hero.win.online": "Online",
+    "netwatch.node.pc": "Your PC",
+    "netwatch.node.server": "Game server"
   },
     ru: {
     "nav.features": "ФÑƒнкÑ†ии",
@@ -1145,7 +1190,12 @@
     "dl.lead": "Free for Windows 10 and 11 (64-bit). Official GitHub release with published SHA256 checksum.",
     "dl.verify": "Verify your download:",
     "dl.note": "No account required · Manual updates only · Uninstall anytime",
-    "dl.navCta": "Download"
+    "dl.navCta": "Download",
+    "hero.win.quality": "Connection quality",
+    "hero.win.status.good": "Very good",
+    "hero.win.online": "Online",
+    "netwatch.node.pc": "Your PC",
+    "netwatch.node.server": "Game server"
   },
     uk: {
     "nav.features": "ФÑƒнкÑ†Ñ–Ñ—",
@@ -1256,7 +1306,12 @@
     "dl.lead": "Free for Windows 10 and 11 (64-bit). Official GitHub release with published SHA256 checksum.",
     "dl.verify": "Verify your download:",
     "dl.note": "No account required · Manual updates only · Uninstall anytime",
-    "dl.navCta": "Download"
+    "dl.navCta": "Download",
+    "hero.win.quality": "Connection quality",
+    "hero.win.status.good": "Very good",
+    "hero.win.online": "Online",
+    "netwatch.node.pc": "Your PC",
+    "netwatch.node.server": "Game server"
   },
     cs: {
     "nav.features": "Funkce",
@@ -1367,7 +1422,12 @@
     "dl.lead": "Free for Windows 10 and 11 (64-bit). Official GitHub release with published SHA256 checksum.",
     "dl.verify": "Verify your download:",
     "dl.note": "No account required · Manual updates only · Uninstall anytime",
-    "dl.navCta": "Download"
+    "dl.navCta": "Download",
+    "hero.win.quality": "Connection quality",
+    "hero.win.status.good": "Very good",
+    "hero.win.online": "Online",
+    "netwatch.node.pc": "Your PC",
+    "netwatch.node.server": "Game server"
   },
     ar: {
     "nav.features": "الميزات",
@@ -1478,7 +1538,12 @@
     "dl.lead": "Free for Windows 10 and 11 (64-bit). Official GitHub release with published SHA256 checksum.",
     "dl.verify": "Verify your download:",
     "dl.note": "No account required · Manual updates only · Uninstall anytime",
-    "dl.navCta": "Download"
+    "dl.navCta": "Download",
+    "hero.win.quality": "Connection quality",
+    "hero.win.status.good": "Very good",
+    "hero.win.online": "Online",
+    "netwatch.node.pc": "Your PC",
+    "netwatch.node.server": "Game server"
   },
     zh: {
     "nav.features": "åŠŸèƒ½",
@@ -1589,7 +1654,12 @@
     "dl.lead": "Free for Windows 10 and 11 (64-bit). Official GitHub release with published SHA256 checksum.",
     "dl.verify": "Verify your download:",
     "dl.note": "No account required · Manual updates only · Uninstall anytime",
-    "dl.navCta": "Download"
+    "dl.navCta": "Download",
+    "hero.win.quality": "Connection quality",
+    "hero.win.status.good": "Very good",
+    "hero.win.online": "Online",
+    "netwatch.node.pc": "Your PC",
+    "netwatch.node.server": "Game server"
   },
     ja: {
     "nav.features": "æ©Ÿèƒ½",
@@ -1700,7 +1770,12 @@
     "dl.lead": "Free for Windows 10 and 11 (64-bit). Official GitHub release with published SHA256 checksum.",
     "dl.verify": "Verify your download:",
     "dl.note": "No account required · Manual updates only · Uninstall anytime",
-    "dl.navCta": "Download"
+    "dl.navCta": "Download",
+    "hero.win.quality": "Connection quality",
+    "hero.win.status.good": "Very good",
+    "hero.win.online": "Online",
+    "netwatch.node.pc": "Your PC",
+    "netwatch.node.server": "Game server"
   },
     ko: {
     "nav.features": "ê¸°ëŠ¥",
@@ -1811,7 +1886,12 @@
     "dl.lead": "Free for Windows 10 and 11 (64-bit). Official GitHub release with published SHA256 checksum.",
     "dl.verify": "Verify your download:",
     "dl.note": "No account required · Manual updates only · Uninstall anytime",
-    "dl.navCta": "Download"
+    "dl.navCta": "Download",
+    "hero.win.quality": "Connection quality",
+    "hero.win.status.good": "Very good",
+    "hero.win.online": "Online",
+    "netwatch.node.pc": "Your PC",
+    "netwatch.node.server": "Game server"
   },
     hi: {
     "nav.features": "à¤¸à¥à¤µà¤¿à¤§à¤¾à¤à¤",
@@ -1922,7 +2002,12 @@
     "dl.lead": "Free for Windows 10 and 11 (64-bit). Official GitHub release with published SHA256 checksum.",
     "dl.verify": "Verify your download:",
     "dl.note": "No account required · Manual updates only · Uninstall anytime",
-    "dl.navCta": "Download"
+    "dl.navCta": "Download",
+    "hero.win.quality": "Connection quality",
+    "hero.win.status.good": "Very good",
+    "hero.win.online": "Online",
+    "netwatch.node.pc": "Your PC",
+    "netwatch.node.server": "Game server"
   },
     sv: {
     "nav.features": "Funktioner",
@@ -2033,7 +2118,12 @@
     "dl.lead": "Free for Windows 10 and 11 (64-bit). Official GitHub release with published SHA256 checksum.",
     "dl.verify": "Verify your download:",
     "dl.note": "No account required · Manual updates only · Uninstall anytime",
-    "dl.navCta": "Download"
+    "dl.navCta": "Download",
+    "hero.win.quality": "Connection quality",
+    "hero.win.status.good": "Very good",
+    "hero.win.online": "Online",
+    "netwatch.node.pc": "Your PC",
+    "netwatch.node.server": "Game server"
   },
     ro: {
     "nav.features": "Funcții",
@@ -2144,7 +2234,12 @@
     "dl.lead": "Free for Windows 10 and 11 (64-bit). Official GitHub release with published SHA256 checksum.",
     "dl.verify": "Verify your download:",
     "dl.note": "No account required · Manual updates only · Uninstall anytime",
-    "dl.navCta": "Download"
+    "dl.navCta": "Download",
+    "hero.win.quality": "Connection quality",
+    "hero.win.status.good": "Very good",
+    "hero.win.online": "Online",
+    "netwatch.node.pc": "Your PC",
+    "netwatch.node.server": "Game server"
   },
     hu: {
     "nav.features": "Funkciók",
@@ -2255,7 +2350,12 @@
     "dl.lead": "Free for Windows 10 and 11 (64-bit). Official GitHub release with published SHA256 checksum.",
     "dl.verify": "Verify your download:",
     "dl.note": "No account required · Manual updates only · Uninstall anytime",
-    "dl.navCta": "Download"
+    "dl.navCta": "Download",
+    "hero.win.quality": "Connection quality",
+    "hero.win.status.good": "Very good",
+    "hero.win.online": "Online",
+    "netwatch.node.pc": "Your PC",
+    "netwatch.node.server": "Game server"
   },
     el: {
     "nav.features": "Î›ειÏ„οÏ…ργίεÏ‚",
@@ -2366,7 +2466,12 @@
     "dl.lead": "Free for Windows 10 and 11 (64-bit). Official GitHub release with published SHA256 checksum.",
     "dl.verify": "Verify your download:",
     "dl.note": "No account required · Manual updates only · Uninstall anytime",
-    "dl.navCta": "Download"
+    "dl.navCta": "Download",
+    "hero.win.quality": "Connection quality",
+    "hero.win.status.good": "Very good",
+    "hero.win.online": "Online",
+    "netwatch.node.pc": "Your PC",
+    "netwatch.node.server": "Game server"
   },
     th: {
     "nav.features": "à¸Ÿà¸µà¹€à¸ˆà¸­à¸£à¹Œ",
@@ -2477,7 +2582,12 @@
     "dl.lead": "Free for Windows 10 and 11 (64-bit). Official GitHub release with published SHA256 checksum.",
     "dl.verify": "Verify your download:",
     "dl.note": "No account required · Manual updates only · Uninstall anytime",
-    "dl.navCta": "Download"
+    "dl.navCta": "Download",
+    "hero.win.quality": "Connection quality",
+    "hero.win.status.good": "Very good",
+    "hero.win.online": "Online",
+    "netwatch.node.pc": "Your PC",
+    "netwatch.node.server": "Game server"
   },
     vi: {
     "nav.features": "Tính năng",
@@ -2588,7 +2698,12 @@
     "dl.lead": "Free for Windows 10 and 11 (64-bit). Official GitHub release with published SHA256 checksum.",
     "dl.verify": "Verify your download:",
     "dl.note": "No account required · Manual updates only · Uninstall anytime",
-    "dl.navCta": "Download"
+    "dl.navCta": "Download",
+    "hero.win.quality": "Connection quality",
+    "hero.win.status.good": "Very good",
+    "hero.win.online": "Online",
+    "netwatch.node.pc": "Your PC",
+    "netwatch.node.server": "Game server"
   },
     id: {
     "nav.features": "Fitur",
@@ -2699,7 +2814,12 @@
     "dl.lead": "Free for Windows 10 and 11 (64-bit). Official GitHub release with published SHA256 checksum.",
     "dl.verify": "Verify your download:",
     "dl.note": "No account required · Manual updates only · Uninstall anytime",
-    "dl.navCta": "Download"
+    "dl.navCta": "Download",
+    "hero.win.quality": "Connection quality",
+    "hero.win.status.good": "Very good",
+    "hero.win.online": "Online",
+    "netwatch.node.pc": "Your PC",
+    "netwatch.node.server": "Game server"
   },
     da: {
     "nav.features": "Funktioner",
@@ -2810,7 +2930,12 @@
     "dl.lead": "Free for Windows 10 and 11 (64-bit). Official GitHub release with published SHA256 checksum.",
     "dl.verify": "Verify your download:",
     "dl.note": "No account required · Manual updates only · Uninstall anytime",
-    "dl.navCta": "Download"
+    "dl.navCta": "Download",
+    "hero.win.quality": "Connection quality",
+    "hero.win.status.good": "Very good",
+    "hero.win.online": "Online",
+    "netwatch.node.pc": "Your PC",
+    "netwatch.node.server": "Game server"
   },
     no: {
     "nav.features": "Funksjoner",
@@ -2921,7 +3046,12 @@
     "dl.lead": "Free for Windows 10 and 11 (64-bit). Official GitHub release with published SHA256 checksum.",
     "dl.verify": "Verify your download:",
     "dl.note": "No account required · Manual updates only · Uninstall anytime",
-    "dl.navCta": "Download"
+    "dl.navCta": "Download",
+    "hero.win.quality": "Connection quality",
+    "hero.win.status.good": "Very good",
+    "hero.win.online": "Online",
+    "netwatch.node.pc": "Your PC",
+    "netwatch.node.server": "Game server"
   },
     fi: {
     "nav.features": "Ominaisuudet",
@@ -3032,7 +3162,12 @@
     "dl.lead": "Free for Windows 10 and 11 (64-bit). Official GitHub release with published SHA256 checksum.",
     "dl.verify": "Verify your download:",
     "dl.note": "No account required · Manual updates only · Uninstall anytime",
-    "dl.navCta": "Download"
+    "dl.navCta": "Download",
+    "hero.win.quality": "Connection quality",
+    "hero.win.status.good": "Very good",
+    "hero.win.online": "Online",
+    "netwatch.node.pc": "Your PC",
+    "netwatch.node.server": "Game server"
   },
   };
 })(typeof window !== "undefined" ? window : globalThis);
