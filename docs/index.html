@@ -24,10 +24,10 @@
   <meta name="twitter:description" content="Windows gaming optimizer — FPS, PC cleaner, Network Watch and safe Windows tweaks." />
   <meta name="twitter:image" content="https://legendr622.github.io/Jitvora-Gaming-Optimizer/og-image.png" />
   <script>document.documentElement.classList.remove('no-js');</script>
-  <script src="site-lang-boot.js?v=20260718g"></script>
-  <script src="site-i18n.js?v=20260718g" defer></script>
-  <link rel="stylesheet" href="landing.css?v=20260718g" />
-  <link rel="stylesheet" href="site-lang.css?v=20260718g" />
+  <script src="site-lang-boot.js?v=20260719a"></script>
+  <script src="site-i18n.js?v=20260719a" defer></script>
+  <link rel="stylesheet" href="landing.css?v=20260719a" />
+  <link rel="stylesheet" href="site-lang.css?v=20260719a" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -86,61 +86,90 @@
         </ul>
         <p class="sr-only" lang="de">Jitvora Gaming Optimizer — Windows Gaming Optimizer, FPS Optimizer, PC Cleaner, Treiber-Check, Netzwerk-Tools für Windows 10 und 11.</p>
 
-        <div class="hero-visual reveal">
-          <div class="hero-visual-glow" aria-hidden="true"></div>
-          <figure class="app-mock" aria-label="App UI preview">
-            <div class="app-mock-chrome">
-              <div class="app-mock-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-              <span class="app-mock-title">Jitvora Gaming Optimizer</span>
-            </div>
-            <div class="app-mock-body">
-              <aside class="app-mock-sidebar" aria-hidden="true">
-                <div class="app-mock-brand">
-                  <img src="assets/brand/jitvora-logo-mark-64.png" alt="" width="20" height="20" decoding="async" />
-                  <span>Jitvora</span>
-                </div>
-                <div class="app-mock-nav active">Dashboard</div>
-                <div class="app-mock-nav">Gaming</div>
-                <div class="app-mock-nav">Cleaner</div>
-                <div class="app-mock-nav">Drivers</div>
-                <div class="app-mock-nav">Network</div>
-                <div class="app-mock-nav">Network Watch</div>
-                <div class="app-mock-nav">Security</div>
-                <div class="app-mock-nav">Settings</div>
-              </aside>
-              <div class="app-mock-main">
-                <div class="app-mock-stats">
-                  <div class="app-mock-stat">
-                    <label>CPU</label>
-                    <strong data-i18n="hero.mock.cpu">Ready</strong>
-                    <span class="app-mock-check" aria-hidden="true">✓</span>
+        <div class="hero-visual">
+          <div class="hero-stage">
+            <div class="hero-glow" aria-hidden="true"></div>
+            <div class="hero-window-back hero-window-back--1" aria-hidden="true"></div>
+            <div class="hero-window-back hero-window-back--2" aria-hidden="true"></div>
+            <figure class="appwin" aria-label="App UI preview">
+              <div class="appwin-chrome">
+                <div class="appwin-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+                <span class="appwin-title">Jitvora Gaming Optimizer</span>
+                <span class="appwin-badge" aria-hidden="true">Network</span>
+              </div>
+              <div class="appwin-body" aria-hidden="true">
+                <aside class="appwin-side">
+                  <div class="appwin-brand">
+                    <img src="assets/brand/jitvora-logo-mark-64.png" alt="" width="20" height="20" decoding="async" />
+                    <span>Jitvora</span>
                   </div>
-                  <div class="app-mock-stat">
-                    <label>GPU</label>
-                    <strong data-i18n="hero.mock.gpu">Active</strong>
-                    <span class="app-mock-check" aria-hidden="true">✓</span>
+                  <p class="appwin-group">Overview</p>
+                  <div class="appwin-nav">Dashboard</div>
+                  <div class="appwin-nav">AI Advisor</div>
+                  <div class="appwin-nav">Gaming</div>
+                  <p class="appwin-group">Optimize</p>
+                  <div class="appwin-nav">Performance</div>
+                  <div class="appwin-nav">Cleaner</div>
+                  <div class="appwin-nav appwin-nav--active">Network</div>
+                  <div class="appwin-nav">Network Watch</div>
+                  <p class="appwin-group">System</p>
+                  <div class="appwin-nav">Security</div>
+                  <div class="appwin-nav">Settings</div>
+                </aside>
+                <div class="appwin-main">
+                  <div class="appwin-tiles">
+                    <div class="appwin-tile">
+                      <span class="appwin-tile-k">Ping</span>
+                      <span class="appwin-tile-v ok">10 ms</span>
+                      <span class="appwin-tile-s ok" data-i18n="hero.win.status.good">Very good</span>
+                    </div>
+                    <div class="appwin-tile">
+                      <span class="appwin-tile-k">Speed</span>
+                      <span class="appwin-tile-v">241 Mbps</span>
+                      <span class="appwin-tile-s">↓ Download</span>
+                    </div>
+                    <div class="appwin-tile">
+                      <span class="appwin-tile-k">Adapter</span>
+                      <span class="appwin-tile-v">Ethernet</span>
+                      <span class="appwin-tile-s">Primary</span>
+                    </div>
+                    <div class="appwin-tile">
+                      <span class="appwin-tile-k">Status</span>
+                      <span class="appwin-tile-v ok" data-i18n="hero.win.online">Online</span>
+                      <span class="appwin-tile-s ok">Measured</span>
+                    </div>
                   </div>
-                  <div class="app-mock-stat app-mock-stat--network">
-                    <label data-i18n="hero.mock.network.label">Network preview</label>
-                    <svg class="app-mock-spark" viewBox="0 0 88 24" aria-hidden="true"><path d="M0 18 L12 14 L24 16 L36 8 L48 12 L60 6 L72 10 L88 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    <strong class="mock-preview-label" data-i18n="hero.mock.network">Sample UI</strong>
+                  <div class="appwin-graphcard">
+                    <div class="appwin-graphcard-head">
+                      <span data-i18n="hero.win.quality">Connection quality</span>
+                      <span class="appwin-pill" data-i18n="netwatch.rowLive">live</span>
+                    </div>
+                    <svg class="appwin-graph" viewBox="0 0 620 96" preserveAspectRatio="none" aria-hidden="true">
+                      <defs>
+                        <linearGradient id="hg" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0" stop-color="currentColor" stop-opacity="0.28"/>
+                          <stop offset="1" stop-color="currentColor" stop-opacity="0"/>
+                        </linearGradient>
+                      </defs>
+                      <path d="M0 70 L52 60 L104 66 L156 44 L208 54 L260 34 L312 46 L364 26 L416 40 L468 20 L520 32 L572 16 L620 24 L620 96 L0 96 Z" fill="url(#hg)"/>
+                      <path class="appwin-graph-line" d="M0 70 L52 60 L104 66 L156 44 L208 54 L260 34 L312 46 L364 26 L416 40 L468 20 L520 32 L572 16 L620 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
                   </div>
-                </div>
-                <div class="app-mock-panel">
-                  <h3 data-i18n="hero.mock.fps.title">Gaming profile</h3>
-                  <p data-i18n="hero.mock.fps.text">Game Mode · power plan · safe Windows tweaks</p>
-                  <div class="app-mock-track" aria-hidden="true"><span></span></div>
-                </div>
-                <div class="app-mock-panel app-mock-panel--muted app-mock-panel--row">
-                  <div>
-                    <h3 data-i18n="hero.mock.rec.title">Recommendations</h3>
-                    <p data-i18n="hero.mock.rec.text">Review before apply — no automatic changes without confirmation.</p>
+                  <div class="appwin-rowcard">
+                    <span class="appwin-rowcard-icon">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    </span>
+                    <div class="appwin-rowcard-copy">
+                      <h3 data-i18n="hero.mock.fps.title">Gaming FPS Boost</h3>
+                      <p data-i18n="hero.mock.fps.text">Game Mode · power plan · safe Windows tweaks</p>
+                      <div class="appwin-track"><span></span></div>
+                    </div>
                   </div>
-                  <span class="app-mock-chevron" aria-hidden="true">›</span>
                 </div>
               </div>
-            </div>
-          </figure>
+            </figure>
+          </div>
+          <div class="hero-reflection" aria-hidden="true"></div>
           <p class="mock-note" data-i18n="hero.mock.note">Illustration of the app layout — not a live screenshot.</p>
         </div>
       </div>
@@ -181,38 +210,44 @@
           <h3 data-i18n="feat.repair.title">Repair tools</h3>
           <p data-i18n="feat.repair.text">Shortcuts to SFC, DISM and common Windows repair actions.</p>
         </article>
-        <article class="feature-card feature-card--pro reveal">
-          <span class="feature-preview-badge" data-i18n="feat.pro.badge">Preview</span>
-          <div class="feature-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12l4 6-10 13L2 9z"/></svg></div>
+      </div>
+      <div class="feature-banner reveal">
+        <div class="feature-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12l4 6-10 13L2 9z"/></svg></div>
+        <div class="feature-banner-copy">
           <h3 data-i18n="feat.pro.title">Pro Center</h3>
           <p data-i18n="feat.pro.text">Advanced tools for Gaming, Network, System and more — preview in v3.0.5.</p>
-        </article>
+        </div>
+        <span class="feature-preview-badge" data-i18n="feat.pro.badge">Preview</span>
       </div>
     </section>
 
-    <section class="section" id="netwatch" aria-labelledby="netwatch-title">
-      <p class="section-label" data-i18n="netwatch.label">Network Watch</p>
-      <h2 id="netwatch-title" data-i18n="netwatch.title">See your connection clearly while you play.</h2>
-      <p class="section-lead" data-i18n="netwatch.lead">Live ping, jitter and packet loss during your game — with a clear diagnosis instead of guesswork.</p>
-      <div class="netwatch reveal">
-        <div>
+    <section class="netwatch-section reveal" id="netwatch" aria-labelledby="netwatch-title">
+      <svg class="netwatch-bg" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <path class="netwatch-bg-pulse" d="M-40 470 C 260 470, 380 300, 640 300 S 980 150, 1240 150" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M-40 520 C 320 520, 440 380, 720 380 S 1040 250, 1260 250" fill="none" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+      </svg>
+      <div class="netwatch-inner">
+        <div class="netwatch-copy">
+          <p class="section-label" data-i18n="netwatch.label">Network Watch</p>
+          <h2 id="netwatch-title" data-i18n="netwatch.title">See your connection clearly while you play.</h2>
+          <p class="section-lead" data-i18n="netwatch.lead">Live ping, jitter and packet loss during your game — with a clear diagnosis instead of guesswork.</p>
           <ul class="netwatch-points">
             <li>
-              <span class="netwatch-point-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
+              <span class="netwatch-point-icon" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
               <div>
                 <strong data-i18n="netwatch.p1.title">Live in-game monitoring</strong>
                 <span data-i18n="netwatch.p1.text">Ping, jitter and packet loss measured while your game is running.</span>
               </div>
             </li>
             <li>
-              <span class="netwatch-point-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+              <span class="netwatch-point-icon" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
               <div>
                 <strong data-i18n="netwatch.p2.title">Real game-server detection</strong>
                 <span data-i18n="netwatch.p2.text">Finds the server your game is actually connected to and measures that route.</span>
               </div>
             </li>
             <li>
-              <span class="netwatch-point-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></span>
+              <span class="netwatch-point-icon" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></span>
               <div>
                 <strong data-i18n="netwatch.p3.title">Honest diagnosis</strong>
                 <span data-i18n="netwatch.p3.text">Points to Wi-Fi, router or route — and says “not measurable” when a value cannot be trusted.</span>
@@ -220,31 +255,80 @@
             </li>
           </ul>
         </div>
-        <figure class="netwatch-visual" aria-label="Network Watch sample visualization">
-          <svg class="netwatch-graph" viewBox="0 0 260 64" aria-hidden="true">
-            <path d="M0 40 L20 36 L40 42 L60 30 L80 34 L100 24 L120 30 L140 20 L160 26 L180 16 L200 22 L220 14 L240 20 L260 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
-            <path d="M0 40 L20 36 L40 42 L60 30 L80 34 L100 24 L120 30 L140 20 L160 26 L180 16 L200 22 L220 14 L240 20 L260 12 L260 64 L0 64 Z" fill="currentColor" opacity="0.06"/>
-          </svg>
-          <div class="netwatch-row"><span data-i18n="netwatch.row1">Ping to game server</span><span class="val" data-i18n="netwatch.rowLive">live</span></div>
-          <div class="netwatch-row"><span data-i18n="netwatch.row2">Jitter</span><span class="val" data-i18n="netwatch.rowLive">live</span></div>
-          <div class="netwatch-row"><span data-i18n="netwatch.row3">Packet loss</span><span class="val" data-i18n="netwatch.rowLive">live</span></div>
-          <figcaption data-i18n="netwatch.caption">Sample visualization — real values are measured in the app.</figcaption>
-        </figure>
+
+        <div class="netwatch-media">
+          <figure class="netwatch-panel" aria-label="Network Watch sample visualization">
+            <div class="netwatch-panel-head">
+              <span class="netwatch-panel-head-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
+              <span>Network Watch</span>
+              <span class="appwin-pill" data-i18n="netwatch.rowLive">live</span>
+            </div>
+            <div class="netwatch-panel-body">
+              <div class="nw-route" aria-hidden="true">
+                <div class="nw-node nw-node--pc">
+                  <span class="nw-node-dot"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
+                  <span class="nw-node-label" data-i18n="netwatch.node.pc">Your PC</span>
+                </div>
+                <div class="nw-line"></div>
+                <div class="nw-node nw-node--server">
+                  <span class="nw-node-dot"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><path d="M7 7h.01M7 17h.01"/></svg></span>
+                  <span class="nw-node-label" data-i18n="netwatch.node.server">Game server</span>
+                </div>
+              </div>
+
+              <div class="nw-stats">
+                <div class="nw-stat nw-stat--good">
+                  <span class="nw-stat-k" data-i18n="netwatch.row1">Ping to game server</span>
+                  <span class="nw-stat-v">14<small>ms</small></span>
+                  <span class="nw-stat-s" data-i18n="netwatch.rowLive">live</span>
+                </div>
+                <div class="nw-stat">
+                  <span class="nw-stat-k" data-i18n="netwatch.row2">Jitter</span>
+                  <span class="nw-stat-v">3<small>ms</small></span>
+                  <span class="nw-stat-s" data-i18n="netwatch.rowLive">live</span>
+                </div>
+                <div class="nw-stat">
+                  <span class="nw-stat-k" data-i18n="netwatch.row3">Packet loss</span>
+                  <span class="nw-stat-v">0<small>%</small></span>
+                  <span class="nw-stat-s" data-i18n="netwatch.rowLive">live</span>
+                </div>
+              </div>
+
+              <div class="nw-graphwrap">
+                <svg class="nw-graph" viewBox="0 0 640 90" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="ng" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0" stop-color="currentColor" stop-opacity="0.26"/>
+                      <stop offset="1" stop-color="currentColor" stop-opacity="0"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M0 60 L46 54 L92 62 L138 46 L184 52 L230 38 L276 48 L322 32 L368 44 L414 30 L460 40 L506 26 L552 36 L598 22 L640 30 L640 90 L0 90 Z" fill="url(#ng)"/>
+                  <path class="nw-graph-line" d="M0 60 L46 54 L92 62 L138 46 L184 52 L230 38 L276 48 L322 32 L368 44 L414 30 L460 40 L506 26 L552 36 L598 22 L640 30" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+          </figure>
+          <p class="netwatch-caption" data-i18n="netwatch.caption">Sample visualization — real values are measured in the app.</p>
+        </div>
       </div>
     </section>
 
-    <section class="section" id="safety" aria-labelledby="safety-title">
-      <p class="section-label" data-i18n="safe.label">Trust built in</p>
-      <h2 id="safety-title" data-i18n="safe.title">Trust built in</h2>
-      <p class="section-lead" data-i18n="safe.lead">Honest, local and transparent — no overpromising.</p>
-      <ul class="trust-mini">
-        <li class="reveal"><span class="trust-mini-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><div><strong data-i18n="safe.1.title">Official GitHub releases only</strong><span data-i18n="safe.1.text">Download from GitHub — not third-party sites.</span></div></li>
-        <li class="reveal"><span class="trust-mini-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22V12M12 12l8-4M12 12L4 8"/></svg></span><div><strong data-i18n="safe.2.title">Manual update confirmation</strong><span data-i18n="safe.2.text">Updates require your approval in the app.</span></div></li>
-        <li class="reveal"><span class="trust-mini-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h10"/></svg></span><div><strong data-i18n="safe.3.title">SHA256 hash available</strong><span data-i18n="safe.3">Verify via the <a href="trust.html">Trust page</a> or <a href="trust-latest.json">trust-latest.json</a>.</span></div></li>
-        <li class="reveal"><span class="trust-mini-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg></span><div><strong data-i18n="safe.4.title">No game file modifications</strong><span data-i18n="safe.4.text">Windows settings only — anti-cheat friendly approach.</span></div></li>
-        <li class="reveal"><span class="trust-mini-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42"/></svg></span><div><strong data-i18n="safe.5.title">Safe Windows settings only</strong><span data-i18n="safe.5.text">Recommendations before changes where possible.</span></div></li>
-        <li class="reveal"><span class="trust-mini-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span><div><strong data-i18n="safe.6.title">No cloud account required</strong><span data-i18n="safe.6.text">Runs locally on your PC. No login needed.</span></div></li>
-      </ul>
+    <section class="section safety-section" id="safety" aria-labelledby="safety-title">
+      <div class="safety-grid">
+        <div class="section-head reveal">
+          <p class="section-label" data-i18n="safe.label">Safety</p>
+          <h2 id="safety-title" data-i18n="safe.title">Trust built in</h2>
+          <p class="section-lead" data-i18n="safe.lead">Honest, local and transparent — no overpromising.</p>
+        </div>
+        <ul class="safety-list reveal">
+          <li><span class="safety-icon" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><div><strong data-i18n="safe.1.title">Official GitHub releases only</strong><span data-i18n="safe.1.text">Download from GitHub — not third-party sites.</span></div></li>
+          <li><span class="safety-icon" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22V12M12 12l8-4M12 12L4 8"/></svg></span><div><strong data-i18n="safe.2.title">Manual update confirmation</strong><span data-i18n="safe.2.text">Updates require your approval in the app.</span></div></li>
+          <li><span class="safety-icon" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h10"/></svg></span><div><strong data-i18n="safe.3.title">SHA256 hash available</strong><span data-i18n="safe.3">Verify via the <a href="trust.html">Trust page</a> or <a href="trust-latest.json">trust-latest.json</a>.</span></div></li>
+          <li><span class="safety-icon" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg></span><div><strong data-i18n="safe.4.title">No game file modifications</strong><span data-i18n="safe.4.text">Windows settings only — anti-cheat friendly approach.</span></div></li>
+          <li><span class="safety-icon" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42"/></svg></span><div><strong data-i18n="safe.5.title">Safe Windows settings only</strong><span data-i18n="safe.5.text">Recommendations before changes where possible.</span></div></li>
+          <li><span class="safety-icon" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span><div><strong data-i18n="safe.6.title">No cloud account required</strong><span data-i18n="safe.6.text">Runs locally on your PC. No login needed.</span></div></li>
+        </ul>
+      </div>
     </section>
 
     <section class="section" id="how" aria-labelledby="how-title">
@@ -270,8 +354,11 @@
       </ol>
     </section>
 
-    <section class="section" id="download" aria-labelledby="download-title">
+    <section class="section download-section" id="download" aria-labelledby="download-title">
       <div class="download-card reveal">
+        <div class="download-icon" aria-hidden="true">
+          <img src="assets/brand/jitvora-logo-mark-64.png" alt="" width="40" height="40" decoding="async" />
+        </div>
         <p class="section-label" data-i18n="dl.label">Download</p>
         <h2 id="download-title" data-i18n="dl.title">Get Jitvora for Windows.</h2>
         <p class="section-lead" data-i18n="dl.lead">Free for Windows 10 and 11 (64-bit). Official GitHub release with published SHA256 checksum.</p>
@@ -351,7 +438,7 @@
       </div>
     </footer>
   </div>
-  <script src="site-lang.js?v=20260718g" defer></script>
+  <script src="site-lang.js?v=20260719a" defer></script>
   <script>
     (function () {
       if (!("IntersectionObserver" in window)
