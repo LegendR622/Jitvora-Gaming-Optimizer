@@ -122,7 +122,15 @@
     "trust.title": "Trust through proof — not promises.",
     "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
     "trust.sha": "SHA256 checksum · v3.0.5",
-    "dl.compat": "Windows 10 & 11 · 64-bit"
+    "dl.compat": "Windows 10 & 11 · 64-bit",
+    "nav.menu": "Menu",
+    "ui.powerPlan": "Power plan",
+    "ui.backgroundThrottling": "Background throttling",
+    "ui.recommended": "Recommended",
+    "ui.preview": "Preview",
+    "ui.optional": "Optional",
+    "feat.pro.badge": "Preview",
+    "footer.tagline": "Optimize. Secure. Perform."
   };
 
   global.REDLINE_LANG_META = {
@@ -174,7 +182,7 @@
     "nav.sitemap": "Seitenübersicht",
     "nav.releases": "Veröffentlichungen",
     "lang.label": "Sprache",
-    "lang.note": "App: nur Deutsch & English · Website in vielen Sprachen",
+    "lang.note": "App: nur Deutsch & Englisch · Website in vielen Sprachen",
     "lang.more": "Weitere Sprachen",
     "hero.badge": "Windows 10/11 · 64-bit · Kostenlos",
     "hero.sub": "FPS optimieren, PC aufräumen, Treiber prüfen und Netzwerk reparieren — sicher in einer Desktop-App.",
@@ -225,7 +233,7 @@
     "safe.2.title": "Manuelle Update-Bestätigung",
     "safe.2.text": "Updates nur mit deiner Freigabe in der App.",
     "safe.3.title": "SHA256-Hash verfügbar",
-    "safe.3.html": "Verify via <a href=\"trust.html\">Trust-Seite</a> or <a href=\"trust-latest.json\">trust-latest.json</a>.",
+    "safe.3.html": "Prüfen über die <a href=\"trust.html\">Trust-Seite</a> oder <a href=\"trust-latest.json\">trust-latest.json</a>.",
     "safe.4.title": "Keine Spiel-Datei-Änderungen",
     "safe.4.text": "Nur Windows-Einstellungen — anti-cheat-freundlicher Ansatz.",
     "safe.5.title": "Nur sichere Windows-Einstellungen",
@@ -246,7 +254,7 @@
     "faq.a5": "Die App unterstützt Deutsch und English in den Einstellungen. Diese Website gibt es in vielen Sprachen.",
     "footer.aria": "Rechtliches und Ressourcen",
     "meta.title": "Jitvora Gaming Optimizer — Windows-Gaming-Optimizer, FPS & PC-Cleaner",
-    "meta.description": "Jitvora Gaming Optimizer — Windows Gaming Optimizer für FPS-Tuning, PC-Cleaner, Treiber-Check und Netzwerk-Tools. Sichere Windows-Tweaks. Kostenloser download v3.0.5 für Windows 10/11.",
+    "meta.description": "Jitvora Gaming Optimizer — Windows Gaming Optimizer für FPS-Tuning, PC-Cleaner, Treiber-Check und Netzwerk-Tools. Sichere Windows-Tweaks. Kostenloser Download v3.0.5 für Windows 10/11.",
     "hero.headline.html": "Dein Gaming-PC. <span class=\"hero-accent\">In Bestform.</span>",
     "hero.mock.note": "Illustration des App-Layouts — kein Live-Screenshot.",
     "netwatch.label": "Network Watch",
@@ -279,7 +287,15 @@
     "trust.title": "Vertrauen durch Nachweis — nicht durch Versprechen.",
     "trust.lead": "Offizielle GitHub-Releases, eine veröffentlichte SHA256-Prüfsumme und vollständig lokale Verarbeitung.",
     "trust.sha": "SHA256-Prüfsumme · v3.0.5",
-    "dl.compat": "Windows 10 & 11 · 64-bit"
+    "dl.compat": "Windows 10 & 11 · 64-bit",
+    "nav.menu": "Menü",
+    "ui.powerPlan": "Energieplan",
+    "ui.backgroundThrottling": "Hintergrund-Drosselung",
+    "ui.recommended": "Empfohlen",
+    "ui.preview": "Vorschau",
+    "ui.optional": "Optional",
+    "feat.pro.badge": "Vorschau",
+    "footer.tagline": "Optimieren. Schützen. Spielen."
   },
     fr: {
     "nav.features": "Fonctionnalités",
@@ -401,7 +417,15 @@
     "trust.title": "Trust through proof — not promises.",
     "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
     "trust.sha": "SHA256 checksum · v3.0.5",
-    "dl.compat": "Windows 10 & 11 · 64-bit"
+    "dl.compat": "Windows 10 & 11 · 64-bit",
+    "nav.menu": "Menu",
+    "ui.powerPlan": "Power plan",
+    "ui.backgroundThrottling": "Background throttling",
+    "ui.recommended": "Recommended",
+    "ui.preview": "Preview",
+    "ui.optional": "Optional",
+    "feat.pro.badge": "Preview",
+    "footer.tagline": "Optimize. Secure. Perform."
   },
     es: {
     "nav.features": "Funciones",
@@ -523,7 +547,15 @@
     "trust.title": "Trust through proof — not promises.",
     "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
     "trust.sha": "SHA256 checksum · v3.0.5",
-    "dl.compat": "Windows 10 & 11 · 64-bit"
+    "dl.compat": "Windows 10 & 11 · 64-bit",
+    "nav.menu": "Menu",
+    "ui.powerPlan": "Power plan",
+    "ui.backgroundThrottling": "Background throttling",
+    "ui.recommended": "Recommended",
+    "ui.preview": "Preview",
+    "ui.optional": "Optional",
+    "feat.pro.badge": "Preview",
+    "footer.tagline": "Optimize. Secure. Perform."
   },
     it: {
     "nav.features": "Funzionalità",
@@ -645,7 +677,15 @@
     "trust.title": "Trust through proof — not promises.",
     "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
     "trust.sha": "SHA256 checksum · v3.0.5",
-    "dl.compat": "Windows 10 & 11 · 64-bit"
+    "dl.compat": "Windows 10 & 11 · 64-bit",
+    "nav.menu": "Menu",
+    "ui.powerPlan": "Power plan",
+    "ui.backgroundThrottling": "Background throttling",
+    "ui.recommended": "Recommended",
+    "ui.preview": "Preview",
+    "ui.optional": "Optional",
+    "feat.pro.badge": "Preview",
+    "footer.tagline": "Optimize. Secure. Perform."
   },
     pt: {
     "nav.features": "Recursos",
@@ -767,7 +807,15 @@
     "trust.title": "Trust through proof — not promises.",
     "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
     "trust.sha": "SHA256 checksum · v3.0.5",
-    "dl.compat": "Windows 10 & 11 · 64-bit"
+    "dl.compat": "Windows 10 & 11 · 64-bit",
+    "nav.menu": "Menu",
+    "ui.powerPlan": "Power plan",
+    "ui.backgroundThrottling": "Background throttling",
+    "ui.recommended": "Recommended",
+    "ui.preview": "Preview",
+    "ui.optional": "Optional",
+    "feat.pro.badge": "Preview",
+    "footer.tagline": "Optimize. Secure. Perform."
   },
     nl: {
     "nav.features": "Functies",
@@ -889,7 +937,15 @@
     "trust.title": "Trust through proof — not promises.",
     "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
     "trust.sha": "SHA256 checksum · v3.0.5",
-    "dl.compat": "Windows 10 & 11 · 64-bit"
+    "dl.compat": "Windows 10 & 11 · 64-bit",
+    "nav.menu": "Menu",
+    "ui.powerPlan": "Power plan",
+    "ui.backgroundThrottling": "Background throttling",
+    "ui.recommended": "Recommended",
+    "ui.preview": "Preview",
+    "ui.optional": "Optional",
+    "feat.pro.badge": "Preview",
+    "footer.tagline": "Optimize. Secure. Perform."
   },
     pl: {
     "nav.features": "Funkcje",
@@ -1011,7 +1067,15 @@
     "trust.title": "Trust through proof — not promises.",
     "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
     "trust.sha": "SHA256 checksum · v3.0.5",
-    "dl.compat": "Windows 10 & 11 · 64-bit"
+    "dl.compat": "Windows 10 & 11 · 64-bit",
+    "nav.menu": "Menu",
+    "ui.powerPlan": "Power plan",
+    "ui.backgroundThrottling": "Background throttling",
+    "ui.recommended": "Recommended",
+    "ui.preview": "Preview",
+    "ui.optional": "Optional",
+    "feat.pro.badge": "Preview",
+    "footer.tagline": "Optimize. Secure. Perform."
   },
     tr: {
     "nav.features": "Özellikler",
@@ -1133,7 +1197,15 @@
     "trust.title": "Trust through proof — not promises.",
     "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
     "trust.sha": "SHA256 checksum · v3.0.5",
-    "dl.compat": "Windows 10 & 11 · 64-bit"
+    "dl.compat": "Windows 10 & 11 · 64-bit",
+    "nav.menu": "Menu",
+    "ui.powerPlan": "Power plan",
+    "ui.backgroundThrottling": "Background throttling",
+    "ui.recommended": "Recommended",
+    "ui.preview": "Preview",
+    "ui.optional": "Optional",
+    "feat.pro.badge": "Preview",
+    "footer.tagline": "Optimize. Secure. Perform."
   },
     ru: {
     "nav.features": "ФÑƒнкÑ†ии",
@@ -1255,7 +1327,15 @@
     "trust.title": "Trust through proof — not promises.",
     "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
     "trust.sha": "SHA256 checksum · v3.0.5",
-    "dl.compat": "Windows 10 & 11 · 64-bit"
+    "dl.compat": "Windows 10 & 11 · 64-bit",
+    "nav.menu": "Menu",
+    "ui.powerPlan": "Power plan",
+    "ui.backgroundThrottling": "Background throttling",
+    "ui.recommended": "Recommended",
+    "ui.preview": "Preview",
+    "ui.optional": "Optional",
+    "feat.pro.badge": "Preview",
+    "footer.tagline": "Optimize. Secure. Perform."
   },
     uk: {
     "nav.features": "ФÑƒнкÑ†Ñ–Ñ—",
@@ -1377,7 +1457,15 @@
     "trust.title": "Trust through proof — not promises.",
     "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
     "trust.sha": "SHA256 checksum · v3.0.5",
-    "dl.compat": "Windows 10 & 11 · 64-bit"
+    "dl.compat": "Windows 10 & 11 · 64-bit",
+    "nav.menu": "Menu",
+    "ui.powerPlan": "Power plan",
+    "ui.backgroundThrottling": "Background throttling",
+    "ui.recommended": "Recommended",
+    "ui.preview": "Preview",
+    "ui.optional": "Optional",
+    "feat.pro.badge": "Preview",
+    "footer.tagline": "Optimize. Secure. Perform."
   },
     cs: {
     "nav.features": "Funkce",
@@ -1499,7 +1587,15 @@
     "trust.title": "Trust through proof — not promises.",
     "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
     "trust.sha": "SHA256 checksum · v3.0.5",
-    "dl.compat": "Windows 10 & 11 · 64-bit"
+    "dl.compat": "Windows 10 & 11 · 64-bit",
+    "nav.menu": "Menu",
+    "ui.powerPlan": "Power plan",
+    "ui.backgroundThrottling": "Background throttling",
+    "ui.recommended": "Recommended",
+    "ui.preview": "Preview",
+    "ui.optional": "Optional",
+    "feat.pro.badge": "Preview",
+    "footer.tagline": "Optimize. Secure. Perform."
   },
     ar: {
     "nav.features": "الميزات",
@@ -1621,7 +1717,15 @@
     "trust.title": "Trust through proof — not promises.",
     "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
     "trust.sha": "SHA256 checksum · v3.0.5",
-    "dl.compat": "Windows 10 & 11 · 64-bit"
+    "dl.compat": "Windows 10 & 11 · 64-bit",
+    "nav.menu": "Menu",
+    "ui.powerPlan": "Power plan",
+    "ui.backgroundThrottling": "Background throttling",
+    "ui.recommended": "Recommended",
+    "ui.preview": "Preview",
+    "ui.optional": "Optional",
+    "feat.pro.badge": "Preview",
+    "footer.tagline": "Optimize. Secure. Perform."
   },
     zh: {
     "nav.features": "åŠŸèƒ½",
@@ -1743,7 +1847,15 @@
     "trust.title": "Trust through proof — not promises.",
     "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
     "trust.sha": "SHA256 checksum · v3.0.5",
-    "dl.compat": "Windows 10 & 11 · 64-bit"
+    "dl.compat": "Windows 10 & 11 · 64-bit",
+    "nav.menu": "Menu",
+    "ui.powerPlan": "Power plan",
+    "ui.backgroundThrottling": "Background throttling",
+    "ui.recommended": "Recommended",
+    "ui.preview": "Preview",
+    "ui.optional": "Optional",
+    "feat.pro.badge": "Preview",
+    "footer.tagline": "Optimize. Secure. Perform."
   },
     ja: {
     "nav.features": "æ©Ÿèƒ½",
@@ -1865,7 +1977,15 @@
     "trust.title": "Trust through proof — not promises.",
     "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
     "trust.sha": "SHA256 checksum · v3.0.5",
-    "dl.compat": "Windows 10 & 11 · 64-bit"
+    "dl.compat": "Windows 10 & 11 · 64-bit",
+    "nav.menu": "Menu",
+    "ui.powerPlan": "Power plan",
+    "ui.backgroundThrottling": "Background throttling",
+    "ui.recommended": "Recommended",
+    "ui.preview": "Preview",
+    "ui.optional": "Optional",
+    "feat.pro.badge": "Preview",
+    "footer.tagline": "Optimize. Secure. Perform."
   },
     ko: {
     "nav.features": "ê¸°ëŠ¥",
@@ -1987,7 +2107,15 @@
     "trust.title": "Trust through proof — not promises.",
     "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
     "trust.sha": "SHA256 checksum · v3.0.5",
-    "dl.compat": "Windows 10 & 11 · 64-bit"
+    "dl.compat": "Windows 10 & 11 · 64-bit",
+    "nav.menu": "Menu",
+    "ui.powerPlan": "Power plan",
+    "ui.backgroundThrottling": "Background throttling",
+    "ui.recommended": "Recommended",
+    "ui.preview": "Preview",
+    "ui.optional": "Optional",
+    "feat.pro.badge": "Preview",
+    "footer.tagline": "Optimize. Secure. Perform."
   },
     hi: {
     "nav.features": "à¤¸à¥à¤µà¤¿à¤§à¤¾à¤à¤",
@@ -2109,7 +2237,15 @@
     "trust.title": "Trust through proof — not promises.",
     "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
     "trust.sha": "SHA256 checksum · v3.0.5",
-    "dl.compat": "Windows 10 & 11 · 64-bit"
+    "dl.compat": "Windows 10 & 11 · 64-bit",
+    "nav.menu": "Menu",
+    "ui.powerPlan": "Power plan",
+    "ui.backgroundThrottling": "Background throttling",
+    "ui.recommended": "Recommended",
+    "ui.preview": "Preview",
+    "ui.optional": "Optional",
+    "feat.pro.badge": "Preview",
+    "footer.tagline": "Optimize. Secure. Perform."
   },
     sv: {
     "nav.features": "Funktioner",
@@ -2231,7 +2367,15 @@
     "trust.title": "Trust through proof — not promises.",
     "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
     "trust.sha": "SHA256 checksum · v3.0.5",
-    "dl.compat": "Windows 10 & 11 · 64-bit"
+    "dl.compat": "Windows 10 & 11 · 64-bit",
+    "nav.menu": "Menu",
+    "ui.powerPlan": "Power plan",
+    "ui.backgroundThrottling": "Background throttling",
+    "ui.recommended": "Recommended",
+    "ui.preview": "Preview",
+    "ui.optional": "Optional",
+    "feat.pro.badge": "Preview",
+    "footer.tagline": "Optimize. Secure. Perform."
   },
     ro: {
     "nav.features": "Funcții",
@@ -2353,7 +2497,15 @@
     "trust.title": "Trust through proof — not promises.",
     "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
     "trust.sha": "SHA256 checksum · v3.0.5",
-    "dl.compat": "Windows 10 & 11 · 64-bit"
+    "dl.compat": "Windows 10 & 11 · 64-bit",
+    "nav.menu": "Menu",
+    "ui.powerPlan": "Power plan",
+    "ui.backgroundThrottling": "Background throttling",
+    "ui.recommended": "Recommended",
+    "ui.preview": "Preview",
+    "ui.optional": "Optional",
+    "feat.pro.badge": "Preview",
+    "footer.tagline": "Optimize. Secure. Perform."
   },
     hu: {
     "nav.features": "Funkciók",
@@ -2475,7 +2627,15 @@
     "trust.title": "Trust through proof — not promises.",
     "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
     "trust.sha": "SHA256 checksum · v3.0.5",
-    "dl.compat": "Windows 10 & 11 · 64-bit"
+    "dl.compat": "Windows 10 & 11 · 64-bit",
+    "nav.menu": "Menu",
+    "ui.powerPlan": "Power plan",
+    "ui.backgroundThrottling": "Background throttling",
+    "ui.recommended": "Recommended",
+    "ui.preview": "Preview",
+    "ui.optional": "Optional",
+    "feat.pro.badge": "Preview",
+    "footer.tagline": "Optimize. Secure. Perform."
   },
     el: {
     "nav.features": "Î›ειÏ„οÏ…ργίεÏ‚",
@@ -2597,7 +2757,15 @@
     "trust.title": "Trust through proof — not promises.",
     "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
     "trust.sha": "SHA256 checksum · v3.0.5",
-    "dl.compat": "Windows 10 & 11 · 64-bit"
+    "dl.compat": "Windows 10 & 11 · 64-bit",
+    "nav.menu": "Menu",
+    "ui.powerPlan": "Power plan",
+    "ui.backgroundThrottling": "Background throttling",
+    "ui.recommended": "Recommended",
+    "ui.preview": "Preview",
+    "ui.optional": "Optional",
+    "feat.pro.badge": "Preview",
+    "footer.tagline": "Optimize. Secure. Perform."
   },
     th: {
     "nav.features": "à¸Ÿà¸µà¹€à¸ˆà¸­à¸£à¹Œ",
@@ -2719,7 +2887,15 @@
     "trust.title": "Trust through proof — not promises.",
     "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
     "trust.sha": "SHA256 checksum · v3.0.5",
-    "dl.compat": "Windows 10 & 11 · 64-bit"
+    "dl.compat": "Windows 10 & 11 · 64-bit",
+    "nav.menu": "Menu",
+    "ui.powerPlan": "Power plan",
+    "ui.backgroundThrottling": "Background throttling",
+    "ui.recommended": "Recommended",
+    "ui.preview": "Preview",
+    "ui.optional": "Optional",
+    "feat.pro.badge": "Preview",
+    "footer.tagline": "Optimize. Secure. Perform."
   },
     vi: {
     "nav.features": "Tính năng",
@@ -2841,7 +3017,15 @@
     "trust.title": "Trust through proof — not promises.",
     "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
     "trust.sha": "SHA256 checksum · v3.0.5",
-    "dl.compat": "Windows 10 & 11 · 64-bit"
+    "dl.compat": "Windows 10 & 11 · 64-bit",
+    "nav.menu": "Menu",
+    "ui.powerPlan": "Power plan",
+    "ui.backgroundThrottling": "Background throttling",
+    "ui.recommended": "Recommended",
+    "ui.preview": "Preview",
+    "ui.optional": "Optional",
+    "feat.pro.badge": "Preview",
+    "footer.tagline": "Optimize. Secure. Perform."
   },
     id: {
     "nav.features": "Fitur",
@@ -2963,7 +3147,15 @@
     "trust.title": "Trust through proof — not promises.",
     "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
     "trust.sha": "SHA256 checksum · v3.0.5",
-    "dl.compat": "Windows 10 & 11 · 64-bit"
+    "dl.compat": "Windows 10 & 11 · 64-bit",
+    "nav.menu": "Menu",
+    "ui.powerPlan": "Power plan",
+    "ui.backgroundThrottling": "Background throttling",
+    "ui.recommended": "Recommended",
+    "ui.preview": "Preview",
+    "ui.optional": "Optional",
+    "feat.pro.badge": "Preview",
+    "footer.tagline": "Optimize. Secure. Perform."
   },
     da: {
     "nav.features": "Funktioner",
@@ -3085,7 +3277,15 @@
     "trust.title": "Trust through proof — not promises.",
     "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
     "trust.sha": "SHA256 checksum · v3.0.5",
-    "dl.compat": "Windows 10 & 11 · 64-bit"
+    "dl.compat": "Windows 10 & 11 · 64-bit",
+    "nav.menu": "Menu",
+    "ui.powerPlan": "Power plan",
+    "ui.backgroundThrottling": "Background throttling",
+    "ui.recommended": "Recommended",
+    "ui.preview": "Preview",
+    "ui.optional": "Optional",
+    "feat.pro.badge": "Preview",
+    "footer.tagline": "Optimize. Secure. Perform."
   },
     no: {
     "nav.features": "Funksjoner",
@@ -3207,7 +3407,15 @@
     "trust.title": "Trust through proof — not promises.",
     "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
     "trust.sha": "SHA256 checksum · v3.0.5",
-    "dl.compat": "Windows 10 & 11 · 64-bit"
+    "dl.compat": "Windows 10 & 11 · 64-bit",
+    "nav.menu": "Menu",
+    "ui.powerPlan": "Power plan",
+    "ui.backgroundThrottling": "Background throttling",
+    "ui.recommended": "Recommended",
+    "ui.preview": "Preview",
+    "ui.optional": "Optional",
+    "feat.pro.badge": "Preview",
+    "footer.tagline": "Optimize. Secure. Perform."
   },
     fi: {
     "nav.features": "Ominaisuudet",
@@ -3329,7 +3537,15 @@
     "trust.title": "Trust through proof — not promises.",
     "trust.lead": "Official GitHub releases, a published SHA256 checksum and fully local processing.",
     "trust.sha": "SHA256 checksum · v3.0.5",
-    "dl.compat": "Windows 10 & 11 · 64-bit"
+    "dl.compat": "Windows 10 & 11 · 64-bit",
+    "nav.menu": "Menu",
+    "ui.powerPlan": "Power plan",
+    "ui.backgroundThrottling": "Background throttling",
+    "ui.recommended": "Recommended",
+    "ui.preview": "Preview",
+    "ui.optional": "Optional",
+    "feat.pro.badge": "Preview",
+    "footer.tagline": "Optimize. Secure. Perform."
   },
   };
 })(typeof window !== "undefined" ? window : globalThis);

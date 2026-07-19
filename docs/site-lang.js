@@ -127,6 +127,7 @@
 
     var select = document.createElement("select");
     select.className = "lang-select-more";
+    select.setAttribute("data-i18n-aria", "lang.more");
     select.setAttribute("aria-label", "More languages");
 
     var placeholder = document.createElement("option");
