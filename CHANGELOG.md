@@ -10,6 +10,22 @@ All notable changes to **Jitvora Gaming Optimizer** are listed here (newest firs
 
 ---
 
+## [3.0.6] — 2026-07-20
+
+### Changed
+- **Completely redesigned interface** — new calm design system: one restrained accent color, neutral graphite surfaces and fine hairline borders replace the old blue-tinted panels, glowing outlines and competing colors
+- **Refined typography** — consistent type scale and calm sentence-case page titles instead of all-caps
+
+### Improved
+- **Compact app identity** — app-icon header in the sidebar instead of an oversized logo block; tighter navigation with a subtle selected state
+- **Calmer dashboard** — readable System Score ring, compact CPU/GPU/RAM/Ping tiles, quieter Live Log; green now used only for real status (protected, healthy, done)
+- **Consistent design across every page** — Dashboard, AI Advisor, Gaming, Performance, Cleaner, Autostart, Security, Network, Network Watch, Drivers, Repair, Settings and dialogs share the same components, spacing and buttons
+- **Restrained visuals** — decorative glow rings and heavy gradients removed for a sharp, native Windows look
+
+_No features were removed and no system behavior changed — this release is focused entirely on the interface._
+
+---
+
 ## [3.0.5] — 2026-06-21
 
 ### Added
