@@ -1430,3 +1430,19 @@ body::after {
 @media (max-width: 760px) {
   .preview-grid { grid-template-columns: 1fr; }
 }
+
+/* Preview — Apple-style directional slide-in + hover life */
+.preview-grid .preview-shot.reveal { transform: translateY(30px); }
+.preview-grid .preview-shot--wide.reveal { transform: translateY(30px) scale(0.986); }
+.preview-shot:nth-of-type(2).reveal { transform: translateX(-34px); }
+.preview-shot:nth-of-type(3).reveal { transform: translateX(34px); }
+.preview-grid .preview-shot.reveal.is-visible { transform: none; }
+.preview-shot { transition: opacity 0.75s var(--ease-out), transform 0.75s var(--ease-out),
+                border-color 0.25s var(--ease), box-shadow 0.25s var(--ease); }
+.preview-shot:hover { border-color: var(--accent); box-shadow: var(--shadow-float); }
+.preview-shot img { transition: transform 0.4s var(--ease-out); }
+.preview-shot:hover img { transform: scale(1.015); }
+@media (prefers-reduced-motion: reduce) {
+  .preview-grid .preview-shot.reveal { transform: none; }
+  .preview-shot, .preview-shot img { transition: none; }
+}
