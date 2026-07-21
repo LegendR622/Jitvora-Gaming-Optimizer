@@ -130,7 +130,14 @@
     "ui.preview": "Preview",
     "ui.optional": "Optional",
     "feat.pro.badge": "Preview",
-    "footer.tagline": "Optimize. Secure. Perform."
+    "footer.tagline": "Optimize. Secure. Perform.",
+    "preview.label": "Preview",
+    "preview.title": "A look at the redesigned app",
+    "preview.lead": "A preview of the upcoming Jitvora interface — calmer, more focused, native to Windows. Real screenshots from the app.",
+    "preview.note": "Design preview — the current download is v3.0.6.",
+    "preview.cap1": "Dashboard",
+    "preview.cap2": "Network Watch",
+    "preview.cap3": "Settings"
   };
 
   global.REDLINE_LANG_META = {
@@ -295,7 +302,14 @@
     "ui.preview": "Vorschau",
     "ui.optional": "Optional",
     "feat.pro.badge": "Vorschau",
-    "footer.tagline": "Optimieren. Schützen. Spielen."
+    "footer.tagline": "Optimieren. Schützen. Spielen.",
+    "preview.label": "Vorschau",
+    "preview.title": "Ein Blick in die neu gestaltete App",
+    "preview.lead": "Vorschau auf die kommende Jitvora-Oberfläche — ruhiger, fokussierter, nativ für Windows. Echte Screenshots aus der App.",
+    "preview.note": "Design-Vorschau — der aktuelle Download ist v3.0.6.",
+    "preview.cap1": "Dashboard",
+    "preview.cap2": "Network Watch",
+    "preview.cap3": "Einstellungen"
   },
     fr: {
     "nav.features": "Fonctionnalités",
@@ -425,7 +439,14 @@
     "ui.preview": "Preview",
     "ui.optional": "Optional",
     "feat.pro.badge": "Preview",
-    "footer.tagline": "Optimize. Secure. Perform."
+    "footer.tagline": "Optimize. Secure. Perform.",
+    "preview.label": "Preview",
+    "preview.title": "A look at the redesigned app",
+    "preview.lead": "A preview of the upcoming Jitvora interface — calmer, more focused, native to Windows. Real screenshots from the app.",
+    "preview.note": "Design preview — the current download is v3.0.6.",
+    "preview.cap1": "Dashboard",
+    "preview.cap2": "Network Watch",
+    "preview.cap3": "Settings"
   },
     es: {
     "nav.features": "Funciones",
@@ -555,7 +576,14 @@
     "ui.preview": "Preview",
     "ui.optional": "Optional",
     "feat.pro.badge": "Preview",
-    "footer.tagline": "Optimize. Secure. Perform."
+    "footer.tagline": "Optimize. Secure. Perform.",
+    "preview.label": "Preview",
+    "preview.title": "A look at the redesigned app",
+    "preview.lead": "A preview of the upcoming Jitvora interface — calmer, more focused, native to Windows. Real screenshots from the app.",
+    "preview.note": "Design preview — the current download is v3.0.6.",
+    "preview.cap1": "Dashboard",
+    "preview.cap2": "Network Watch",
+    "preview.cap3": "Settings"
   },
     it: {
     "nav.features": "Funzionalità",
@@ -685,7 +713,14 @@
     "ui.preview": "Preview",
     "ui.optional": "Optional",
     "feat.pro.badge": "Preview",
-    "footer.tagline": "Optimize. Secure. Perform."
+    "footer.tagline": "Optimize. Secure. Perform.",
+    "preview.label": "Preview",
+    "preview.title": "A look at the redesigned app",
+    "preview.lead": "A preview of the upcoming Jitvora interface — calmer, more focused, native to Windows. Real screenshots from the app.",
+    "preview.note": "Design preview — the current download is v3.0.6.",
+    "preview.cap1": "Dashboard",
+    "preview.cap2": "Network Watch",
+    "preview.cap3": "Settings"
   },
     pt: {
     "nav.features": "Recursos",
@@ -815,7 +850,14 @@
     "ui.preview": "Preview",
     "ui.optional": "Optional",
     "feat.pro.badge": "Preview",
-    "footer.tagline": "Optimize. Secure. Perform."
+    "footer.tagline": "Optimize. Secure. Perform.",
+    "preview.label": "Preview",
+    "preview.title": "A look at the redesigned app",
+    "preview.lead": "A preview of the upcoming Jitvora interface — calmer, more focused, native to Windows. Real screenshots from the app.",
+    "preview.note": "Design preview — the current download is v3.0.6.",
+    "preview.cap1": "Dashboard",
+    "preview.cap2": "Network Watch",
+    "preview.cap3": "Settings"
   },
     nl: {
     "nav.features": "Functies",
@@ -945,7 +987,14 @@
     "ui.preview": "Preview",
     "ui.optional": "Optional",
     "feat.pro.badge": "Preview",
-    "footer.tagline": "Optimize. Secure. Perform."
+    "footer.tagline": "Optimize. Secure. Perform.",
+    "preview.label": "Preview",
+    "preview.title": "A look at the redesigned app",
+    "preview.lead": "A preview of the upcoming Jitvora interface — calmer, more focused, native to Windows. Real screenshots from the app.",
+    "preview.note": "Design preview — the current download is v3.0.6.",
+    "preview.cap1": "Dashboard",
+    "preview.cap2": "Network Watch",
+    "preview.cap3": "Settings"
   },
     pl: {
     "nav.features": "Funkcje",
@@ -1075,7 +1124,14 @@
     "ui.preview": "Preview",
     "ui.optional": "Optional",
     "feat.pro.badge": "Preview",
-    "footer.tagline": "Optimize. Secure. Perform."
+    "footer.tagline": "Optimize. Secure. Perform.",
+    "preview.label": "Preview",
+    "preview.title": "A look at the redesigned app",
+    "preview.lead": "A preview of the upcoming Jitvora interface — calmer, more focused, native to Windows. Real screenshots from the app.",
+    "preview.note": "Design preview — the current download is v3.0.6.",
+    "preview.cap1": "Dashboard",
+    "preview.cap2": "Network Watch",
+    "preview.cap3": "Settings"
   },
     tr: {
     "nav.features": "Özellikler",
@@ -1205,7 +1261,14 @@
     "ui.preview": "Preview",
     "ui.optional": "Optional",
     "feat.pro.badge": "Preview",
-    "footer.tagline": "Optimize. Secure. Perform."
+    "footer.tagline": "Optimize. Secure. Perform.",
+    "preview.label": "Preview",
+    "preview.title": "A look at the redesigned app",
+    "preview.lead": "A preview of the upcoming Jitvora interface — calmer, more focused, native to Windows. Real screenshots from the app.",
+    "preview.note": "Design preview — the current download is v3.0.6.",
+    "preview.cap1": "Dashboard",
+    "preview.cap2": "Network Watch",
+    "preview.cap3": "Settings"
   },
     ru: {
     "nav.features": "ФÑƒнкÑ†ии",
@@ -1335,7 +1398,14 @@
     "ui.preview": "Preview",
     "ui.optional": "Optional",
     "feat.pro.badge": "Preview",
-    "footer.tagline": "Optimize. Secure. Perform."
+    "footer.tagline": "Optimize. Secure. Perform.",
+    "preview.label": "Preview",
+    "preview.title": "A look at the redesigned app",
+    "preview.lead": "A preview of the upcoming Jitvora interface — calmer, more focused, native to Windows. Real screenshots from the app.",
+    "preview.note": "Design preview — the current download is v3.0.6.",
+    "preview.cap1": "Dashboard",
+    "preview.cap2": "Network Watch",
+    "preview.cap3": "Settings"
   },
     uk: {
     "nav.features": "ФÑƒнкÑ†Ñ–Ñ—",
@@ -1465,7 +1535,14 @@
     "ui.preview": "Preview",
     "ui.optional": "Optional",
     "feat.pro.badge": "Preview",
-    "footer.tagline": "Optimize. Secure. Perform."
+    "footer.tagline": "Optimize. Secure. Perform.",
+    "preview.label": "Preview",
+    "preview.title": "A look at the redesigned app",
+    "preview.lead": "A preview of the upcoming Jitvora interface — calmer, more focused, native to Windows. Real screenshots from the app.",
+    "preview.note": "Design preview — the current download is v3.0.6.",
+    "preview.cap1": "Dashboard",
+    "preview.cap2": "Network Watch",
+    "preview.cap3": "Settings"
   },
     cs: {
     "nav.features": "Funkce",
@@ -1595,7 +1672,14 @@
     "ui.preview": "Preview",
     "ui.optional": "Optional",
     "feat.pro.badge": "Preview",
-    "footer.tagline": "Optimize. Secure. Perform."
+    "footer.tagline": "Optimize. Secure. Perform.",
+    "preview.label": "Preview",
+    "preview.title": "A look at the redesigned app",
+    "preview.lead": "A preview of the upcoming Jitvora interface — calmer, more focused, native to Windows. Real screenshots from the app.",
+    "preview.note": "Design preview — the current download is v3.0.6.",
+    "preview.cap1": "Dashboard",
+    "preview.cap2": "Network Watch",
+    "preview.cap3": "Settings"
   },
     ar: {
     "nav.features": "الميزات",
@@ -1725,7 +1809,14 @@
     "ui.preview": "Preview",
     "ui.optional": "Optional",
     "feat.pro.badge": "Preview",
-    "footer.tagline": "Optimize. Secure. Perform."
+    "footer.tagline": "Optimize. Secure. Perform.",
+    "preview.label": "Preview",
+    "preview.title": "A look at the redesigned app",
+    "preview.lead": "A preview of the upcoming Jitvora interface — calmer, more focused, native to Windows. Real screenshots from the app.",
+    "preview.note": "Design preview — the current download is v3.0.6.",
+    "preview.cap1": "Dashboard",
+    "preview.cap2": "Network Watch",
+    "preview.cap3": "Settings"
   },
     zh: {
     "nav.features": "åŠŸèƒ½",
@@ -1855,7 +1946,14 @@
     "ui.preview": "Preview",
     "ui.optional": "Optional",
     "feat.pro.badge": "Preview",
-    "footer.tagline": "Optimize. Secure. Perform."
+    "footer.tagline": "Optimize. Secure. Perform.",
+    "preview.label": "Preview",
+    "preview.title": "A look at the redesigned app",
+    "preview.lead": "A preview of the upcoming Jitvora interface — calmer, more focused, native to Windows. Real screenshots from the app.",
+    "preview.note": "Design preview — the current download is v3.0.6.",
+    "preview.cap1": "Dashboard",
+    "preview.cap2": "Network Watch",
+    "preview.cap3": "Settings"
   },
     ja: {
     "nav.features": "æ©Ÿèƒ½",
@@ -1985,7 +2083,14 @@
     "ui.preview": "Preview",
     "ui.optional": "Optional",
     "feat.pro.badge": "Preview",
-    "footer.tagline": "Optimize. Secure. Perform."
+    "footer.tagline": "Optimize. Secure. Perform.",
+    "preview.label": "Preview",
+    "preview.title": "A look at the redesigned app",
+    "preview.lead": "A preview of the upcoming Jitvora interface — calmer, more focused, native to Windows. Real screenshots from the app.",
+    "preview.note": "Design preview — the current download is v3.0.6.",
+    "preview.cap1": "Dashboard",
+    "preview.cap2": "Network Watch",
+    "preview.cap3": "Settings"
   },
     ko: {
     "nav.features": "ê¸°ëŠ¥",
@@ -2115,7 +2220,14 @@
     "ui.preview": "Preview",
     "ui.optional": "Optional",
     "feat.pro.badge": "Preview",
-    "footer.tagline": "Optimize. Secure. Perform."
+    "footer.tagline": "Optimize. Secure. Perform.",
+    "preview.label": "Preview",
+    "preview.title": "A look at the redesigned app",
+    "preview.lead": "A preview of the upcoming Jitvora interface — calmer, more focused, native to Windows. Real screenshots from the app.",
+    "preview.note": "Design preview — the current download is v3.0.6.",
+    "preview.cap1": "Dashboard",
+    "preview.cap2": "Network Watch",
+    "preview.cap3": "Settings"
   },
     hi: {
     "nav.features": "à¤¸à¥à¤µà¤¿à¤§à¤¾à¤à¤",
@@ -2245,7 +2357,14 @@
     "ui.preview": "Preview",
     "ui.optional": "Optional",
     "feat.pro.badge": "Preview",
-    "footer.tagline": "Optimize. Secure. Perform."
+    "footer.tagline": "Optimize. Secure. Perform.",
+    "preview.label": "Preview",
+    "preview.title": "A look at the redesigned app",
+    "preview.lead": "A preview of the upcoming Jitvora interface — calmer, more focused, native to Windows. Real screenshots from the app.",
+    "preview.note": "Design preview — the current download is v3.0.6.",
+    "preview.cap1": "Dashboard",
+    "preview.cap2": "Network Watch",
+    "preview.cap3": "Settings"
   },
     sv: {
     "nav.features": "Funktioner",
@@ -2375,7 +2494,14 @@
     "ui.preview": "Preview",
     "ui.optional": "Optional",
     "feat.pro.badge": "Preview",
-    "footer.tagline": "Optimize. Secure. Perform."
+    "footer.tagline": "Optimize. Secure. Perform.",
+    "preview.label": "Preview",
+    "preview.title": "A look at the redesigned app",
+    "preview.lead": "A preview of the upcoming Jitvora interface — calmer, more focused, native to Windows. Real screenshots from the app.",
+    "preview.note": "Design preview — the current download is v3.0.6.",
+    "preview.cap1": "Dashboard",
+    "preview.cap2": "Network Watch",
+    "preview.cap3": "Settings"
   },
     ro: {
     "nav.features": "Funcții",
@@ -2505,7 +2631,14 @@
     "ui.preview": "Preview",
     "ui.optional": "Optional",
     "feat.pro.badge": "Preview",
-    "footer.tagline": "Optimize. Secure. Perform."
+    "footer.tagline": "Optimize. Secure. Perform.",
+    "preview.label": "Preview",
+    "preview.title": "A look at the redesigned app",
+    "preview.lead": "A preview of the upcoming Jitvora interface — calmer, more focused, native to Windows. Real screenshots from the app.",
+    "preview.note": "Design preview — the current download is v3.0.6.",
+    "preview.cap1": "Dashboard",
+    "preview.cap2": "Network Watch",
+    "preview.cap3": "Settings"
   },
     hu: {
     "nav.features": "Funkciók",
@@ -2635,7 +2768,14 @@
     "ui.preview": "Preview",
     "ui.optional": "Optional",
     "feat.pro.badge": "Preview",
-    "footer.tagline": "Optimize. Secure. Perform."
+    "footer.tagline": "Optimize. Secure. Perform.",
+    "preview.label": "Preview",
+    "preview.title": "A look at the redesigned app",
+    "preview.lead": "A preview of the upcoming Jitvora interface — calmer, more focused, native to Windows. Real screenshots from the app.",
+    "preview.note": "Design preview — the current download is v3.0.6.",
+    "preview.cap1": "Dashboard",
+    "preview.cap2": "Network Watch",
+    "preview.cap3": "Settings"
   },
     el: {
     "nav.features": "Î›ειÏ„οÏ…ργίεÏ‚",
@@ -2765,7 +2905,14 @@
     "ui.preview": "Preview",
     "ui.optional": "Optional",
     "feat.pro.badge": "Preview",
-    "footer.tagline": "Optimize. Secure. Perform."
+    "footer.tagline": "Optimize. Secure. Perform.",
+    "preview.label": "Preview",
+    "preview.title": "A look at the redesigned app",
+    "preview.lead": "A preview of the upcoming Jitvora interface — calmer, more focused, native to Windows. Real screenshots from the app.",
+    "preview.note": "Design preview — the current download is v3.0.6.",
+    "preview.cap1": "Dashboard",
+    "preview.cap2": "Network Watch",
+    "preview.cap3": "Settings"
   },
     th: {
     "nav.features": "à¸Ÿà¸µà¹€à¸ˆà¸­à¸£à¹Œ",
@@ -2895,7 +3042,14 @@
     "ui.preview": "Preview",
     "ui.optional": "Optional",
     "feat.pro.badge": "Preview",
-    "footer.tagline": "Optimize. Secure. Perform."
+    "footer.tagline": "Optimize. Secure. Perform.",
+    "preview.label": "Preview",
+    "preview.title": "A look at the redesigned app",
+    "preview.lead": "A preview of the upcoming Jitvora interface — calmer, more focused, native to Windows. Real screenshots from the app.",
+    "preview.note": "Design preview — the current download is v3.0.6.",
+    "preview.cap1": "Dashboard",
+    "preview.cap2": "Network Watch",
+    "preview.cap3": "Settings"
   },
     vi: {
     "nav.features": "Tính năng",
@@ -3025,7 +3179,14 @@
     "ui.preview": "Preview",
     "ui.optional": "Optional",
     "feat.pro.badge": "Preview",
-    "footer.tagline": "Optimize. Secure. Perform."
+    "footer.tagline": "Optimize. Secure. Perform.",
+    "preview.label": "Preview",
+    "preview.title": "A look at the redesigned app",
+    "preview.lead": "A preview of the upcoming Jitvora interface — calmer, more focused, native to Windows. Real screenshots from the app.",
+    "preview.note": "Design preview — the current download is v3.0.6.",
+    "preview.cap1": "Dashboard",
+    "preview.cap2": "Network Watch",
+    "preview.cap3": "Settings"
   },
     id: {
     "nav.features": "Fitur",
@@ -3155,7 +3316,14 @@
     "ui.preview": "Preview",
     "ui.optional": "Optional",
     "feat.pro.badge": "Preview",
-    "footer.tagline": "Optimize. Secure. Perform."
+    "footer.tagline": "Optimize. Secure. Perform.",
+    "preview.label": "Preview",
+    "preview.title": "A look at the redesigned app",
+    "preview.lead": "A preview of the upcoming Jitvora interface — calmer, more focused, native to Windows. Real screenshots from the app.",
+    "preview.note": "Design preview — the current download is v3.0.6.",
+    "preview.cap1": "Dashboard",
+    "preview.cap2": "Network Watch",
+    "preview.cap3": "Settings"
   },
     da: {
     "nav.features": "Funktioner",
@@ -3285,7 +3453,14 @@
     "ui.preview": "Preview",
     "ui.optional": "Optional",
     "feat.pro.badge": "Preview",
-    "footer.tagline": "Optimize. Secure. Perform."
+    "footer.tagline": "Optimize. Secure. Perform.",
+    "preview.label": "Preview",
+    "preview.title": "A look at the redesigned app",
+    "preview.lead": "A preview of the upcoming Jitvora interface — calmer, more focused, native to Windows. Real screenshots from the app.",
+    "preview.note": "Design preview — the current download is v3.0.6.",
+    "preview.cap1": "Dashboard",
+    "preview.cap2": "Network Watch",
+    "preview.cap3": "Settings"
   },
     no: {
     "nav.features": "Funksjoner",
@@ -3415,7 +3590,14 @@
     "ui.preview": "Preview",
     "ui.optional": "Optional",
     "feat.pro.badge": "Preview",
-    "footer.tagline": "Optimize. Secure. Perform."
+    "footer.tagline": "Optimize. Secure. Perform.",
+    "preview.label": "Preview",
+    "preview.title": "A look at the redesigned app",
+    "preview.lead": "A preview of the upcoming Jitvora interface — calmer, more focused, native to Windows. Real screenshots from the app.",
+    "preview.note": "Design preview — the current download is v3.0.6.",
+    "preview.cap1": "Dashboard",
+    "preview.cap2": "Network Watch",
+    "preview.cap3": "Settings"
   },
     fi: {
     "nav.features": "Ominaisuudet",
@@ -3545,7 +3727,14 @@
     "ui.preview": "Preview",
     "ui.optional": "Optional",
     "feat.pro.badge": "Preview",
-    "footer.tagline": "Optimize. Secure. Perform."
+    "footer.tagline": "Optimize. Secure. Perform.",
+    "preview.label": "Preview",
+    "preview.title": "A look at the redesigned app",
+    "preview.lead": "A preview of the upcoming Jitvora interface — calmer, more focused, native to Windows. Real screenshots from the app.",
+    "preview.note": "Design preview — the current download is v3.0.6.",
+    "preview.cap1": "Dashboard",
+    "preview.cap2": "Network Watch",
+    "preview.cap3": "Settings"
   },
   };
 })(typeof window !== "undefined" ? window : globalThis);

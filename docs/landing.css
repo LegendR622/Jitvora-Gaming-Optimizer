@@ -1398,3 +1398,35 @@ body::after {
   .safe-actions { flex-direction: column; }
   .safe-btn { text-align: center; }
 }
+
+/* ————— App design preview ————— */
+.preview-grid {
+  margin-top: clamp(2rem, 5vw, 3.2rem);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(0.9rem, 2vw, 1.4rem);
+}
+.preview-shot {
+  margin: 0;
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: var(--shadow-lift);
+}
+.preview-shot--wide { grid-column: 1 / -1; }
+.preview-shot img { display: block; width: 100%; height: auto; }
+.preview-shot figcaption {
+  padding: 0.6rem 0.9rem;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  border-top: 1px solid var(--hairline);
+}
+.preview-note {
+  margin: 1.1rem 0 0;
+  font-size: 0.8rem;
+  color: var(--faint);
+}
+@media (max-width: 760px) {
+  .preview-grid { grid-template-columns: 1fr; }
+}
