@@ -10,13 +10,14 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Windows-10%2F11-0078D4?style=flat-square" alt="Windows 10/11" />
-  <img src="https://img.shields.io/badge/version-v3.0.5-00a3ff?style=flat-square" alt="v3.0.5" />
+  <img src="https://img.shields.io/badge/version-v3.0.7-00a3ff?style=flat-square" alt="v3.0.7" />
   <img src="https://img.shields.io/badge/price-Free-success?style=flat-square" alt="Free" />
   <img src="https://img.shields.io/badge/SHA256-available-informational?style=flat-square" alt="SHA256 available" />
   <img src="https://img.shields.io/badge/GitHub-Release-181717?style=flat-square" alt="GitHub Release" />
 </p>
 
 <p align="center">
+  <a href="https://jitvora.de/"><strong>Website</strong></a> &nbsp;·&nbsp;
   <a href="https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases/latest"><strong>Download latest</strong></a>
   ·
   <a href="https://legendr622.github.io/Jitvora-Gaming-Optimizer/">Website</a>
