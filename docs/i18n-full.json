@@ -94,8 +94,8 @@
     "netwatch.lead": "Ping, Jitter und Paketverlust live im Spiel — mit klarer Diagnose statt Raterei.",
     "netwatch.p1.title": "Live-Überwachung im Spiel",
     "netwatch.p1.text": "Ping, Jitter und Paketverlust werden gemessen, während dein Spiel läuft.",
-    "netwatch.p2.title": "Echte Spielserver-Erkennung",
-    "netwatch.p2.text": "Findet den Server, mit dem dein Spiel wirklich verbunden ist, und misst genau diese Route.",
+    "netwatch.p2.title": "Spielserver-Erkennung",
+    "netwatch.p2.text": "Findet den Server, mit dem dein Spiel wirklich verbunden ist, und misst diese Route — sofern eine gültige Quelle erkannt wird.",
     "netwatch.p3.title": "Ehrliche Diagnose",
     "netwatch.p3.text": "Zeigt, ob WLAN, Router oder Route bremst — und sagt „nicht messbar“, wenn ein Wert nicht belastbar ist.",
     "netwatch.row1": "Ping zum Spielserver",
@@ -168,7 +168,11 @@
     "preview.version": "App-Screenshots aus Version 3.0.6 · aktueller Download: {version}. Der Fensterinhalt reicht unter den sichtbaren Ausschnitt hinaus.",
     "netwatch.sample": "Beispielwert",
     "netwatch.sampleShort": "Beispiel",
-    "preview.pan": "Zum Erkunden seitwärts wischen"
+    "preview.pan": "Zum Erkunden seitwärts wischen",
+    "legal.langNote": "Diese Seite gibt es nur auf Deutsch und Englisch.",
+    "netwatch.method": "Gemessen wird per ICMP, aus dem Spiel-Log oder über UDP-Flow-Timing. Die App zeigt die verwendete Methode und wie sicher die Server-Erkennung ist.",
+    "trust.rollback.title": "Änderungen zurücknehmen",
+    "trust.rollback.text": "Angewendete Tweaks werden protokolliert und lassen sich einzeln zurücknehmen — nach Rückfrage. Für alles andere kann die App vorher einen Windows-Wiederherstellungspunkt anlegen."
   },
   "fr": {
     "nav.features": "Fonctionnalités",
@@ -339,7 +343,11 @@
     "preview.version": "Captures d'écran de la version 3.0.6 · téléchargement actuel : {version}. La fenêtre se prolonge sous la zone visible.",
     "netwatch.sample": "Valeur d'exemple",
     "netwatch.sampleShort": "Exemple",
-    "preview.pan": "Balayez sur le côté pour explorer"
+    "preview.pan": "Balayez sur le côté pour explorer",
+    "legal.langNote": "Cette page n'existe qu'en allemand et en anglais.",
+    "netwatch.method": "Mesure via ICMP, le journal du jeu ou le timing de flux UDP. L'application indique la méthode utilisée et le degré de certitude de la détection du serveur.",
+    "trust.rollback.title": "Annuler les modifications enregistrées",
+    "trust.rollback.text": "Les réglages appliqués sont journalisés et peuvent être annulés un par un, après confirmation. Pour le reste, l'application peut créer au préalable un point de restauration Windows."
   },
   "es": {
     "nav.features": "Funciones",
@@ -510,7 +518,11 @@
     "preview.version": "Capturas de la versión 3.0.6 · descarga actual: {version}. La ventana continúa por debajo del recorte visible.",
     "netwatch.sample": "Valor de ejemplo",
     "netwatch.sampleShort": "Ejemplo",
-    "preview.pan": "Desliza en horizontal para explorar"
+    "preview.pan": "Desliza en horizontal para explorar",
+    "legal.langNote": "Esta página solo está disponible en alemán e inglés.",
+    "netwatch.method": "Se mide mediante ICMP, el registro del juego o la temporización de flujo UDP. La app indica qué método se usó y con qué certeza se detectó el servidor.",
+    "trust.rollback.title": "Deshacer cambios registrados",
+    "trust.rollback.text": "Los ajustes aplicados se registran y pueden deshacerse uno a uno, tras una confirmación. Para lo demás, la app puede crear antes un punto de restauración de Windows."
   },
   "it": {
     "nav.features": "Funzionalità",
@@ -681,7 +693,11 @@
     "preview.version": "Screenshot dell'app dalla versione 3.0.6 · download attuale: {version}. La finestra prosegue sotto la porzione visibile.",
     "netwatch.sample": "Valore d'esempio",
     "netwatch.sampleShort": "Esempio",
-    "preview.pan": "Scorri lateralmente per esplorare"
+    "preview.pan": "Scorri lateralmente per esplorare",
+    "legal.langNote": "Questa pagina è disponibile solo in tedesco e inglese.",
+    "netwatch.method": "Misurazione tramite ICMP, log del gioco o timing del flusso UDP. L'app mostra il metodo usato e quanto è affidabile il rilevamento del server.",
+    "trust.rollback.title": "Annullare le modifiche registrate",
+    "trust.rollback.text": "Le modifiche applicate vengono registrate e possono essere annullate una alla volta, previa conferma. Per il resto l'app può creare prima un punto di ripristino di Windows."
   },
   "pt": {
     "nav.features": "Recursos",
@@ -852,7 +868,11 @@
     "preview.version": "Capturas da versão 3.0.6 · transferência atual: {version}. A janela continua abaixo da área visível.",
     "netwatch.sample": "Valor de exemplo",
     "netwatch.sampleShort": "Exemplo",
-    "preview.pan": "Deslize na horizontal para explorar"
+    "preview.pan": "Deslize na horizontal para explorar",
+    "legal.langNote": "Esta página só está disponível em alemão e inglês.",
+    "netwatch.method": "Medição por ICMP, registo do jogo ou temporização de fluxo UDP. A aplicação mostra o método usado e o grau de confiança da deteção do servidor.",
+    "trust.rollback.title": "Reverter alterações registadas",
+    "trust.rollback.text": "As alterações aplicadas são registadas e podem ser revertidas uma a uma, após confirmação. Para o restante, a aplicação pode criar antes um ponto de restauro do Windows."
   },
   "nl": {
     "nav.features": "Functies",
@@ -1023,7 +1043,11 @@
     "preview.version": "App-schermafbeeldingen uit versie 3.0.6 · huidige download: {version}. Het venster loopt door onder de zichtbare uitsnede.",
     "netwatch.sample": "Voorbeeldwaarde",
     "netwatch.sampleShort": "Voorbeeld",
-    "preview.pan": "Veeg opzij om te verkennen"
+    "preview.pan": "Veeg opzij om te verkennen",
+    "legal.langNote": "Deze pagina is alleen in het Duits en Engels beschikbaar.",
+    "netwatch.method": "Meting via ICMP, het gamelogboek of UDP-flowtiming. De app toont welke methode is gebruikt en hoe zeker de serverherkenning is.",
+    "trust.rollback.title": "Vastgelegde wijzigingen terugdraaien",
+    "trust.rollback.text": "Toegepaste tweaks worden vastgelegd en kunnen één voor één worden teruggedraaid, na bevestiging. Voor de rest kan de app vooraf een Windows-herstelpunt maken."
   },
   "pl": {
     "nav.features": "Funkcje",
@@ -1194,7 +1218,11 @@
     "preview.version": "Zrzuty ekranu aplikacji z wersji 3.0.6 · aktualne pobranie: {version}. Okno sięga poniżej widocznego kadru.",
     "netwatch.sample": "Wartość przykładowa",
     "netwatch.sampleShort": "Przykład",
-    "preview.pan": "Przesuń w bok, aby przeglądać"
+    "preview.pan": "Przesuń w bok, aby przeglądać",
+    "legal.langNote": "Ta strona jest dostępna tylko po niemiecku i angielsku.",
+    "netwatch.method": "Pomiar przez ICMP, dziennik gry lub pomiar czasu przepływu UDP. Aplikacja pokazuje użytą metodę i pewność rozpoznania serwera.",
+    "trust.rollback.title": "Cofanie zapisanych zmian",
+    "trust.rollback.text": "Zastosowane zmiany są zapisywane i można je cofać pojedynczo, po potwierdzeniu. W pozostałych przypadkach aplikacja może wcześniej utworzyć punkt przywracania Windows."
   },
   "tr": {
     "nav.features": "Özellikler",
@@ -1365,7 +1393,11 @@
     "preview.version": "Uygulama ekran görüntüleri 3.0.6 sürümünden · güncel indirme: {version}. Pencere görünen kırpmanın altında devam ediyor.",
     "netwatch.sample": "Örnek değer",
     "netwatch.sampleShort": "Örnek",
-    "preview.pan": "Keşfetmek için yana kaydırın"
+    "preview.pan": "Keşfetmek için yana kaydırın",
+    "legal.langNote": "Bu sayfa yalnızca Almanca ve İngilizce olarak mevcuttur.",
+    "netwatch.method": "Ölçüm ICMP, oyun günlüğü veya UDP akış zamanlaması ile yapılır. Uygulama hangi yöntemin kullanıldığını ve sunucu tespitinin ne kadar güvenilir olduğunu gösterir.",
+    "trust.rollback.title": "Kaydedilen değişiklikleri geri al",
+    "trust.rollback.text": "Uygulanan ayarlar günlüğe kaydedilir ve onay istendikten sonra tek tek geri alınabilir. Diğer durumlar için uygulama önceden bir Windows geri yükleme noktası oluşturabilir."
   },
   "ru": {
     "nav.features": "Функции",
@@ -1536,7 +1568,11 @@
     "preview.version": "Снимки приложения из версии 3.0.6 · текущая загрузка: {version}. Окно продолжается ниже видимой области.",
     "netwatch.sample": "Пример значения",
     "netwatch.sampleShort": "Пример",
-    "preview.pan": "Проведите вбок, чтобы рассмотреть"
+    "preview.pan": "Проведите вбок, чтобы рассмотреть",
+    "legal.langNote": "Эта страница доступна только на немецком и английском.",
+    "netwatch.method": "Измерение выполняется через ICMP, лог игры или тайминг UDP-потока. Приложение показывает использованный метод и надёжность определения сервера.",
+    "trust.rollback.title": "Откат записанных изменений",
+    "trust.rollback.text": "Применённые настройки записываются в журнал и отменяются по одной — после подтверждения. Для остального приложение может заранее создать точку восстановления Windows."
   },
   "uk": {
     "nav.features": "Функції",
@@ -1707,7 +1743,11 @@
     "preview.version": "Знімки застосунку з версії 3.0.6 · поточне завантаження: {version}. Вікно продовжується нижче видимої області.",
     "netwatch.sample": "Приклад значення",
     "netwatch.sampleShort": "Приклад",
-    "preview.pan": "Проведіть убік, щоб роздивитися"
+    "preview.pan": "Проведіть убік, щоб роздивитися",
+    "legal.langNote": "Ця сторінка доступна лише німецькою та англійською.",
+    "netwatch.method": "Вимірювання виконується через ICMP, лог гри або тайминг UDP-потоку. Застосунок показує застосований метод і надійність визначення сервера.",
+    "trust.rollback.title": "Відкат записаних змін",
+    "trust.rollback.text": "Застосовані налаштування записуються в журнал і скасовуються по одному — після підтвердження. Для решти застосунок може заздалегідь створити точку відновлення Windows."
   },
   "cs": {
     "nav.features": "Funkce",
@@ -1878,7 +1918,11 @@
     "preview.version": "Snímky aplikace z verze 3.0.6 · aktuální stažení: {version}. Okno pokračuje pod viditelným výřezem.",
     "netwatch.sample": "Ukázková hodnota",
     "netwatch.sampleShort": "Ukázka",
-    "preview.pan": "Posunutím do strany si prohlédnete detail"
+    "preview.pan": "Posunutím do strany si prohlédnete detail",
+    "legal.langNote": "Tato stránka je dostupná pouze v němčině a angličtině.",
+    "netwatch.method": "Měří se přes ICMP, herní log nebo časování UDP toku. Aplikace ukáže použitou metodu a jak jistě byl server rozpoznán.",
+    "trust.rollback.title": "Vrácení zaznamenaných změn",
+    "trust.rollback.text": "Použité úpravy se zaznamenávají a lze je vracet po jedné — po potvrzení. U ostatního může aplikace předem vytvořit bod obnovení Windows."
   },
   "ar": {
     "nav.features": "الميزات",
@@ -2049,7 +2093,11 @@
     "preview.version": "لقطات شاشة للتطبيق من الإصدار 3.0.6 · التنزيل الحالي: {version}. تمتد النافذة إلى ما دون الجزء الظاهر.",
     "netwatch.sample": "قيمة توضيحية",
     "netwatch.sampleShort": "مثال",
-    "preview.pan": "مرّر جانبيًا للاستكشاف"
+    "preview.pan": "مرّر جانبيًا للاستكشاف",
+    "legal.langNote": "هذه الصفحة متوفرة بالألمانية والإنجليزية فقط.",
+    "netwatch.method": "يتم القياس عبر ICMP أو سجل اللعبة أو توقيت تدفق UDP. ويعرض التطبيق الطريقة المستخدمة ومدى موثوقية التعرّف على الخادم.",
+    "trust.rollback.title": "التراجع عن التغييرات المسجّلة",
+    "trust.rollback.text": "تُسجَّل التعديلات المطبَّقة ويمكن التراجع عنها واحدًا تلو الآخر بعد طلب تأكيد. أما ما عدا ذلك فيمكن للتطبيق إنشاء نقطة استعادة لويندوز مسبقًا."
   },
   "zh": {
     "nav.features": "功能",
@@ -2220,7 +2268,11 @@
     "preview.version": "应用截图来自 3.0.6 版本 · 当前下载：{version}。窗口内容在可见区域下方继续。",
     "netwatch.sample": "示例数值",
     "netwatch.sampleShort": "示例",
-    "preview.pan": "横向滑动查看"
+    "preview.pan": "横向滑动查看",
+    "legal.langNote": "本页面仅提供德语和英语版本。",
+    "netwatch.method": "通过 ICMP、游戏日志或 UDP 流时序进行测量。应用会显示所用方法以及服务器识别的可信度。",
+    "trust.rollback.title": "撤销已记录的更改",
+    "trust.rollback.text": "已应用的调整会被记录，可在确认后逐项撤销。其他情况下，应用可以事先创建 Windows 还原点。"
   },
   "ja": {
     "nav.features": "機能",
@@ -2391,7 +2443,11 @@
     "preview.version": "アプリのスクリーンショットはバージョン 3.0.6 のものです · 現在のダウンロード: {version}。ウィンドウは表示範囲の下にも続いています。",
     "netwatch.sample": "サンプル値",
     "netwatch.sampleShort": "サンプル",
-    "preview.pan": "横にスワイプして表示"
+    "preview.pan": "横にスワイプして表示",
+    "legal.langNote": "このページはドイツ語と英語のみです。",
+    "netwatch.method": "測定は ICMP、ゲームログ、または UDP フロータイミングで行います。使用した方式とサーバー特定の確度をアプリが表示します。",
+    "trust.rollback.title": "記録された変更を元に戻す",
+    "trust.rollback.text": "適用した設定は記録され、確認のうえ 1 件ずつ元に戻せます。それ以外については、アプリが事前に Windows の復元ポイントを作成できます。"
   },
   "ko": {
     "nav.features": "기능",
@@ -2562,7 +2618,11 @@
     "preview.version": "앱 스크린샷은 3.0.6 버전입니다 · 현재 다운로드: {version}. 창은 보이는 영역 아래로 이어집니다.",
     "netwatch.sample": "예시 값",
     "netwatch.sampleShort": "예시",
-    "preview.pan": "옆으로 밀어 살펴보기"
+    "preview.pan": "옆으로 밀어 살펴보기",
+    "legal.langNote": "이 페이지는 독일어와 영어로만 제공됩니다.",
+    "netwatch.method": "ICMP, 게임 로그 또는 UDP 흐름 타이밍으로 측정합니다. 앱이 사용된 방식과 서버 식별의 신뢰도를 함께 보여줍니다.",
+    "trust.rollback.title": "기록된 변경 되돌리기",
+    "trust.rollback.text": "적용한 설정은 기록되며 확인을 거쳐 하나씩 되돌릴 수 있습니다. 그 밖의 경우에는 앱이 미리 Windows 복원 지점을 만들 수 있습니다."
   },
   "hi": {
     "nav.features": "सुविधाएँ",
@@ -2733,7 +2793,11 @@
     "preview.version": "ऐप स्क्रीनशॉट संस्करण 3.0.6 से · वर्तमान डाउनलोड: {version}। विंडो दिखाई देने वाले हिस्से के नीचे भी जारी रहती है।",
     "netwatch.sample": "उदाहरण मान",
     "netwatch.sampleShort": "उदाहरण",
-    "preview.pan": "देखने के लिए बगल में स्वाइप करें"
+    "preview.pan": "देखने के लिए बगल में स्वाइप करें",
+    "legal.langNote": "यह पेज केवल जर्मन और अंग्रेज़ी में उपलब्ध है।",
+    "netwatch.method": "माप ICMP, गेम लॉग या UDP फ़्लो टाइमिंग से किया जाता है। ऐप बताता है कि कौन-सी विधि इस्तेमाल हुई और सर्वर पहचान कितनी भरोसेमंद है।",
+    "trust.rollback.title": "दर्ज बदलाव पूर्ववत करें",
+    "trust.rollback.text": "लागू किए गए बदलाव दर्ज होते हैं और पुष्टि के बाद एक-एक करके पूर्ववत किए जा सकते हैं। बाकी के लिए ऐप पहले से Windows पुनर्स्थापना बिंदु बना सकता है।"
   },
   "sv": {
     "nav.features": "Funktioner",
@@ -2904,7 +2968,11 @@
     "preview.version": "Appskärmbilder från version 3.0.6 · aktuell nedladdning: {version}. Fönstret fortsätter under den synliga beskärningen.",
     "netwatch.sample": "Exempelvärde",
     "netwatch.sampleShort": "Exempel",
-    "preview.pan": "Svep i sidled för att utforska"
+    "preview.pan": "Svep i sidled för att utforska",
+    "legal.langNote": "Den här sidan finns bara på tyska och engelska.",
+    "netwatch.method": "Mätning sker via ICMP, spelloggen eller UDP-flödestiming. Appen visar vilken metod som användes och hur säker serveridentifieringen är.",
+    "trust.rollback.title": "Ångra loggade ändringar",
+    "trust.rollback.text": "Tillämpade ändringar loggas och kan ångras en i taget, efter bekräftelse. För övrigt kan appen skapa en Windows-återställningspunkt i förväg."
   },
   "ro": {
     "nav.features": "Funcții",
@@ -3075,7 +3143,11 @@
     "preview.version": "Capturi din versiunea 3.0.6 · descărcare actuală: {version}. Fereastra continuă sub zona vizibilă.",
     "netwatch.sample": "Valoare exemplu",
     "netwatch.sampleShort": "Exemplu",
-    "preview.pan": "Glisează lateral pentru a explora"
+    "preview.pan": "Glisează lateral pentru a explora",
+    "legal.langNote": "Această pagină este disponibilă doar în germană și engleză.",
+    "netwatch.method": "Măsurarea se face prin ICMP, jurnalul jocului sau temporizarea fluxului UDP. Aplicația arată metoda folosită și cât de sigură este identificarea serverului.",
+    "trust.rollback.title": "Anularea modificărilor înregistrate",
+    "trust.rollback.text": "Modificările aplicate sunt înregistrate și pot fi anulate una câte una, după confirmare. Pentru restul, aplicația poate crea în prealabil un punct de restaurare Windows."
   },
   "hu": {
     "nav.features": "Funkciók",
@@ -3246,7 +3318,11 @@
     "preview.version": "Alkalmazás-képernyőképek a 3.0.6 verzióból · jelenlegi letöltés: {version}. Az ablak a látható kivágás alatt folytatódik.",
     "netwatch.sample": "Példaérték",
     "netwatch.sampleShort": "Példa",
-    "preview.pan": "Húzd oldalra a felfedezéshez"
+    "preview.pan": "Húzd oldalra a felfedezéshez",
+    "legal.langNote": "Ez az oldal csak németül és angolul érhető el.",
+    "netwatch.method": "A mérés ICMP-vel, a játéknaplóból vagy UDP-folyamidőzítéssel történik. Az alkalmazás megmutatja a használt módszert és a szerverfelismerés biztonságát.",
+    "trust.rollback.title": "Naplózott módosítások visszavonása",
+    "trust.rollback.text": "Az alkalmazott módosítások naplózódnak, és megerősítés után egyenként visszavonhatók. Minden máshoz az alkalmazás előre létrehozhat egy Windows-visszaállítási pontot."
   },
   "el": {
     "nav.features": "Λειτουργίες",
@@ -3417,7 +3493,11 @@
     "preview.version": "Στιγμιότυπα της εφαρμογής από την έκδοση 3.0.6 · τρέχουσα λήψη: {version}. Το παράθυρο συνεχίζεται κάτω από το ορατό τμήμα.",
     "netwatch.sample": "Ενδεικτική τιμή",
     "netwatch.sampleShort": "Παράδειγμα",
-    "preview.pan": "Σύρετε πλάγια για εξερεύνηση"
+    "preview.pan": "Σύρετε πλάγια για εξερεύνηση",
+    "legal.langNote": "Αυτή η σελίδα είναι διαθέσιμη μόνο στα γερμανικά και τα αγγλικά.",
+    "netwatch.method": "Η μέτρηση γίνεται μέσω ICMP, του αρχείου καταγραφής του παιχνιδιού ή χρονισμού ροής UDP. Η εφαρμογή δείχνει τη μέθοδο που χρησιμοποιήθηκε και πόσο βέβαιη είναι η αναγνώριση του διακομιστή.",
+    "trust.rollback.title": "Αναίρεση καταγεγραμμένων αλλαγών",
+    "trust.rollback.text": "Οι αλλαγές που εφαρμόζονται καταγράφονται και μπορούν να αναιρεθούν μία-μία, μετά από επιβεβαίωση. Για τα υπόλοιπα, η εφαρμογή μπορεί να δημιουργήσει εκ των προτέρων σημείο επαναφοράς των Windows."
   },
   "th": {
     "nav.features": "ฟีเจอร์",
@@ -3588,7 +3668,11 @@
     "preview.version": "ภาพหน้าจอแอปจากเวอร์ชัน 3.0.6 · ดาวน์โหลดปัจจุบัน: {version} หน้าต่างยังมีเนื้อหาต่อด้านล่างส่วนที่มองเห็น",
     "netwatch.sample": "ค่าตัวอย่าง",
     "netwatch.sampleShort": "ตัวอย่าง",
-    "preview.pan": "ปัดด้านข้างเพื่อดู"
+    "preview.pan": "ปัดด้านข้างเพื่อดู",
+    "legal.langNote": "หน้านี้มีเฉพาะภาษาเยอรมันและอังกฤษเท่านั้น",
+    "netwatch.method": "วัดผ่าน ICMP บันทึกของเกม หรือการจับเวลาโฟลว์ UDP แอปจะแสดงวิธีที่ใช้และความเชื่อมั่นในการระบุเซิร์ฟเวอร์",
+    "trust.rollback.title": "ย้อนกลับการเปลี่ยนแปลงที่บันทึกไว้",
+    "trust.rollback.text": "การปรับที่นำไปใช้จะถูกบันทึกไว้และย้อนกลับได้ทีละรายการหลังการยืนยัน สำหรับกรณีอื่น แอปสามารถสร้างจุดคืนค่าระบบของ Windows ไว้ล่วงหน้าได้"
   },
   "vi": {
     "nav.features": "Tính năng",
@@ -3759,7 +3843,11 @@
     "preview.version": "Ảnh chụp ứng dụng từ phiên bản 3.0.6 · bản tải hiện tại: {version}. Cửa sổ còn tiếp tục bên dưới phần nhìn thấy.",
     "netwatch.sample": "Giá trị ví dụ",
     "netwatch.sampleShort": "Ví dụ",
-    "preview.pan": "Vuốt ngang để xem"
+    "preview.pan": "Vuốt ngang để xem",
+    "legal.langNote": "Trang này chỉ có bằng tiếng Đức và tiếng Anh.",
+    "netwatch.method": "Đo bằng ICMP, nhật ký game hoặc định thời luồng UDP. Ứng dụng cho biết phương pháp đã dùng và mức độ tin cậy khi nhận diện máy chủ.",
+    "trust.rollback.title": "Hoàn tác thay đổi đã ghi",
+    "trust.rollback.text": "Các tinh chỉnh đã áp dụng được ghi lại và có thể hoàn tác từng mục sau khi xác nhận. Với những trường hợp khác, ứng dụng có thể tạo trước điểm khôi phục Windows."
   },
   "id": {
     "nav.features": "Fitur",
@@ -3930,7 +4018,11 @@
     "preview.version": "Tangkapan layar aplikasi dari versi 3.0.6 · unduhan saat ini: {version}. Jendela berlanjut di bawah area yang terlihat.",
     "netwatch.sample": "Nilai contoh",
     "netwatch.sampleShort": "Contoh",
-    "preview.pan": "Geser ke samping untuk menjelajah"
+    "preview.pan": "Geser ke samping untuk menjelajah",
+    "legal.langNote": "Halaman ini hanya tersedia dalam bahasa Jerman dan Inggris.",
+    "netwatch.method": "Diukur melalui ICMP, log game, atau pewaktuan aliran UDP. Aplikasi menampilkan metode yang dipakai dan seberapa yakin identifikasi servernya.",
+    "trust.rollback.title": "Batalkan perubahan yang tercatat",
+    "trust.rollback.text": "Perubahan yang diterapkan dicatat dan dapat dibatalkan satu per satu setelah konfirmasi. Selebihnya, aplikasi dapat membuat titik pemulihan Windows terlebih dahulu."
   },
   "da": {
     "nav.features": "Funktioner",
@@ -4101,7 +4193,11 @@
     "preview.version": "App-skærmbilleder fra version 3.0.6 · aktuelt download: {version}. Vinduet fortsætter under det synlige udsnit.",
     "netwatch.sample": "Eksempelværdi",
     "netwatch.sampleShort": "Eksempel",
-    "preview.pan": "Stryg til siden for at udforske"
+    "preview.pan": "Stryg til siden for at udforske",
+    "legal.langNote": "Denne side findes kun på tysk og engelsk.",
+    "netwatch.method": "Måling sker via ICMP, spillets log eller UDP-flowtiming. Appen viser den anvendte metode, og hvor sikker serveridentifikationen er.",
+    "trust.rollback.title": "Fortryd loggede ændringer",
+    "trust.rollback.text": "Anvendte justeringer logges og kan fortrydes én ad gangen efter en bekræftelse. Til alt andet kan appen oprette et Windows-gendannelsespunkt på forhånd."
   },
   "no": {
     "nav.features": "Funksjoner",
@@ -4272,7 +4368,11 @@
     "preview.version": "App-skjermbilder fra versjon 3.0.6 · gjeldende nedlasting: {version}. Vinduet fortsetter under det synlige utsnittet.",
     "netwatch.sample": "Eksempelverdi",
     "netwatch.sampleShort": "Eksempel",
-    "preview.pan": "Sveip til siden for å utforske"
+    "preview.pan": "Sveip til siden for å utforske",
+    "legal.langNote": "Denne siden finnes bare på tysk og engelsk.",
+    "netwatch.method": "Måling skjer via ICMP, spilloggen eller UDP-flyttiming. Appen viser hvilken metode som ble brukt og hvor sikker serveridentifiseringen er.",
+    "trust.rollback.title": "Angre loggede endringer",
+    "trust.rollback.text": "Anvendte justeringer logges og kan angres én om gangen etter en bekreftelse. Ellers kan appen opprette et Windows-gjenopprettingspunkt på forhånd."
   },
   "fi": {
     "nav.features": "Ominaisuudet",
@@ -4443,7 +4543,11 @@
     "preview.version": "Sovelluskuvat versiosta 3.0.6 · nykyinen lataus: {version}. Ikkuna jatkuu näkyvän rajauksen alapuolelle.",
     "netwatch.sample": "Esimerkkiarvo",
     "netwatch.sampleShort": "Esimerkki",
-    "preview.pan": "Pyyhkäise sivulle tutkiaksesi"
+    "preview.pan": "Pyyhkäise sivulle tutkiaksesi",
+    "legal.langNote": "Tämä sivu on saatavilla vain saksaksi ja englanniksi.",
+    "netwatch.method": "Mittaus tapahtuu ICMP:llä, pelin lokista tai UDP-vuon ajoituksesta. Sovellus näyttää käytetyn menetelmän ja palvelintunnistuksen varmuuden.",
+    "trust.rollback.title": "Kumoa kirjatut muutokset",
+    "trust.rollback.text": "Käyttöön otetut muutokset kirjataan ja ne voi perua yksi kerrallaan vahvistuksen jälkeen. Muissa tapauksissa sovellus voi luoda etukäteen Windowsin palautuspisteen."
   },
   "en": {
     "nav.features": "Features",
@@ -4540,8 +4644,8 @@
     "netwatch.lead": "Live ping, jitter and packet loss during your game — with a clear diagnosis instead of guesswork.",
     "netwatch.p1.title": "Live in-game monitoring",
     "netwatch.p1.text": "Ping, jitter and packet loss measured while your game is running.",
-    "netwatch.p2.title": "Real game-server detection",
-    "netwatch.p2.text": "Finds the server your game is actually connected to and measures that route.",
+    "netwatch.p2.title": "Game-server detection",
+    "netwatch.p2.text": "Finds the server your game is actually connected to and measures that route — when a valid source is detected.",
     "netwatch.p3.title": "Honest diagnosis",
     "netwatch.p3.text": "Points to Wi-Fi, router or route — and says “not measurable” when a value cannot be trusted.",
     "netwatch.row1": "Ping to game server",
@@ -4614,6 +4718,10 @@
     "preview.version": "App screenshots from version 3.0.6 · current download: {version}. The window continues below the visible crop.",
     "netwatch.sample": "Example value",
     "netwatch.sampleShort": "Example",
-    "preview.pan": "Swipe sideways to explore"
+    "preview.pan": "Swipe sideways to explore",
+    "legal.langNote": "This page is available in German and English only.",
+    "netwatch.method": "Measured via ICMP, the game log, or UDP flow timing. The app shows which method was used and how confident the server detection is.",
+    "trust.rollback.title": "Undo logged changes",
+    "trust.rollback.text": "Applied tweaks are logged and can be undone one at a time — after a confirmation prompt. For anything else the app can create a Windows restore point beforehand."
   }
 }

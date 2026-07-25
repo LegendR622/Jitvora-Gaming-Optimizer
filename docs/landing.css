@@ -937,6 +937,10 @@ p  { margin: 0; text-wrap: pretty; }
 .net-graphwrap { padding: 1rem 1.25rem; color: var(--blue); }
 .net-graph { display: block; width: 100%; height: clamp(90px, 12vw, 130px); }
 
+.net-method {
+  max-width: var(--max-text); margin-top: 1rem;
+  font-size: 0.8rem; color: var(--text-4); line-height: 1.55;
+}
 .net-points {
   display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(1rem, 2.4vw, 2rem);
@@ -1201,35 +1205,61 @@ p  { margin: 0; text-wrap: pretty; }
 }
 .back-top:hover { color: var(--text); border-color: var(--line-2); }
 
-/* ————————————————— 17 · language switcher (site-lang.js contract) ————————————————— */
-.lang-switch { display: inline-flex; align-items: center; gap: 0.4rem; }
-.lang-switch-label { display: none; }
-.lang-switch-row { display: inline-flex; align-items: center; gap: 0.35rem; }
+/* ————————————————— 17 · language switcher ————————————————— */
+/* The long list is a native <select>: keyboard-operable, Escape- and
+   outside-click-closing and always inside the viewport, for free. */
+.lang-switch { display: inline-flex; align-items: center; }
+.lang-switch-label { position: absolute; }
+.lang-switch-row { display: inline-flex; align-items: center; gap: 0.4rem; }
+
+.lang-globe { flex: none; color: var(--text-4); }
+
 .lang-switch-btns {
   display: inline-flex; padding: 2px; gap: 2px;
   border-radius: var(--r-sm); background: var(--panel); border: 1px solid var(--line);
 }
 .lang-btn {
-  padding: 0.16rem 0.42rem; border: 0; border-radius: 6px;
+  padding: 0.16rem 0.44rem; border: 0; border-radius: 6px;
   background: none; color: var(--text-4);
   font-family: var(--mono); font-size: 0.66rem; font-weight: 600; cursor: pointer;
   transition: background var(--dur-1) var(--ease), color var(--dur-1) var(--ease);
 }
-.lang-btn:hover { color: var(--text-2); }
-.lang-btn.is-active { background: var(--panel-3); color: var(--text); }
+.lang-btn:hover { color: var(--text-2); background: var(--panel-2); }
+.lang-btn.is-active {
+  background: var(--panel-3); color: var(--text);
+  box-shadow: inset 0 0 0 1px var(--line-2);
+}
+
 .lang-select-more {
-  height: 28px; max-width: 8.5rem;
-  padding: 0 0.4rem; border-radius: var(--r-sm);
+  /* fixed width so switching Deutsch <-> Bahasa Indonesia never reflows the bar */
+  width: 8.25rem; height: 28px;
+  padding: 0 1.5rem 0 0.5rem;
+  border-radius: var(--r-sm);
   background: var(--panel); border: 1px solid var(--line); color: var(--text-3);
-  font-size: 0.74rem; cursor: pointer;
+  font: inherit; font-size: 0.75rem;
+  cursor: pointer; appearance: none;
+  text-overflow: ellipsis; white-space: nowrap; overflow: hidden;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='none' stroke='%23787f92' stroke-width='1.4' d='M1 1l4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  transition: border-color var(--dur-1) var(--ease), color var(--dur-1) var(--ease);
+}
+[dir="rtl"] .lang-select-more {
+  padding: 0 0.5rem 0 1.5rem;
+  background-position: left 0.5rem center;
 }
 .lang-select-more:hover { border-color: var(--line-2); color: var(--text-2); }
-.lang-select-more option { background: var(--ink-700); color: var(--text); }
 .lang-select-more.is-active { color: var(--text); border-color: var(--line-2); }
+.lang-select-more option { background: var(--ink-700); color: var(--text); }
 .lang-switch-note { display: none; }
-.nav-drawer-lang .lang-switch { flex-wrap: wrap; }
+
+/* in the mobile drawer the switcher gets the full width and a visible label */
+.nav-drawer-lang .lang-switch { display: block; width: 100%; }
+.nav-drawer-lang .lang-switch-row { display: flex; width: 100%; }
+.nav-drawer-lang .lang-select-more { flex: 1; width: auto; height: 40px; font-size: 0.9rem; }
+.nav-drawer-lang .lang-btn { padding: 0.5rem 0.75rem; font-size: 0.75rem; }
 .nav-drawer-lang .lang-switch-note {
-  display: block; margin-top: 0.5rem; font-size: 0.72rem; color: var(--text-4);
+  display: block; margin-top: 0.6rem; font-size: 0.72rem; color: var(--text-4);
 }
 
 /* ————————————————— 18 · command palette ————————————————— */
@@ -1379,11 +1409,13 @@ body.cmdk-open { overflow: hidden; }
 }
 
 /* ————————————————— 20 · responsive ————————————————— */
-/* just above the burger breakpoint the bar is tight — drop the search label */
-@media (max-width: 1260px) {
+/* just above the burger breakpoint the bar is tight — drop the search label and
+   tighten the links, sized against the widest locale (fr) */
+@media (max-width: 1320px) {
   .cmdk-trigger { padding: 0 0.45rem; }
   .cmdk-trigger > span { display: none; }
-  .lang-select-more { max-width: 6.5rem; }
+  .nav-links a { padding-inline: 0.5rem; }
+  .lang-select-more { width: 7.25rem; }
 }
 
 @media (max-width: 1080px) {
@@ -1399,7 +1431,7 @@ body.cmdk-open { overflow: hidden; }
 
 /* The bar collapses well before tablet width: the five nav labels plus the
    language switcher need real room, and locales like fr/ru/uk run long. */
-@media (max-width: 1120px) {
+@media (max-width: 1200px) {
   .nav-links { display: none; }
   .nav-lang-desktop { display: none; }
   .cmdk-trigger { display: none; }
@@ -1429,7 +1461,11 @@ body.cmdk-open { overflow: hidden; }
   .showcase-tab-d { display: none; }
   .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .step:nth-child(2)::after { display: none; }
-  .net-points { grid-template-columns: 1fr; gap: 1.3rem; }
+  .net-method {
+  max-width: var(--max-text); margin-top: 1rem;
+  font-size: 0.8rem; color: var(--text-4); line-height: 1.55;
+}
+.net-points { grid-template-columns: 1fr; gap: 1.3rem; }
   .tile, .tile--3, .tile--4 { grid-column: span 3; }
   .tile--nots { grid-column: span 6; grid-row: auto; }
   .tile--6, .tile--hash { grid-column: span 6; }

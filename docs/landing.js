@@ -78,7 +78,7 @@
     });
     // matches the nav's collapse breakpoint — the drawer must close once the
     // full bar comes back, otherwise it hangs open behind the desktop nav
-    var wide = window.matchMedia("(min-width: 1121px)");
+    var wide = window.matchMedia("(min-width: 1201px)");
     (wide.addEventListener ? wide.addEventListener.bind(wide, "change") : wide.addListener.bind(wide))(
       function (e) { if (e.matches) setOpen(false); });
   })();
