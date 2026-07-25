@@ -76,9 +76,11 @@
       if (panel.contains(e.target) || toggle.contains(e.target)) return;
       setOpen(false);
     });
-    window.addEventListener("resize", function () {
-      if (window.innerWidth > 940) setOpen(false);
-    });
+    // matches the nav's collapse breakpoint — the drawer must close once the
+    // full bar comes back, otherwise it hangs open behind the desktop nav
+    var wide = window.matchMedia("(min-width: 1121px)");
+    (wide.addEventListener ? wide.addEventListener.bind(wide, "change") : wide.addListener.bind(wide))(
+      function (e) { if (e.matches) setOpen(false); });
   })();
 
   /* ————— scroll reveals ————— */
@@ -98,9 +100,9 @@
     targets.forEach(function (el) { io.observe(el); });
   })();
 
-  /* ————— feature explorer tabs ————— */
-  (function tabs() {
-    var list = $(".showcase-tabs");
+  /* ————— tablists: feature explorer + screenshot gallery ————— */
+  function wireTabs(listSel) {
+    var list = $(listSel);
     if (!list) return;
     var tabEls = $$("[role='tab']", list);
     if (!tabEls.length) return;
@@ -117,8 +119,7 @@
         p.hidden = !on;
         p.classList.remove("is-entering");
         if (on && !reduced) {
-          // restart the enter animation
-          void p.offsetWidth;
+          void p.offsetWidth;          // restart the enter animation
           p.classList.add("is-entering");
         }
       });
@@ -133,7 +134,7 @@
     list.addEventListener("keydown", function (e) {
       var i = tabEls.indexOf(document.activeElement);
       if (i < 0) return;
-      // the list is vertical on desktop and horizontal on mobile, so accept both axes
+      // the lists run vertically on desktop and horizontally on mobile — accept both axes
       var next = null;
       if (e.key === "ArrowDown" || e.key === "ArrowRight") next = tabEls[(i + 1) % tabEls.length];
       else if (e.key === "ArrowUp" || e.key === "ArrowLeft") next = tabEls[(i - 1 + tabEls.length) % tabEls.length];
@@ -144,7 +145,46 @@
       select(next, true);
     });
 
-    select(tabEls[0], false);
+    // horizontal lists can be swiped on touch devices
+    var startX = null;
+    list.addEventListener("touchstart", function (e) {
+      startX = e.touches.length === 1 ? e.touches[0].clientX : null;
+    }, { passive: true });
+    list.addEventListener("touchend", function (e) {
+      if (startX === null) return;
+      var dx = e.changedTouches[0].clientX - startX;
+      startX = null;
+      if (Math.abs(dx) < 60) return;
+      var cur = tabEls.findIndex(function (t) { return t.getAttribute("aria-selected") === "true"; });
+      if (cur < 0) return;
+      select(tabEls[(cur + (dx < 0 ? 1 : tabEls.length - 1)) % tabEls.length], false);
+    }, { passive: true });
+
+    select(tabEls.filter(function (t) { return t.getAttribute("aria-selected") === "true"; })[0]
+           || tabEls[0], false);
+  }
+  wireTabs(".showcase-tabs");
+  wireTabs(".gal-tabs");
+
+  /* Gallery captures stay lazy for visitors who never scroll that far, but the
+     moment the section comes into view they are warmed up — otherwise switching
+     tabs shows an empty frame while the image is still being fetched. */
+  (function warmGallery() {
+    var gallery = $(".gallery");
+    if (!gallery) return;
+    function warm() {
+      $$("img[loading='lazy']", gallery).forEach(function (img) {
+        img.setAttribute("loading", "eager");
+        img.setAttribute("fetchpriority", "low");
+      });
+    }
+    if (!("IntersectionObserver" in window)) { warm(); return; }
+    var io = new IntersectionObserver(function (entries) {
+      if (!entries.some(function (e) { return e.isIntersecting; })) return;
+      io.disconnect();
+      warm();
+    }, { rootMargin: "300px 0px" });
+    io.observe(gallery);
   })();
 
   /* ————— hero cursor light ————— */
@@ -167,42 +207,88 @@
     }, { passive: true });
   })();
 
-  /* ————— live release data: version chip + SHA256 ————— */
-  (function trustData() {
+  /* ————— release facts: one source of truth for the whole page —————
+     trust-latest.json carries version, file name, download URL and SHA256.
+     The HTML ships the current values as a no-JS fallback; this keeps every
+     body reference in sync when the JSON is bumped. Head metadata and the
+     JSON-LD block stay static so crawlers see them without scripting. */
+  var RELEASE = {
+    version: "3.0.7",
+    file: "Jitvora_Gaming_Optimizer_Setup_v3.0.7.exe",
+    url: null,
+    sha256: null
+  };
+
+  function paintRelease() {
+    $$("[data-app-version]").forEach(function (el) { el.textContent = "v" + RELEASE.version; });
+    if (RELEASE.url) {
+      $$("[data-dl-link]").forEach(function (el) { el.href = RELEASE.url; });
+    }
+    if (RELEASE.sha256) {
+      $$("[data-hash-full]").forEach(function (el) { el.textContent = RELEASE.sha256; });
+      $$("[data-hash-short]").forEach(function (el) {
+        el.textContent = RELEASE.sha256.slice(0, 8) + "…" + RELEASE.sha256.slice(-6);
+      });
+    }
+  }
+
+  /* Translations carry {version} / {file} rather than a baked release number,
+     so a bump touches trust-latest.json only — never 27 locale files. */
+  function fillTokens(root) {
+    var walker = document.createTreeWalker(root || document.body, NodeFilter.SHOW_TEXT);
+    var node, hits = [];
+    while ((node = walker.nextNode())) {
+      if (node.nodeValue.indexOf("{version}") >= 0 || node.nodeValue.indexOf("{file}") >= 0) {
+        hits.push(node);
+      }
+    }
+    hits.forEach(function (n) {
+      n.nodeValue = n.nodeValue
+        .replace(/\{version\}/g, "v" + RELEASE.version)
+        .replace(/\{file\}/g, RELEASE.file);
+    });
+    var desc = document.querySelector('meta[name="description"][data-i18n-desc]');
+    if (desc) {
+      desc.setAttribute("content", desc.getAttribute("content")
+        .replace(/\{version\}/g, "v" + RELEASE.version)
+        .replace(/\{file\}/g, RELEASE.file));
+    }
+  }
+
+  /* ————— i18n: placeholders + token fill, re-run on every language switch ————— */
+  (function i18nExtras() {
+    function apply() {
+      var table = (window.REDLINE_I18N || {})[document.documentElement.getAttribute("data-site-lang")]
+               || window.REDLINE_I18N_BASE;
+      if (table) {
+        $$("[data-i18n-ph]").forEach(function (el) {
+          var v = table[el.getAttribute("data-i18n-ph")];
+          if (v) el.setAttribute("placeholder", v.replace(/\{version\}/g, "v" + RELEASE.version));
+        });
+      }
+      fillTokens();
+      paintRelease();
+    }
+    apply();
+    // site-lang.js rewrites the strings and flips this attribute — mirror it
+    new MutationObserver(apply).observe(document.documentElement, {
+      attributes: true, attributeFilter: ["data-site-lang"]
+    });
+
     if (!("fetch" in window)) return;
     fetch("trust-latest.json", { cache: "no-cache" })
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (d) {
         if (!d) return;
-        if (d.version) {
-          $$("[data-app-version]").forEach(function (el) { el.textContent = "v" + d.version; });
+        if (d.version) RELEASE.version = d.version;
+        if (d.fileName) RELEASE.file = d.fileName;
+        if (d.downloadUrl && /^https:\/\/github\.com\/LegendR622\//.test(d.downloadUrl)) {
+          RELEASE.url = d.downloadUrl;
         }
-        if (typeof d.sha256 === "string" && d.sha256.length === 64) {
-          $$("[data-hash-full]").forEach(function (el) { el.textContent = d.sha256; });
-          $$("[data-hash-short]").forEach(function (el) {
-            el.textContent = d.sha256.slice(0, 8) + "…" + d.sha256.slice(-6);
-          });
-        }
+        if (typeof d.sha256 === "string" && d.sha256.length === 64) RELEASE.sha256 = d.sha256;
+        paintRelease();
       })
-      .catch(function () { /* static values in the HTML stay as the fallback */ });
-  })();
-
-  /* ————— i18n placeholders (site-lang.js only handles text/aria/title) ————— */
-  (function placeholders() {
-    function apply() {
-      var table = (window.REDLINE_I18N || {})[document.documentElement.getAttribute("data-site-lang")]
-               || window.REDLINE_I18N_BASE;
-      if (!table) return;
-      $$("[data-i18n-ph]").forEach(function (el) {
-        var v = table[el.getAttribute("data-i18n-ph")];
-        if (v) el.setAttribute("placeholder", v);
-      });
-    }
-    apply();
-    // language switches mutate the <html> attribute — mirror the change
-    new MutationObserver(apply).observe(document.documentElement, {
-      attributes: true, attributeFilter: ["data-site-lang"]
-    });
+      .catch(function () { /* the static HTML values remain correct */ });
   })();
 
   /* ————— command palette ————— */
@@ -224,7 +310,7 @@
 
     // label: i18n key (falls back to `text`) · href · icon · hint
     var COMMANDS = [
-      { key: "hero.download", text: "Download for Windows", href: "#download", icon: "download", hint: "v3.0.7" },
+      { key: "hero.download", text: "Download for Windows", href: "#download", icon: "download", hint: "version" },
       { key: "nav.features", text: "Features", href: "#features", icon: "section" },
       { key: "netwatch.label", text: "Network Watch", href: "#netwatch", icon: "section" },
       { key: "preview.label", text: "Preview", href: "#preview", icon: "section" },
@@ -248,7 +334,10 @@
     function label(cmd) {
       var table = (window.REDLINE_I18N || {})[document.documentElement.getAttribute("data-site-lang")]
                || window.REDLINE_I18N_BASE || {};
-      return table[cmd.key] || cmd.text;
+      // palette rows are built after fillTokens has run, so resolve them here too
+      return (table[cmd.key] || cmd.text)
+        .replace(/\{version\}/g, "v" + RELEASE.version)
+        .replace(/\{file\}/g, RELEASE.file);
     }
 
     function render(query) {
@@ -272,7 +361,9 @@
           "<span></span>" +
           (cmd.hint ? '<span class="cmdk-item-hint"></span>' : "");
         btn.children[1].textContent = label(cmd);
-        if (cmd.hint) btn.children[2].textContent = cmd.hint;
+        if (cmd.hint) {
+          btn.children[2].textContent = cmd.hint === "version" ? "v" + RELEASE.version : cmd.hint;
+        }
         btn.addEventListener("click", function () { run(cmd); });
         li.appendChild(btn);
         listEl.appendChild(li);
