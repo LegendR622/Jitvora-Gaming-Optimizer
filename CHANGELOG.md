@@ -10,6 +10,33 @@ All notable changes to **Jitvora Gaming Optimizer** are listed here (newest firs
 
 ---
 
+## [3.0.8] — 2026-07-26
+
+**Safety release — recommended for everyone who uses the Cleaner.**
+
+### Fixed
+- **Critical — Cleaner could delete files outside the folder it was cleaning.** The temp scan walked subfolders with an option that follows directory junctions and symbolic links. If a link inside a temp folder pointed somewhere else (for example to Documents), the delete pass resolved through the link and removed the real target files. This was reproduced in a test VM: three bait files in Documents were destroyed while the Cleaner still reported a successful cleanup. The Cleaner now uses a link-aware folder walk that skips every reparse point and never deletes through a link.
+- **Cleaner reported success even when deletions failed.** Errors were caught and silently discarded, so the freed-space number could not be trusted. The Live Log now reports how many links were skipped and how many items could not be deleted because they were locked or access was denied.
+- **Folder sizes could count data outside the folder.** The size calculation used the same unsafe traversal and could include files reached through a link. It now uses the link-aware walk as well.
+- **First-run terms dialog showed the old product name.** The very first dialog after installation said “Redline” in four places instead of Jitvora.
+
+### Changed
+- **Silent installation no longer starts the app.** The installer’s post-install launch now honors silent mode, so unattended and scripted installs finish without opening the app.
+
+_No features were removed. If you installed v3.0.7 or earlier and have used the Cleaner, updating is recommended._
+
+---
+
+## [3.0.7] — 2026-07-21
+
+### Improved
+- **Refreshed interface** — deep-black shell with a floating, rounded content panel
+- **More compact sidebar** — workspace header, anchored Update and Settings entries, calmer surfaces with fewer borders
+
+_Same tools, same behavior — interface only._
+
+---
+
 ## [3.0.6] — 2026-07-20
 
 ### Changed

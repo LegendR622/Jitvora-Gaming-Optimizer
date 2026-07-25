@@ -1,6 +1,6 @@
 {
     "packageType": "setup",
-    "version": "3.0.7",
-    "downloadUrl": "https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases/download/v3.0.7/Jitvora_Gaming_Optimizer_Setup_v3.0.7.exe",
-    "notes": "Jitvora Gaming Optimizer v3.0.7 Stable - refreshed interface (layered dark shell, compact sidebar, calmer surfaces). Full version free. Setup EXE."
+    "version": "3.0.8",
+    "downloadUrl": "https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases/download/v3.0.8/Jitvora_Gaming_Optimizer_Setup_v3.0.8.exe",
+    "notes": "Jitvora Gaming Optimizer v3.0.8 Stable - safety release. The cleaner no longer follows directory junctions or symbolic links, so it can no longer delete files outside the folder it cleans. Full version free. Setup EXE."
 }
