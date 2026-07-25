@@ -32,7 +32,7 @@
 
 Jitvora Gaming Optimizer is a Windows desktop utility for gamers. It helps clean temporary files, review drivers, check network status with Network Watch and access safe Windows-focused optimization tools from one app.
 
-> Note: This repository contains public releases, metadata and the GitHub Pages website. App source is not published here yet.
+> Note: This repository contains public releases, metadata and the GitHub Pages website. The private app source is not published in this repository.
 
 ## Highlights
 
