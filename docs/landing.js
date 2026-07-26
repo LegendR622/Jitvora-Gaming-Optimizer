@@ -213,8 +213,8 @@
      body reference in sync when the JSON is bumped. Head metadata and the
      JSON-LD block stay static so crawlers see them without scripting. */
   var RELEASE = {
-    version: "3.0.8",
-    file: "Jitvora_Gaming_Optimizer_Setup_v3.0.8.exe",
+    version: "3.0.9",
+    file: "Jitvora_Gaming_Optimizer_Setup_v3.0.9.exe",
     url: null,
     sha256: null
   };

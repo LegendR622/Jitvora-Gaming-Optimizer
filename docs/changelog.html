@@ -10,8 +10,8 @@
   <title>Changelog — Jitvora Gaming Optimizer</title>
   <meta name="description" content="Versionshistorie und Release-Änderungen des Jitvora Gaming Optimizer." />
   <link rel="canonical" href="https://jitvora.de/changelog.html" />
-  <script src="site-lang-boot.js?v=20260726f"></script>
-  <script src="site-i18n.js?v=20260726f" defer></script>
+  <script src="site-lang-boot.js?v=20260726g"></script>
+  <script src="site-i18n.js?v=20260726g" defer></script>
   <link rel="stylesheet" href="_site.css" />
 </head>
 <body>
@@ -27,7 +27,17 @@
 
     <section class="bilingual-block card" lang="de">
       <p class="lang-heading">Deutsch</p>
-      <h2>V3.0.8 (aktuell)</h2>
+      <h2>V3.0.9 (aktuell)</h2>
+      <p><strong>Nachtrag zum Sicherheits-Update v3.0.8 — für alle empfohlen.</strong></p>
+      <ul>
+        <li>Fix: Beim Bereinigen von Temp löschte der Cleaner die Entpackordner laufender Programme (<code>%TEMP%\.net\</code>). Jitvora traf das selbst: Nach dem Bereinigen stürzte die App beim Schließen ab und legte eine Datei namens <code>Jitvora_Crash_Log.txt</code> auf den Desktop. Diese Ordner bleiben jetzt unangetastet — die eigenen und die fremder laufender Programme.</li>
+        <li>Fix: Das Live Log meldete übersprungene Verknüpfungen nie. v3.0.8 hatte diese Meldung zugesagt, sie ging aber auf dem Weg aus dem Hintergrund-Thread verloren. Sie kommt jetzt an, mit richtiger Anzahl.</li>
+        <li>Fix: Absturzberichte landen nicht mehr auf dem Desktop, sondern unter <code>%LOCALAPPDATA%\Jitvora\Logs\</code> — und verschwinden beim Deinstallieren.</li>
+        <li>Update: Die Einstellungen sagten „Vollversion — alle Funktionen aktiv", obwohl das Pro Center nur eine Vorschau ist. Jetzt steht dort, was stimmt.</li>
+        <li>Update: Das Live Log nennt auch die Ordner, die wegen laufender Programme übersprungen wurden</li>
+      </ul>
+      <p><a href="https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases/download/v3.0.9/Jitvora_Gaming_Optimizer_Setup_v3.0.9.exe">Download V3.0.9</a></p>
+      <h2>V3.0.8</h2>
       <p><strong>Sicherheits-Update — empfohlen für alle, die den Cleaner benutzen.</strong></p>
       <ul>
         <li>Kritischer Fix: Der Cleaner folgte Verzeichnis-Verknüpfungen (Junctions/Symlinks) und konnte dadurch Dateien außerhalb des bereinigten Ordners löschen — zum Beispiel in „Dokumente“. Verknüpfungen werden jetzt vollständig übersprungen.</li>
@@ -172,7 +182,17 @@
 
     <section class="bilingual-block card" lang="en">
       <p class="lang-heading">English</p>
-      <h2>V3.0.8 (current)</h2>
+      <h2>V3.0.9 (current)</h2>
+      <p><strong>Follow-up to the v3.0.8 safety release — recommended for everyone.</strong></p>
+      <ul>
+        <li>Fixed: cleaning temp deleted the unpack folders of running programs (<code>%TEMP%\.net\</code>). Jitvora did this to itself: after a cleanup it crashed on exit and dropped a file named <code>Jitvora_Crash_Log.txt</code> on the desktop. Those folders are now left alone — its own and those of other running applications.</li>
+        <li>Fixed: the Live Log never reported skipped links. v3.0.8 promised that notice, but it was lost on the way out of a worker thread. It now arrives, with the correct count.</li>
+        <li>Fixed: crash reports no longer land on the desktop. They go to <code>%LOCALAPPDATA%\Jitvora\Logs\</code> and are removed when you uninstall.</li>
+        <li>Changed: Settings said “Full version — all features active” although the Pro Center is preview-only. It now says what is true.</li>
+        <li>Changed: the Live Log also names folders skipped because a running program is using them</li>
+      </ul>
+      <p><a href="https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases/download/v3.0.9/Jitvora_Gaming_Optimizer_Setup_v3.0.9.exe">Download V3.0.9</a></p>
+      <h2>V3.0.8</h2>
       <p><strong>Safety release — recommended for everyone who uses the Cleaner.</strong></p>
       <ul>
         <li>Critical fix: the Cleaner followed directory junctions and symbolic links and could therefore delete files outside the folder it was cleaning — for example in Documents. Links are now skipped completely.</li>
@@ -317,6 +337,6 @@
 
     <footer><a href="index.html" data-i18n="nav.home">Start</a></footer>
   </main>
-  <script src="site-lang.js?v=20260726f" defer></script>
+  <script src="site-lang.js?v=20260726g" defer></script>
 </body>
 </html>

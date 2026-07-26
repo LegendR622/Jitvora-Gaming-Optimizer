@@ -10,6 +10,23 @@ All notable changes to **Jitvora Gaming Optimizer** are listed here (newest firs
 
 ---
 
+## [3.0.9] — 2026-07-26
+
+**Follow-up to the v3.0.8 safety release. Recommended for everyone.**
+
+### Fixed
+- **Cleaning temp deleted files that running programs still needed.** Applications published as a single file unpack their native libraries into `%TEMP%\.net\` while they run. The Cleaner emptied that folder along with the rest of temp, which left those programs without their dependencies. Jitvora did this to itself: after a cleanup it crashed on exit and dropped a file named `Jitvora_Crash_Log.txt` on the desktop. The Cleaner now leaves those folders alone — its own and those of other running applications.
+- **The Live Log never reported skipped links.** v3.0.8 promised a notice for every junction or symlink the Cleaner steps over, but the message was written from a worker thread in a way that discarded it before it reached the log. It now arrives, and the count is correct.
+- **Crash reports no longer land on the desktop.** They go to `%LOCALAPPDATA%\Jitvora\Logs\crash.log`, next to the other application data, and are removed when you uninstall.
+
+### Changed
+- **Settings now describe the edition accurately.** The page said “Full version — all features active” while the Pro Center is preview-only. It now reads “Free — seven core areas active, Pro Center as a preview”, matching the website.
+- The Live Log reports how many folders were skipped because a running program is using them.
+
+_Nothing was removed. The Cleaner still clears the same temporary files — 10 of 10 test files in a run that left both the linked target and the running app untouched._
+
+---
+
 ## [3.0.8] — 2026-07-26
 
 **Safety release — recommended for everyone who uses the Cleaner.**
