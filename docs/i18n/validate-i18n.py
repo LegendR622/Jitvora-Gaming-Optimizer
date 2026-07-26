@@ -147,7 +147,7 @@ for code, table in sorted(data.items()):
 # ── HTML consumers ──────────────────────────────────────────────────────────
 html_files = sorted(DOCS.glob("*.html"))
 used_keys: set[str] = set()
-ATTRS = ("data-i18n", "data-i18n-aria", "data-i18n-ph", "data-i18n-title")
+ATTRS = ("data-i18n", "data-i18n-aria", "data-i18n-alt", "data-i18n-ph", "data-i18n-title")
 
 for page in html_files:
     src = page.read_text(encoding="utf-8")

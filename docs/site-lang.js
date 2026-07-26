@@ -69,6 +69,11 @@
       if (table[key]) el.setAttribute("aria-label", table[key]);
     });
 
+    document.querySelectorAll("[data-i18n-alt]").forEach(function (el) {
+      var key = el.getAttribute("data-i18n-alt");
+      if (table[key]) el.setAttribute("alt", table[key]);
+    });
+
     document.querySelectorAll("[data-i18n]").forEach(function (el) {
       var key = el.getAttribute("data-i18n");
       var htmlKey = key + ".html";

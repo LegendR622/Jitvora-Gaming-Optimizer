@@ -57,7 +57,7 @@ Jitvora Gaming Optimizer is a Windows desktop utility for gamers. It helps clean
 | Repair        | Shortcuts for SFC, DISM and common Windows repair actions.            |
 | Pro Center    | Advanced tools preview for future versions.                           |
 
-Full version is **free**. Pro Center currently shows planned/preview tools; advanced Pro tools may be expanded in future versions.
+The seven core areas are **free**. Pro Center currently shows planned/preview tools; advanced Pro tools may be expanded in future versions.
 
 ## Download
 

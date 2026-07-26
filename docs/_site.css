@@ -7,6 +7,8 @@ h1 { font-size: 1.75rem; margin: 0 0 0.5rem; }
 h2 { font-size: 1.15rem; margin: 2rem 0 0.75rem; color: #fff; }
 p, li { color: var(--muted); }
 a { color: var(--accent); }
+a, code, td { overflow-wrap: anywhere; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .card { background: var(--card); border: 1px solid #243044; border-radius: 12px; padding: 1.25rem; margin: 1rem 0; }
 .nav { font-size: 0.9rem; margin-bottom: 1.5rem; }
 .nav a { margin-right: 1rem; }
@@ -23,3 +25,8 @@ section.bilingual-block { margin-bottom: 0.5rem; }
 section.bilingual-block + section.bilingual-block[lang="en"] { border-top: 1px solid #243044; padding-top: 0.25rem; }
 .bilingual-block h2 { margin-top: 1rem; }
 .bilingual-block h2:first-child { margin-top: 0; }
+@media (max-width: 640px) {
+  .wrap { padding: 1.25rem 0.9rem 2rem; }
+  .card { padding: 1rem; }
+  th, td { padding: 0.45rem; }
+}

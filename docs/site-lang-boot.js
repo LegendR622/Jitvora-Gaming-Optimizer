@@ -8,7 +8,8 @@
     "da", "no", "fi"
   ];
   var rtl = { ar: true };
-  var l = localStorage.getItem(k);
+  var l = null;
+  try { l = localStorage.getItem(k); } catch (e) { /* storage can be blocked */ }
   if (!l) {
     var n = (navigator.language || "en").toLowerCase();
     var i;

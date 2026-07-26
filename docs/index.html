@@ -28,9 +28,9 @@
   <meta name="twitter:image" content="https://jitvora.de/og-image.png" />
   <script>document.documentElement.classList.remove('no-js');</script>
   <link rel="preload" as="image" href="assets/brand/jitvora-logo-mark-64.png" />
-  <script src="site-lang-boot.js?v=20260726e"></script>
-  <script src="site-i18n.js?v=20260726e" defer></script>
-  <link rel="stylesheet" href="landing.css?v=20260726e" />
+  <script src="site-lang-boot.js?v=20260726f"></script>
+  <script src="site-i18n.js?v=20260726f" defer></script>
+  <link rel="stylesheet" href="landing.css?v=20260726f" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -52,7 +52,7 @@
     "@type": "FAQPage",
     "mainEntity": [
       { "@type": "Question", "name": "Is Jitvora free on Windows 10 and 11?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes — the full version is free on 64-bit Windows 10 and 11. No license key for v3.0.8." } },
+        "acceptedAnswer": { "@type": "Answer", "text": "The seven core areas are free on 64-bit Windows 10 and 11 — no license key for v3.0.8. The Pro Center is a preview in this version." } },
       { "@type": "Question", "name": "Does Jitvora modify games or bypass anti-cheat?",
         "acceptedAnswer": { "@type": "Answer", "text": "No. Jitvora changes Windows settings only. It does not modify game files, inject into games, hook game processes or bypass anti-cheat systems." } },
       { "@type": "Question", "name": "Why does Windows SmartScreen show a warning?",
@@ -249,7 +249,7 @@
         <div class="sec-head reveal">
           <p class="eyebrow" data-i18n="feat.label">Features</p>
           <h2 id="features-title" data-i18n="feat.title">Built for your gaming PC</h2>
-          <p class="sec-lead" data-i18n="feat.lead">Seven core tools. One app. Plus Pro Center with additional tools.</p>
+          <p class="sec-lead" data-i18n="feat.lead">Seven core tools, free in one app. The Pro Center is a preview of what is planned.</p>
         </div>
 
         <div class="showcase reveal">
@@ -375,7 +375,7 @@
                 <div class="demo-row"><span class="demo-row-k">Audio</span><span class="demo-row-v">Detected</span><span class="demo-tag demo-tag--blue">Vendor site</span></div>
               </div>
               <div class="demo-term" aria-hidden="true">
-                <b>source</b> · <i>official vendor download pages only — no driver bundles</i>
+                <b>review</b> · <i data-i18n="hero.mock.rec.text">Review before apply — no automatic changes without confirmation.</i>
               </div>
             </div>
 
@@ -423,7 +423,7 @@
               <div class="demo-rows">
                 <div class="demo-row"><span class="demo-row-k">Windows Defender</span><span class="demo-row-v is-ok">Active</span></div>
                 <div class="demo-row"><span class="demo-row-k">Firewall</span><span class="demo-row-v is-ok">Active</span></div>
-                <div class="demo-row"><span class="demo-row-k">Windows Update</span><span class="demo-row-v">Checked</span></div>
+                <div class="demo-row"><span class="demo-row-k">SmartScreen</span><span class="demo-row-v">—</span></div>
                 <div class="demo-row"><span class="demo-row-k" data-i18n="safe.6.title">No cloud account required</span><span class="demo-tag demo-tag--ok">Local</span></div>
               </div>
             </div>
@@ -490,7 +490,7 @@
                   aria-labelledby="galtab-dashboard" tabindex="0">
             <picture>
               <source srcset="assets/preview/dashboard.webp" type="image/webp" />
-              <img src="assets/preview/dashboard.png" alt="Jitvora Dashboard: system score, live CPU/GPU/RAM readings, security status and recommendations"
+              <img src="assets/preview/dashboard.png" alt="Jitvora dashboard: system score, live CPU, GPU and RAM readings, security status and recommendations" data-i18n-alt="alt.shot.dashboard"
                    width="1200" height="735" decoding="async"
                    loading="eager" />
             </picture>
@@ -500,7 +500,7 @@
                   aria-labelledby="galtab-network-watch" tabindex="0" hidden>
             <picture>
               <source srcset="assets/preview/network-watch.webp" type="image/webp" />
-              <img src="assets/preview/network-watch.png" alt="Jitvora Network Watch: game-server detection, ping, packet loss, jitter and a diagnosis panel"
+              <img src="assets/preview/network-watch.png" alt="Jitvora Network Watch: game-server detection with ping, packet loss, jitter and a diagnosis panel" data-i18n-alt="alt.shot.netwatch"
                    width="1200" height="735" decoding="async"
                    loading="lazy" />
             </picture>
@@ -510,7 +510,7 @@
                   aria-labelledby="galtab-cleaner" tabindex="0" hidden>
             <picture>
               <source srcset="assets/preview/cleaner.webp" type="image/webp" />
-              <img src="assets/preview/cleaner.png" alt="Jitvora Cleaner: temporary file locations with a size preview before anything is removed"
+              <img src="assets/preview/cleaner.png" alt="Jitvora Cleaner: temporary file locations with a size preview before anything is removed" data-i18n-alt="alt.shot.cleaner"
                    width="1200" height="735" decoding="async"
                    loading="lazy" />
             </picture>
@@ -520,7 +520,7 @@
                   aria-labelledby="galtab-drivers" tabindex="0" hidden>
             <picture>
               <source srcset="assets/preview/drivers.webp" type="image/webp" />
-              <img src="assets/preview/drivers.png" alt="Jitvora Drivers: detected hardware with links to the official vendor download pages"
+              <img src="assets/preview/drivers.png" alt="Jitvora driver check: detected hardware with the source for every driver update" data-i18n-alt="alt.shot.drivers"
                    width="1200" height="735" decoding="async"
                    loading="lazy" />
             </picture>
@@ -530,7 +530,7 @@
                   aria-labelledby="galtab-security" tabindex="0" hidden>
             <picture>
               <source srcset="assets/preview/security.webp" type="image/webp" />
-              <img src="assets/preview/security.png" alt="Jitvora Security: Windows Defender, firewall and update status at a glance"
+              <img src="assets/preview/security.png" alt="Jitvora security check: Defender, firewall and SmartScreen status at a glance" data-i18n-alt="alt.shot.security"
                    width="1200" height="735" decoding="async"
                    loading="lazy" />
             </picture>
@@ -540,7 +540,7 @@
                   aria-labelledby="galtab-settings" tabindex="0" hidden>
             <picture>
               <source srcset="assets/preview/settings.webp" type="image/webp" />
-              <img src="assets/preview/settings.png" alt="Jitvora Settings: language, startup and update preferences"
+              <img src="assets/preview/settings.png" alt="Jitvora settings: language, startup and update preferences" data-i18n-alt="alt.shot.settings"
                    width="1200" height="735" decoding="async"
                    loading="lazy" />
             </picture>
@@ -676,7 +676,7 @@
         <div class="sec-head reveal">
           <p class="eyebrow" data-i18n="nav.trust">Trust</p>
           <h2 id="trust-title" data-i18n="trust.title">Trust through proof — not promises.</h2>
-          <p class="sec-lead" data-i18n="trust.lead">Official GitHub releases, a published SHA256 checksum and fully local processing.</p>
+          <p class="sec-lead" data-i18n="trust.lead">Official GitHub releases, a published SHA256 checksum, no account — and network requests only when you start an action.</p>
         </div>
 
         <div class="bento reveal">
@@ -770,7 +770,7 @@
         <div class="faq-list reveal">
           <details class="faq">
             <summary data-i18n="faq.q1">Is Jitvora free on Windows 10 and 11?</summary>
-            <p class="faq-a" data-i18n="faq.a1">Yes — the full version is free on 64-bit Windows 10 and 11. No license key for {version}.</p>
+            <p class="faq-a" data-i18n="faq.a1">The seven core areas are free on 64-bit Windows 10 and 11 — no license key for {version}. The Pro Center is a preview in this version.</p>
           </details>
           <details class="faq">
             <summary data-i18n="faq.q3">Is Jitvora safe for online games?</summary>
@@ -900,7 +900,7 @@
     </div>
   </div>
 
-  <script src="site-lang.js?v=20260726e" defer></script>
-  <script src="landing.js?v=20260726e" defer></script>
+  <script src="site-lang.js?v=20260726f" defer></script>
+  <script src="landing.js?v=20260726f" defer></script>
 </body>
 </html>

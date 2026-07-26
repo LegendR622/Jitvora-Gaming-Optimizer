@@ -69,6 +69,12 @@ html[dir="rtl"] .nav-right {
   color: var(--text, #f5f7fb);
 }
 
+.lang-btn:focus-visible,
+.lang-select-more:focus-visible {
+  outline: 2px solid var(--accent, #00b4ff);
+  outline-offset: 2px;
+}
+
 .lang-btn.is-active {
   background: var(--red, #00b4ff);
   color: var(--accent-ink, #051018);
