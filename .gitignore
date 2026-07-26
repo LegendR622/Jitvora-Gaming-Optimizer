@@ -9,6 +9,7 @@ build/
 screenshots/
 *.pdb
 *.cache
+__pycache__/
 **/PublishOutputs.*.txt
 FUNktionstest.log
 Redline_V*_win-x64.zip
