@@ -1,0 +1,66 @@
+WO LIEGT WAS — JITVORA GAMING OPTIMIZER
+========================================
+Stand: 26.07.2026
+
+DIESER ORDNER
+  C:\Users\Tobi\Desktop\Redline-Gaming-Optimizer
+
+  Enthaelt nur noch den oeffentlichen Teil:
+    docs/          die Website jitvora.de (GitHub Pages)
+    version.json   was die App beim Update-Check liest
+    CHANGELOG.md   die Versionshistorie
+    README.md
+    secrets/       Code-Signing-Zertifikat, wird nie eingecheckt
+
+  Der Ordnername sagt noch "Redline". Das ist der alte Produktname und
+  wurde bewusst nicht umbenannt, weil daran Git-Remote, Pfade und
+  Verknuepfungen haengen. Das Produkt heisst Jitvora.
+
+
+DER APP-QUELLCODE
+  C:\Users\Tobi\Desktop\claude\Jitvora-App-UI-V2
+
+  Dort liegt die massgebliche Quelle:
+    GamingBooster_Pro/   der eigentliche Code
+    scripts/             Build-, Release- und Testskripte
+    tools/               Hilfswerkzeuge
+    dist/                gebaute Installer
+
+  Bauen:
+    cd C:\Users\Tobi\Desktop\claude\Jitvora-App-UI-V2
+    .\scripts\build\build-release.ps1 -Version 3.1.0
+
+  Versionsverwaltung (lokal, ohne Remote):
+    git --git-dir=C:\Users\Tobi\Desktop\claude\Jitvora-Private-Source.git ^
+        --work-tree=C:\Users\Tobi\Desktop\claude\Jitvora-App-UI-V2 status
+
+    Dieses Repo darf NIE einen Remote bekommen. Der Code ist privat.
+
+
+WARUM HIER FRUEHER EINE ZWEITE QUELLE LAG
+  In diesem Ordner lagen bis zum 26.07.2026 ebenfalls GamingBooster_Pro\,
+  scripts\ und tools\ — auf dem Stand v3.0.5 und damit drei Releases
+  veraltet. Diese Kopie enthielt vier Fehler, die laengst behoben sind:
+
+    - Cleaner mit SearchOption.AllDirectories
+      folgt Verzeichnis-Verknuepfungen und loescht Dateien ausserhalb des
+      bereinigten Ordners (DEFECT-002, echter Datenverlust)
+    - RedlineSetup.iss ohne skipifsilent
+      startet die App nach einer stillen Installation
+    - test-installer-smoke.ps1 ohne Opt-in-Schalter
+      startet die App beim Bauen
+    - verify-release-hardening.ps1 ohne Opt-in-Schalter
+      startet --selftest und damit den echten Optimierer auf diesem PC
+
+  BUILD-DEV.bat und APP-STARTEN.bat im Wurzelverzeichnis waren einen
+  Doppelklick davon entfernt. Beides ist jetzt archiviert unter
+
+    C:\Users\Tobi\Desktop\claude\_Archiv-Jitvora-2026-07-26\
+
+  Nicht zurueckkopieren. Wenn etwas daraus gebraucht wird, aus dem
+  aktuellen Arbeitsbereich holen.
+
+
+WICHTIGE REGEL
+  Die App wird niemals auf diesem PC ausgefuehrt, nur in der VirtualBox-VM
+  "test app ". Sie aendert Registry, Energieschema, Netzwerk und Dateien.

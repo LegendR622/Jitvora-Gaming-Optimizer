@@ -1,27 +1,51 @@
+# Dieses Repository enthaelt oeffentlich nur die Website (docs/), die
+# Update-Metadaten und den Changelog. Der App-Quellcode ist privat und liegt
+# in einem anderen Arbeitsbereich, siehe QUELLCODE-LIEGT-WOANDERS.txt.
+
+# --- Build- und Werkzeugausgaben ---
 bin/
 obj/
 publish/
 dist/
 build/
+build-test-native/
+.vs/
 *.user
 *.suo
-.vs/
-screenshots/
 *.pdb
 *.cache
 __pycache__/
 **/PublishOutputs.*.txt
-FUNktionstest.log
+
+# --- Pakete und Installer ---
+*.exe
+Jitvora_Gaming_Optimizer_Setup_v*.exe
+Redline_Gaming_Optimizer_Setup_v*.exe
+Jitvora_V*_win-x64.zip
 Redline_V*_win-x64.zip
-archiv/
+
+# --- Testausgaben, Protokolle, Aufnahmen ---
+artifacts/
+screenshots/
+*.log
+FUNktionstest.log
 qa-build*.txt
 live-*.txt
 pro-live-out.txt
 selftest-out.txt
-*.exe
-Redline_Gaming_Optimizer_Setup_v*.exe
+selftest-err.txt
+vm-deploy-*.log
+# Zwischenausgaben der i18n-Werkzeuge (die Quelle ist i18n-full.json)
+docs/i18n/_*.json
+docs/i18n/_*.txt
 
-# Code signing & license keys (never commit)
+# --- Absturz- und Sitzungsdaten ---
+*.dmp
+crash*.log
+Jitvora_Crash_Log.txt
+winrm-session*.xml
+
+# --- Geheimnisse: niemals einchecken ---
 secrets/*
 !secrets/master-keys.example.txt
 GamingBooster_Pro/RedlineAppData.MasterKeys.gen.cs
@@ -29,7 +53,7 @@ GamingBooster_Pro/RedlineAppData.MasterKeys.gen.cs
 *.p12
 codesign-password.txt
 
-# --- never push source to public GitHub main ---
+# --- privater Quellcode, gehoert nicht ins oeffentliche GitHub ---
 /GamingBooster_Pro/
 /scripts/
 /tools/
@@ -38,3 +62,11 @@ codesign-password.txt
 /LIESMICH.txt
 /AGENTS.md
 /docs/dev/
+
+# --- lokale Berichte und Arbeitsnotizen ---
+/archiv/
+/CLAUDE_*.md
+/GO_PLAN*.md
+/FINAL_RELEASE_REPORT.md
+/VM_QA_REPORT.md
+/WEBSITE_LANGUAGE_QA_ROWS.json
