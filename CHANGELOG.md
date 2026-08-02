@@ -10,6 +10,15 @@ All notable changes to **Jitvora Gaming Optimizer** are listed here (newest firs
 
 ---
 
+## [3.1.1] — 2026-08-02
+
+### Fixed
+- **The window opened larger than the screen when Windows scaling is above 100%.** The usable desktop area was measured in physical pixels but applied as device-independent units. At 100% the two are identical, which is why this went unnoticed; at 125% the window asked for 1750×1102 on a work area of 1920×1020 and hung off the bottom. The measurement is now converted before it is used.
+
+_Found by testing the app at 125% Windows scaling. Verified afterwards: the window opens at 1524×980 and fits, with no unreachable content on any of the thirteen pages._
+
+---
+
 ## [3.1.0] — 2026-07-27
 
 **Maintenance release. Recommended for everyone, especially on smaller laptop screens.**

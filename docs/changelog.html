@@ -10,8 +10,8 @@
   <title>Changelog — Jitvora Gaming Optimizer</title>
   <meta name="description" content="Versionshistorie und Release-Änderungen des Jitvora Gaming Optimizer." />
   <link rel="canonical" href="https://jitvora.de/changelog.html" />
-  <script src="site-lang-boot.js?v=20260727a"></script>
-  <script src="site-i18n.js?v=20260727a" defer></script>
+  <script src="site-lang-boot.js?v=20260802a"></script>
+  <script src="site-i18n.js?v=20260802a" defer></script>
   <link rel="stylesheet" href="_site.css" />
 </head>
 <body>
@@ -27,7 +27,12 @@
 
     <section class="bilingual-block card" lang="de">
       <p class="lang-heading">Deutsch</p>
-      <h2>V3.1.0 (aktuell)</h2>
+      <h2>V3.1.1 (aktuell)</h2>
+      <ul>
+        <li>Fix: Bei einer Windows-Skalierung &uuml;ber 100 % &ouml;ffnete das Fenster gr&ouml;&szlig;er als der Bildschirm. Die Arbeitsfl&auml;che wurde in physischen Bildpunkten gemessen, aber als ger&auml;teunabh&auml;ngige Einheiten gesetzt — bei 125 % ergab das 1750&times;1102 auf einer Arbeitsfl&auml;che von 1920&times;1020. Jetzt wird korrekt umgerechnet.</li>
+      </ul>
+      <p><a href="https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases/download/v3.1.1/Jitvora_Gaming_Optimizer_Setup_v3.1.1.exe">Download V3.1.1</a></p>
+      <h2>V3.1.0</h2>
       <p><strong>Wartungs-Update — besonders auf kleineren Notebook-Bildschirmen empfohlen.</strong></p>
       <ul>
         <li>Fix: Das Fenster passte nicht auf 1366&times;768. Es &ouml;ffnete 760 Pixel hoch, obwohl &uuml;ber der Taskleiste nur 720 bleiben — die Unterkante lag dahinter. Jetzt wird die Mindestgr&ouml;&szlig;e aus der nutzbaren Arbeitsfl&auml;che abgeleitet, bevor eine Gr&ouml;&szlig;e gesetzt wird.</li>
@@ -191,7 +196,12 @@
 
     <section class="bilingual-block card" lang="en">
       <p class="lang-heading">English</p>
-      <h2>V3.1.0 (current)</h2>
+      <h2>V3.1.1 (current)</h2>
+      <ul>
+        <li>Fixed: with Windows scaling above 100% the window opened larger than the screen. The work area was measured in physical pixels but applied as device-independent units — at 125% that produced 1750&times;1102 on a 1920&times;1020 work area. It is converted correctly now.</li>
+      </ul>
+      <p><a href="https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases/download/v3.1.1/Jitvora_Gaming_Optimizer_Setup_v3.1.1.exe">Download V3.1.1</a></p>
+      <h2>V3.1.0</h2>
       <p><strong>Maintenance release — recommended especially on smaller laptop screens.</strong></p>
       <ul>
         <li>Fixed: the window did not fit a 1366&times;768 screen. It opened 760 pixels tall while only 720 remain above the taskbar, so the lower edge sat behind it. The minimum size is now derived from the usable work area before a size is assigned.</li>
@@ -355,6 +365,6 @@
 
     <footer><a href="index.html" data-i18n="nav.home">Start</a></footer>
   </main>
-  <script src="site-lang.js?v=20260727a" defer></script>
+  <script src="site-lang.js?v=20260802a" defer></script>
 </body>
 </html>
