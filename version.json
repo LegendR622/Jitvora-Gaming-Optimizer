@@ -1,6 +1,6 @@
 {
     "packageType": "setup",
-    "version": "3.0.9",
-    "downloadUrl": "https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases/download/v3.0.9/Jitvora_Gaming_Optimizer_Setup_v3.0.9.exe",
-    "notes": "Jitvora Gaming Optimizer v3.0.9 Stable - the cleaner no longer deletes the unpack folders that running single-file applications depend on, so it can no longer make them crash. Skipped links are now actually reported in the Live Log. Seven core areas are free; Pro Center is preview-only. Setup EXE."
+    "version": "3.1.0",
+    "downloadUrl": "https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases/download/v3.1.0/Jitvora_Gaming_Optimizer_Setup_v3.1.0.exe",
+    "notes": "Jitvora Gaming Optimizer v3.1.0 Stable - the window now fits a 1366x768 laptop screen instead of hiding behind the taskbar, Network Watch stops measuring when you leave the page, and the SFC/DISM repair tiles can be reached with the keyboard. Seven core areas are free; Pro Center is preview-only. Setup EXE."
 }

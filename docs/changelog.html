@@ -10,8 +10,8 @@
   <title>Changelog — Jitvora Gaming Optimizer</title>
   <meta name="description" content="Versionshistorie und Release-Änderungen des Jitvora Gaming Optimizer." />
   <link rel="canonical" href="https://jitvora.de/changelog.html" />
-  <script src="site-lang-boot.js?v=20260726g"></script>
-  <script src="site-i18n.js?v=20260726g" defer></script>
+  <script src="site-lang-boot.js?v=20260727a"></script>
+  <script src="site-i18n.js?v=20260727a" defer></script>
   <link rel="stylesheet" href="_site.css" />
 </head>
 <body>
@@ -27,7 +27,16 @@
 
     <section class="bilingual-block card" lang="de">
       <p class="lang-heading">Deutsch</p>
-      <h2>V3.0.9 (aktuell)</h2>
+      <h2>V3.1.0 (aktuell)</h2>
+      <p><strong>Wartungs-Update — besonders auf kleineren Notebook-Bildschirmen empfohlen.</strong></p>
+      <ul>
+        <li>Fix: Das Fenster passte nicht auf 1366&times;768. Es &ouml;ffnete 760 Pixel hoch, obwohl &uuml;ber der Taskleiste nur 720 bleiben — die Unterkante lag dahinter. Jetzt wird die Mindestgr&ouml;&szlig;e aus der nutzbaren Arbeitsfl&auml;che abgeleitet, bevor eine Gr&ouml;&szlig;e gesetzt wird.</li>
+        <li>Fix: Network Watch ma&szlig; weiter, nachdem man die Seite verlassen hatte. Nur die Anzeige stoppte; die Messschleifen liefen bis zum Beenden der App und hielten den Rechner dauerhaft besch&auml;ftigt. Beim Seitenwechsel wird die Messung jetzt beendet und das im Live Log vermerkt.</li>
+        <li>Fix: SFC, DISM, Winsock und Store-Reset lie&szlig;en sich nur mit der Maus ausl&ouml;sen — kein Fokus, keine Tastatur, nichts f&uuml;r Bildschirmleser. Es sind jetzt richtige Schaltfl&auml;chen, gleiches Aussehen plus Kurzhinweise.</li>
+        <li>Update: Der Hauptknopf hie&szlig; „ALLE REPARATUREN AUSF&Uuml;HREN&ldquo;, leerte aber nur den DNS-Cache. Er hei&szlig;t jetzt „DNS-REPARATUR AUSF&Uuml;HREN&ldquo;.</li>
+      </ul>
+      <p><a href="https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases/download/v3.1.0/Jitvora_Gaming_Optimizer_Setup_v3.1.0.exe">Download V3.1.0</a></p>
+      <h2>V3.0.9</h2>
       <p><strong>Nachtrag zum Sicherheits-Update v3.0.8 — für alle empfohlen.</strong></p>
       <ul>
         <li>Fix: Beim Bereinigen von Temp löschte der Cleaner die Entpackordner laufender Programme (<code>%TEMP%\.net\</code>). Jitvora traf das selbst: Nach dem Bereinigen stürzte die App beim Schließen ab und legte eine Datei namens <code>Jitvora_Crash_Log.txt</code> auf den Desktop. Diese Ordner bleiben jetzt unangetastet — die eigenen und die fremder laufender Programme.</li>
@@ -182,7 +191,16 @@
 
     <section class="bilingual-block card" lang="en">
       <p class="lang-heading">English</p>
-      <h2>V3.0.9 (current)</h2>
+      <h2>V3.1.0 (current)</h2>
+      <p><strong>Maintenance release — recommended especially on smaller laptop screens.</strong></p>
+      <ul>
+        <li>Fixed: the window did not fit a 1366&times;768 screen. It opened 760 pixels tall while only 720 remain above the taskbar, so the lower edge sat behind it. The minimum size is now derived from the usable work area before a size is assigned.</li>
+        <li>Fixed: Network Watch kept measuring after you left the page. Only the display stopped; the measurement loops carried on until the app closed and kept the machine busy. Navigating away now ends the measurement and notes it in the Live Log.</li>
+        <li>Fixed: SFC, DISM, Winsock and store reset could only be started with a mouse — no focus, no keyboard, nothing for screen readers. They are proper buttons now, same look plus tooltips.</li>
+        <li>Changed: the main button said &ldquo;RUN ALL REPAIRS&rdquo; but only flushed the DNS cache. It now says &ldquo;RUN DNS REPAIR&rdquo;.</li>
+      </ul>
+      <p><a href="https://github.com/LegendR622/Jitvora-Gaming-Optimizer/releases/download/v3.1.0/Jitvora_Gaming_Optimizer_Setup_v3.1.0.exe">Download V3.1.0</a></p>
+      <h2>V3.0.9</h2>
       <p><strong>Follow-up to the v3.0.8 safety release — recommended for everyone.</strong></p>
       <ul>
         <li>Fixed: cleaning temp deleted the unpack folders of running programs (<code>%TEMP%\.net\</code>). Jitvora did this to itself: after a cleanup it crashed on exit and dropped a file named <code>Jitvora_Crash_Log.txt</code> on the desktop. Those folders are now left alone — its own and those of other running applications.</li>
@@ -337,6 +355,6 @@
 
     <footer><a href="index.html" data-i18n="nav.home">Start</a></footer>
   </main>
-  <script src="site-lang.js?v=20260726g" defer></script>
+  <script src="site-lang.js?v=20260727a" defer></script>
 </body>
 </html>

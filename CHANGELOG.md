@@ -10,6 +10,22 @@ All notable changes to **Jitvora Gaming Optimizer** are listed here (newest firs
 
 ---
 
+## [3.1.0] — 2026-07-27
+
+**Maintenance release. Recommended for everyone, especially on smaller laptop screens.**
+
+### Fixed
+- **The window did not fit a 1366×768 screen.** It opened 760 pixels tall while only 720 remain above the taskbar, so the lower edge sat behind it. The minimum size was already derived from the usable desktop area, but in the wrong order: the fixed minimum was applied first and Windows raised any smaller height straight back to it. Both places now measure the work area before assigning a size.
+- **Network Watch kept measuring after you left the page.** Leaving only stopped the display; the measurement loops carried on until the app closed, with nothing on screen to show for them. In testing that left the process busy on several cores indefinitely. Navigating away now ends the measurement and says so in the Live Log. Staying on the page — where the live readings are — is unchanged, as is the Stop button.
+- **SFC, DISM, Winsock and Store reset could only be started with a mouse.** Those tiles had no focus, no keyboard handling and nothing an assistive tool could trigger, so keyboard users could not reach them at all. They are proper buttons now, with the same appearance plus tooltips.
+
+### Changed
+- **The main repair button said “run all repairs” but only flushed the DNS cache.** SFC, DISM and the store reset have always been separate tiles below it. The button now says “Run DNS repair”, which is what it does.
+
+_No features were removed. All safety behaviour from v3.0.8 and v3.0.9 was re-verified against the installed build: files behind a junction survive, folders belonging to running programs are left alone, and the app exits cleanly._
+
+---
+
 ## [3.0.9] — 2026-07-26
 
 **Follow-up to the v3.0.8 safety release. Recommended for everyone.**
