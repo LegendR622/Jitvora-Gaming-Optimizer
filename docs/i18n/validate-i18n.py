@@ -179,9 +179,27 @@ for page in html_files:
         if token in base_set:
             err(f"{page.name}: translation key '{token}' rendered as visible text")
 
+# ── JS consumers ────────────────────────────────────────────────────────────
+# Some keys never appear in the markup because a script inserts them at runtime:
+# site-lang.js builds the language switcher and the "German and English only"
+# note on the legal pages, landing.js fills meta tags. Scanning only the HTML
+# reported those as dead and buried the genuinely unused keys in the noise.
+# site-i18n.js is skipped on purpose — it is the generated table, so every key
+# appears there by definition and matching it would make this check useless.
+js_files = [p for p in sorted(DOCS.glob("*.js")) if p.name != "site-i18n.js"]
+js_keys: set[str] = set()
+for script in js_files:
+    src = script.read_text(encoding="utf-8")
+    for k in re.findall(r'["\']((?:[a-z][a-zA-Z0-9]*\.){1,3}[a-zA-Z0-9]+)["\']', src):
+        if k in base_set:
+            js_keys.add(k)
+
+used_keys |= js_keys
+
 obsolete = sorted(base_set - used_keys)
 if obsolete:
-    warn(f"{len(obsolete)} key(s) defined but never used in HTML: {', '.join(obsolete)}")
+    warn(f"{len(obsolete)} key(s) defined but used in neither HTML nor JS: "
+         f"{', '.join(obsolete)}")
 
 # ── generated bundle is in sync ─────────────────────────────────────────────
 if BUNDLE.exists():
@@ -209,7 +227,8 @@ if BOOT.exists():
 # ── report ──────────────────────────────────────────────────────────────────
 locales = len(data)
 print(f"locales: {locales}   keys/locale: {len(base_keys)}   "
-      f"html pages: {len(html_files)}   keys used in HTML: {len(used_keys)}")
+      f"html pages: {len(html_files)}   js files: {len(js_files)}   "
+      f"keys in use: {len(used_keys)}")
 
 if warnings:
     print(f"\n{len(warnings)} warning(s):")
