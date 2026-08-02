@@ -175,10 +175,10 @@
     "trust.rollback.text": "Angewendete Tweaks werden protokolliert und lassen sich einzeln zurücknehmen — nach Rückfrage. Für alles andere kann die App vorher einen Windows-Wiederherstellungspunkt anlegen.",
     "alt.shot.dashboard": "Jitvora Dashboard: System-Score, Live-Werte für CPU, GPU und RAM, Sicherheitsstatus und Empfehlungen",
     "alt.shot.netwatch": "Jitvora Network Watch: Spielserver-Erkennung mit Ping, Paketverlust, Jitter und Diagnose-Bereich",
-    "alt.shot.cleaner": "Jitvora Cleaner: Speicherorte temporärer Dateien mit Größenvorschau, bevor etwas entfernt wird",
+    "alt.shot.cleaner": "Jitvora Cleaner: die Kategorien Browser-Cache, temporäre Dateien und Shader-Cache, die ein Scan zuerst prüft",
     "alt.shot.drivers": "Jitvora Treiberprüfung: erkannte Hardware mit der Quelle für jedes Treiber-Update",
     "alt.shot.security": "Jitvora Sicherheitsprüfung: Defender, Firewall und SmartScreen auf einen Blick",
-    "alt.shot.settings": "Jitvora Einstellungen: Sprache, Autostart und Update-Optionen"
+    "alt.shot.settings": "Jitvora Einstellungen: Sprache, Design, Schriftgröße, Scan-Tiefe und Wiederherstellungspunkte"
   },
   "fr": {
     "nav.features": "Fonctionnalités",
@@ -356,10 +356,10 @@
     "trust.rollback.text": "Les réglages appliqués sont journalisés et peuvent être annulés un par un, après confirmation. Pour le reste, l'application peut créer au préalable un point de restauration Windows.",
     "alt.shot.dashboard": "Tableau de bord Jitvora : score système, valeurs en direct du CPU, du GPU et de la RAM, état de sécurité et recommandations",
     "alt.shot.netwatch": "Jitvora Network Watch : détection du serveur de jeu avec ping, perte de paquets, gigue et panneau de diagnostic",
-    "alt.shot.cleaner": "Jitvora Cleaner : emplacements des fichiers temporaires avec un aperçu de la taille avant toute suppression",
+    "alt.shot.cleaner": "Jitvora Cleaner : les catégories de nettoyage — cache du navigateur, fichiers temporaires et cache de shaders — qu’une analyse vérifie d’abord",
     "alt.shot.drivers": "Vérification des pilotes Jitvora : matériel détecté avec la source de chaque mise à jour de pilote",
     "alt.shot.security": "Vérification de sécurité Jitvora : état de Defender, du pare-feu et de SmartScreen en un coup d'œil",
-    "alt.shot.settings": "Paramètres Jitvora : langue, démarrage et préférences de mise à jour"
+    "alt.shot.settings": "Paramètres Jitvora : langue, thème, taille du texte, profondeur d’analyse et points de restauration"
   },
   "es": {
     "nav.features": "Funciones",
@@ -537,10 +537,10 @@
     "trust.rollback.text": "Los ajustes aplicados se registran y pueden deshacerse uno a uno, tras una confirmación. Para lo demás, la app puede crear antes un punto de restauración de Windows.",
     "alt.shot.dashboard": "Panel de Jitvora: puntuación del sistema, valores en vivo de CPU, GPU y RAM, estado de seguridad y recomendaciones",
     "alt.shot.netwatch": "Jitvora Network Watch: detección del servidor de juego con ping, pérdida de paquetes, jitter y panel de diagnóstico",
-    "alt.shot.cleaner": "Jitvora Cleaner: ubicaciones de archivos temporales con vista previa del tamaño antes de eliminar nada",
+    "alt.shot.cleaner": "Jitvora Cleaner: las categorías de limpieza — caché del navegador, archivos temporales y caché de shaders — que un análisis comprueba primero",
     "alt.shot.drivers": "Comprobación de controladores de Jitvora: hardware detectado con la fuente de cada actualización de controlador",
     "alt.shot.security": "Comprobación de seguridad de Jitvora: estado de Defender, firewall y SmartScreen de un vistazo",
-    "alt.shot.settings": "Ajustes de Jitvora: idioma, inicio y preferencias de actualización"
+    "alt.shot.settings": "Ajustes de Jitvora: idioma, tema, tamaño de texto, profundidad de análisis y puntos de restauración"
   },
   "it": {
     "nav.features": "Funzionalità",
@@ -718,10 +718,10 @@
     "trust.rollback.text": "Le modifiche applicate vengono registrate e possono essere annullate una alla volta, previa conferma. Per il resto l'app può creare prima un punto di ripristino di Windows.",
     "alt.shot.dashboard": "Dashboard di Jitvora: punteggio di sistema, valori live di CPU, GPU e RAM, stato di sicurezza e consigli",
     "alt.shot.netwatch": "Jitvora Network Watch: rilevamento del server di gioco con ping, perdita di pacchetti, jitter e pannello diagnostico",
-    "alt.shot.cleaner": "Jitvora Cleaner: posizioni dei file temporanei con anteprima delle dimensioni prima di rimuovere qualcosa",
+    "alt.shot.cleaner": "Jitvora Cleaner: le categorie di pulizia — cache del browser, file temporanei e cache degli shader — che una scansione verifica per prime",
     "alt.shot.drivers": "Controllo driver di Jitvora: hardware rilevato con la fonte di ogni aggiornamento driver",
     "alt.shot.security": "Controllo di sicurezza di Jitvora: stato di Defender, firewall e SmartScreen a colpo d'occhio",
-    "alt.shot.settings": "Impostazioni di Jitvora: lingua, avvio e preferenze di aggiornamento"
+    "alt.shot.settings": "Impostazioni di Jitvora: lingua, tema, dimensione del testo, profondità della scansione e punti di ripristino"
   },
   "pt": {
     "nav.features": "Recursos",
@@ -899,10 +899,10 @@
     "trust.rollback.text": "As alterações aplicadas são registadas e podem ser revertidas uma a uma, após confirmação. Para o restante, a aplicação pode criar antes um ponto de restauro do Windows.",
     "alt.shot.dashboard": "Painel do Jitvora: pontuação do sistema, valores em direto de CPU, GPU e RAM, estado de segurança e recomendações",
     "alt.shot.netwatch": "Jitvora Network Watch: deteção do servidor de jogo com ping, perda de pacotes, jitter e painel de diagnóstico",
-    "alt.shot.cleaner": "Jitvora Cleaner: locais de ficheiros temporários com pré-visualização do tamanho antes de remover algo",
+    "alt.shot.cleaner": "Jitvora Cleaner: as categorias de limpeza — cache do navegador, ficheiros temporários e cache de shaders — que uma análise verifica primeiro",
     "alt.shot.drivers": "Verificação de controladores do Jitvora: hardware detetado com a origem de cada atualização de controlador",
     "alt.shot.security": "Verificação de segurança do Jitvora: estado do Defender, da firewall e do SmartScreen num relance",
-    "alt.shot.settings": "Definições do Jitvora: idioma, arranque e preferências de atualização"
+    "alt.shot.settings": "Definições do Jitvora: idioma, tema, tamanho do texto, profundidade da análise e pontos de restauro"
   },
   "nl": {
     "nav.features": "Functies",
@@ -1080,10 +1080,10 @@
     "trust.rollback.text": "Toegepaste tweaks worden vastgelegd en kunnen één voor één worden teruggedraaid, na bevestiging. Voor de rest kan de app vooraf een Windows-herstelpunt maken.",
     "alt.shot.dashboard": "Jitvora-dashboard: systeemscore, live waarden voor CPU, GPU en RAM, beveiligingsstatus en aanbevelingen",
     "alt.shot.netwatch": "Jitvora Network Watch: detectie van de gameserver met ping, pakketverlies, jitter en een diagnosepaneel",
-    "alt.shot.cleaner": "Jitvora Cleaner: locaties van tijdelijke bestanden met een groottevoorbeeld voordat er iets wordt verwijderd",
+    "alt.shot.cleaner": "Jitvora Cleaner: de opruimcategorieën — browsercache, tijdelijke bestanden en shadercache — die een scan eerst controleert",
     "alt.shot.drivers": "Jitvora-stuurprogrammacontrole: gedetecteerde hardware met de bron van elke stuurprogramma-update",
     "alt.shot.security": "Jitvora-beveiligingscontrole: status van Defender, firewall en SmartScreen in één oogopslag",
-    "alt.shot.settings": "Jitvora-instellingen: taal, opstarten en updatevoorkeuren"
+    "alt.shot.settings": "Jitvora-instellingen: taal, thema, tekstgrootte, scandiepte en herstelpunten"
   },
   "pl": {
     "nav.features": "Funkcje",
@@ -1261,10 +1261,10 @@
     "trust.rollback.text": "Zastosowane zmiany są zapisywane i można je cofać pojedynczo, po potwierdzeniu. W pozostałych przypadkach aplikacja może wcześniej utworzyć punkt przywracania Windows.",
     "alt.shot.dashboard": "Pulpit Jitvora: wynik systemu, dane na żywo z CPU, GPU i RAM, stan zabezpieczeń oraz zalecenia",
     "alt.shot.netwatch": "Jitvora Network Watch: wykrywanie serwera gry z pingiem, utratą pakietów, jitterem i panelem diagnostycznym",
-    "alt.shot.cleaner": "Jitvora Cleaner: lokalizacje plików tymczasowych z podglądem rozmiaru, zanim cokolwiek zostanie usunięte",
+    "alt.shot.cleaner": "Jitvora Cleaner: kategorie czyszczenia — pamięć podręczna przeglądarki, pliki tymczasowe i pamięć podręczna shaderów — które najpierw sprawdza skanowanie",
     "alt.shot.drivers": "Sprawdzanie sterowników w Jitvora: wykryty sprzęt wraz ze źródłem każdej aktualizacji sterownika",
     "alt.shot.security": "Kontrola bezpieczeństwa Jitvora: stan Defendera, zapory i SmartScreen w jednym miejscu",
-    "alt.shot.settings": "Ustawienia Jitvora: język, autostart i preferencje aktualizacji"
+    "alt.shot.settings": "Ustawienia Jitvora: język, motyw, rozmiar tekstu, głębokość skanowania i punkty przywracania"
   },
   "tr": {
     "nav.features": "Özellikler",
@@ -1442,10 +1442,10 @@
     "trust.rollback.text": "Uygulanan ayarlar günlüğe kaydedilir ve onay istendikten sonra tek tek geri alınabilir. Diğer durumlar için uygulama önceden bir Windows geri yükleme noktası oluşturabilir.",
     "alt.shot.dashboard": "Jitvora panosu: sistem puanı, CPU, GPU ve RAM için canlı değerler, güvenlik durumu ve öneriler",
     "alt.shot.netwatch": "Jitvora Network Watch: ping, paket kaybı, jitter ve tanı paneliyle oyun sunucusu tespiti",
-    "alt.shot.cleaner": "Jitvora Cleaner: hiçbir şey silinmeden önce boyut önizlemesiyle geçici dosya konumları",
+    "alt.shot.cleaner": "Jitvora Cleaner: temizlik kategorileri — tarayıcı önbelleği, geçici dosyalar ve gölgelendirici önbelleği — önce bir tarama denetler",
     "alt.shot.drivers": "Jitvora sürücü denetimi: her sürücü güncellemesinin kaynağıyla birlikte algılanan donanım",
     "alt.shot.security": "Jitvora güvenlik denetimi: Defender, güvenlik duvarı ve SmartScreen durumu tek bakışta",
-    "alt.shot.settings": "Jitvora ayarları: dil, başlangıç ve güncelleme tercihleri"
+    "alt.shot.settings": "Jitvora ayarları: dil, tema, yazı boyutu, tarama derinliği ve geri yükleme noktaları"
   },
   "ru": {
     "nav.features": "Функции",
@@ -1623,10 +1623,10 @@
     "trust.rollback.text": "Применённые настройки записываются в журнал и отменяются по одной — после подтверждения. Для остального приложение может заранее создать точку восстановления Windows.",
     "alt.shot.dashboard": "Панель Jitvora: оценка системы, показатели CPU, GPU и ОЗУ в реальном времени, состояние защиты и рекомендации",
     "alt.shot.netwatch": "Jitvora Network Watch: определение игрового сервера с пингом, потерей пакетов, джиттером и панелью диагностики",
-    "alt.shot.cleaner": "Jitvora Cleaner: расположения временных файлов с предварительным расчётом размера до удаления",
+    "alt.shot.cleaner": "Jitvora Cleaner: категории очистки — кэш браузера, временные файлы и кэш шейдеров, — которые сначала проверяет сканирование",
     "alt.shot.drivers": "Проверка драйверов Jitvora: обнаруженное оборудование с источником каждого обновления драйвера",
     "alt.shot.security": "Проверка безопасности Jitvora: состояние Defender, брандмауэра и SmartScreen с первого взгляда",
-    "alt.shot.settings": "Настройки Jitvora: язык, автозапуск и параметры обновления"
+    "alt.shot.settings": "Настройки Jitvora: язык, тема, размер текста, глубина проверки и точки восстановления"
   },
   "uk": {
     "nav.features": "Функції",
@@ -1804,10 +1804,10 @@
     "trust.rollback.text": "Застосовані налаштування записуються в журнал і скасовуються по одному — після підтвердження. Для решти застосунок може заздалегідь створити точку відновлення Windows.",
     "alt.shot.dashboard": "Панель Jitvora: оцінка системи, показники CPU, GPU та ОЗП у реальному часі, стан захисту й рекомендації",
     "alt.shot.netwatch": "Jitvora Network Watch: визначення ігрового сервера з пінгом, втратою пакетів, джитером і панеллю діагностики",
-    "alt.shot.cleaner": "Jitvora Cleaner: розташування тимчасових файлів із попереднім підрахунком розміру перед видаленням",
+    "alt.shot.cleaner": "Jitvora Cleaner: категорії очищення — кеш браузера, тимчасові файли та кеш шейдерів, — які спершу перевіряє сканування",
     "alt.shot.drivers": "Перевірка драйверів Jitvora: виявлене обладнання з джерелом кожного оновлення драйвера",
     "alt.shot.security": "Перевірка безпеки Jitvora: стан Defender, брандмауера та SmartScreen з першого погляду",
-    "alt.shot.settings": "Налаштування Jitvora: мова, автозапуск і параметри оновлення"
+    "alt.shot.settings": "Налаштування Jitvora: мова, тема, розмір тексту, глибина перевірки та точки відновлення"
   },
   "cs": {
     "nav.features": "Funkce",
@@ -1985,10 +1985,10 @@
     "trust.rollback.text": "Použité úpravy se zaznamenávají a lze je vracet po jedné — po potvrzení. U ostatního může aplikace předem vytvořit bod obnovení Windows.",
     "alt.shot.dashboard": "Přehled Jitvora: skóre systému, živé hodnoty CPU, GPU a RAM, stav zabezpečení a doporučení",
     "alt.shot.netwatch": "Jitvora Network Watch: rozpoznání herního serveru s pingem, ztrátou paketů, jitterem a diagnostickým panelem",
-    "alt.shot.cleaner": "Jitvora Cleaner: umístění dočasných souborů s náhledem velikosti, než se cokoli odstraní",
+    "alt.shot.cleaner": "Jitvora Cleaner: kategorie k vyčištění — mezipaměť prohlížeče, dočasné soubory a mezipaměť shaderů —, které nejdřív prověří sken",
     "alt.shot.drivers": "Kontrola ovladačů v Jitvora: rozpoznaný hardware se zdrojem každé aktualizace ovladače",
     "alt.shot.security": "Kontrola zabezpečení Jitvora: stav Defenderu, brány firewall a SmartScreen na první pohled",
-    "alt.shot.settings": "Nastavení Jitvora: jazyk, spouštění a předvolby aktualizací"
+    "alt.shot.settings": "Nastavení Jitvora: jazyk, vzhled, velikost písma, hloubka kontroly a body obnovení"
   },
   "ar": {
     "nav.features": "الميزات",
@@ -2166,10 +2166,10 @@
     "trust.rollback.text": "تُسجَّل التعديلات المطبَّقة ويمكن التراجع عنها واحدًا تلو الآخر بعد طلب تأكيد. أما ما عدا ذلك فيمكن للتطبيق إنشاء نقطة استعادة لويندوز مسبقًا.",
     "alt.shot.dashboard": "لوحة Jitvora: درجة النظام وقراءات حية للمعالج وكرت الرسوم والذاكرة وحالة الأمان والتوصيات",
     "alt.shot.netwatch": "Jitvora Network Watch: التعرّف على خادم اللعبة مع زمن الاستجابة وفقدان الحزم والتذبذب ولوحة تشخيص",
-    "alt.shot.cleaner": "Jitvora Cleaner: مواقع الملفات المؤقتة مع معاينة للحجم قبل حذف أي شيء",
+    "alt.shot.cleaner": "Jitvora Cleaner: فئات التنظيف — ذاكرة المتصفح المؤقتة والملفات المؤقتة وذاكرة الشيدر — التي يفحصها المسح أولاً",
     "alt.shot.drivers": "فحص التعريفات في Jitvora: العتاد المكتشف مع مصدر كل تحديث تعريف",
     "alt.shot.security": "فحص الأمان في Jitvora: حالة Defender وجدار الحماية وSmartScreen في لمحة",
-    "alt.shot.settings": "إعدادات Jitvora: اللغة وبدء التشغيل وتفضيلات التحديث"
+    "alt.shot.settings": "إعدادات Jitvora: اللغة والمظهر وحجم الخط وعمق الفحص ونقاط الاستعادة"
   },
   "zh": {
     "nav.features": "功能",
@@ -2347,10 +2347,10 @@
     "trust.rollback.text": "已应用的调整会被记录，可在确认后逐项撤销。其他情况下，应用可以事先创建 Windows 还原点。",
     "alt.shot.dashboard": "Jitvora 仪表板：系统评分、CPU、GPU 和内存的实时读数、安全状态与建议",
     "alt.shot.netwatch": "Jitvora Network Watch：游戏服务器识别，含延迟、丢包、抖动和诊断面板",
-    "alt.shot.cleaner": "Jitvora 清理工具：临时文件位置，在删除任何内容前先显示大小预览",
+    "alt.shot.cleaner": "Jitvora 清理工具：待清理的类别——浏览器缓存、临时文件和着色器缓存——扫描会先逐项检查",
     "alt.shot.drivers": "Jitvora 驱动检查：检测到的硬件，并标明每项驱动更新的来源",
     "alt.shot.security": "Jitvora 安全检查：一眼查看 Defender、防火墙和 SmartScreen 状态",
-    "alt.shot.settings": "Jitvora 设置：语言、开机启动和更新选项"
+    "alt.shot.settings": "Jitvora 设置：语言、主题、字体大小、扫描深度和还原点"
   },
   "ja": {
     "nav.features": "機能",
@@ -2528,10 +2528,10 @@
     "trust.rollback.text": "適用した設定は記録され、確認のうえ 1 件ずつ元に戻せます。それ以外については、アプリが事前に Windows の復元ポイントを作成できます。",
     "alt.shot.dashboard": "Jitvora ダッシュボード：システムスコア、CPU・GPU・RAM のライブ表示、セキュリティ状態と推奨事項",
     "alt.shot.netwatch": "Jitvora Network Watch：ゲームサーバーの検出と、ping・パケットロス・ジッター・診断パネル",
-    "alt.shot.cleaner": "Jitvora クリーナー：削除前にサイズをプレビューできる一時ファイルの場所一覧",
+    "alt.shot.cleaner": "Jitvora クリーナー：ブラウザーキャッシュ、一時ファイル、シェーダーキャッシュなど、スキャンが先に確認する対象カテゴリ",
     "alt.shot.drivers": "Jitvora ドライバーチェック：検出されたハードウェアと、各ドライバー更新の入手元",
     "alt.shot.security": "Jitvora セキュリティチェック：Defender、ファイアウォール、SmartScreen の状態を一目で確認",
-    "alt.shot.settings": "Jitvora 設定：言語、起動、更新の設定"
+    "alt.shot.settings": "Jitvora 設定：言語、テーマ、文字サイズ、スキャンの深さ、復元ポイント"
   },
   "ko": {
     "nav.features": "기능",
@@ -2709,10 +2709,10 @@
     "trust.rollback.text": "적용한 설정은 기록되며 확인을 거쳐 하나씩 되돌릴 수 있습니다. 그 밖의 경우에는 앱이 미리 Windows 복원 지점을 만들 수 있습니다.",
     "alt.shot.dashboard": "Jitvora 대시보드: 시스템 점수, CPU·GPU·RAM 실시간 수치, 보안 상태 및 권장 사항",
     "alt.shot.netwatch": "Jitvora Network Watch: 게임 서버 감지와 핑, 패킷 손실, 지터, 진단 패널",
-    "alt.shot.cleaner": "Jitvora 클리너: 삭제 전에 크기를 미리 보여 주는 임시 파일 위치 목록",
+    "alt.shot.cleaner": "Jitvora 클리너: 브라우저 캐시, 임시 파일, 셰이더 캐시 등 검사가 먼저 확인하는 정리 항목",
     "alt.shot.drivers": "Jitvora 드라이버 점검: 감지된 하드웨어와 각 드라이버 업데이트의 출처",
     "alt.shot.security": "Jitvora 보안 점검: Defender, 방화벽, SmartScreen 상태를 한눈에",
-    "alt.shot.settings": "Jitvora 설정: 언어, 시작 프로그램, 업데이트 기본 설정"
+    "alt.shot.settings": "Jitvora 설정: 언어, 테마, 글자 크기, 검사 깊이, 복원 지점"
   },
   "hi": {
     "nav.features": "सुविधाएँ",
@@ -2890,10 +2890,10 @@
     "trust.rollback.text": "लागू किए गए बदलाव दर्ज होते हैं और पुष्टि के बाद एक-एक करके पूर्ववत किए जा सकते हैं। बाकी के लिए ऐप पहले से Windows पुनर्स्थापना बिंदु बना सकता है।",
     "alt.shot.dashboard": "Jitvora डैशबोर्ड: सिस्टम स्कोर, CPU, GPU और RAM की लाइव रीडिंग, सुरक्षा स्थिति और सुझाव",
     "alt.shot.netwatch": "Jitvora Network Watch: गेम सर्वर की पहचान, पिंग, पैकेट हानि, जिटर और डायग्नोसिस पैनल के साथ",
-    "alt.shot.cleaner": "Jitvora Cleaner: कुछ भी हटाने से पहले आकार की झलक के साथ अस्थायी फ़ाइलों के स्थान",
+    "alt.shot.cleaner": "Jitvora Cleaner: सफ़ाई की श्रेणियाँ — ब्राउज़र कैश, अस्थायी फ़ाइलें और शेडर कैश — जिन्हें स्कैन पहले जाँचता है",
     "alt.shot.drivers": "Jitvora ड्राइवर जाँच: पहचाना गया हार्डवेयर और हर ड्राइवर अपडेट का स्रोत",
     "alt.shot.security": "Jitvora सुरक्षा जाँच: Defender, फ़ायरवॉल और SmartScreen की स्थिति एक नज़र में",
-    "alt.shot.settings": "Jitvora सेटिंग्स: भाषा, स्टार्टअप और अपडेट प्राथमिकताएँ"
+    "alt.shot.settings": "Jitvora सेटिंग्स: भाषा, थीम, टेक्स्ट आकार, स्कैन गहराई और पुनर्स्थापना बिंदु"
   },
   "sv": {
     "nav.features": "Funktioner",
@@ -3071,10 +3071,10 @@
     "trust.rollback.text": "Tillämpade ändringar loggas och kan ångras en i taget, efter bekräftelse. För övrigt kan appen skapa en Windows-återställningspunkt i förväg.",
     "alt.shot.dashboard": "Jitvora-instrumentpanel: systempoäng, livevärden för CPU, GPU och RAM, säkerhetsstatus och rekommendationer",
     "alt.shot.netwatch": "Jitvora Network Watch: identifiering av spelservern med ping, paketförlust, jitter och en diagnospanel",
-    "alt.shot.cleaner": "Jitvora Cleaner: platser för tillfälliga filer med en storleksförhandsvisning innan något tas bort",
+    "alt.shot.cleaner": "Jitvora Cleaner: rensningskategorierna — webbläsarcache, tillfälliga filer och shader-cache — som en genomsökning kontrollerar först",
     "alt.shot.drivers": "Jitvora drivrutinskontroll: identifierad hårdvara med källan för varje drivrutinsuppdatering",
     "alt.shot.security": "Jitvora säkerhetskontroll: status för Defender, brandvägg och SmartScreen med en blick",
-    "alt.shot.settings": "Jitvora-inställningar: språk, uppstart och uppdateringsval"
+    "alt.shot.settings": "Jitvora-inställningar: språk, tema, textstorlek, genomsökningsdjup och återställningspunkter"
   },
   "ro": {
     "nav.features": "Funcții",
@@ -3252,10 +3252,10 @@
     "trust.rollback.text": "Modificările aplicate sunt înregistrate și pot fi anulate una câte una, după confirmare. Pentru restul, aplicația poate crea în prealabil un punct de restaurare Windows.",
     "alt.shot.dashboard": "Tabloul de bord Jitvora: scorul sistemului, valori live pentru CPU, GPU și RAM, starea de securitate și recomandări",
     "alt.shot.netwatch": "Jitvora Network Watch: detectarea serverului de joc cu ping, pierdere de pachete, jitter și un panou de diagnostic",
-    "alt.shot.cleaner": "Jitvora Cleaner: locațiile fișierelor temporare, cu previzualizarea dimensiunii înainte de a șterge ceva",
+    "alt.shot.cleaner": "Jitvora Cleaner: categoriile de curățare — cache-ul browserului, fișierele temporare și cache-ul de shadere — pe care o scanare le verifică mai întâi",
     "alt.shot.drivers": "Verificarea driverelor în Jitvora: hardware-ul detectat, cu sursa fiecărei actualizări de driver",
     "alt.shot.security": "Verificarea de securitate Jitvora: starea Defender, a firewallului și a SmartScreen dintr-o privire",
-    "alt.shot.settings": "Setările Jitvora: limbă, pornire și preferințe de actualizare"
+    "alt.shot.settings": "Setările Jitvora: limbă, temă, dimensiunea textului, profunzimea scanării și puncte de restaurare"
   },
   "hu": {
     "nav.features": "Funkciók",
@@ -3433,10 +3433,10 @@
     "trust.rollback.text": "Az alkalmazott módosítások naplózódnak, és megerősítés után egyenként visszavonhatók. Minden máshoz az alkalmazás előre létrehozhat egy Windows-visszaállítási pontot.",
     "alt.shot.dashboard": "Jitvora irányítópult: rendszerpontszám, élő CPU-, GPU- és RAM-értékek, biztonsági állapot és javaslatok",
     "alt.shot.netwatch": "Jitvora Network Watch: a játékkiszolgáló felismerése pinggel, csomagvesztéssel, jitterrel és diagnosztikai panellel",
-    "alt.shot.cleaner": "Jitvora Cleaner: az ideiglenes fájlok helyei, méret-előnézettel, mielőtt bármi törlődne",
+    "alt.shot.cleaner": "Jitvora Cleaner: a tisztítási kategóriák — böngésző-gyorsítótár, ideiglenes fájlok és shader-gyorsítótár —, amelyeket egy vizsgálat ellenőriz először",
     "alt.shot.drivers": "Jitvora illesztőprogram-ellenőrzés: a felismert hardver és minden illesztőprogram-frissítés forrása",
     "alt.shot.security": "Jitvora biztonsági ellenőrzés: a Defender, a tűzfal és a SmartScreen állapota egy pillantásra",
-    "alt.shot.settings": "Jitvora beállítások: nyelv, indítás és frissítési beállítások"
+    "alt.shot.settings": "Jitvora beállítások: nyelv, téma, szövegméret, vizsgálati mélység és visszaállítási pontok"
   },
   "el": {
     "nav.features": "Λειτουργίες",
@@ -3614,10 +3614,10 @@
     "trust.rollback.text": "Οι αλλαγές που εφαρμόζονται καταγράφονται και μπορούν να αναιρεθούν μία-μία, μετά από επιβεβαίωση. Για τα υπόλοιπα, η εφαρμογή μπορεί να δημιουργήσει εκ των προτέρων σημείο επαναφοράς των Windows.",
     "alt.shot.dashboard": "Πίνακας Jitvora: βαθμολογία συστήματος, ζωντανές τιμές CPU, GPU και RAM, κατάσταση ασφάλειας και προτάσεις",
     "alt.shot.netwatch": "Jitvora Network Watch: εντοπισμός διακομιστή παιχνιδιού με ping, απώλεια πακέτων, jitter και πίνακα διάγνωσης",
-    "alt.shot.cleaner": "Jitvora Cleaner: θέσεις προσωρινών αρχείων με προεπισκόπηση μεγέθους πριν διαγραφεί οτιδήποτε",
+    "alt.shot.cleaner": "Jitvora Cleaner: οι κατηγορίες καθαρισμού — προσωρινή μνήμη προγράμματος περιήγησης, προσωρινά αρχεία και μνήμη shader — που ελέγχει πρώτα μια σάρωση",
     "alt.shot.drivers": "Έλεγχος προγραμμάτων οδήγησης Jitvora: το υλικό που εντοπίστηκε με την πηγή κάθε ενημέρωσης",
     "alt.shot.security": "Έλεγχος ασφάλειας Jitvora: κατάσταση Defender, τείχους προστασίας και SmartScreen με μια ματιά",
-    "alt.shot.settings": "Ρυθμίσεις Jitvora: γλώσσα, εκκίνηση και προτιμήσεις ενημέρωσης"
+    "alt.shot.settings": "Ρυθμίσεις Jitvora: γλώσσα, θέμα, μέγεθος κειμένου, βάθος σάρωσης και σημεία επαναφοράς"
   },
   "th": {
     "nav.features": "ฟีเจอร์",
@@ -3795,10 +3795,10 @@
     "trust.rollback.text": "การปรับที่นำไปใช้จะถูกบันทึกไว้และย้อนกลับได้ทีละรายการหลังการยืนยัน สำหรับกรณีอื่น แอปสามารถสร้างจุดคืนค่าระบบของ Windows ไว้ล่วงหน้าได้",
     "alt.shot.dashboard": "แดชบอร์ด Jitvora: คะแนนระบบ ค่าเรียลไทม์ของ CPU, GPU และ RAM สถานะความปลอดภัย และคำแนะนำ",
     "alt.shot.netwatch": "Jitvora Network Watch: การตรวจจับเซิร์ฟเวอร์เกมพร้อมค่า ping การสูญเสียแพ็กเก็ต jitter และแผงวินิจฉัย",
-    "alt.shot.cleaner": "Jitvora Cleaner: ตำแหน่งไฟล์ชั่วคราวพร้อมดูขนาดล่วงหน้าก่อนลบสิ่งใด",
+    "alt.shot.cleaner": "Jitvora Cleaner: หมวดหมู่ที่จะล้าง — แคชเบราว์เซอร์ ไฟล์ชั่วคราว และแคชเชเดอร์ — ซึ่งการสแกนจะตรวจสอบก่อน",
     "alt.shot.drivers": "การตรวจสอบไดรเวอร์ของ Jitvora: ฮาร์ดแวร์ที่ตรวจพบพร้อมแหล่งที่มาของการอัปเดตไดรเวอร์แต่ละรายการ",
     "alt.shot.security": "การตรวจสอบความปลอดภัยของ Jitvora: สถานะ Defender ไฟร์วอลล์ และ SmartScreen ในมุมมองเดียว",
-    "alt.shot.settings": "การตั้งค่า Jitvora: ภาษา การเริ่มต้นระบบ และตัวเลือกการอัปเดต"
+    "alt.shot.settings": "การตั้งค่า Jitvora: ภาษา ธีม ขนาดตัวอักษร ระดับการสแกน และจุดคืนค่าระบบ"
   },
   "vi": {
     "nav.features": "Tính năng",
@@ -3976,10 +3976,10 @@
     "trust.rollback.text": "Các tinh chỉnh đã áp dụng được ghi lại và có thể hoàn tác từng mục sau khi xác nhận. Với những trường hợp khác, ứng dụng có thể tạo trước điểm khôi phục Windows.",
     "alt.shot.dashboard": "Bảng điều khiển Jitvora: điểm hệ thống, số liệu trực tiếp của CPU, GPU và RAM, trạng thái bảo mật và khuyến nghị",
     "alt.shot.netwatch": "Jitvora Network Watch: nhận diện máy chủ game cùng ping, mất gói, jitter và bảng chẩn đoán",
-    "alt.shot.cleaner": "Jitvora Cleaner: vị trí các tệp tạm kèm xem trước dung lượng trước khi xóa bất cứ thứ gì",
+    "alt.shot.cleaner": "Jitvora Cleaner: các nhóm dọn dẹp — bộ nhớ đệm trình duyệt, tệp tạm và bộ nhớ đệm shader — được quét kiểm tra trước",
     "alt.shot.drivers": "Kiểm tra trình điều khiển của Jitvora: phần cứng được phát hiện kèm nguồn của từng bản cập nhật",
     "alt.shot.security": "Kiểm tra bảo mật của Jitvora: trạng thái Defender, tường lửa và SmartScreen trong một lần nhìn",
-    "alt.shot.settings": "Cài đặt Jitvora: ngôn ngữ, khởi động và tùy chọn cập nhật"
+    "alt.shot.settings": "Cài đặt Jitvora: ngôn ngữ, giao diện, cỡ chữ, độ sâu quét và điểm khôi phục"
   },
   "id": {
     "nav.features": "Fitur",
@@ -4157,10 +4157,10 @@
     "trust.rollback.text": "Perubahan yang diterapkan dicatat dan dapat dibatalkan satu per satu setelah konfirmasi. Selebihnya, aplikasi dapat membuat titik pemulihan Windows terlebih dahulu.",
     "alt.shot.dashboard": "Dasbor Jitvora: skor sistem, pembacaan langsung CPU, GPU, dan RAM, status keamanan, serta rekomendasi",
     "alt.shot.netwatch": "Jitvora Network Watch: deteksi server game dengan ping, kehilangan paket, jitter, dan panel diagnosis",
-    "alt.shot.cleaner": "Jitvora Cleaner: lokasi berkas sementara dengan pratinjau ukuran sebelum ada yang dihapus",
+    "alt.shot.cleaner": "Jitvora Cleaner: kategori pembersihan — cache peramban, berkas sementara, dan cache shader — yang diperiksa pemindaian lebih dulu",
     "alt.shot.drivers": "Pemeriksaan driver Jitvora: perangkat keras yang terdeteksi beserta sumber setiap pembaruan driver",
     "alt.shot.security": "Pemeriksaan keamanan Jitvora: status Defender, firewall, dan SmartScreen dalam sekali lihat",
-    "alt.shot.settings": "Pengaturan Jitvora: bahasa, startup, dan preferensi pembaruan"
+    "alt.shot.settings": "Pengaturan Jitvora: bahasa, tema, ukuran teks, kedalaman pemindaian, dan titik pemulihan"
   },
   "da": {
     "nav.features": "Funktioner",
@@ -4338,10 +4338,10 @@
     "trust.rollback.text": "Anvendte justeringer logges og kan fortrydes én ad gangen efter en bekræftelse. Til alt andet kan appen oprette et Windows-gendannelsespunkt på forhånd.",
     "alt.shot.dashboard": "Jitvora-dashboard: systemscore, live værdier for CPU, GPU og RAM, sikkerhedsstatus og anbefalinger",
     "alt.shot.netwatch": "Jitvora Network Watch: registrering af spilserveren med ping, pakketab, jitter og et diagnosepanel",
-    "alt.shot.cleaner": "Jitvora Cleaner: placeringer af midlertidige filer med et størrelsesoverblik, før noget fjernes",
+    "alt.shot.cleaner": "Jitvora Cleaner: oprydningskategorierne — browsercache, midlertidige filer og shader-cache — som en scanning tjekker først",
     "alt.shot.drivers": "Jitvora driverkontrol: registreret hardware med kilden til hver driveropdatering",
     "alt.shot.security": "Jitvora sikkerhedskontrol: status for Defender, firewall og SmartScreen på ét blik",
-    "alt.shot.settings": "Jitvora-indstillinger: sprog, opstart og opdateringsvalg"
+    "alt.shot.settings": "Jitvora-indstillinger: sprog, tema, tekststørrelse, scanningsdybde og gendannelsespunkter"
   },
   "no": {
     "nav.features": "Funksjoner",
@@ -4519,10 +4519,10 @@
     "trust.rollback.text": "Anvendte justeringer logges og kan angres én om gangen etter en bekreftelse. Ellers kan appen opprette et Windows-gjenopprettingspunkt på forhånd.",
     "alt.shot.dashboard": "Jitvora-dashbord: systempoeng, sanntidsverdier for CPU, GPU og RAM, sikkerhetsstatus og anbefalinger",
     "alt.shot.netwatch": "Jitvora Network Watch: gjenkjenning av spillserveren med ping, pakketap, jitter og et diagnosepanel",
-    "alt.shot.cleaner": "Jitvora Cleaner: plasseringer for midlertidige filer med størrelsesforhåndsvisning før noe fjernes",
+    "alt.shot.cleaner": "Jitvora Cleaner: oppryddingskategoriene — nettleserbuffer, midlertidige filer og shader-buffer — som en skanning sjekker først",
     "alt.shot.drivers": "Jitvora driverkontroll: gjenkjent maskinvare med kilden til hver driveroppdatering",
     "alt.shot.security": "Jitvora sikkerhetskontroll: status for Defender, brannmur og SmartScreen på ett blikk",
-    "alt.shot.settings": "Jitvora-innstillinger: språk, oppstart og oppdateringsvalg"
+    "alt.shot.settings": "Jitvora-innstillinger: språk, tema, tekststørrelse, skannedybde og gjenopprettingspunkter"
   },
   "fi": {
     "nav.features": "Ominaisuudet",
@@ -4700,10 +4700,10 @@
     "trust.rollback.text": "Käyttöön otetut muutokset kirjataan ja ne voi perua yksi kerrallaan vahvistuksen jälkeen. Muissa tapauksissa sovellus voi luoda etukäteen Windowsin palautuspisteen.",
     "alt.shot.dashboard": "Jitvoran koontinäyttö: järjestelmän pistemäärä, suorittimen, näytönohjaimen ja muistin reaaliaikaiset arvot, suojauksen tila ja suositukset",
     "alt.shot.netwatch": "Jitvora Network Watch: pelipalvelimen tunnistus sekä viive, pakettihäviö, värinä ja diagnoosipaneeli",
-    "alt.shot.cleaner": "Jitvora Cleaner: väliaikaistiedostojen sijainnit ja koon esikatselu ennen kuin mitään poistetaan",
+    "alt.shot.cleaner": "Jitvora Cleaner: siivouskategoriat — selaimen välimuisti, väliaikaistiedostot ja varjostimien välimuisti — jotka tarkistus käy ensin läpi",
     "alt.shot.drivers": "Jitvoran ajuritarkistus: tunnistettu laitteisto ja jokaisen ajuripäivityksen lähde",
     "alt.shot.security": "Jitvoran suojaustarkistus: Defenderin, palomuurin ja SmartScreenin tila yhdellä silmäyksellä",
-    "alt.shot.settings": "Jitvoran asetukset: kieli, käynnistys ja päivitysvalinnat"
+    "alt.shot.settings": "Jitvoran asetukset: kieli, teema, tekstin koko, tarkistuksen syvyys ja palautuspisteet"
   },
   "en": {
     "nav.features": "Features",
@@ -4881,9 +4881,9 @@
     "trust.rollback.text": "Applied tweaks are logged and can be undone one at a time — after a confirmation prompt. For anything else the app can create a Windows restore point beforehand.",
     "alt.shot.dashboard": "Jitvora dashboard: system score, live CPU, GPU and RAM readings, security status and recommendations",
     "alt.shot.netwatch": "Jitvora Network Watch: game-server detection with ping, packet loss, jitter and a diagnosis panel",
-    "alt.shot.cleaner": "Jitvora Cleaner: temporary file locations with a size preview before anything is removed",
+    "alt.shot.cleaner": "Jitvora Cleaner: the cleanup categories — browser cache, temporary files and shader cache — that a scan checks first",
     "alt.shot.drivers": "Jitvora driver check: detected hardware with the source for every driver update",
     "alt.shot.security": "Jitvora security check: Defender, firewall and SmartScreen status at a glance",
-    "alt.shot.settings": "Jitvora settings: language, startup and update preferences"
+    "alt.shot.settings": "Jitvora settings: language, theme, text size, scan depth and restore points"
   }
 }
